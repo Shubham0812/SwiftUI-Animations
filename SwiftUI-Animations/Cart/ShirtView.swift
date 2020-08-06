@@ -49,7 +49,7 @@ struct ShirtView: View {
             Image(self.changeShirtColor ? "shirt-black" : "shirt-white")
                 .resizable()
                 .frame(width: 27, height: 27)
-                .scaleEffect(self.itemAdded ? self.shirtState.scale : 0.15)
+                .scaleEffect(self.itemAdded ? self.shirtState.scale : 0.5)
                 .animation(Animation.spring().speed(0.6))
                 .offset(y: self.iconOffset)
                 .animation(Animation.easeOut(duration: 0.35))

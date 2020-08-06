@@ -14,6 +14,7 @@ struct CartView: View {
     
     var animationDuration: Double = 0.55
     var animationDelay: Double = 0.25
+    var animation: Animation
     
     var body: some View {
         ZStack {
@@ -21,7 +22,7 @@ struct CartView: View {
                 .resizable()
                 .frame(width: 42, height: 42)
                 .rotationEffect(self.itemAdded ? .degrees(-22) : .degrees(0))
-                .animation(Animation.easeIn(duration: self.animationDuration).delay(self.animationDelay))
+                .animation(self.animation)
             Tick()
                 .trim(from: 0, to: self.itemAdded ? 1 : 0)
                 .stroke(style: StrokeStyle(lineWidth: 2.4, lineCap: .round))
@@ -36,23 +37,10 @@ struct CartView: View {
     }
 }
 
-struct Tick: Shape {
-    func path(in rect: CGRect) -> Path {
-        let cX = rect.midX + 4
-        let cY = rect.midY - 3
-        let scaleFactor: CGFloat = 0.125
-        
-        var path = Path()
-        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-        path.move(to: CGPoint(x: cX - (42 * scaleFactor), y: cY - (4 * scaleFactor)))
-        path.addLine(to: CGPoint(x: cX - (scaleFactor * 18), y: cY + (scaleFactor * 28)))
-        path.addLine(to: CGPoint(x: cX + (scaleFactor * 46), y: cY - (scaleFactor * 36)))
-        return path
-    }
-}
+
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView(itemAdded: .constant(true))
+        CartView(itemAdded: .constant(true), animation: Animation.easeIn(duration: 0.55).delay(0.25))
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5D24DC45C100D4F78A /* Triangle.swift */; };
+		517BFA6024DC45C800D4F78A /* Tick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5F24DC45C800D4F78A /* Tick.swift */; };
 		518E823124DAA665002CB679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823024DAA665002CB679 /* AppDelegate.swift */; };
 		518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823224DAA665002CB679 /* SceneDelegate.swift */; };
 		518E823524DAA665002CB679 /* AddCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823424DAA665002CB679 /* AddCartView.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		517BFA5D24DC45C100D4F78A /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		517BFA5F24DC45C800D4F78A /* Tick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tick.swift; sourceTree = "<group>"; };
 		518E822D24DAA665002CB679 /* SwiftUI-Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		518E823024DAA665002CB679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		518E823224DAA665002CB679 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		517BFA5C24DC45B200D4F78A /* SupportShapes */ = {
+			isa = PBXGroup;
+			children = (
+				517BFA5D24DC45C100D4F78A /* Triangle.swift */,
+				517BFA5F24DC45C800D4F78A /* Tick.swift */,
+			);
+			path = SupportShapes;
+			sourceTree = "<group>";
+		};
 		518E822424DAA665002CB679 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		51AFB36324DB0096006840D3 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				517BFA5C24DC45B200D4F78A /* SupportShapes */,
 				518E823424DAA665002CB679 /* AddCartView.swift */,
 				51AFB36424DB00AD006840D3 /* CartView.swift */,
 				51AFB36624DB1393006840D3 /* ShirtView.swift */,
@@ -161,8 +175,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
+				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
+				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,
 				51AFB36524DB00AD006840D3 /* CartView.swift in Sources */,
 				518E823524DAA665002CB679 /* AddCartView.swift in Sources */,
 			);
