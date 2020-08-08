@@ -34,12 +34,14 @@ struct AttachmentButton: View {
                         .scaleEffect(self.buttonPressAnimation ? 0.95 : 0.5)
                         .animation(self.buttonPressAnimation ? .easeIn(duration: 0.25) : .easeIn(duration: 0))
             )
-        }.onTapGesture {
-            self.buttonPressAnimation.toggle()
-            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (Timer) in
-                self.buttonPressAnimation.toggle()
-            }
         }
+    // TODO:- Find a way to the tap gesture to the Button closure
+//        .onTapGesture {
+//            self.buttonPressAnimation.toggle()
+//            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (Timer) in
+//                self.buttonPressAnimation.toggle()
+//            }
+//        }
     }
 }
 

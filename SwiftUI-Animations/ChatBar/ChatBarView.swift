@@ -15,7 +15,7 @@ struct ChatBarView: View {
     @State var rotateBar: Bool = false
     @Binding var message: String
     
-    var barHeight: CGFloat = 86
+    var chatBarHeight: CGFloat = 86
     
     // MARK:- views
     var body: some View {
@@ -64,8 +64,8 @@ struct ChatBarView: View {
                 } .padding()
                     .padding([.leading, .trailing], 8)
             }
-            .frame(height: self.barHeight)
-            .cornerRadius(self.barHeight / 2)
+            .frame(height: self.chatBarHeight)
+            .cornerRadius(self.chatBarHeight / 2)
             .padding()
             .padding([.leading, .trailing], 24)
             .shadow(radius: 10)
