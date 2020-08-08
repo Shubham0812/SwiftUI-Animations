@@ -45,6 +45,7 @@ enum CartState {
 }
 
 struct AddCartView: View {
+    // MARK:- variables
     @State var isAnimating: Bool = false
     @State var addItem: Bool = false
     @State var cartAnimation: CartState
@@ -53,13 +54,12 @@ struct AddCartView: View {
     var backgroundColor: Color
     var color: Color
     
-    
+    // MARK:- views
     var body: some View {
         ZStack {
             self.backgroundColor
                 .edgesIgnoringSafeArea(.all)
             ZStack {
-                ZStack {
                     self.color
                     CartView(itemAdded: $addItem, animation: self.cartAnimation.animation)
                         .offset(x: self.cartAnimation.offset)
@@ -72,7 +72,7 @@ struct AddCartView: View {
                         .font(.system(size: 24, weight: .bold, design: .rounded))
                         .opacity(self.isAnimating ? 0 : 1)
                         .animation(Animation.spring())
-                }
+                
             }.frame(height: 72)
                 .cornerRadius(12)
                 .padding()

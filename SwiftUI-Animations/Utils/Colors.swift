@@ -8,14 +8,12 @@
 
 import SwiftUI
 
-struct Colors: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct Colors_Previews: PreviewProvider {
-    static var previews: some View {
-        Colors()
+extension Color {
+    
+    static let chatBackground: Color = Color(r: 41, g: 121, b: 255.0)
+    static let buttonBackground: Color = Color(r: 144.0, g: 202.0, b: 249.0)
+    
+    init(r: Double, g: Double, b: Double) {
+        self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0)
     }
 }

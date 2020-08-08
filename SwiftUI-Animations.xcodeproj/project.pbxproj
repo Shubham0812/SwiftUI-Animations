@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		515557E724DE966F0001E523 /* ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515557E624DE966F0001E523 /* ChatBarView.swift */; };
+		515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515557E824DEA6050001E523 /* AttachmentButton.swift */; };
+		515557EC24DEAC350001E523 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515557EB24DEAC350001E523 /* Colors.swift */; };
 		517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5D24DC45C100D4F78A /* Triangle.swift */; };
 		517BFA6024DC45C800D4F78A /* Tick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5F24DC45C800D4F78A /* Tick.swift */; };
 		518E823124DAA665002CB679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823024DAA665002CB679 /* AppDelegate.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		515557E624DE966F0001E523 /* ChatBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBarView.swift; sourceTree = "<group>"; };
+		515557E824DEA6050001E523 /* AttachmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentButton.swift; sourceTree = "<group>"; };
+		515557EB24DEAC350001E523 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		517BFA5D24DC45C100D4F78A /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		517BFA5F24DC45C800D4F78A /* Tick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tick.swift; sourceTree = "<group>"; };
 		518E822D24DAA665002CB679 /* SwiftUI-Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +51,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		515557E524DE963C0001E523 /* ChatBar */ = {
+			isa = PBXGroup;
+			children = (
+				515557E624DE966F0001E523 /* ChatBarView.swift */,
+				515557E824DEA6050001E523 /* AttachmentButton.swift */,
+			);
+			path = ChatBar;
+			sourceTree = "<group>";
+		};
+		515557EA24DEABE40001E523 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				515557EB24DEAC350001E523 /* Colors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		517BFA5C24DC45B200D4F78A /* SupportShapes */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,7 +96,9 @@
 		518E822F24DAA665002CB679 /* SwiftUI-Animations */ = {
 			isa = PBXGroup;
 			children = (
+				515557E524DE963C0001E523 /* ChatBar */,
 				51AFB36324DB0096006840D3 /* Cart */,
+				515557EA24DEABE40001E523 /* Utils */,
 				518E823024DAA665002CB679 /* AppDelegate.swift */,
 				518E823224DAA665002CB679 /* SceneDelegate.swift */,
 				518E823624DAA667002CB679 /* Assets.xcassets */,
@@ -175,9 +200,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
+				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
+				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
 				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
+				515557E724DE966F0001E523 /* ChatBarView.swift in Sources */,
 				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,
 				51AFB36524DB00AD006840D3 /* CartView.swift in Sources */,
 				518E823524DAA665002CB679 /* AddCartView.swift in Sources */,
