@@ -27,6 +27,12 @@ If you like my work, and would like to see more content you can follow me here -
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/ChatBar)
 
+#### Wi-Fi connectivity Animation
+
+![Wi-Fi Signal](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/wifi.gif)
+
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Wifi)
+
 
 ## Spread the word!
 Liked the project? Just give it a star ⭐️ and spread the word!
