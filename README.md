@@ -33,6 +33,12 @@ If you like my work, and would like to see more content you can follow me here -
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Wifi)
 
+#### Loader Animation
+
+![Loader](https://github.com/Shubham0812/SwiftUI-Animations/blob/master/SwiftUI-Animations/GIFs/loader.gif)
+
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Loader)
+
 
 ## Spread the word!
 Liked the project? Just give it a star ⭐️ and spread the word!
