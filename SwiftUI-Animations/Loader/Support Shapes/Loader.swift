@@ -1,27 +1,28 @@
 //
-//  PreLoader.swift
+//  Loader.swift
 //  SwiftUI-Animations
 //
-//  Created by Shubham Singh on 15/08/20.
+//  Created by Shubham Singh on 18/08/20.
 //  Copyright © 2020 Shubham Singh. All rights reserved.
 //
 
 import SwiftUI
 
 struct Loader: View {
+    
+    // MARK:- variables
     @State var capsuleWidth: CGFloat = 40
     @State var capsuleHeight: CGFloat = 40
     @State var xOffset: CGFloat = 0
     @State var yOffset: CGFloat = 0
     @State var loaderState: LoaderState
-    
-    var timerDuration: TimeInterval
-    
     @State var currentIndex = 0
     @State var animationStarted: Bool = true
+    
+    var timerDuration: TimeInterval
     @Binding var startAnimating: Bool
     
-    
+    // MARK:- views
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
             Capsule()
@@ -35,19 +36,18 @@ struct Loader: View {
         .onAppear() {
             self.setIndex()
             Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (initialTimer) in
-                print("timer timer", self.startAnimating)
                 if (self.startAnimating) {
-                    Timer.scheduledTimer(withTimeInterval: timerDuration, repeats: false) { (loadTimer) in
+                    Timer.scheduledTimer(withTimeInterval: self.timerDuration, repeats: false) { (separatorTimer) in
                         self.animateCapsule()
-                        
                         Timer.scheduledTimer(withTimeInterval: 2.1, repeats: true) { (loaderTimer) in
                             if (!self.startAnimating) {
                                 loaderTimer.invalidate()
                             }
-                            self.loaderState = getNextCase()
+                            self.loaderState = self.getNextCase()
                             self.animateCapsule()
                         }
                     }
+                    // invalidate the initialTimer that starts the animation once the binding constant is true
                     initialTimer.invalidate()
                 }
             }
@@ -55,6 +55,8 @@ struct Loader: View {
     }
     
     // MARK:- functions
+    
+    // provides the next case defined in the enum based on the currentIndex
     func getNextCase() -> LoaderState {
         let allCases = LoaderState.allCases
         if (self.currentIndex == allCases.count - 1) {
@@ -65,6 +67,7 @@ struct Loader: View {
         return allCases[index]
     }
     
+    // sets the initialIndex & offset values based on the loader state provided to the view
     func setIndex() {
         for (ix, loaderCase) in LoaderState.allCases.enumerated() {
             if (loaderCase == self.loaderState) {
@@ -75,6 +78,7 @@ struct Loader: View {
         }
     }
     
+    // animates the capsule to a direction
     func animateCapsule() {
         self.xOffset = self.loaderState.increment_before.0
         self.yOffset = self.loaderState.increment_before.1

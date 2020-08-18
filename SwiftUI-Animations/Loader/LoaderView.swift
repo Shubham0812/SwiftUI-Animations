@@ -2,7 +2,7 @@
 //  LoaderView.swift
 //  SwiftUI-Animations
 //
-//  Created by Shubham Singh on 12/08/20.
+//  Created by Shubham Singh on 18/08/20.
 //  Copyright © 2020 Shubham Singh. All rights reserved.
 //
 
@@ -22,9 +22,8 @@ struct LoaderView: View {
                 Loader(loaderState: .right, timerDuration: 1.05, startAnimating: $animateLoaders)
                 Loader(loaderState: .up, timerDuration: 1.75, startAnimating: $animateLoaders)
             }.offset(x: -40, y: -40)
-        }.onTapGesture {
+        }.onAppear() {
             self.animateLoaders.toggle()
-            print(self.animateLoaders)
         }
     }
 }

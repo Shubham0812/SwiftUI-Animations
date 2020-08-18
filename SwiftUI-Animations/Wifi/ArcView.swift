@@ -20,7 +20,7 @@ struct ArcView: View {
             .frame(height: radius)
             .animation(Animation.spring().speed(0.75))
             .onTapGesture {
-                fillColor = Color.wifiConnected
+                self.fillColor = Color.wifiConnected
             }
     }
 }

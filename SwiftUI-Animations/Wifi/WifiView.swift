@@ -82,8 +82,8 @@ struct WifiView: View {
                 self.arcColor = Color.white
                 self.shadowColor = Color.blue
                 
-                Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: true) { (arcTimer) in
-                    if (isAnimating) {
+                Timer.scheduledTimer(withTimeInterval: self.animationDuration, repeats: true) { (arcTimer) in
+                    if (self.isAnimating) {
                         self.circleOffset += Self.animationMovingUpwards ? -15 : 15
                         self.smallArcOffset += Self.moveArc ? -15 : 15
                         if (self.circleOffset == -25) {
@@ -99,16 +99,16 @@ struct WifiView: View {
                     }
                 }
                 
-                Timer.scheduledTimer(withTimeInterval: (animationDuration) * 2, repeats: true) { (arcTimer) in
-                    if (isAnimating) {
+                Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 2, repeats: true) { (arcTimer) in
+                    if (self.isAnimating) {
                         self.mediumArcOffset += 15
                     } else {
                         arcTimer.invalidate()
                     }
                 }
                 
-                Timer.scheduledTimer(withTimeInterval: (animationDuration) * 3, repeats: true) { (arcTimer) in
-                    if (isAnimating) {
+                Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 3, repeats: true) { (arcTimer) in
+                    if (self.isAnimating) {
                         Self.moveArc.toggle()
                         self.smallArcOffset = !Self.moveArc ? -15 : 8.5
                         if (Self.animationMovingUpwards) {
@@ -123,14 +123,14 @@ struct WifiView: View {
                     }
                 }
                 
-                Timer.scheduledTimer(withTimeInterval: animationDuration * 12, repeats: false) { (_) in
+                Timer.scheduledTimer(withTimeInterval: self.animationDuration * 12, repeats: false) { (_) in
                     self.restoreAnimation()
                     self.arcColor = Color.wifiConnected
                     self.shadowColor = Color.white.opacity(0.5)
                     self.wifiHeaderLabel = "Connected"
                     self.isConnected.toggle()
                     
-                    Timer.scheduledTimer(withTimeInterval: animationDuration + 0.05, repeats: false) { (Timer) in
+                    Timer.scheduledTimer(withTimeInterval: self.animationDuration + 0.05, repeats: false) { (Timer) in
                         self.isConnected.toggle()
                     }
                 }
