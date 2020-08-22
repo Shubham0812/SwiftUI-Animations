@@ -18,6 +18,9 @@ extension Color {
     
     static let wifiConnected: Color = Color(r: 170, g: 255, b: 197)
     
+    static let expandingBackground: Color = Color(r: 3, g: 247, b: 235)
+    static let expandingAccent: Color = Color(r: 186, g: 38, b: 75)
+    
     init(r: Double, g: Double, b: Double) {
         self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0)
     }

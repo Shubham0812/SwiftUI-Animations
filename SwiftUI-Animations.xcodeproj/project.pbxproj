@@ -26,6 +26,8 @@
 		51C8BB1B24E3F6CF00DCE354 /* Circles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C8BB1A24E3F6CF00DCE354 /* Circles.swift */; };
 		51C8BB1D24E3FC2200DCE354 /* CircleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C8BB1C24E3FC2200DCE354 /* CircleEmitter.swift */; };
 		51C8BB2024E4514B00DCE354 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C8BB1F24E4514B00DCE354 /* LoaderView.swift */; };
+		51D3E49624F14591004325B5 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D3E49424F14591004325B5 /* AddView.swift */; };
+		51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D3E49524F14591004325B5 /* ExpandingView.swift */; };
 		51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6273924E19F2A00BCE1C8 /* WifiView.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +54,8 @@
 		51C8BB1A24E3F6CF00DCE354 /* Circles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circles.swift; sourceTree = "<group>"; };
 		51C8BB1C24E3FC2200DCE354 /* CircleEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleEmitter.swift; sourceTree = "<group>"; };
 		51C8BB1F24E4514B00DCE354 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		51D3E49424F14591004325B5 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		51D3E49524F14591004325B5 /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		51D6273924E19F2A00BCE1C8 /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
 		51F6B07E24E81E0300EF840F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +116,7 @@
 		518E822F24DAA665002CB679 /* SwiftUI-Animations */ = {
 			isa = PBXGroup;
 			children = (
+				51D3E49324F14591004325B5 /* AddView */,
 				51C8BB1E24E4513A00DCE354 /* Loader */,
 				519D13F824E1766400ECF0B6 /* Wifi */,
 				515557E524DE963C0001E523 /* ChatBar */,
@@ -174,6 +179,15 @@
 				51370C4224EBD59A00103512 /* LoaderState.swift */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		51D3E49324F14591004325B5 /* AddView */ = {
+			isa = PBXGroup;
+			children = (
+				51D3E49424F14591004325B5 /* AddView.swift */,
+				51D3E49524F14591004325B5 /* ExpandingView.swift */,
+			);
+			path = AddView;
 			sourceTree = "<group>";
 		};
 		51F6B07D24E81DE200EF840F /* Support Shapes */ = {
@@ -258,6 +272,7 @@
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
 				51C8BB1B24E3F6CF00DCE354 /* Circles.swift in Sources */,
 				51C8BB1D24E3FC2200DCE354 /* CircleEmitter.swift in Sources */,
+				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
 				51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */,
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
@@ -265,6 +280,7 @@
 				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
+				51D3E49624F14591004325B5 /* AddView.swift in Sources */,
 				51F6B07F24E81E0300EF840F /* Loader.swift in Sources */,
 				515557E724DE966F0001E523 /* ChatBarView.swift in Sources */,
 				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,

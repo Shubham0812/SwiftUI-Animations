@@ -56,13 +56,13 @@ struct ChatBarView: View {
                                     Color.buttonBackground.opacity(0.5)
                                         .cornerRadius(24)
                                         .padding(.leading)
-                            )
+                                )
                         }
                         .rotationEffect(self.rotateBar ? .degrees(-120) : .degrees(0), anchor: .zero)
                         .animation(Animation.spring())
                     }
                 } .padding()
-                    .padding([.leading, .trailing], 8)
+                .padding([.leading, .trailing], 8)
             }
             .frame(height: self.chatBarHeight)
             .cornerRadius(self.chatBarHeight / 2)

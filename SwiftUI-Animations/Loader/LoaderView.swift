@@ -11,8 +11,10 @@ import SwiftUI
 
 struct LoaderView: View {
     
+    // MARK:- variables
     @State var animateLoaders: Bool = false
     
+    // MARK:- views
     var body: some View {
         ZStack {
             Color.black
