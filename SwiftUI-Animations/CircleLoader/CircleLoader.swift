@@ -14,6 +14,7 @@ struct CircleLoader: View {
     let circleTrackGradient = LinearGradient(gradient: .init(colors: [Color.circleTrackStart, Color.circleTrackEnd]), startPoint: .leading, endPoint: .bottomLeading)
     let circleRoundGradient = LinearGradient(gradient: .init(colors: [Color.circleRoundStart, Color.circleRoundEnd]), startPoint: .topLeading, endPoint: .trailing)
     
+    
     let trackerRotation: Double = 2
     let animationDuration: Double = 0.75
     
@@ -23,6 +24,7 @@ struct CircleLoader: View {
     
     @State var rotationDegree: Angle = Angle.degrees(0)
     
+     // MARK:- views
     var body: some View {
         ZStack {
             Color.white
