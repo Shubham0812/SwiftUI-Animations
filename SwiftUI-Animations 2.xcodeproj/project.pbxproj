@@ -32,7 +32,7 @@
 		51C8BB2024E4514B00DCE354 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C8BB1F24E4514B00DCE354 /* LoaderView.swift */; };
 		51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CBD27D250B30770005D9C2 /* PillLoader.swift */; };
 		51CBD281250B69550005D9C2 /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CBD280250B69550005D9C2 /* Pill.swift */; };
-		51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CBD282250B6C5F0005D9C2 /* PillGroupView.swift */; };
+		51CBD283250B6C5F0005D9C2 /* PillStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CBD282250B6C5F0005D9C2 /* PillStackView.swift */; };
 		51D3E49624F14591004325B5 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D3E49424F14591004325B5 /* AddView.swift */; };
 		51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D3E49524F14591004325B5 /* ExpandingView.swift */; };
 		51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6273924E19F2A00BCE1C8 /* WifiView.swift */; };
@@ -67,7 +67,7 @@
 		51C8BB1F24E4514B00DCE354 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		51CBD27D250B30770005D9C2 /* PillLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillLoader.swift; sourceTree = "<group>"; };
 		51CBD280250B69550005D9C2 /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
-		51CBD282250B6C5F0005D9C2 /* PillGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillGroupView.swift; sourceTree = "<group>"; };
+		51CBD282250B6C5F0005D9C2 /* PillStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillStackView.swift; sourceTree = "<group>"; };
 		51D3E49424F14591004325B5 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		51D3E49524F14591004325B5 /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		51D6273924E19F2A00BCE1C8 /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				51CBD280250B69550005D9C2 /* Pill.swift */,
-				51CBD282250B6C5F0005D9C2 /* PillGroupView.swift */,
+				51CBD282250B6C5F0005D9C2 /* PillStackView.swift */,
 				51464371250BD7700046D835 /* PillsDropView.swift */,
 				5146436F250BCB830046D835 /* WaveFill.swift */,
 				51464373250BD8840046D835 /* FillShapes.swift */,
@@ -322,7 +322,7 @@
 				51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */,
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
-				51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */,
+				51CBD283250B6C5F0005D9C2 /* PillStackView.swift in Sources */,
 				51464370250BCB830046D835 /* WaveFill.swift in Sources */,
 				51C16C0424E2F81F006A4BBE /* Arc.swift in Sources */,
 				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,

@@ -27,6 +27,8 @@ extension Color {
     static let circleRoundStart: Color = Color(r: 71, g: 198, b: 255)
     static let circleRoundEnd: Color = Color(r: 90, g: 131, b: 255)
     
+    static let pillColor: Color = Color(r: 242, g: 53, b: 174)
+    
     init(r: Double, g: Double, b: Double) {
         self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0)
     }
