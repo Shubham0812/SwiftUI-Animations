@@ -16,6 +16,7 @@ struct FillShapes: View {
     
     @State var capsuleSpacing: CGFloat
     
+    // MARK:- views
     var body: some View {
         ZStack {
             Circle()

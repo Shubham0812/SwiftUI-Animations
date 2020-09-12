@@ -13,6 +13,7 @@ struct PillsDropView: View {
     // MARK:- variables
     @Binding var isAnimating: Bool
     
+    // MARK:- views
     var body: some View {
         ZStack {
             PillGroupView(isAnimating: $isAnimating, initialOffSet: CGSize(width: 0, height: 0), animationOffset: 0.05)
