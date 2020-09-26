@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51370C4324EBD59A00103512 /* LoaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51370C4224EBD59A00103512 /* LoaderState.swift */; };
+		51390968250D1FAE000CE14A /* LikeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51390967250D1FAE000CE14A /* LikeButtonView.swift */; };
 		51464370250BCB830046D835 /* WaveFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146436F250BCB830046D835 /* WaveFill.swift */; };
 		51464372250BD7700046D835 /* PillsDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51464371250BD7700046D835 /* PillsDropView.swift */; };
 		51464374250BD8840046D835 /* FillShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51464373250BD8840046D835 /* FillShapes.swift */; };
@@ -36,11 +37,17 @@
 		51D3E49624F14591004325B5 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D3E49424F14591004325B5 /* AddView.swift */; };
 		51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D3E49524F14591004325B5 /* ExpandingView.swift */; };
 		51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6273924E19F2A00BCE1C8 /* WifiView.swift */; };
+		51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
+		F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E8D251F528700D627D4 /* FloatingLike.swift */; };
+		F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E93251F8DEB00D627D4 /* HeartImageView.swift */; };
+		F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */; };
+		F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		51370C4224EBD59A00103512 /* LoaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderState.swift; sourceTree = "<group>"; };
+		51390967250D1FAE000CE14A /* LikeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonView.swift; sourceTree = "<group>"; };
 		5146436F250BCB830046D835 /* WaveFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFill.swift; sourceTree = "<group>"; };
 		51464371250BD7700046D835 /* PillsDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsDropView.swift; sourceTree = "<group>"; };
 		51464373250BD8840046D835 /* FillShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillShapes.swift; sourceTree = "<group>"; };
@@ -71,7 +78,12 @@
 		51D3E49424F14591004325B5 /* AddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		51D3E49524F14591004325B5 /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		51D6273924E19F2A00BCE1C8 /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
+		51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCapsule.swift; sourceTree = "<group>"; };
 		51F6B07E24E81E0300EF840F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		F3714E8D251F528700D627D4 /* FloatingLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLike.swift; sourceTree = "<group>"; };
+		F3714E93251F8DEB00D627D4 /* HeartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartImageView.swift; sourceTree = "<group>"; };
+		F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapusuleGroupView.swift; sourceTree = "<group>"; };
+		F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerCapsuleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51390966250D1F97000CE14A /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				51390969250D2381000CE14A /* Support Shapes */,
+				51390967250D1FAE000CE14A /* LikeButtonView.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		51390969250D2381000CE14A /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */,
+				F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */,
+				F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */,
+				F3714E8D251F528700D627D4 /* FloatingLike.swift */,
+				F3714E93251F8DEB00D627D4 /* HeartImageView.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
 		515557E524DE963C0001E523 /* ChatBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +163,7 @@
 		518E822F24DAA665002CB679 /* SwiftUI-Animations */ = {
 			isa = PBXGroup;
 			children = (
+				51390966250D1F97000CE14A /* Like */,
 				51CBD27C250B30650005D9C2 /* PillLoader */,
 				51B885D12503A3FC007DFDCA /* CircleLoader */,
 				51D3E49324F14591004325B5 /* AddView */,
@@ -320,6 +354,7 @@
 				51C8BB1D24E3FC2200DCE354 /* CircleEmitter.swift in Sources */,
 				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
 				51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */,
+				F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */,
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
 				51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */,
@@ -331,9 +366,14 @@
 				51D3E49624F14591004325B5 /* AddView.swift in Sources */,
 				51F6B07F24E81E0300EF840F /* Loader.swift in Sources */,
 				515557E724DE966F0001E523 /* ChatBarView.swift in Sources */,
+				F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */,
 				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,
+				F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */,
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,
+				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
 				51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */,
+				51390968250D1FAE000CE14A /* LikeButtonView.swift in Sources */,
+				51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */,
 				51C16C0124E2F7FB006A4BBE /* ArcView.swift in Sources */,
 				51370C4324EBD59A00103512 /* LoaderState.swift in Sources */,
 				51C8BB2024E4514B00DCE354 /* LoaderView.swift in Sources */,
