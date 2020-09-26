@@ -29,6 +29,11 @@ extension Color {
     
     static let pillColor: Color = Color(r: 242, g: 53, b: 174)
     
+    static let likeBackground: Color = Color(r: 49, g: 28, b: 78)
+    static let likeOverlay: Color = Color(r: 64, g: 49, b: 82)
+    
+    static let likeColor: Color = Color(r: 254, g: 140, b: 100)
+    
     init(r: Double, g: Double, b: Double) {
         self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0)
     }

@@ -113,7 +113,7 @@ struct AddCartView: View {
                         .delay(0.35)
             )
                 .offset(y: -36)
-            if (self.isAnimating){
+            if (self.isAnimating) {
                 ShirtView(itemAdded: $isAnimating)
                     .frame(width: 22, height: 22)
             }
