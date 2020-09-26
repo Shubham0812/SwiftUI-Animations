@@ -11,7 +11,7 @@ import SwiftUI
 struct ShrinkingCapsule: View {
     
     // MARK:- variables
-    let animationDuration: Double = 0.1
+    let animationDuration: Double = 0.5
     let rotationAngle: Angle
     let offset: CGSize
     

@@ -25,16 +25,16 @@ struct LikeButtonView: View {
                 .edgesIgnoringSafeArea(.all)
             ZStack {
                 if (floatLike) {
-                CapusuleGroupView(isAnimating: $floatLike)
-                    .offset(y: -130)
-                    .scaleEffect(self.showFlare ? 1.25 : 0.8)
-                    .opacity(self.floatLike ? 1 : 0)
-                    .animation(Animation.spring().delay(animationDuration / 2))
+                    CapusuleGroupView(isAnimating: $floatLike)
+                        .offset(y: -130)
+                        .scaleEffect(self.showFlare ? 1.25 : 0.8)
+                        .opacity(self.floatLike ? 1 : 0)
+                        .animation(Animation.spring().delay(animationDuration / 2))
                 }
                 Circle()
                     .foregroundColor(self.isAnimating ? Color.likeColor : Color.likeOverlay)
                     .animation(Animation.easeOut(duration: animationDuration * 2).delay(animationDuration))
-               HeartImageView()
+                HeartImageView()
                     .foregroundColor(.white)
                     .offset(y: 12)
                     .scaleEffect(self.isAnimating ? 1.25 : 1)
