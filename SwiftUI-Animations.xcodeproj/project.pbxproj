@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51370C4324EBD59A00103512 /* LoaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51370C4224EBD59A00103512 /* LoaderState.swift */; };
-		51390968250D1FAE000CE14A /* LikeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51390967250D1FAE000CE14A /* LikeButtonView.swift */; };
+		51390968250D1FAE000CE14A /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51390967250D1FAE000CE14A /* LikeView.swift */; };
 		51464370250BCB830046D835 /* WaveFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146436F250BCB830046D835 /* WaveFill.swift */; };
 		51464372250BD7700046D835 /* PillsDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51464371250BD7700046D835 /* PillsDropView.swift */; };
 		51464374250BD8840046D835 /* FillShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51464373250BD8840046D835 /* FillShapes.swift */; };
@@ -47,7 +47,7 @@
 
 /* Begin PBXFileReference section */
 		51370C4224EBD59A00103512 /* LoaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderState.swift; sourceTree = "<group>"; };
-		51390967250D1FAE000CE14A /* LikeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonView.swift; sourceTree = "<group>"; };
+		51390967250D1FAE000CE14A /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		5146436F250BCB830046D835 /* WaveFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFill.swift; sourceTree = "<group>"; };
 		51464371250BD7700046D835 /* PillsDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsDropView.swift; sourceTree = "<group>"; };
 		51464373250BD8840046D835 /* FillShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillShapes.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				51390969250D2381000CE14A /* Support Shapes */,
-				51390967250D1FAE000CE14A /* LikeButtonView.swift */,
+				51390967250D1FAE000CE14A /* LikeView.swift */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
 				51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */,
-				51390968250D1FAE000CE14A /* LikeButtonView.swift in Sources */,
+				51390968250D1FAE000CE14A /* LikeView.swift in Sources */,
 				51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */,
 				51C16C0124E2F7FB006A4BBE /* ArcView.swift in Sources */,
 				51370C4324EBD59A00103512 /* LoaderState.swift in Sources */,
