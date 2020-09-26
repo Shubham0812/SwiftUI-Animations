@@ -2,7 +2,7 @@
 //  LowerCapsuleView.swift
 //  SwiftUI-Animations
 //
-//  Created by Shubham Singh on 24/09/20.
+//  Created by Shubham Singh on 26/09/20.
 //  Copyright © 2020 Shubham Singh. All rights reserved.
 //
 
