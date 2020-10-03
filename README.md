@@ -1,4 +1,12 @@
 # SwiftUI-Animations
+Animations created with SwiftUI.
+
+[![platform](https://img.shields.io/badge/platform-iOS-orange)]
+[![GitHub license](https://img.shields.io/badge/License-Apache2.0-blue.svg)](LICENSE)
+![Repository size](https://img.shields.io/github/repo-size/shubham0812/SwiftUI-Animations)
+![GitHub stars](https://img.shields.io/github/stars/shubham0812/Animatify-ios?style=social)
+![GitHub forks](https://img.shields.io/github/forks/shubham0812/Animatify-ios?style=social)
+![GitHub follow](https://img.shields.io/github/followers/shubham0812?style=social)
 
 Hello there, I'm Shubham and I'll be posting the animations that you see on my Instagram 
     [**@shubham_iosdev**](https://www.instagram.com/shubham_iosdev/).
