@@ -1,7 +1,7 @@
 # SwiftUI-Animations
 Animations created with SwiftUI.
 
-[![platform](https://img.shields.io/badge/platform-iOS-orange)]
+![platform](https://img.shields.io/badge/platform-iOS-orange)
 [![GitHub license](https://img.shields.io/badge/License-Apache2.0-blue.svg)](LICENSE)
 ![Repository size](https://img.shields.io/github/repo-size/shubham0812/SwiftUI-Animations)
 ![GitHub stars](https://img.shields.io/github/stars/shubham0812/Animatify-ios?style=social)
