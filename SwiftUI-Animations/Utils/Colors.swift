@@ -34,6 +34,8 @@ extension Color {
     
     static let likeColor: Color = Color(r: 254, g: 140, b: 100)
     
+    static let submitColor: Color = Color(r: 110, g: 80, b: 249)
+    
     init(r: Double, g: Double, b: Double) {
         self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0)
     }
