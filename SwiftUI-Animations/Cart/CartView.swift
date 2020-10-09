@@ -23,7 +23,7 @@ struct CartView: View {
                 .frame(width: 42, height: 42)
                 .rotationEffect(self.itemAdded ? .degrees(-22) : .degrees(0))
                 .animation(self.animation)
-            Tick()
+            Tick(scaleFactor: 0.125)
                 .trim(from: 0, to: self.itemAdded ? 1 : 0)
                 .stroke(style: StrokeStyle(lineWidth: 2.4, lineCap: .round))
                 .foregroundColor(Color.red)
