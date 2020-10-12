@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct SubmitView: View {
     
@@ -30,11 +31,13 @@ struct SubmitView: View {
                     .frame(width: self.isAnimating ? 92 : 300, height: 92)
                     .scaleEffect(submitScale, anchor: .center)
                     .onTapGesture {
-                        toggleIsAnimating()
-                        animateButton()
-                        resetSubmit()
-                        Timer.scheduledTimer(withTimeInterval:  trackerRotation * 0.95, repeats: false) { _ in
-                            self.taskDone.toggle()
+                        if (!self.isAnimating) {
+                            toggleIsAnimating()
+                            animateButton()
+                            resetSubmit()
+                            Timer.scheduledTimer(withTimeInterval:  trackerRotation * 0.95, repeats: false) { _ in
+                                self.taskDone.toggle()
+                            }
                         }
                     }
                 if (self.isAnimating) {
@@ -64,7 +67,9 @@ struct SubmitView: View {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
             expandButton()
         }
-    }
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
+            expandButton()
+        }    }
     
     func expandButton() {
         withAnimation(Animation.linear(duration: 0.5)) {
