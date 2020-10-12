@@ -542,14 +542,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Preview Content\"";
-				DEVELOPMENT_TEAM = VXZ7XFH447;
+				DEVELOPMENT_TEAM = T3JUZKQX4R;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shubham-iosdev.SwiftUI-Animations";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shubham.iosDev.SwiftUI-Animation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -562,14 +562,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Preview Content\"";
-				DEVELOPMENT_TEAM = VXZ7XFH447;
+				DEVELOPMENT_TEAM = T3JUZKQX4R;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.shubham-iosdev.SwiftUI-Animations";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shubham.iosDev.SwiftUI-Animation";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
