@@ -31,6 +31,7 @@ struct SubmitView: View {
                     .scaleEffect(submitScale, anchor: .center)
                     .onTapGesture {
                         if (!self.isAnimating) {
+                            HapticManager().makeSelectionFeedback()
                             toggleIsAnimating()
                             animateButton()
                             resetSubmit()

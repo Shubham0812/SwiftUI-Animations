@@ -43,6 +43,8 @@
 		F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E93251F8DEB00D627D4 /* HeartImageView.swift */; };
 		F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */; };
 		F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */; };
+		F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA13D02535B9CB005E384E /* IntroView.swift */; };
+		F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA13D52535BA02005E384E /* HapticManager.swift */; };
 		F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */; };
 		F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,8 @@
 		F3714E93251F8DEB00D627D4 /* HeartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartImageView.swift; sourceTree = "<group>"; };
 		F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapusuleGroupView.swift; sourceTree = "<group>"; };
 		F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerCapsuleView.swift; sourceTree = "<group>"; };
+		F3DA13D02535B9CB005E384E /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		F3DA13D52535BA02005E384E /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,22 +171,11 @@
 		518E822F24DAA665002CB679 /* SwiftUI-Animations */ = {
 			isa = PBXGroup;
 			children = (
-				F3DA9AAB252DB1D200CF2516 /* SubmitView */,
-				51390966250D1F97000CE14A /* Like */,
-				51CBD27C250B30650005D9C2 /* PillLoader */,
-				51B885D12503A3FC007DFDCA /* CircleLoader */,
-				51D3E49324F14591004325B5 /* AddView */,
-				51C8BB1E24E4513A00DCE354 /* Loader */,
-				519D13F824E1766400ECF0B6 /* Wifi */,
-				515557E524DE963C0001E523 /* ChatBar */,
-				51AFB36324DB0096006840D3 /* Cart */,
-				515557EA24DEABE40001E523 /* Utils */,
+				F3DA13CF2535B9AE005E384E /* Assets */,
+				F3DA13CB2535B962005E384E /* Code */,
 				518E823024DAA665002CB679 /* AppDelegate.swift */,
 				518E823224DAA665002CB679 /* SceneDelegate.swift */,
-				518E823624DAA667002CB679 /* Assets.xcassets */,
-				518E823B24DAA667002CB679 /* LaunchScreen.storyboard */,
 				518E823E24DAA667002CB679 /* Info.plist */,
-				518E823824DAA667002CB679 /* Preview Content */,
 			);
 			path = "SwiftUI-Animations";
 			sourceTree = "<group>";
@@ -282,6 +275,67 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		F3DA13CB2535B962005E384E /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA13CE2535B993005E384E /* Animations */,
+				F3DA13CC2535B96B005E384E /* Modules */,
+				F3DA13D42535B9F2005E384E /* Services */,
+				515557EA24DEABE40001E523 /* Utils */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		F3DA13CC2535B96B005E384E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA13CD2535B976005E384E /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F3DA13CD2535B976005E384E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA13D02535B9CB005E384E /* IntroView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F3DA13CE2535B993005E384E /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA9AAB252DB1D200CF2516 /* SubmitView */,
+				51390966250D1F97000CE14A /* Like */,
+				51CBD27C250B30650005D9C2 /* PillLoader */,
+				51B885D12503A3FC007DFDCA /* CircleLoader */,
+				51D3E49324F14591004325B5 /* AddView */,
+				51C8BB1E24E4513A00DCE354 /* Loader */,
+				519D13F824E1766400ECF0B6 /* Wifi */,
+				515557E524DE963C0001E523 /* ChatBar */,
+				51AFB36324DB0096006840D3 /* Cart */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		F3DA13CF2535B9AE005E384E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				518E823624DAA667002CB679 /* Assets.xcassets */,
+				518E823B24DAA667002CB679 /* LaunchScreen.storyboard */,
+				518E823824DAA667002CB679 /* Preview Content */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F3DA13D42535B9F2005E384E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F3DA13D52535BA02005E384E /* HapticManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		F3DA9AAB252DB1D200CF2516 /* SubmitView */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +429,8 @@
 				51C8BB1B24E3F6CF00DCE354 /* Circles.swift in Sources */,
 				51C8BB1D24E3FC2200DCE354 /* CircleEmitter.swift in Sources */,
 				F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */,
+				F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */,
+				F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */,
 				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
 				51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */,
 				F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */,
@@ -541,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = T3JUZKQX4R;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
@@ -561,7 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Assets/Preview Content\"";
 				DEVELOPMENT_TEAM = T3JUZKQX4R;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
