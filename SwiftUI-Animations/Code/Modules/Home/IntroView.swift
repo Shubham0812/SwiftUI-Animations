@@ -13,7 +13,7 @@ struct IntroView: View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
-er
+
 struct IntroView_Previews: PreviewProvider {
     static var previews: some View {
         IntroView()
