@@ -309,7 +309,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				F3DAEDC1253629E90067F963 /* InfinityLoader */,
+				F3DAEDC1253629E90067F963 /* GithubLoader */,
 				F3DA9AAB252DB1D200CF2516 /* SubmitView */,
 				51390966250D1F97000CE14A /* Like */,
 				51CBD27C250B30650005D9C2 /* PillLoader */,
@@ -358,13 +358,13 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
-		F3DAEDC1253629E90067F963 /* InfinityLoader */ = {
+		F3DAEDC1253629E90067F963 /* GithubLoader */ = {
 			isa = PBXGroup;
 			children = (
 				F3DAEDC6253629FE0067F963 /* Support Shapes */,
 				F3DAEDC2253629F80067F963 /* GithubLoader.swift */,
 			);
-			path = InfinityLoader;
+			path = GithubLoader;
 			sourceTree = "<group>";
 		};
 		F3DAEDC6253629FE0067F963 /* Support Shapes */ = {
