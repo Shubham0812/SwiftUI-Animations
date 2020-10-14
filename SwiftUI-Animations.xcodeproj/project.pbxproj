@@ -47,6 +47,8 @@
 		F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA13D52535BA02005E384E /* HapticManager.swift */; };
 		F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */; };
 		F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */; };
+		F3DAEDC3253629F80067F963 /* GithubLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDC2253629F80067F963 /* GithubLoader.swift */; };
+		F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDC725362A0B0067F963 /* OctocatShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		F3DA13D52535BA02005E384E /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
+		F3DAEDC2253629F80067F963 /* GithubLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLoader.swift; sourceTree = "<group>"; };
+		F3DAEDC725362A0B0067F963 /* OctocatShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctocatShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +309,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAEDC1253629E90067F963 /* InfinityLoader */,
 				F3DA9AAB252DB1D200CF2516 /* SubmitView */,
 				51390966250D1F97000CE14A /* Like */,
 				51CBD27C250B30650005D9C2 /* PillLoader */,
@@ -349,6 +354,23 @@
 			isa = PBXGroup;
 			children = (
 				F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
+		F3DAEDC1253629E90067F963 /* InfinityLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAEDC6253629FE0067F963 /* Support Shapes */,
+				F3DAEDC2253629F80067F963 /* GithubLoader.swift */,
+			);
+			path = InfinityLoader;
+			sourceTree = "<group>";
+		};
+		F3DAEDC6253629FE0067F963 /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAEDC725362A0B0067F963 /* OctocatShape.swift */,
 			);
 			path = "Support Shapes";
 			sourceTree = "<group>";
@@ -434,6 +456,7 @@
 				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
 				51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */,
 				F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */,
+				F3DAEDC3253629F80067F963 /* GithubLoader.swift in Sources */,
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
 				51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */,
@@ -441,6 +464,7 @@
 				51464370250BCB830046D835 /* WaveFill.swift in Sources */,
 				51C16C0424E2F81F006A4BBE /* Arc.swift in Sources */,
 				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,
+				F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
 				51D3E49624F14591004325B5 /* AddView.swift in Sources */,
