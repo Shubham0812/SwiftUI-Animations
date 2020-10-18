@@ -49,6 +49,11 @@
 		F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */; };
 		F3DAEDC3253629F80067F963 /* GithubLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDC2253629F80067F963 /* GithubLoader.swift */; };
 		F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDC725362A0B0067F963 /* OctocatShape.swift */; };
+		F3DAEDE3253ABBD70067F963 /* RotatingLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDE2253ABBD60067F963 /* RotatingLoaderView.swift */; };
+		F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDE6253B07390067F963 /* RectangleLoaderView.swift */; };
+		F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */; };
+		F3DAEDF1253B18500067F963 /* DotsLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDF0253B184F0067F963 /* DotsLoaderView.swift */; };
+		F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDF3253B23950067F963 /* FlickeringView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +101,11 @@
 		F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
 		F3DAEDC2253629F80067F963 /* GithubLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLoader.swift; sourceTree = "<group>"; };
 		F3DAEDC725362A0B0067F963 /* OctocatShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctocatShape.swift; sourceTree = "<group>"; };
+		F3DAEDE2253ABBD60067F963 /* RotatingLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingLoaderView.swift; sourceTree = "<group>"; };
+		F3DAEDE6253B07390067F963 /* RectangleLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleLoaderView.swift; sourceTree = "<group>"; };
+		F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLoaderView.swift; sourceTree = "<group>"; };
+		F3DAEDF0253B184F0067F963 /* DotsLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsLoaderView.swift; sourceTree = "<group>"; };
+		F3DAEDF3253B23950067F963 /* FlickeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickeringView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +319,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F3DAEDE1253ABBBD0067F963 /* 3dLoader */,
 				F3DAEDC1253629E90067F963 /* GithubLoader */,
 				F3DA9AAB252DB1D200CF2516 /* SubmitView */,
 				51390966250D1F97000CE14A /* Like */,
@@ -371,6 +382,26 @@
 			isa = PBXGroup;
 			children = (
 				F3DAEDC725362A0B0067F963 /* OctocatShape.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
+		F3DAEDE1253ABBBD0067F963 /* 3dLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAEDE9253B07400067F963 /* Support Shapes */,
+				F3DAEDE2253ABBD60067F963 /* RotatingLoaderView.swift */,
+			);
+			path = 3dLoader;
+			sourceTree = "<group>";
+		};
+		F3DAEDE9253B07400067F963 /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				F3DAEDE6253B07390067F963 /* RectangleLoaderView.swift */,
+				F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */,
+				F3DAEDF0253B184F0067F963 /* DotsLoaderView.swift */,
+				F3DAEDF3253B23950067F963 /* FlickeringView.swift */,
 			);
 			path = "Support Shapes";
 			sourceTree = "<group>";
@@ -446,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */,
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
 				51464374250BD8840046D835 /* FillShapes.swift in Sources */,
 				51C8BB1B24E3F6CF00DCE354 /* Circles.swift in Sources */,
@@ -461,9 +493,11 @@
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
 				51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */,
 				F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */,
+				F3DAEDE3253ABBD70067F963 /* RotatingLoaderView.swift in Sources */,
 				51464370250BCB830046D835 /* WaveFill.swift in Sources */,
 				51C16C0424E2F81F006A4BBE /* Arc.swift in Sources */,
 				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,
+				F3DAEDF1253B18500067F963 /* DotsLoaderView.swift in Sources */,
 				F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
@@ -477,6 +511,7 @@
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
 				51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */,
 				51390968250D1FAE000CE14A /* LikeView.swift in Sources */,
+				F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */,
 				51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */,
 				51C16C0124E2F7FB006A4BBE /* ArcView.swift in Sources */,
 				51370C4324EBD59A00103512 /* LoaderState.swift in Sources */,
@@ -485,6 +520,7 @@
 				51AFB36524DB00AD006840D3 /* CartView.swift in Sources */,
 				51464372250BD7700046D835 /* PillsDropView.swift in Sources */,
 				518E823524DAA665002CB679 /* AddCartView.swift in Sources */,
+				F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
