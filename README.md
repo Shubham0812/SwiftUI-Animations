@@ -74,16 +74,23 @@ If you like my work, and would like to see more content you can follow me here -
 
 #### Submit Button
 
-![like](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/submit-button.gif)
+![submitButton](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/submit-button.gif)
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/SubmitView)
 
 
 #### Github Octocat Loader
 
-![like](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/github-loader.gif)
+![octocatLoader](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/github-loader.gif)
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/GithubLoader)
+
+#### 3-D Rotating Loader
+
+![rotatingLoader](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/3-d-Loader.gif)
+
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/3dLoader)
+
 
 
 
