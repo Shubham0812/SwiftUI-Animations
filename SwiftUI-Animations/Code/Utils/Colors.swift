@@ -36,6 +36,9 @@ extension Color {
     
     static let submitColor: Color = Color(r: 110, g: 80, b: 249)
     
+    static let materialBlack: Color = Color(r: 18, g: 18, b: 18)
+    static let offWhite: Color = Color(r: 225, g: 225, b: 235)
+    
     init(r: Double, g: Double, b: Double) {
         self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0)
     }
