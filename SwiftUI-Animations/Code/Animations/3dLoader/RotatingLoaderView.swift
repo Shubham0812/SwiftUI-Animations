@@ -85,6 +85,16 @@ struct RotatingLoaderView: View {
                     FlickeringView(backgroundColor: Color.white, initialOffset: CGSize(width: 200, height: 250), initialSize: CGSize(width: 40, height: 40), finalSize: CGSize(width: 40, height: 40), finalOffset: CGSize(width: -80, height: 250), fadeDuration: 0.75)
                 }
             }
+            VStack{
+                Spacer()
+                HStack {
+                    Spacer()
+                    Text("@Shubham_iosdev")
+                        .foregroundColor(.white)
+                        .font(.system(size: 28, weight: .medium, design: .monospaced))
+                        .opacity(0.3)
+                }.padding(.trailing, 16)
+            }
         }.onAppear() {
             Timer.scheduledTimer(withTimeInterval: timerDuration, repeats: false) { _ in
                 withAnimation(Animation.easeOut(duration: animationDuration)) {
