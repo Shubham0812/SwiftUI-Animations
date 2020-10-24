@@ -39,6 +39,12 @@
 		51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6273924E19F2A00BCE1C8 /* WifiView.swift */; };
 		51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
+		F30BA967254418B300DC8367 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA966254418B300DC8367 /* LoginView.swift */; };
+		F30BA96C25441BED00DC8367 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA96B25441BED00DC8367 /* Plus.swift */; };
+		F30BA97025441E3200DC8367 /* ShrinkingPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA96F25441E3200DC8367 /* ShrinkingPlus.swift */; };
+		F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA972254425E200DC8367 /* RoundedTriangle.swift */; };
+		F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9762544606800DC8367 /* SwiftUIView.swift */; };
+		F30BA97A2544648400DC8367 /* Bolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9792544648400DC8367 /* Bolt.swift */; };
 		F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E8D251F528700D627D4 /* FloatingLike.swift */; };
 		F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E93251F8DEB00D627D4 /* HeartImageView.swift */; };
 		F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */; };
@@ -91,6 +97,12 @@
 		51D6273924E19F2A00BCE1C8 /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
 		51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCapsule.swift; sourceTree = "<group>"; };
 		51F6B07E24E81E0300EF840F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		F30BA966254418B300DC8367 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F30BA96B25441BED00DC8367 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
+		F30BA96F25441E3200DC8367 /* ShrinkingPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingPlus.swift; sourceTree = "<group>"; };
+		F30BA972254425E200DC8367 /* RoundedTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTriangle.swift; sourceTree = "<group>"; };
+		F30BA9762544606800DC8367 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		F30BA9792544648400DC8367 /* Bolt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bolt.swift; sourceTree = "<group>"; };
 		F3714E8D251F528700D627D4 /* FloatingLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLike.swift; sourceTree = "<group>"; };
 		F3714E93251F8DEB00D627D4 /* HeartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartImageView.swift; sourceTree = "<group>"; };
 		F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapusuleGroupView.swift; sourceTree = "<group>"; };
@@ -289,6 +301,27 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		F30BA964254418A400DC8367 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				F30BA96A25441BE100DC8367 /* Support Shapes */,
+				F30BA966254418B300DC8367 /* LoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		F30BA96A25441BE100DC8367 /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				F30BA96B25441BED00DC8367 /* Plus.swift */,
+				F30BA9792544648400DC8367 /* Bolt.swift */,
+				F30BA96F25441E3200DC8367 /* ShrinkingPlus.swift */,
+				F30BA972254425E200DC8367 /* RoundedTriangle.swift */,
+				F30BA9762544606800DC8367 /* SwiftUIView.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
 		F3DA13CB2535B962005E384E /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +352,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F30BA964254418A400DC8367 /* LoginView */,
 				F3DAEDE1253ABBBD0067F963 /* 3dLoader */,
 				F3DAEDC1253629E90067F963 /* GithubLoader */,
 				F3DA9AAB252DB1D200CF2516 /* SubmitView */,
@@ -480,9 +514,11 @@
 				F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */,
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
 				51464374250BD8840046D835 /* FillShapes.swift in Sources */,
+				F30BA967254418B300DC8367 /* LoginView.swift in Sources */,
 				51C8BB1B24E3F6CF00DCE354 /* Circles.swift in Sources */,
 				51C8BB1D24E3FC2200DCE354 /* CircleEmitter.swift in Sources */,
 				F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */,
+				F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */,
 				F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */,
 				F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */,
 				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
@@ -490,8 +526,10 @@
 				F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */,
 				F3DAEDC3253629F80067F963 /* GithubLoader.swift in Sources */,
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
+				F30BA97025441E3200DC8367 /* ShrinkingPlus.swift in Sources */,
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
 				51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */,
+				F30BA97A2544648400DC8367 /* Bolt.swift in Sources */,
 				F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */,
 				F3DAEDE3253ABBD70067F963 /* RotatingLoaderView.swift in Sources */,
 				51464370250BCB830046D835 /* WaveFill.swift in Sources */,
@@ -507,8 +545,10 @@
 				F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */,
 				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,
 				F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */,
+				F30BA96C25441BED00DC8367 /* Plus.swift in Sources */,
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
+				F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */,
 				51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */,
 				51390968250D1FAE000CE14A /* LikeView.swift in Sources */,
 				F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */,
