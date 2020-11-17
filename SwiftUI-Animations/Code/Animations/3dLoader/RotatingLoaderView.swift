@@ -77,13 +77,6 @@ struct RotatingLoaderView: View {
                     }
                 }.rotation3DEffect(.degrees(firstViewDegree), axis: (x: 0, y: firstViewYAxis, z: 0), anchor: firstViewAnchor, anchorZ: 0, perspective: 0.1)
                 .offset(x: firstViewOffset, y: 0)
-                if (showFlickeringViews) {
-                    FlickeringView(backgroundColor: Color.white, initialOffset: CGSize(width: 200, height: -300), initialSize: CGSize(width: 200, height: 44), finalSize: CGSize(width: 100, height: 44), finalOffset: CGSize(width: -120, height: -300), fadeDuration: 0.6)
-                    
-                    FlickeringView(backgroundColor: Color.black, initialOffset: CGSize(width: 200, height: -100), initialSize: CGSize(width: 300, height: 32), finalSize: CGSize(width: 44, height: 32), finalOffset: CGSize(width: -80, height: -100), fadeDuration: 0.5)
-                    
-                    FlickeringView(backgroundColor: Color.white, initialOffset: CGSize(width: 200, height: 250), initialSize: CGSize(width: 40, height: 40), finalSize: CGSize(width: 40, height: 40), finalOffset: CGSize(width: -80, height: 250), fadeDuration: 0.75)
-                }
             }
             VStack{
                 Spacer()
@@ -119,17 +112,10 @@ struct RotatingLoaderView: View {
         self.secondViewAnchor = rotation2.rotationValues.2
         self.secondViewYAxis = rotation2.rotationValues.3
     }
-    
-    func stepCounter() {
-        if (counter == 3) {
-            counter = -1
-        }
-        counter += 1
-    }
+
     
     func rotateCube() {
         Timer.scheduledTimer(withTimeInterval: timerDuration, repeats: true) { _ in
-            stepCounter()
             showFlickeringViews.toggle()
             if (animateTrail) {
                 self.setValuesOnState(rotation1: .initialTrailing, rotation2: .initialLeading)

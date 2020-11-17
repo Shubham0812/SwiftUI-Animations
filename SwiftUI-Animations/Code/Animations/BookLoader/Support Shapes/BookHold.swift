@@ -15,14 +15,19 @@ struct BookHoldView: Shape {
     // MARK:- functions
     func path(in rect: CGRect) -> Path {
         
-        let cX: CGFloat = rect.midX - 36
-        let cY: CGFloat = rect.midY + 20
+        let cX: CGFloat = rect.midX - 28
+        let cY: CGFloat = rect.midY
         
-        ///phew, had to do a lot of hit and trials for this xD
         var path = Path()
-        path.move(to: CGPoint(x: cX, y: cY - 20))
-        path.addCurve(to: CGPoint(x: cX + 32, y: cY), control1: CGPoint(x: cX , y: cY), control2: CGPoint(x: cX, y: cY))
-        path.addCurve(to: CGPoint(x: cX + 70, y: cY - 20), control1: CGPoint(x: cX + 70, y: cY), control2: CGPoint(x: cX + 70, y: cY))
+
+//        path.move(to: CGPoint(x: cX, y: cY - 14))
+//        path.addCurve(to: CGPoint(x: cX + 12, y: cY), control1: CGPoint(x: cX, y: cY), control2: CGPoint(x: cX, y: cY))
+//        path.addLine(to: CGPoint(x: cX + 30, y: cY))
+//        path.addCurve(to: CGPoint(x: cX + 44, y: cY - 14), control1: CGPoint(x: cX + 44, y: cY), control2: CGPoint(x: cX + 44, y: cY))
+        path.move(to: CGPoint(x: cX, y: cY))
+        path.addLine(to: CGPoint(x: cX, y: cY + 12))
+        path.addLine(to: CGPoint(x: cX + 56, y: cY + 12))
+        path.addLine(to: CGPoint(x: cX + 56, y: cY))
         return path
     }
 }
@@ -33,7 +38,7 @@ struct BookHoldView_Previews: PreviewProvider {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             BookHoldView()
-                .stroke(lineWidth: 4)
+                .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .miter))
                 .foregroundColor(.white)
             Capsule()
                 .frame(width: 5)
