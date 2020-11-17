@@ -45,6 +45,9 @@
 		F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA972254425E200DC8367 /* RoundedTriangle.swift */; };
 		F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9762544606800DC8367 /* SwiftUIView.swift */; };
 		F30BA97A2544648400DC8367 /* Bolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9792544648400DC8367 /* Bolt.swift */; };
+		F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3367902256187FB0043EF73 /* BookLoaderView.swift */; };
+		F336790825618E3B0043EF73 /* BookHold.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336790725618E3B0043EF73 /* BookHold.swift */; };
+		F3672DF62563864500967A8A /* BookPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3672DF52563864500967A8A /* BookPagesView.swift */; };
 		F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E8D251F528700D627D4 /* FloatingLike.swift */; };
 		F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E93251F8DEB00D627D4 /* HeartImageView.swift */; };
 		F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */; };
@@ -103,6 +106,9 @@
 		F30BA972254425E200DC8367 /* RoundedTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTriangle.swift; sourceTree = "<group>"; };
 		F30BA9762544606800DC8367 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		F30BA9792544648400DC8367 /* Bolt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bolt.swift; sourceTree = "<group>"; };
+		F3367902256187FB0043EF73 /* BookLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLoaderView.swift; sourceTree = "<group>"; };
+		F336790725618E3B0043EF73 /* BookHold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHold.swift; sourceTree = "<group>"; };
+		F3672DF52563864500967A8A /* BookPagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPagesView.swift; sourceTree = "<group>"; };
 		F3714E8D251F528700D627D4 /* FloatingLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLike.swift; sourceTree = "<group>"; };
 		F3714E93251F8DEB00D627D4 /* HeartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartImageView.swift; sourceTree = "<group>"; };
 		F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapusuleGroupView.swift; sourceTree = "<group>"; };
@@ -322,6 +328,24 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		F3367901256187ED0043EF73 /* BookLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F336790625618E250043EF73 /* Support Shapes */,
+				F3367902256187FB0043EF73 /* BookLoaderView.swift */,
+				F3672DF52563864500967A8A /* BookPagesView.swift */,
+			);
+			path = BookLoader;
+			sourceTree = "<group>";
+		};
+		F336790625618E250043EF73 /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				F336790725618E3B0043EF73 /* BookHold.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
 		F3DA13CB2535B962005E384E /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +376,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F3367901256187ED0043EF73 /* BookLoader */,
 				F30BA964254418A400DC8367 /* LoginView */,
 				F3DAEDE1253ABBBD0067F963 /* 3dLoader */,
 				F3DAEDC1253629E90067F963 /* GithubLoader */,
@@ -520,7 +545,9 @@
 				F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */,
 				F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */,
 				F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */,
+				F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */,
 				F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */,
+				F336790825618E3B0043EF73 /* BookHold.swift in Sources */,
 				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
 				51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */,
 				F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */,
@@ -539,6 +566,7 @@
 				F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
+				F3672DF62563864500967A8A /* BookPagesView.swift in Sources */,
 				51D3E49624F14591004325B5 /* AddView.swift in Sources */,
 				51F6B07F24E81E0300EF840F /* Loader.swift in Sources */,
 				515557E724DE966F0001E523 /* ChatBarView.swift in Sources */,

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BookPagesView: View {
     
-    // MARK:- variables for the viewController
+    // MARK:- variables
     @State var isAppeared: Bool = false
     
     @State var leftEndDegree: Angle = .zero
@@ -26,17 +26,18 @@ struct BookPagesView: View {
     let barsOffset: CGFloat = -78
     let animationDuration: TimeInterval
     
+    // MARK:- views
     var body: some View {
         ZStack {
             Capsule()
-                .foregroundColor(.green)
+                .foregroundColor(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(x: barsOffset, y: leftYOffset)
                 .rotationEffect(leftEndDegree)
                 .animation(Animation.easeOut(duration: animationDuration))
             
             Capsule()
-                .foregroundColor(.red)
+                .foregroundColor(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(x: barsOffset, y: rightYOffset)
                 .rotationEffect(rightEndDegree)
@@ -55,7 +56,7 @@ struct BookPagesView: View {
             Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { animationTimer in
                 if (animationStarted) {
                     animatePages()
-                    Timer.scheduledTimer(withTimeInterval: animationDuration * 11, repeats: true) { _ in
+                    Timer.scheduledTimer(withTimeInterval: animationDuration * 10, repeats: true) { _ in
                         animatePages()
                     }
                     animationTimer.invalidate()
@@ -86,7 +87,7 @@ struct BookPagesView: View {
             self.pagesDegree = .degrees(0)
         }
         
-        Timer.scheduledTimer(withTimeInterval: animationDuration * 7.5, repeats: false) { _ in
+        Timer.scheduledTimer(withTimeInterval: animationDuration * 7, repeats: false) { _ in
             self.rightEndDegree = .degrees(0)
             self.rightYOffset = -20
         }

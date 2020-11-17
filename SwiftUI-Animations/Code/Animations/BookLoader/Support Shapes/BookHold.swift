@@ -10,8 +10,6 @@ import SwiftUI
 
 struct BookHoldView: Shape {
     
-    // MARK:- variables
-    
     // MARK:- functions
     func path(in rect: CGRect) -> Path {
         
@@ -20,10 +18,6 @@ struct BookHoldView: Shape {
         
         var path = Path()
 
-//        path.move(to: CGPoint(x: cX, y: cY - 14))
-//        path.addCurve(to: CGPoint(x: cX + 12, y: cY), control1: CGPoint(x: cX, y: cY), control2: CGPoint(x: cX, y: cY))
-//        path.addLine(to: CGPoint(x: cX + 30, y: cY))
-//        path.addCurve(to: CGPoint(x: cX + 44, y: cY - 14), control1: CGPoint(x: cX + 44, y: cY), control2: CGPoint(x: cX + 44, y: cY))
         path.move(to: CGPoint(x: cX, y: cY))
         path.addLine(to: CGPoint(x: cX, y: cY + 12))
         path.addLine(to: CGPoint(x: cX + 56, y: cY + 12))

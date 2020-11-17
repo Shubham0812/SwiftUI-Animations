@@ -44,20 +44,20 @@ struct BookLoaderView: View {
                 .rotationEffect(middleRotationDegrees)
                 .offset(middleBookOffset)
             Capsule()
-                .foregroundColor(.orange)
+                .foregroundColor(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(rightCoverOffset)
                 .rotationEffect(rightRotationDegrees)
             BookPagesView(animationStarted: $animationStarted, animationDuration: animationDuration)
                 .offset(y: -20)
-        }.onTapGesture {
+        }.onTapGesture() {
             animationStarted.toggle()
             animateBookEnds()
             
-            Timer.scheduledTimer(withTimeInterval: animationDuration * 2.9, repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: animationDuration * 3.4, repeats: false) { _ in
                 animateBook()
                 
-                Timer.scheduledTimer(withTimeInterval: animationDuration * 5.65, repeats: true) { _ in
+                Timer.scheduledTimer(withTimeInterval: animationDuration * 5, repeats: true) { _ in
                     animateBook()
                 }
             }
@@ -75,6 +75,7 @@ struct BookLoaderView: View {
         return allCases[index]
     }
     
+    // animates the book and closes it to either right or left depending on the state
     func animateBook() {
         withAnimation(Animation.linear(duration: animationDuration)) {
             middleRotationDegrees = bookState.animationEnd.3
@@ -88,12 +89,13 @@ struct BookLoaderView: View {
             middleBookOffset = bookState.animationEnd.2
         }
         
-        Timer.scheduledTimer(withTimeInterval: animationDuration * 1.83, repeats: false) { _  in
+        Timer.scheduledTimer(withTimeInterval: animationDuration * 1.6, repeats: false) { _  in
             self.bookState = self.getNextCase()
             self.animateBookEnds()
         }
     }
     
+    // animates the book to the open position
     func animateBookEnds() {
         withAnimation(Animation.easeOut(duration: animationDuration)) {
             middleRotationDegrees = bookState.animationBegin.3
