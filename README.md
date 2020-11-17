@@ -18,7 +18,7 @@ If you like my work, and would like to see more content you can follow me here -
 
 ## Reach me via 👇🏻
 
-[![Instagram](https://raw.githubusercontent.com/Shubham0812/Test-Angular/master/docs/insta.png)](https://www.instagram.com/shubham_iosdev/) [![Linkedin](https://raw.githubusercontent.com/Shubham0812/Test-Angular/master/docs/linkedin.png)](https://www.linkedin.com/in/shubham0812/)
+[![Instagram](https://raw.githubusercontent.com/Shubham0812/SearchX/master/insta.png)](https://www.instagram.com/shubham_iosdev/) [![Linkedin](https://raw.githubusercontent.com/Shubham0812/SearchX/master/linkedIn.png)](https://www.linkedin.com/in/shubham0812/)
 
 
 ## Animations
@@ -27,56 +27,56 @@ If you like my work, and would like to see more content you can follow me here -
 
 ![Cart view](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/cart.gif?token=AEX3IM6G5W5E5SXZNCXDOAK7FQLG2)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Cart)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/Cart)
 
 #### Chat Bar Animation
 
 ![Chat Bar](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/chat-bar.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/ChatBar)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/ChatBar)
 
 #### Wi-Fi connectivity Animation
 
 ![Wi-Fi Signal](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/wifi.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Wifi)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/Wifi)
 
 #### Loader Animation
 
 ![Loader](https://github.com/Shubham0812/SwiftUI-Animations/blob/master/SwiftUI-Animations/GIFs/loader.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Loader)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/Loader)
 
 #### AddItem Animation
 
 ![addItem](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/addView.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/AddView)
+[**Link for Code**]https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/AddView)
 
 
 #### Circle Loader
 
 ![circle loader](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/circle-loader.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/CircleLoader)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/CircleLoader)
 
 #### Pill Loader
 
 ![pill loader](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/pill-loader.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/PillLoader)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/PillLoader)
 
 #### Like
 
 ![like](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/likeVIew.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Like)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/Like)
 
 #### Submit Button
 
 ![submitButton](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/submit-button.gif)
 
-[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/SubmitView)
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/SubmitView)
 
 
 #### Github Octocat Loader
@@ -91,6 +91,11 @@ If you like my work, and would like to see more content you can follow me here -
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/3dLoader)
 
+#### Animated Login Flow
+
+![rotatingLoader](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/login.gif)
+
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/LoginView)
 
 
 
