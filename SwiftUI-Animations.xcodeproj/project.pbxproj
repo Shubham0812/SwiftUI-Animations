@@ -47,6 +47,13 @@
 		F30BA97A2544648400DC8367 /* Bolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9792544648400DC8367 /* Bolt.swift */; };
 		F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3367902256187FB0043EF73 /* BookLoaderView.swift */; };
 		F336790825618E3B0043EF73 /* BookHold.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336790725618E3B0043EF73 /* BookHold.swift */; };
+		F34DDAB62573E7A2009BAF83 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAB52573E7A2009BAF83 /* Card.swift */; };
+		F34DDABE2573E814009BAF83 /* CardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDABD2573E814009BAF83 /* CardFrontView.swift */; };
+		F34DDAC22573E859009BAF83 /* CardPatternOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAC12573E859009BAF83 /* CardPatternOneView.swift */; };
+		F34DDAC82573E9C5009BAF83 /* CardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAC72573E9C5009BAF83 /* CardBackView.swift */; };
+		F34DDACB2573E9DA009BAF83 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDACA2573E9DA009BAF83 /* AppConstants.swift */; };
+		F34DDAD32573EAD7009BAF83 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAD22573EAD7009BAF83 /* CardView.swift */; };
+		F34DDAD82573F158009BAF83 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAD72573F158009BAF83 /* SnapCarousel.swift */; };
 		F3672DF62563864500967A8A /* BookPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3672DF52563864500967A8A /* BookPagesView.swift */; };
 		F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E8D251F528700D627D4 /* FloatingLike.swift */; };
 		F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E93251F8DEB00D627D4 /* HeartImageView.swift */; };
@@ -108,6 +115,13 @@
 		F30BA9792544648400DC8367 /* Bolt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bolt.swift; sourceTree = "<group>"; };
 		F3367902256187FB0043EF73 /* BookLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLoaderView.swift; sourceTree = "<group>"; };
 		F336790725618E3B0043EF73 /* BookHold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHold.swift; sourceTree = "<group>"; };
+		F34DDAB52573E7A2009BAF83 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		F34DDABD2573E814009BAF83 /* CardFrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrontView.swift; sourceTree = "<group>"; };
+		F34DDAC12573E859009BAF83 /* CardPatternOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPatternOneView.swift; sourceTree = "<group>"; };
+		F34DDAC72573E9C5009BAF83 /* CardBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackView.swift; sourceTree = "<group>"; };
+		F34DDACA2573E9DA009BAF83 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		F34DDAD22573EAD7009BAF83 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F34DDAD72573F158009BAF83 /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		F3672DF52563864500967A8A /* BookPagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPagesView.swift; sourceTree = "<group>"; };
 		F3714E8D251F528700D627D4 /* FloatingLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLike.swift; sourceTree = "<group>"; };
 		F3714E93251F8DEB00D627D4 /* HeartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartImageView.swift; sourceTree = "<group>"; };
@@ -346,6 +360,36 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		F34DDAB12573E6FC009BAF83 /* Bank Card */ = {
+			isa = PBXGroup;
+			children = (
+				F34DDAC02573E84A009BAF83 /* Support Shapes */,
+				F34DDAB32573E798009BAF83 /* Model */,
+				F34DDAD22573EAD7009BAF83 /* CardView.swift */,
+				F34DDABD2573E814009BAF83 /* CardFrontView.swift */,
+				F34DDAC72573E9C5009BAF83 /* CardBackView.swift */,
+			);
+			path = "Bank Card";
+			sourceTree = "<group>";
+		};
+		F34DDAB32573E798009BAF83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F34DDAB52573E7A2009BAF83 /* Card.swift */,
+				F34DDACA2573E9DA009BAF83 /* AppConstants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F34DDAC02573E84A009BAF83 /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				F34DDAC12573E859009BAF83 /* CardPatternOneView.swift */,
+				F34DDAD72573F158009BAF83 /* SnapCarousel.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
 		F3DA13CB2535B962005E384E /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +420,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F34DDAB12573E6FC009BAF83 /* Bank Card */,
 				F3367901256187ED0043EF73 /* BookLoader */,
 				F30BA964254418A400DC8367 /* LoginView */,
 				F3DAEDE1253ABBBD0067F963 /* 3dLoader */,
@@ -536,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34DDAC22573E859009BAF83 /* CardPatternOneView.swift in Sources */,
 				F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */,
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
 				51464374250BD8840046D835 /* FillShapes.swift in Sources */,
@@ -544,6 +590,7 @@
 				51C8BB1D24E3FC2200DCE354 /* CircleEmitter.swift in Sources */,
 				F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */,
 				F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */,
+				F34DDAD82573F158009BAF83 /* SnapCarousel.swift in Sources */,
 				F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */,
 				F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */,
 				F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */,
@@ -563,6 +610,7 @@
 				51C16C0424E2F81F006A4BBE /* Arc.swift in Sources */,
 				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,
 				F3DAEDF1253B18500067F963 /* DotsLoaderView.swift in Sources */,
+				F34DDACB2573E9DA009BAF83 /* AppConstants.swift in Sources */,
 				F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
@@ -573,19 +621,23 @@
 				F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */,
 				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,
 				F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */,
+				F34DDAB62573E7A2009BAF83 /* Card.swift in Sources */,
 				F30BA96C25441BED00DC8367 /* Plus.swift in Sources */,
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
 				F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */,
+				F34DDABE2573E814009BAF83 /* CardFrontView.swift in Sources */,
 				51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */,
 				51390968250D1FAE000CE14A /* LikeView.swift in Sources */,
 				F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */,
 				51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */,
 				51C16C0124E2F7FB006A4BBE /* ArcView.swift in Sources */,
+				F34DDAD32573EAD7009BAF83 /* CardView.swift in Sources */,
 				51370C4324EBD59A00103512 /* LoaderState.swift in Sources */,
 				51C8BB2024E4514B00DCE354 /* LoaderView.swift in Sources */,
 				51CBD281250B69550005D9C2 /* Pill.swift in Sources */,
 				51AFB36524DB00AD006840D3 /* CartView.swift in Sources */,
+				F34DDAC82573E9C5009BAF83 /* CardBackView.swift in Sources */,
 				51464372250BD7700046D835 /* PillsDropView.swift in Sources */,
 				518E823524DAA665002CB679 /* AddCartView.swift in Sources */,
 				F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */,
@@ -726,9 +778,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Assets/Preview Content\"";
-				DEVELOPMENT_TEAM = T3JUZKQX4R;
+				DEVELOPMENT_TEAM = VXZ7XFH447;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -746,9 +799,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Assets/Preview Content\"";
-				DEVELOPMENT_TEAM = T3JUZKQX4R;
+				DEVELOPMENT_TEAM = VXZ7XFH447;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
