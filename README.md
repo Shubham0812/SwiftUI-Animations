@@ -8,7 +8,7 @@ Animations created with SwiftUI.
 ![GitHub forks](https://img.shields.io/github/forks/shubham0812/SwiftUI-Animations?style=social)
 ![GitHub follow](https://img.shields.io/github/followers/shubham0812?style=social)
 
-Hello there, I'm Shubham and I'll be posting the animations that you see on my Instagram 
+Hello there, I'm Shubham and in this repository, I'll be posting the code for the animations that you see on my Instagram 
     [**@shubham_iosdev**](https://www.instagram.com/shubham_iosdev/).
     
 I hope you'll learn something new and use these animations and concepts to achieve great effects and more for your apps.
