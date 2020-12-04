@@ -45,6 +45,8 @@
 		F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA972254425E200DC8367 /* RoundedTriangle.swift */; };
 		F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9762544606800DC8367 /* SwiftUIView.swift */; };
 		F30BA97A2544648400DC8367 /* Bolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9792544648400DC8367 /* Bolt.swift */; };
+		F321C7862578C0D10018C82F /* InfinityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321C7852578C0D10018C82F /* InfinityView.swift */; };
+		F321C78A2578C1220018C82F /* InfinityShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321C7892578C1220018C82F /* InfinityShape.swift */; };
 		F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3367902256187FB0043EF73 /* BookLoaderView.swift */; };
 		F336790825618E3B0043EF73 /* BookHold.swift in Sources */ = {isa = PBXBuildFile; fileRef = F336790725618E3B0043EF73 /* BookHold.swift */; };
 		F34DDAB62573E7A2009BAF83 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAB52573E7A2009BAF83 /* Card.swift */; };
@@ -113,6 +115,8 @@
 		F30BA972254425E200DC8367 /* RoundedTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTriangle.swift; sourceTree = "<group>"; };
 		F30BA9762544606800DC8367 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		F30BA9792544648400DC8367 /* Bolt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bolt.swift; sourceTree = "<group>"; };
+		F321C7852578C0D10018C82F /* InfinityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityView.swift; sourceTree = "<group>"; };
+		F321C7892578C1220018C82F /* InfinityShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityShape.swift; sourceTree = "<group>"; };
 		F3367902256187FB0043EF73 /* BookLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLoaderView.swift; sourceTree = "<group>"; };
 		F336790725618E3B0043EF73 /* BookHold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookHold.swift; sourceTree = "<group>"; };
 		F34DDAB52573E7A2009BAF83 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -342,6 +346,23 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		F321C7832578C0B00018C82F /* InfinityLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F321C7882578C10B0018C82F /* Support Shapes */,
+				F321C7852578C0D10018C82F /* InfinityView.swift */,
+			);
+			path = InfinityLoader;
+			sourceTree = "<group>";
+		};
+		F321C7882578C10B0018C82F /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				F321C7892578C1220018C82F /* InfinityShape.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
 		F3367901256187ED0043EF73 /* BookLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +441,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F321C7832578C0B00018C82F /* InfinityLoader */,
 				F34DDAB12573E6FC009BAF83 /* Bank Card */,
 				F3367901256187ED0043EF73 /* BookLoader */,
 				F30BA964254418A400DC8367 /* LoginView */,
@@ -616,6 +638,8 @@
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
 				F3672DF62563864500967A8A /* BookPagesView.swift in Sources */,
 				51D3E49624F14591004325B5 /* AddView.swift in Sources */,
+				F321C78A2578C1220018C82F /* InfinityShape.swift in Sources */,
+				F321C7862578C0D10018C82F /* InfinityView.swift in Sources */,
 				51F6B07F24E81E0300EF840F /* Loader.swift in Sources */,
 				515557E724DE966F0001E523 /* ChatBarView.swift in Sources */,
 				F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */,
