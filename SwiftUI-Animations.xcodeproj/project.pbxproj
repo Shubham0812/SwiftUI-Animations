@@ -45,6 +45,7 @@
 		F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA972254425E200DC8367 /* RoundedTriangle.swift */; };
 		F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9762544606800DC8367 /* SwiftUIView.swift */; };
 		F30BA97A2544648400DC8367 /* Bolt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA9792544648400DC8367 /* Bolt.swift */; };
+		F30DD1562589E96700864877 /* LightSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DD1552589E96700864877 /* LightSwitchView.swift */; };
 		F321C7862578C0D10018C82F /* InfinityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321C7852578C0D10018C82F /* InfinityView.swift */; };
 		F321C78A2578C1220018C82F /* InfinityShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321C7892578C1220018C82F /* InfinityShape.swift */; };
 		F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3367902256187FB0043EF73 /* BookLoaderView.swift */; };
@@ -115,6 +116,7 @@
 		F30BA972254425E200DC8367 /* RoundedTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTriangle.swift; sourceTree = "<group>"; };
 		F30BA9762544606800DC8367 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		F30BA9792544648400DC8367 /* Bolt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bolt.swift; sourceTree = "<group>"; };
+		F30DD1552589E96700864877 /* LightSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSwitchView.swift; sourceTree = "<group>"; };
 		F321C7852578C0D10018C82F /* InfinityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityView.swift; sourceTree = "<group>"; };
 		F321C7892578C1220018C82F /* InfinityShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityShape.swift; sourceTree = "<group>"; };
 		F3367902256187FB0043EF73 /* BookLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLoaderView.swift; sourceTree = "<group>"; };
@@ -346,6 +348,14 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		F30DD14F2589E94D00864877 /* LightSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				F30DD1552589E96700864877 /* LightSwitchView.swift */,
+			);
+			path = LightSwitch;
+			sourceTree = "<group>";
+		};
 		F321C7832578C0B00018C82F /* InfinityLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +451,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F30DD14F2589E94D00864877 /* LightSwitch */,
 				F321C7832578C0B00018C82F /* InfinityLoader */,
 				F34DDAB12573E6FC009BAF83 /* Bank Card */,
 				F3367901256187ED0043EF73 /* BookLoader */,
@@ -622,6 +633,7 @@
 				F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */,
 				F3DAEDC3253629F80067F963 /* GithubLoader.swift in Sources */,
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
+				F30DD1562589E96700864877 /* LightSwitchView.swift in Sources */,
 				F30BA97025441E3200DC8367 /* ShrinkingPlus.swift in Sources */,
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
 				51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */,
