@@ -14,7 +14,6 @@ struct CircleLoader: View {
     let circleTrackGradient = LinearGradient(gradient: .init(colors: [Color.circleTrackStart, Color.circleTrackEnd]), startPoint: .leading, endPoint: .bottomLeading)
     let circleRoundGradient = LinearGradient(gradient: .init(colors: [Color.circleRoundStart, Color.circleRoundEnd]), startPoint: .topLeading, endPoint: .trailing)
     
-    
     let trackerRotation: Double = 2
     let animationDuration: Double = 0.75
     

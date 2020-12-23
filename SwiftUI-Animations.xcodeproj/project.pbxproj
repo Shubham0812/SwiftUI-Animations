@@ -58,6 +58,8 @@
 		F34DDAD32573EAD7009BAF83 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAD22573EAD7009BAF83 /* CardView.swift */; };
 		F34DDAD82573F158009BAF83 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DDAD72573F158009BAF83 /* SnapCarousel.swift */; };
 		F3672DF62563864500967A8A /* BookPagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3672DF52563864500967A8A /* BookPagesView.swift */; };
+		F36DF4CA258F4CF200BF9AA5 /* LoaderIIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36DF4C9258F4CF200BF9AA5 /* LoaderIIView.swift */; };
+		F36DF4CE258F4D2600BF9AA5 /* MovingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36DF4CD258F4D2600BF9AA5 /* MovingCircleView.swift */; };
 		F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E8D251F528700D627D4 /* FloatingLike.swift */; };
 		F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E93251F8DEB00D627D4 /* HeartImageView.swift */; };
 		F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */; };
@@ -129,6 +131,8 @@
 		F34DDAD22573EAD7009BAF83 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F34DDAD72573F158009BAF83 /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapCarousel.swift; sourceTree = "<group>"; };
 		F3672DF52563864500967A8A /* BookPagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPagesView.swift; sourceTree = "<group>"; };
+		F36DF4C9258F4CF200BF9AA5 /* LoaderIIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderIIView.swift; sourceTree = "<group>"; };
+		F36DF4CD258F4D2600BF9AA5 /* MovingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingCircleView.swift; sourceTree = "<group>"; };
 		F3714E8D251F528700D627D4 /* FloatingLike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLike.swift; sourceTree = "<group>"; };
 		F3714E93251F8DEB00D627D4 /* HeartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartImageView.swift; sourceTree = "<group>"; };
 		F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapusuleGroupView.swift; sourceTree = "<group>"; };
@@ -421,6 +425,23 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		F36DF4C8258F4CDA00BF9AA5 /* Loader2 */ = {
+			isa = PBXGroup;
+			children = (
+				F36DF4CC258F4D1100BF9AA5 /* Support Shapes */,
+				F36DF4C9258F4CF200BF9AA5 /* LoaderIIView.swift */,
+			);
+			path = Loader2;
+			sourceTree = "<group>";
+		};
+		F36DF4CC258F4D1100BF9AA5 /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				F36DF4CD258F4D2600BF9AA5 /* MovingCircleView.swift */,
+			);
+			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
 		F3DA13CB2535B962005E384E /* Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +472,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F36DF4C8258F4CDA00BF9AA5 /* Loader2 */,
 				F30DD14F2589E94D00864877 /* LightSwitch */,
 				F321C7832578C0B00018C82F /* InfinityLoader */,
 				F34DDAB12573E6FC009BAF83 /* Bank Card */,
@@ -645,6 +667,7 @@
 				517BFA6024DC45C800D4F78A /* Tick.swift in Sources */,
 				F3DAEDF1253B18500067F963 /* DotsLoaderView.swift in Sources */,
 				F34DDACB2573E9DA009BAF83 /* AppConstants.swift in Sources */,
+				F36DF4CE258F4D2600BF9AA5 /* MovingCircleView.swift in Sources */,
 				F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
@@ -663,6 +686,7 @@
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
 				F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */,
 				F34DDABE2573E814009BAF83 /* CardFrontView.swift in Sources */,
+				F36DF4CA258F4CF200BF9AA5 /* LoaderIIView.swift in Sources */,
 				51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */,
 				51390968250D1FAE000CE14A /* LikeView.swift in Sources */,
 				F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */,
