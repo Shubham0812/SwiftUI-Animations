@@ -33,8 +33,8 @@ struct WifiView: View {
             Color.wifiBackground
                 .edgesIgnoringSafeArea(.all)
             CircleEmitter(isAnimating: $isConnected)
-                .offset(y: 90)
-                .frame(height: 300)
+//                .offset(y: 90)
+//                .frame(height: 300)
             ZStack {
                 Circle()
                     .fill(self.arcColor)
