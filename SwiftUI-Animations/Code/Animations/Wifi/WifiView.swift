@@ -69,59 +69,9 @@ struct WifiView: View {
                     
                 }
             }.frame(height: 120)
-//            .scaleEffect(self.isConnected ? 1.2 : 1)
-//            .animation(self.isConnected ? Animation.easeOut(duration: animationDuration) : .none)
             .onTapGesture {
-                self.isAnimating.toggle()
-                self.wifiHeaderLabel = "Searching"
-                self.smallArcOffset -= 7.5
-                self.circleOffset -= 15
-                self.mediumArcOffset = -5.5
-                self.largeArcOffset = -19
-                self.isConnected = false
-                self.arcColor = Color.white
-                self.shadowColor = Color.blue
-                
-                Timer.scheduledTimer(withTimeInterval: self.animationDuration, repeats: true) { (arcTimer) in
-                    if (self.isAnimating) {
-                        self.circleOffset += Self.animationMovingUpwards ? -15 : 15
-                        self.smallArcOffset += Self.moveArc ? -15 : 15
-                        if (self.circleOffset == -25) {
-                            Self.animationMovingUpwards = false
-                        } else if (self.circleOffset == 20) {
-                            Self.animationMovingUpwards = true
-                        }
-                        if (Self.moveArc) {
-                            self.mediumArcOffset += -15
-                        }
-                    } else {
-                        arcTimer.invalidate()
-                    }
-                }
-                
-                Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 2, repeats: true) { (arcTimer) in
-                    if (self.isAnimating) {
-                        self.mediumArcOffset += 15
-                    } else {
-                        arcTimer.invalidate()
-                    }
-                }
-                
-                Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 3, repeats: true) { (arcTimer) in
-                    if (self.isAnimating) {
-                        Self.moveArc.toggle()
-                        self.smallArcOffset = !Self.moveArc ? -15 : 8.5
-                        if (Self.animationMovingUpwards) {
-                            self.largeArcOffset = -19
-                            self.mediumArcOffset = -5.5
-                        } else {
-                            self.largeArcOffset = 14
-                            self.mediumArcOffset = 0
-                        }
-                    } else {
-                        arcTimer.invalidate()
-                    }
-                }
+                resetValues()
+                animate()
                 
                 Timer.scheduledTimer(withTimeInterval: self.animationDuration * 12, repeats: false) { (_) in
                     self.restoreAnimation()
@@ -144,6 +94,7 @@ struct WifiView: View {
         }
     }
     
+    // MARK:- functions
     func getRotation(arcBoolean: Bool) -> Angle {
         if (self.isAnimating && arcBoolean) {
             return Angle.degrees(180)
@@ -151,6 +102,49 @@ struct WifiView: View {
             return Angle.degrees(-180)
         }
         return Angle.degrees(0)
+    }
+    
+    func animate() {
+        Timer.scheduledTimer(withTimeInterval: self.animationDuration, repeats: true) { (arcTimer) in
+            if (self.isAnimating) {
+                self.circleOffset += Self.animationMovingUpwards ? -15 : 15
+                self.smallArcOffset += Self.moveArc ? -15 : 15
+                if (self.circleOffset == -25) {
+                    Self.animationMovingUpwards = false
+                } else if (self.circleOffset == 20) {
+                    Self.animationMovingUpwards = true
+                }
+                if (Self.moveArc) {
+                    self.mediumArcOffset += -15
+                }
+            } else {
+                arcTimer.invalidate()
+            }
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 2, repeats: true) { (arcTimer) in
+            if (self.isAnimating) {
+                self.mediumArcOffset += 15
+            } else {
+                arcTimer.invalidate()
+            }
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 3, repeats: true) { (arcTimer) in
+            if (self.isAnimating) {
+                Self.moveArc.toggle()
+                self.smallArcOffset = !Self.moveArc ? -15 : 8.5
+                if (Self.animationMovingUpwards) {
+                    self.largeArcOffset = -19
+                    self.mediumArcOffset = -5.5
+                } else {
+                    self.largeArcOffset = 14
+                    self.mediumArcOffset = 0
+                }
+            } else {
+                arcTimer.invalidate()
+            }
+        }
     }
     
     func restoreAnimation() {
@@ -162,6 +156,18 @@ struct WifiView: View {
         self.smallArcOffset = 16
         self.mediumArcOffset = 14.5
         self.largeArcOffset = 14
+    }
+    
+    func resetValues() {
+        self.isAnimating.toggle()
+        self.wifiHeaderLabel = "Searching"
+        self.smallArcOffset -= 7.5
+        self.circleOffset -= 15
+        self.mediumArcOffset = -5.5
+        self.largeArcOffset = -19
+        self.isConnected = false
+        self.arcColor = Color.white
+        self.shadowColor = Color.blue
     }
 }
 
