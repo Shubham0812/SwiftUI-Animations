@@ -120,6 +120,12 @@ If you like my work, and would like to see more content you can follow me here -
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/LightSwitch)
 
+
+#### Spinning Loader
+![spinningLoader](https://github.com/Shubham0812/SwiftUI-Animations/blob/master/SwiftUI-Animations/GIFs/spinningloader.gif)
+
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/SpinningLoader)
+
 ## Spread the word!
 Liked the project? Just give it a star ⭐️ and spread the word!
 
