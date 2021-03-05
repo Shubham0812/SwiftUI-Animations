@@ -2,7 +2,7 @@
 //  SpinningView.swift
 //  SwiftUI-Animations
 //
-//  Created by Shubham Singh on 04/03/21.
+//  Created by Shubham Singh on 05/03/21.
 //  Copyright © 2021 Shubham Singh. All rights reserved.
 //
 
