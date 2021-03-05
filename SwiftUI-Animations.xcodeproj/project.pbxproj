@@ -39,6 +39,7 @@
 		51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6273924E19F2A00BCE1C8 /* WifiView.swift */; };
 		51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
+		DAF98EFF25F0D07F0052EDB8 /* SpinningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF98EFE25F0D07F0052EDB8 /* SpinningView.swift */; };
 		F30BA967254418B300DC8367 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA966254418B300DC8367 /* LoginView.swift */; };
 		F30BA96C25441BED00DC8367 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA96B25441BED00DC8367 /* Plus.swift */; };
 		F30BA97025441E3200DC8367 /* ShrinkingPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA96F25441E3200DC8367 /* ShrinkingPlus.swift */; };
@@ -112,6 +113,7 @@
 		51D6273924E19F2A00BCE1C8 /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
 		51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCapsule.swift; sourceTree = "<group>"; };
 		51F6B07E24E81E0300EF840F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		DAF98EFE25F0D07F0052EDB8 /* SpinningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningView.swift; sourceTree = "<group>"; };
 		F30BA966254418B300DC8367 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F30BA96B25441BED00DC8367 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
 		F30BA96F25441E3200DC8367 /* ShrinkingPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingPlus.swift; sourceTree = "<group>"; };
@@ -331,6 +333,14 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		DAF98EF725F0D05B0052EDB8 /* SpinningLoader */ = {
+			isa = PBXGroup;
+			children = (
+				DAF98EFE25F0D07F0052EDB8 /* SpinningView.swift */,
+			);
+			path = SpinningLoader;
+			sourceTree = "<group>";
+		};
 		F30BA964254418A400DC8367 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +482,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				DAF98EF725F0D05B0052EDB8 /* SpinningLoader */,
 				F36DF4C8258F4CDA00BF9AA5 /* Loader2 */,
 				F30DD14F2589E94D00864877 /* LightSwitch */,
 				F321C7832578C0B00018C82F /* InfinityLoader */,
@@ -680,6 +691,7 @@
 				F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */,
 				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,
 				F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */,
+				DAF98EFF25F0D07F0052EDB8 /* SpinningView.swift in Sources */,
 				F34DDAB62573E7A2009BAF83 /* Card.swift in Sources */,
 				F30BA96C25441BED00DC8367 /* Plus.swift in Sources */,
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,

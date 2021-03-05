@@ -36,9 +36,7 @@ struct LightSwitchView: View {
                         .foregroundColor(isOff ? .white : .black)
                         .font(.system(size: 24, weight: .semibold, design: .monospaced))
                     Spacer()
-                    Text("Study Room")
-                        .font(.system(size: 32, weight: .bold, design: .monospaced))
-                        .foregroundColor(isOff ? .white : .black)
+                    
                         .offset(x: -12)
                     Spacer()
                 }.padding([.top, .bottom], 24)
