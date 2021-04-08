@@ -8,6 +8,9 @@ Animations created with SwiftUI.
 ![GitHub forks](https://img.shields.io/github/forks/shubham0812/SwiftUI-Animations?style=social)
 ![GitHub follow](https://img.shields.io/github/followers/shubham0812?style=social)
 
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=shubham0812)
+
+
 Hello there, I'm Shubham and in this repository, I'll be posting the code for the animations that you see on my Instagram 
     [**@shubham_iosdev**](https://www.instagram.com/shubham_iosdev/).
     
@@ -119,6 +122,12 @@ If you like my work, and would like to see more content you can follow me here -
 ![lightswitch](https://github.com/Shubham0812/SwiftUI-Animations/blob/master/SwiftUI-Animations/GIFs/lightswitch.gif?raw=true)
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/LightSwitch)
+
+
+#### Spinning Loader
+![spinningLoader](https://github.com/Shubham0812/SwiftUI-Animations/blob/master/SwiftUI-Animations/GIFs/spinningloader.gif)
+
+[**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/SpinningLoader)
 
 ## Spread the word!
 Liked the project? Just give it a star ⭐️ and spread the word!
