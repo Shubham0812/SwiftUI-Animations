@@ -10,6 +10,9 @@ import SwiftUI
 
 extension Color {
     
+    static let background: Color = Color(UIColor.systemBackground)
+    static let label: Color = Color(UIColor.label)
+    
     static let chatBackground: Color = Color(r: 41, g: 121, b: 255.0)
     static let buttonBackground: Color = Color(r: 144.0, g: 202.0, b: 249.0)
     

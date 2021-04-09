@@ -17,12 +17,16 @@
 		515557EC24DEAC350001E523 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515557EB24DEAC350001E523 /* Colors.swift */; };
 		517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5D24DC45C100D4F78A /* Triangle.swift */; };
 		517BFA6024DC45C800D4F78A /* Tick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5F24DC45C800D4F78A /* Tick.swift */; };
+		5184227F262064E40004FA3A /* DownloadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184227E262064E40004FA3A /* DownloadingIndicatorView.swift */; };
 		518E823124DAA665002CB679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823024DAA665002CB679 /* AppDelegate.swift */; };
 		518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823224DAA665002CB679 /* SceneDelegate.swift */; };
 		518E823524DAA665002CB679 /* AddCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823424DAA665002CB679 /* AddCartView.swift */; };
 		518E823724DAA667002CB679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518E823624DAA667002CB679 /* Assets.xcassets */; };
 		518E823A24DAA667002CB679 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518E823924DAA667002CB679 /* Preview Assets.xcassets */; };
 		518E823D24DAA667002CB679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518E823B24DAA667002CB679 /* LaunchScreen.storyboard */; };
+		519F1A50261F4B7A0006566C /* CircleTickShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F1A4F261F4B7A0006566C /* CircleTickShape.swift */; };
+		519F1A56261F50FA0006566C /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F1A55261F50FA0006566C /* DownloadButton.swift */; };
+		519F1A60261F5C6D0006566C /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F1A5F261F5C6D0006566C /* Downloader.swift */; };
 		51AFB36524DB00AD006840D3 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AFB36424DB00AD006840D3 /* CartView.swift */; };
 		51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AFB36624DB1393006840D3 /* ShirtView.swift */; };
 		51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B885D22503A40B007DFDCA /* CircleLoader.swift */; };
@@ -89,6 +93,7 @@
 		515557EB24DEAC350001E523 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		517BFA5D24DC45C100D4F78A /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		517BFA5F24DC45C800D4F78A /* Tick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tick.swift; sourceTree = "<group>"; };
+		5184227E262064E40004FA3A /* DownloadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingIndicatorView.swift; sourceTree = "<group>"; };
 		518E822D24DAA665002CB679 /* SwiftUI-Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		518E823024DAA665002CB679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		518E823224DAA665002CB679 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +102,9 @@
 		518E823924DAA667002CB679 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		518E823C24DAA667002CB679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		518E823E24DAA667002CB679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		519F1A4F261F4B7A0006566C /* CircleTickShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTickShape.swift; sourceTree = "<group>"; };
+		519F1A55261F50FA0006566C /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
+		519F1A5F261F5C6D0006566C /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		51AFB36424DB00AD006840D3 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		51AFB36624DB1393006840D3 /* ShirtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtView.swift; sourceTree = "<group>"; };
 		51B885D22503A40B007DFDCA /* CircleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLoader.swift; sourceTree = "<group>"; };
@@ -255,6 +263,33 @@
 				51C8BB1C24E3FC2200DCE354 /* CircleEmitter.swift */,
 			);
 			path = Wifi;
+			sourceTree = "<group>";
+		};
+		519F1A49261F4A3F0006566C /* DownloadButton */ = {
+			isa = PBXGroup;
+			children = (
+				519F1A58261F51310006566C /* Model */,
+				519F1A52261F4B7F0006566C /* Support */,
+				519F1A55261F50FA0006566C /* DownloadButton.swift */,
+			);
+			path = DownloadButton;
+			sourceTree = "<group>";
+		};
+		519F1A52261F4B7F0006566C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				519F1A4F261F4B7A0006566C /* CircleTickShape.swift */,
+				5184227E262064E40004FA3A /* DownloadingIndicatorView.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		519F1A58261F51310006566C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				519F1A5F261F5C6D0006566C /* Downloader.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		51AFB36324DB0096006840D3 /* Cart */ = {
@@ -482,6 +517,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				519F1A49261F4A3F0006566C /* DownloadButton */,
 				DAF98EF725F0D05B0052EDB8 /* SpinningLoader */,
 				F36DF4C8258F4CDA00BF9AA5 /* Loader2 */,
 				F30DD14F2589E94D00864877 /* LightSwitch */,
@@ -668,6 +704,7 @@
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
 				F30DD1562589E96700864877 /* LightSwitchView.swift in Sources */,
 				F30BA97025441E3200DC8367 /* ShrinkingPlus.swift in Sources */,
+				5184227F262064E40004FA3A /* DownloadingIndicatorView.swift in Sources */,
 				515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */,
 				51CBD283250B6C5F0005D9C2 /* PillGroupView.swift in Sources */,
 				F30BA97A2544648400DC8367 /* Bolt.swift in Sources */,
@@ -689,6 +726,7 @@
 				51F6B07F24E81E0300EF840F /* Loader.swift in Sources */,
 				515557E724DE966F0001E523 /* ChatBarView.swift in Sources */,
 				F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */,
+				519F1A56261F50FA0006566C /* DownloadButton.swift in Sources */,
 				517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */,
 				F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */,
 				DAF98EFF25F0D07F0052EDB8 /* SpinningView.swift in Sources */,
@@ -696,11 +734,13 @@
 				F30BA96C25441BED00DC8367 /* Plus.swift in Sources */,
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
+				519F1A60261F5C6D0006566C /* Downloader.swift in Sources */,
 				F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */,
 				F34DDABE2573E814009BAF83 /* CardFrontView.swift in Sources */,
 				F36DF4CA258F4CF200BF9AA5 /* LoaderIIView.swift in Sources */,
 				51B885D32503A40B007DFDCA /* CircleLoader.swift in Sources */,
 				51390968250D1FAE000CE14A /* LikeView.swift in Sources */,
+				519F1A50261F4B7A0006566C /* CircleTickShape.swift in Sources */,
 				F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */,
 				51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */,
 				51C16C0124E2F7FB006A4BBE /* ArcView.swift in Sources */,
