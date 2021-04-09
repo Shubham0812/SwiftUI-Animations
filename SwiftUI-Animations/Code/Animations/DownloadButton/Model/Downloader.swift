@@ -35,27 +35,23 @@ enum DownloadState: CaseIterable {
         }
     }
     
-    func requiresLight() -> Bool {
-        switch self {
-        case.notInitiated:
-            return false
-        case .downloading:
-            return true
-        case .downloaded:
-            return true
-        }
-    }
-    
     func offsetForText() -> CGFloat {
         switch self {
         case.notInitiated:
             return 0
         case .downloading:
-            return 6
+            return 8
         case .downloaded:
-            return -12
+            return 0
         }
     }
+}
+
+struct ButtonDimension {
+    static let width: CGFloat = 320
+    static let height: CGFloat = 76
+    static let animationDuration: TimeInterval = 0.35
+    static let cornerRadius: CGFloat = 12
 }
 
 

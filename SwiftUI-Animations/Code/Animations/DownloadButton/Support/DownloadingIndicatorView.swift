@@ -12,7 +12,7 @@ struct DownloadingIndicatorView: View {
     
     // MARK:- variables
     @State var downloadSymbolYOffset:  CGFloat = 0
-    let animationDuration: TimeInterval = 0.7
+    let animationDuration: TimeInterval = 0.5
     let size: CGFloat = 38
     
     var needsAnimation: Bool = true

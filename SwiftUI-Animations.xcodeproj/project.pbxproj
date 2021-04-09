@@ -18,6 +18,7 @@
 		517BFA5E24DC45C100D4F78A /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5D24DC45C100D4F78A /* Triangle.swift */; };
 		517BFA6024DC45C800D4F78A /* Tick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5F24DC45C800D4F78A /* Tick.swift */; };
 		5184227F262064E40004FA3A /* DownloadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184227E262064E40004FA3A /* DownloadingIndicatorView.swift */; };
+		5184228326207DE90004FA3A /* DownloadStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184228226207DE90004FA3A /* DownloadStateView.swift */; };
 		518E823124DAA665002CB679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823024DAA665002CB679 /* AppDelegate.swift */; };
 		518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823224DAA665002CB679 /* SceneDelegate.swift */; };
 		518E823524DAA665002CB679 /* AddCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823424DAA665002CB679 /* AddCartView.swift */; };
@@ -94,6 +95,7 @@
 		517BFA5D24DC45C100D4F78A /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		517BFA5F24DC45C800D4F78A /* Tick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tick.swift; sourceTree = "<group>"; };
 		5184227E262064E40004FA3A /* DownloadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingIndicatorView.swift; sourceTree = "<group>"; };
+		5184228226207DE90004FA3A /* DownloadStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStateView.swift; sourceTree = "<group>"; };
 		518E822D24DAA665002CB679 /* SwiftUI-Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		518E823024DAA665002CB679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		518E823224DAA665002CB679 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				519F1A58261F51310006566C /* Model */,
 				519F1A52261F4B7F0006566C /* Support */,
 				519F1A55261F50FA0006566C /* DownloadButton.swift */,
+				5184228226207DE90004FA3A /* DownloadStateView.swift */,
 			);
 			path = DownloadButton;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				F30BA973254425E200DC8367 /* RoundedTriangle.swift in Sources */,
 				F34DDAD82573F158009BAF83 /* SnapCarousel.swift in Sources */,
 				F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */,
+				5184228326207DE90004FA3A /* DownloadStateView.swift in Sources */,
 				F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */,
 				F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */,
 				F336790825618E3B0043EF73 /* BookHold.swift in Sources */,
