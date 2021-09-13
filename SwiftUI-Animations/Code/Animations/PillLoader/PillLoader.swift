@@ -12,7 +12,7 @@ struct PillLoader: View {
     
     // MARK:- variables
     let trackerRotation: Double = 1.5
-    let animationDuration: Double = 0.5
+    let animationDuration: Double = 3
     let backgroundColor: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.4), Color.purple.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottom)
     
     @State var isAnimating: Bool = false
