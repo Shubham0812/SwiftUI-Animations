@@ -12,6 +12,7 @@
 		51464370250BCB830046D835 /* WaveFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146436F250BCB830046D835 /* WaveFill.swift */; };
 		51464372250BD7700046D835 /* PillsDropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51464371250BD7700046D835 /* PillsDropView.swift */; };
 		51464374250BD8840046D835 /* FillShapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51464373250BD8840046D835 /* FillShapes.swift */; };
+		515339C726EF3B4F00495622 /* TriangleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515339C626EF3B4F00495622 /* TriangleLoader.swift */; };
 		515557E724DE966F0001E523 /* ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515557E624DE966F0001E523 /* ChatBarView.swift */; };
 		515557E924DEA6050001E523 /* AttachmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515557E824DEA6050001E523 /* AttachmentButton.swift */; };
 		515557EC24DEAC350001E523 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515557EB24DEAC350001E523 /* Colors.swift */; };
@@ -89,6 +90,7 @@
 		5146436F250BCB830046D835 /* WaveFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFill.swift; sourceTree = "<group>"; };
 		51464371250BD7700046D835 /* PillsDropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsDropView.swift; sourceTree = "<group>"; };
 		51464373250BD8840046D835 /* FillShapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillShapes.swift; sourceTree = "<group>"; };
+		515339C626EF3B4F00495622 /* TriangleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleLoader.swift; sourceTree = "<group>"; };
 		515557E624DE966F0001E523 /* ChatBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBarView.swift; sourceTree = "<group>"; };
 		515557E824DEA6050001E523 /* AttachmentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentButton.swift; sourceTree = "<group>"; };
 		515557EB24DEAC350001E523 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -192,6 +194,22 @@
 				F3714E93251F8DEB00D627D4 /* HeartImageView.swift */,
 			);
 			path = "Support Shapes";
+			sourceTree = "<group>";
+		};
+		515339C526EF3B4500495622 /* TriangleLoader */ = {
+			isa = PBXGroup;
+			children = (
+				515339C826EF3B5100495622 /* Support */,
+				515339C626EF3B4F00495622 /* TriangleLoader.swift */,
+			);
+			path = TriangleLoader;
+			sourceTree = "<group>";
+		};
+		515339C826EF3B5100495622 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		515557E524DE963C0001E523 /* ChatBar */ = {
@@ -520,6 +538,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				515339C526EF3B4500495622 /* TriangleLoader */,
 				519F1A49261F4A3F0006566C /* DownloadButton */,
 				DAF98EF725F0D05B0052EDB8 /* SpinningLoader */,
 				F36DF4C8258F4CDA00BF9AA5 /* Loader2 */,
@@ -738,6 +757,7 @@
 				F30BA96C25441BED00DC8367 /* Plus.swift in Sources */,
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
+				515339C726EF3B4F00495622 /* TriangleLoader.swift in Sources */,
 				519F1A60261F5C6D0006566C /* Downloader.swift in Sources */,
 				F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */,
 				F34DDABE2573E814009BAF83 /* CardFrontView.swift in Sources */,
