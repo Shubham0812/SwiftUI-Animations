@@ -59,7 +59,7 @@ struct TriangleLoader: View {
             Color.background
                 .edgesIgnoringSafeArea(.all)
             ZStack {
-                Triangle()
+                TriangleShape()
                     .trim(from: strokeStart, to: strokeEnd)
                     .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round, miterLimit: 8))
                 Circle()
