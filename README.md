@@ -136,7 +136,7 @@ If you like my work, and would like to see more content you can follow me here -
 
 
 #### Triangle Loader
-![triangleLoader](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/triloader.gif)
+![triangleLoader](https://raw.githubusercontent.com/Shubham0812/SwiftUI-Animations/master/SwiftUI-Animations/GIFs/triLoader.gif)
 
 [**Link for Code**](https://github.com/Shubham0812/SwiftUI-Animations/tree/master/SwiftUI-Animations/Code/Animations/TriangleLoader)
 
