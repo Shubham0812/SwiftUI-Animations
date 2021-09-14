@@ -29,6 +29,7 @@ enum TriangleState {
     
     func getCircleOffset() -> (CGFloat, CGFloat) {
         switch self {
+        /// you'll have to change the offset values here if you want to increase/decrease the size of the circle
         case .begin:
             return (0, 35)
         case .phaseOne:
