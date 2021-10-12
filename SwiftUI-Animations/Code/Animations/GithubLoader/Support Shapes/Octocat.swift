@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct OctocatShape: Shape {
+struct Octocat: Shape {
     
     // MARK:- variables
     
@@ -54,7 +54,7 @@ struct OctocatShape: Shape {
     }
 }
 
-struct OctocatShape_Previews: PreviewProvider {
+struct Octocat_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Color.black

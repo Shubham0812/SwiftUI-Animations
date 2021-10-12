@@ -27,6 +27,9 @@
 		518E823724DAA667002CB679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518E823624DAA667002CB679 /* Assets.xcassets */; };
 		518E823A24DAA667002CB679 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518E823924DAA667002CB679 /* Preview Assets.xcassets */; };
 		518E823D24DAA667002CB679 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518E823B24DAA667002CB679 /* LaunchScreen.storyboard */; };
+		518E97372715BD54008820A8 /* OctocatLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E97362715BD54008820A8 /* OctocatLoader.swift */; };
+		518E973B2715BDCA008820A8 /* OctocatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E973A2715BDCA008820A8 /* OctocatView.swift */; };
+		518E973D2715BE07008820A8 /* OctoHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E973C2715BE07008820A8 /* OctoHead.swift */; };
 		519F1A50261F4B7A0006566C /* CircleTickShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F1A4F261F4B7A0006566C /* CircleTickShape.swift */; };
 		519F1A56261F50FA0006566C /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F1A55261F50FA0006566C /* DownloadButton.swift */; };
 		519F1A60261F5C6D0006566C /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F1A5F261F5C6D0006566C /* Downloader.swift */; };
@@ -77,7 +80,7 @@
 		F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */; };
 		F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */; };
 		F3DAEDC3253629F80067F963 /* GithubLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDC2253629F80067F963 /* GithubLoader.swift */; };
-		F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDC725362A0B0067F963 /* OctocatShape.swift */; };
+		F3DAEDC825362A0B0067F963 /* Octocat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDC725362A0B0067F963 /* Octocat.swift */; };
 		F3DAEDE3253ABBD70067F963 /* RotatingLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDE2253ABBD60067F963 /* RotatingLoaderView.swift */; };
 		F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDE6253B07390067F963 /* RectangleLoaderView.swift */; };
 		F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */; };
@@ -108,6 +111,9 @@
 		518E823924DAA667002CB679 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		518E823C24DAA667002CB679 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		518E823E24DAA667002CB679 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		518E97362715BD54008820A8 /* OctocatLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctocatLoader.swift; sourceTree = "<group>"; };
+		518E973A2715BDCA008820A8 /* OctocatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctocatView.swift; sourceTree = "<group>"; };
+		518E973C2715BE07008820A8 /* OctoHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctoHead.swift; sourceTree = "<group>"; };
 		519F1A4F261F4B7A0006566C /* CircleTickShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTickShape.swift; sourceTree = "<group>"; };
 		519F1A55261F50FA0006566C /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		519F1A5F261F5C6D0006566C /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -158,7 +164,7 @@
 		F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
 		F3DAEDC2253629F80067F963 /* GithubLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLoader.swift; sourceTree = "<group>"; };
-		F3DAEDC725362A0B0067F963 /* OctocatShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctocatShape.swift; sourceTree = "<group>"; };
+		F3DAEDC725362A0B0067F963 /* Octocat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Octocat.swift; sourceTree = "<group>"; };
 		F3DAEDE2253ABBD60067F963 /* RotatingLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingLoaderView.swift; sourceTree = "<group>"; };
 		F3DAEDE6253B07390067F963 /* RectangleLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleLoaderView.swift; sourceTree = "<group>"; };
 		F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLoaderView.swift; sourceTree = "<group>"; };
@@ -275,6 +281,24 @@
 				518E823924DAA667002CB679 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		518E97342715BD29008820A8 /* Octocat-Wink */ = {
+			isa = PBXGroup;
+			children = (
+				518E97352715BD33008820A8 /* Support Shapes */,
+				518E973A2715BDCA008820A8 /* OctocatView.swift */,
+			);
+			path = "Octocat-Wink";
+			sourceTree = "<group>";
+		};
+		518E97352715BD33008820A8 /* Support Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				518E97362715BD54008820A8 /* OctocatLoader.swift */,
+				518E973C2715BE07008820A8 /* OctoHead.swift */,
+			);
+			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
 		519D13F824E1766400ECF0B6 /* Wifi */ = {
@@ -541,6 +565,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				518E97342715BD29008820A8 /* Octocat-Wink */,
 				515339C526EF3B4500495622 /* TriangleLoader */,
 				519F1A49261F4A3F0006566C /* DownloadButton */,
 				DAF98EF725F0D05B0052EDB8 /* SpinningLoader */,
@@ -612,7 +637,7 @@
 		F3DAEDC6253629FE0067F963 /* Support Shapes */ = {
 			isa = PBXGroup;
 			children = (
-				F3DAEDC725362A0B0067F963 /* OctocatShape.swift */,
+				F3DAEDC725362A0B0067F963 /* Octocat.swift */,
 			);
 			path = "Support Shapes";
 			sourceTree = "<group>";
@@ -742,7 +767,7 @@
 				F3DAEDF1253B18500067F963 /* DotsLoaderView.swift in Sources */,
 				F34DDACB2573E9DA009BAF83 /* AppConstants.swift in Sources */,
 				F36DF4CE258F4D2600BF9AA5 /* MovingCircleView.swift in Sources */,
-				F3DAEDC825362A0B0067F963 /* OctocatShape.swift in Sources */,
+				F3DAEDC825362A0B0067F963 /* Octocat.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
 				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
 				F3672DF62563864500967A8A /* BookPagesView.swift in Sources */,
@@ -750,6 +775,8 @@
 				F321C78A2578C1220018C82F /* InfinityShape.swift in Sources */,
 				F321C7862578C0D10018C82F /* InfinityView.swift in Sources */,
 				51F6B07F24E81E0300EF840F /* Loader.swift in Sources */,
+				518E973B2715BDCA008820A8 /* OctocatView.swift in Sources */,
+				518E97372715BD54008820A8 /* OctocatLoader.swift in Sources */,
 				515557E724DE966F0001E523 /* ChatBarView.swift in Sources */,
 				F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */,
 				519F1A56261F50FA0006566C /* DownloadButton.swift in Sources */,
@@ -762,6 +789,7 @@
 				51CBD27E250B30770005D9C2 /* PillLoader.swift in Sources */,
 				F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */,
 				515339C726EF3B4F00495622 /* TriangleLoader.swift in Sources */,
+				518E973D2715BE07008820A8 /* OctoHead.swift in Sources */,
 				519F1A60261F5C6D0006566C /* Downloader.swift in Sources */,
 				F30BA9772544606900DC8367 /* SwiftUIView.swift in Sources */,
 				F34DDABE2573E814009BAF83 /* CardFrontView.swift in Sources */,
