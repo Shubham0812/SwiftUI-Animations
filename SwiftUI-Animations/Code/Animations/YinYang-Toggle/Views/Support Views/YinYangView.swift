@@ -24,7 +24,7 @@ struct YinYangView: View {
     // MARK: - Views
     var body: some View {
         ZStack {
-            YinYangShape()
+            YinYangShape() // initial drawing overlay
                 .trim(from: 0, to: viewAppeared ? 1 : 0)
                 .stroke(lineWidth: 2)
                 .scaleEffect(scale)
@@ -40,7 +40,7 @@ struct YinYangView: View {
                         .frame(width: size * scale, height: size * scale)
                         .offset(x: 2, y: 2)
                 }
-                .background {
+                .background { // white background for the Yang Part
                     Circle()
                         .foregroundStyle(.white)
                         .frame(width: size * scale, height: size * scale)
@@ -48,7 +48,7 @@ struct YinYangView: View {
                 }
                 .opacity(viewAppeared ? 1 : 0)
                 .animation(.smooth.delay(animationDuration), value: viewAppeared)
-                .overlay {
+                .overlay { // 
                     ZStack {
                         Circle()
                             .trim(from: 0, to: viewAppeared ? 1 : 0)
