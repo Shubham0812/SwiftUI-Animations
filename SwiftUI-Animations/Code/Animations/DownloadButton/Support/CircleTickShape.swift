@@ -10,11 +10,11 @@ import SwiftUI
 
 struct CircleTickShape: Shape {
     
-    // MARK:- variables
+    // MARK: - Variables
     var circleSize: CGFloat = 60
     var scaleFactor: CGFloat = 0.3
 
-    // MARK:- functions
+    // MARK: - Functions
     func path(in rect: CGRect) -> Path {
         let cX = rect.midX
         let cY = rect.midY

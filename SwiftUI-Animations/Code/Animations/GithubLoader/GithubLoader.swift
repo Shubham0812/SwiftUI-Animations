@@ -10,12 +10,13 @@ import SwiftUI
 
 struct GithubLoader: View {
     
-    // MARK:- variables
+    // MARK: - variables
     @State var resetStrokes: Bool = true
     @State var strokeStart: CGFloat = 0
     @State var strokeEnd: CGFloat = 0
     
-    // MARK:- views
+    
+    // MARK: - views
     var body: some View {
         ZStack {
             Color.black

@@ -31,7 +31,8 @@ struct DownloadingIndicatorView: View {
                     Circle()
                         .frame(width: size, height: size)
                 )
-        }.onAppear() {
+        }
+        .onAppear() {
             if (needsAnimation) {
                 withAnimation(Animation.easeIn(duration: animationDuration)) {
                     downloadSymbolYOffset = size
@@ -43,7 +44,7 @@ struct DownloadingIndicatorView: View {
         }
     }
     
-    // MARK:- functions
+    // MARK: - functions
     func animate() {
         downloadSymbolYOffset = -size
         withAnimation(Animation.easeIn(duration: animationDuration)) {

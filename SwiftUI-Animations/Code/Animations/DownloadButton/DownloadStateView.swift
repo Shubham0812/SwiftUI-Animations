@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DownloadStateView: View {
     
-    // MARK:- variables
+    // MARK: - variables
     var state: DownloadState = .downloaded
     var needsProgress: Bool = true
     var isLight: Bool = false
@@ -18,7 +18,8 @@ struct DownloadStateView: View {
     @EnvironmentObject var downloader: Downloader
     @Binding var progress: CGFloat
     
-    // MARK:- views
+    
+    // MARK: - views
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
@@ -55,5 +56,6 @@ struct DownloadStateView: View {
 struct DownloadingStatesView_Previews: PreviewProvider {
     static var previews: some View {
         DownloadStateView(progress: .constant(0))
+            .environmentObject(Downloader())
     }
 }

@@ -87,7 +87,8 @@ struct OctocatView: View {
                 .scaleEffect(1.5)
                 .offset(y: -42)
             }
-        }.onAppear() {
+        }
+        .onAppear() {
             Timer.scheduledTimer(withTimeInterval: 0.35, repeats: true) { timer in
                 withAnimation(Animation.easeOut(duration: 0.55)) {
                     self.strokeEnd += CGFloat.random(in: 0.075 ..<  0.115)
@@ -112,6 +113,9 @@ struct OctocatView: View {
 
 struct OctocatView_Previews: PreviewProvider {
     static var previews: some View {
-        OctocatView()
+        ZStack {
+            OctocatView()
+        }
+        .preferredColorScheme(.dark)
     }
 }
