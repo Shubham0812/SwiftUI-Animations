@@ -5,6 +5,8 @@
 //  Created by Shubham Singh on 16/12/20.
 //  Copyright © 2020 Shubham Singh. All rights reserved.
 //
+//  Modified by Jacob Prezant on 06/29/29
+//
 
 import SwiftUI
 
@@ -63,7 +65,7 @@ struct LightSwitchView: View {
                 }.offset(x: appWidth / 2 - 48, y: -appHeight / 2)
                 .frame(height: 0, alignment: .top)
             }
-            .animation(Animation.spring(dampingFraction: 0.65).speed(1.25))
+            .animation(Animation.spring(dampingFraction: 0.65).speed(1.25), value: isOff)
         }.edgesIgnoringSafeArea(.all)
     }
     
