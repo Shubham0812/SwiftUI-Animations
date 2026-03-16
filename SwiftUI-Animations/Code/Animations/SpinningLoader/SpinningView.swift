@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SpinningView: View {
     
-    // MARK:- variables
+    // MARK: - variables
     @State var circleEnd: CGFloat = 0.001
     @State var smallerCircleEnd: CGFloat = 1
     
@@ -20,7 +20,7 @@ struct SpinningView: View {
     let trackerRotation: Double = 1
     let animationDuration: Double = 1.35
     
-    // MARK:- views
+    // MARK: - views
     var body: some View {
         ZStack {
             Color.black
