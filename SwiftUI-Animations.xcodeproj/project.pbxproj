@@ -81,6 +81,9 @@
 		F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */; };
 		F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */; };
 		F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA13D02535B9CB005E384E /* IntroView.swift */; };
+		AA0001012603180100000001 /* AnimationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001002603180100000001 /* AnimationItem.swift */; };
+		AA0001032603180100000002 /* AnimationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001022603180100000002 /* AnimationCardView.swift */; };
+		AA0001052603180100000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001042603180100000003 /* HomeView.swift */; };
 		F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA13D52535BA02005E384E /* HapticManager.swift */; };
 		F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */; };
 		F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */; };
@@ -170,6 +173,9 @@
 		F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapusuleGroupView.swift; sourceTree = "<group>"; };
 		F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerCapsuleView.swift; sourceTree = "<group>"; };
 		F3DA13D02535B9CB005E384E /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		AA0001002603180100000001 /* AnimationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationItem.swift; sourceTree = "<group>"; };
+		AA0001022603180100000002 /* AnimationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCardView.swift; sourceTree = "<group>"; };
+		AA0001042603180100000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F3DA13D52535BA02005E384E /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
@@ -612,6 +618,9 @@
 			isa = PBXGroup;
 			children = (
 				F3DA13D02535B9CB005E384E /* IntroView.swift */,
+				AA0001002603180100000001 /* AnimationItem.swift */,
+				AA0001022603180100000002 /* AnimationCardView.swift */,
+				AA0001042603180100000003 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -803,6 +812,9 @@
 				5184228326207DE90004FA3A /* DownloadStateView.swift in Sources */,
 				F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */,
 				F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */,
+				AA0001012603180100000001 /* AnimationItem.swift in Sources */,
+				AA0001032603180100000002 /* AnimationCardView.swift in Sources */,
+				AA0001052603180100000003 /* HomeView.swift in Sources */,
 				F336790825618E3B0043EF73 /* BookHold.swift in Sources */,
 				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
 				51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */,
