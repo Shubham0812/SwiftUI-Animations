@@ -284,6 +284,13 @@ Contributions are welcome! Whether it's a new animation, a bug fix, or an improv
 
 Please read the **[Contributing Guide](CONTRIBUTING.md)** for detailed instructions on how to get started, code style guidelines, and the pull request process.
 
+| Resource | Description |
+|----------|-------------|
+| [Contributing Guide](CONTRIBUTING.md) | How to contribute, code style, PR process |
+| [Code of Conduct](CODE_OF_CONDUCT.md) | Community standards and expectations |
+| [Security Policy](SECURITY.md) | How to report vulnerabilities |
+| [Changelog](CHANGELOG.md) | History of changes and new animations |
+
 ## Contributors
 
 Thanks to everyone who has helped make this project better!

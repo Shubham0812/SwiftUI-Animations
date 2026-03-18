@@ -147,7 +147,7 @@ Found a bug or have a suggestion? [Open an issue](https://github.com/Shubham0812
 
 ## Code of Conduct
 
-Be respectful and constructive. We are all here to learn and build great SwiftUI animations together. Harassment, discrimination, or disrespectful behavior of any kind will not be tolerated.
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Be respectful and constructive — we are all here to learn and build great SwiftUI animations together.
 
 ---
 
