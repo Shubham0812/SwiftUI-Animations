@@ -8,24 +8,50 @@
 
 import SwiftUI
 
+/// An interactive Wi-Fi signal animation that simulates scanning and connecting.
+///
+/// Displays three concentric `ArcView` arcs and a central dot. Tapping the widget
+/// launches a scanning animation where the arcs oscillate up and down. After
+/// `animationDuration × 12`, the arcs turn green (`wifiConnected`) and a particle
+/// burst (`CircleEmitter`) celebrates the simulated connection.
+///
+/// **State machine (simplified):**
+/// ```
+/// idle  →[tap]→  searching  →[12× duration]→  connected  →[brief burst]→  idle-connected
+/// ```
+/// Three overlapping repeating timers drive the arc oscillation during the searching phase.
 struct WifiView: View {
-    
+
     // MARK:- variables
+
+    /// `true` while the arcs are oscillating in the scanning phase.
     @State var isAnimating: Bool = false
+    /// `true` for a brief window after connection to trigger the `CircleEmitter` particle burst.
     @State var isConnected: Bool = false
-    
+
+    /// Vertical offset of the central dot — bounces between –25 and +20 pt during scanning.
     @State var circleOffset: CGFloat = 20
+    /// Vertical offset of the small (innermost) arc.
     @State var smallArcOffset: CGFloat = 16
+    /// Vertical offset of the medium arc — oscillates on a 2× timer period.
     @State var mediumArcOffset: CGFloat = 14.5
+    /// Vertical offset of the large (outermost) arc — oscillates on a 3× timer period.
     @State var largeArcOffset: CGFloat = 14
-    
+
+    /// Fill color of all arcs — white during scanning, green (`wifiConnected`) on connection.
     @State var arcColor: Color = Color.white
+    /// Shadow color for all arcs — blue during scanning, white on connection.
     @State var shadowColor: Color = Color.blue
+    /// Label shown below the arcs — "Wi-Fi" → "Searching" → "Connected".
     @State var wifiHeaderLabel: String = "Wi-Fi"
-    
+
+    /// Static flag indicating whether the animation is currently moving upward.
+    /// Shared across all three arc timers to synchronise direction changes.
     static var animationMovingUpwards: Bool = true
+    /// Static flag used by the 3× timer to alternate the small arc direction.
     static var moveArc: Bool = true
-    
+
+    /// Base timer interval; all arc oscillation periods are multiples of this.
     var animationDuration: Double = 0.35
     
     var body: some View {
@@ -95,6 +121,9 @@ struct WifiView: View {
     }
     
     // MARK:- functions
+
+    /// Returns the arc rotation during scanning. Currently only `+180°` is reachable
+    /// (the second `else if` branch is unreachable due to identical condition).
     func getRotation(arcBoolean: Bool) -> Angle {
         if (self.isAnimating && arcBoolean) {
             return Angle.degrees(180)
@@ -104,6 +133,11 @@ struct WifiView: View {
         return Angle.degrees(0)
     }
     
+    /// Starts three overlapping repeating timers that drive the arc oscillation:
+    /// - **1× timer**: moves the dot and small arc ±15 pt, reversing at ±25/+20 pt bounds.
+    /// - **2× timer**: nudges the medium arc back upward every other tick.
+    /// - **3× timer**: alternates `moveArc` and snaps small/medium/large offsets based on direction.
+    /// All timers self-invalidate when `isAnimating` becomes `false`.
     func animate() {
         Timer.scheduledTimer(withTimeInterval: self.animationDuration, repeats: true) { (arcTimer) in
             if (self.isAnimating) {
@@ -147,6 +181,7 @@ struct WifiView: View {
         }
     }
     
+    /// Resets all animation state to the initial idle position, ready for the next tap.
     func restoreAnimation() {
         self.isAnimating = false
         Self.animationMovingUpwards = true
@@ -158,6 +193,8 @@ struct WifiView: View {
         self.largeArcOffset = 14
     }
     
+    /// Begins the scanning phase: toggles `isAnimating`, sets label to "Searching",
+    /// and snaps the arc offsets to their initial upward positions.
     func resetValues() {
         self.isAnimating.toggle()
         self.wifiHeaderLabel = "Searching"

@@ -8,8 +8,14 @@
 
 import SwiftUI
 
+/// A custom `Shape` that draws a `+` symbol as two crossing line segments.
+///
+/// The cross is centered in `rect` with arms extending ±16 pt from center.
+/// Rendered with a round-capped stroke it becomes a clean `+` icon.
+/// Used in `ShrinkingPlus` as decorative particles in `LoginView`.
 struct Plus: Shape {
-    
+
+    /// Constructs two perpendicular lines (vertical and horizontal) crossing at `rect.mid`.
     func path(in rect: CGRect) -> Path {
 
         let cX: CGFloat = rect.midX

@@ -8,19 +8,32 @@
 
 import SwiftUI
 
+/// Top-level view for the Bank Card demo, combining a flip animation with a snap carousel.
+///
+/// Tapping a `CardFrontView` triggers an `easeInOut` flip to `CardBackView` via `rotation3DEffect`,
+/// using two independent 4-tuple `CardState` values (degree, offset, anchor, y-axis) per face.
+/// A 0.1 s polling timer syncs `cardBalance` to whichever card is active in the `UIStateModel`.
 struct CardView: View {
-    
+
     // MARK:- variables
+    /// Duration of the flip animation when the user taps a card face.
     let animationDuration: TimeInterval = 0.3
+    /// Card width — 85% of the screen width, matching the `Item` slot in the carousel.
     let displayWidth: CGFloat = UIScreen.main.bounds.width * 0.85
-    
+
+    /// The currently displayed card (used for initial state; full list is in `userCards`).
     @State var card: Card
-    
+
+    /// Tracks whether the active card is showing its back face.
     @State var cardFlipped: Bool = false
+    /// Populated from `AppConstants.cards` on appear; drives the `ForEach` in the carousel.
     @State var userCards: [Card] = []
-    
+
+    /// Shared carousel state injected as an `@EnvironmentObject` into `Carousel`.
     @State var UIState: UIStateModel
+    /// Formatted balance of the currently active card — updates via the polling timer.
     @State var cardBalance: Double = 0
+    /// Mirrors `UIState.activeCard`; used to detect when the carousel swipes to a new card.
     @State var selectedIndex: Int = 0
     
     // MARK:- views
@@ -107,18 +120,29 @@ struct CardView: View {
     }
     
     // Rotations // Trailpoints
+    /// Perspective divisor for `rotation3DEffect` — 1 gives a natural-looking perspective.
     let perspective: CGFloat = 1
+    /// Current rotation degree for the front face (`CardFrontView`).
     @State var firstViewDegree: Double = CardState.initialTrailing.rotationValues.0
+    /// Horizontal offset applied to the front face during the flip transition.
     @State var firstViewOffset: CGFloat = CardState.initialTrailing.rotationValues.1
+    /// Rotation anchor for the front face (`.trailing` during front→back flip).
     @State var firstViewAnchor: UnitPoint = CardState.initialTrailing.rotationValues.2
+    /// Y-axis sign for the front face rotation (`-1` = flip toward viewer).
     @State var firstViewYAxis: CGFloat = CardState.initialTrailing.rotationValues.3
-    
-    @State var secondViewDegree:Double = CardState.initialLeading.rotationValues.0
-    @State var secondViewOffset:CGFloat = CardState.initialLeading.rotationValues.1
+
+    /// Current rotation degree for the back face (`CardBackView`).
+    @State var secondViewDegree: Double = CardState.initialLeading.rotationValues.0
+    /// Horizontal offset applied to the back face during the flip transition.
+    @State var secondViewOffset: CGFloat = CardState.initialLeading.rotationValues.1
+    /// Rotation anchor for the back face (`.leading` during front→back flip).
     @State var secondViewAnchor: UnitPoint = CardState.initialLeading.rotationValues.2
+    /// Y-axis sign for the back face rotation.
     @State var secondViewYAxis: CGFloat = CardState.initialLeading.rotationValues.3
-    
+
     // MARK:- functions
+    /// Applies a `CardState` pair to both face layers, driving the flip animation.
+    /// Called with `(.finalTrailing, .finalLeading)` on tap-front and the inverse on tap-back.
     func setValuesOnState(rotation1: CardState, rotation2: CardState) {
         self.firstViewDegree = rotation1.rotationValues.0
         self.firstViewOffset = rotation1.rotationValues.1
@@ -131,14 +155,19 @@ struct CardView: View {
         self.secondViewYAxis = rotation2.rotationValues.3
     }
     
+    /// The four rotation configurations used to flip `CardFrontView` ↔ `CardBackView`.
+    ///
+    /// Each case encodes a 4-tuple `(degree, offset, anchor, yAxis)` consumed by
+    /// `rotation3DEffect`. The front face transitions `.initialTrailing` → `.finalTrailing`
+    /// while the back face transitions `.initialLeading` → `.finalLeading`.
     enum CardState: CaseIterable {
         case initialLeading
         case finalLeading
         case initialTrailing
         case finalTrailing
-        
-        
+
         // Degree, Offset, Anchor, Axis
+        /// Returns `(rotationDegrees, horizontalOffset, anchorPoint, yAxisSign)`.
         var rotationValues: (Double, CGFloat, UnitPoint, CGFloat) {
             switch self {
             case .initialLeading:

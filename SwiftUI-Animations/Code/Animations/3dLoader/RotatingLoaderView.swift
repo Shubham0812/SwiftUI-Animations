@@ -8,12 +8,22 @@
 
 import SwiftUI
 
+/// The four states of a 3D cube face flip in `RotatingLoaderView`.
+///
+/// Each state provides a `(degree, offset, anchor, yAxis)` tuple used as arguments to
+/// `rotation3DEffect`. The `offset` physically moves the face so the rotation pivot
+/// appears to be at the cube's edge (perspective hinge) rather than its center.
 enum RotationState: CaseIterable {
     case initialLeading
     case finalLeading
     case initialTrailing
     case finalTrailing
-    
+
+    /// Returns `(rotationDegrees, xOffset, anchorPoint, yAxisDirection)`.
+    /// - `rotationDegrees`: 0 = face-on, 90 = folded flat/hidden.
+    /// - `xOffset`: horizontal translation so the face swings from the correct edge.
+    /// - `anchorPoint`: `.leading` or `.trailing` — the hinge edge.
+    /// - `yAxisDirection`: 1 (leading hinge rotates inward) or –1 (trailing hinge).
     // Degree, Offset, Anchor, Axis
     var rotationValues: (Double, CGFloat, UnitPoint, CGFloat) {
         switch self {
@@ -29,25 +39,46 @@ enum RotationState: CaseIterable {
     }
 }
 
+/// A two-faced 3D cube loader that alternates between a white face (`DashedLoaderView`)
+/// and a dark face (`RectangleLoaderView` or `DotsLoaderView`) using `rotation3DEffect`.
+///
+/// Each "flip" animates both faces simultaneously — one swings in from the leading edge
+/// while the other swings out from the trailing edge — creating the illusion of a rotating cube.
+/// After the first two flips, the dark face switches from `RectangleLoaderView` to `DotsLoaderView`.
 struct RotatingLoaderView: View {
-    
+
     // MARK:- variables
+
+    // ── First face (dark, initially trailing/visible) ─────────────────────────
+    /// 3D rotation degree for the dark face (0 = visible, 90 = hidden/folded).
     @State var firstViewDegree: Double = RotationState.initialTrailing.rotationValues.0
+    /// Horizontal offset for the dark face, moves it to the correct hinge edge.
     @State var firstViewOffset: CGFloat = RotationState.initialTrailing.rotationValues.1
+    /// Anchor point (hinge) for the dark face's `rotation3DEffect`.
     @State var firstViewAnchor: UnitPoint = RotationState.initialTrailing.rotationValues.2
+    /// Y-axis direction for the dark face (–1 = trailing hinge, rotates left).
     @State var firstViewYAxis: CGFloat = RotationState.initialTrailing.rotationValues.3
-    
+
+    // ── Second face (white, initially leading/hidden) ──────────────────────────
+    /// 3D rotation degree for the white (`DashedLoaderView`) face.
     @State var secondViewDegree:Double = RotationState.initialLeading.rotationValues.0
+    /// Horizontal offset for the white face.
     @State var secondViewOffset:CGFloat = RotationState.initialLeading.rotationValues.1
+    /// Anchor point for the white face's `rotation3DEffect`.
     @State var secondViewAnchor: UnitPoint = RotationState.initialLeading.rotationValues.2
+    /// Y-axis direction for the white face (1 = leading hinge, rotates right).
     @State var secondViewYAxis: CGFloat = RotationState.initialLeading.rotationValues.3
-    
-    
+
+    /// Total duration of one pause (face fully visible) before the next flip begins.
     @State var timerDuration: TimeInterval = 3.5
+    /// Duration of the easeOut flip animation (face swings in/out).
     @State var animationDuration: TimeInterval = 1.5
+    /// Alternates the leading/trailing direction of each flip.
     @State var animateTrail: Bool = false
+    /// Unused in current layout — reserved for flickering overlays between flips.
     @State var showFlickeringViews: Bool = false
-    
+
+    /// Counts completed flips; selects `DotsLoaderView` when `counter >= 2`.
     @State var counter = 0
     
     // MARK:- views
@@ -101,6 +132,9 @@ struct RotatingLoaderView: View {
     }
     
     // MARK:- functions
+
+    /// Applies the rotation values for two `RotationState` cases to the first and second faces.
+    /// Called both without animation (to snap to initial position) and within `withAnimation` blocks.
     func setValuesOnState(rotation1: RotationState, rotation2: RotationState) {
         self.firstViewDegree = rotation1.rotationValues.0
         self.firstViewOffset = rotation1.rotationValues.1
@@ -114,6 +148,11 @@ struct RotatingLoaderView: View {
     }
 
     
+    /// Starts a repeating timer that alternates the cube flip direction each `timerDuration`.
+    ///
+    /// Each tick: snaps both faces to their new initial positions (no animation),
+    /// then immediately animates them to the opposite final positions via `easeOut`.
+    /// `animateTrail` toggles each time so the cube flips left and right alternately.
     func rotateCube() {
         Timer.scheduledTimer(withTimeInterval: timerDuration, repeats: true) { _ in
             showFlickeringViews.toggle()

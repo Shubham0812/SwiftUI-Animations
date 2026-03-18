@@ -8,9 +8,17 @@
 
 import SwiftUI
 
+/// A floating action button that expands four action tiles on tap.
+///
+/// The central `+` icon rotates 45° and scales up when expanded.
+/// Four `ExpandingView` tiles fly out in the four cardinal directions
+/// (top, bottom, left, right), each revealing a different SF Symbol icon.
+/// Tapping again collapses everything back to the `+`.
 struct AddView: View {
-    
+
     // MARK:- variables
+
+    /// `true` when the four action tiles are expanded; drives all child animations.
     @State var isAnimating: Bool = false
     
     // MARK:- views
@@ -45,12 +53,19 @@ struct AddButton_Previews: PreviewProvider {
     }
 }
 
+/// The direction a tile flies out from the central `+` button in `AddView`.
+///
+/// Each case provides two offset tuples used by `ExpandingView`:
+/// - `offsets`: the final (x, y) position of the tile when fully expanded.
+/// - `containerOffset`: a small static nudge applied to the tile's outer `ZStack`
+///   to prevent all four tiles from stacking exactly on the center point.
 enum ExpandDirection {
     case bottom
     case left
     case right
     case top
-    
+
+    /// Final (x, y) offset of the tile when `expand == true`.
     var offsets: (CGFloat, CGFloat) {
         switch self {
         case .bottom:
@@ -64,6 +79,8 @@ enum ExpandDirection {
         }
     }
     
+    /// Small static offset applied to the tile's outer container, unique per direction,
+    /// so collapsed tiles don't overlap perfectly at the origin.
     var containerOffset: (CGFloat, CGFloat) {
         switch self {
         case .bottom:

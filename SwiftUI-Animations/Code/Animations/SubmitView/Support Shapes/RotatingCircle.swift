@@ -8,17 +8,32 @@
 
 import SwiftUI
 
+/// A white circle that orbits around a central point and then shrinks away,
+/// used as the spinning progress indicator inside `SubmitView`.
+///
+/// On appear the circle scales up, moves outward, and begins rotating for
+/// `trackerRotation` full turns over `timerInterval` seconds. When rotation
+/// ends, it shrinks, drifts upward, and fades out.
 struct RotatingCircle: View {
-    
+
     // MARK:- variables
+
+    /// Unused flag — declared but never toggled in the current implementation.
     @State var isAnimating: Bool = false
+    /// Current rotation angle, animated from 0° to `360 × trackerRotation`.
     @State var rotationAngle: Angle = .degrees(0)
+    /// Scale of the orbiting circle (0.5 → 1 on appear, 0.25 on exit).
     @State var circleScale: CGFloat = 0.5
+    /// Horizontal offset from center — starts at 30, expands to 130 for the orbit radius.
     @State var xOffset: CGFloat = 30
+    /// Vertical offset — stays 0 during rotation, shifts to -40 on exit for upward drift.
     @State var yOffSet: CGFloat = 0
+    /// Opacity — fades to 0 after the rotation completes.
     @State var opacity: Double = 1
-    
+
+    /// Number of full 360° rotations to perform.
     let trackerRotation: Double
+    /// Total duration of the rotation phase; also used to schedule the exit animation.
     let timerInterval: TimeInterval
     
     // MARK:- views
@@ -56,6 +71,8 @@ struct RotatingCircle: View {
     }
     
     // MARK:- functions
+
+    /// Returns the total rotation angle: `360° × trackerRotation`.
     func getRotationAngle() -> Angle {
         return .degrees(360 * self.trackerRotation)
     }

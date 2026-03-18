@@ -8,18 +8,35 @@
 
 import SwiftUI
 
+/// A single animated capsule that moves in a specific direction as part of the square Loader animation.
+///
+/// Each `Loader` instance represents one capsule that stretches and slides along one edge of an
+/// invisible square. Multiple `Loader` instances (one per direction) are combined to create the
+/// full square loader effect. The capsule animates in two phases per cycle: first it stretches
+/// in the movement direction (`increment_before`), then it contracts and slides to the final
+/// position (`increment_after`), creating a fluid bouncing motion. The animation cycles through
+/// all `LoaderState` cases (directions) continuously.
 struct Loader: View {
-    
+
     // MARK:- variables
+    /// The current width of the animated capsule, changes during stretch/contract phases.
     @State var capsuleWidth: CGFloat = 40
+    /// The current height of the animated capsule, changes during stretch/contract phases.
     @State var capsuleHeight: CGFloat = 40
+    /// Horizontal offset from center, animated to slide the capsule along the x-axis.
     @State var xOffset: CGFloat = 0
+    /// Vertical offset from center, animated to slide the capsule along the y-axis.
     @State var yOffset: CGFloat = 0
+    /// The current movement direction/state of this capsule in the animation cycle.
     @State var loaderState: LoaderState
+    /// Tracks which `LoaderState` case is active, used to cycle through all directions.
     @State var currentIndex = 0
+    /// Flag indicating whether the animation has been initialized.
     @State var animationStarted: Bool = true
-    
+
+    /// Delay before the first animation cycle begins, used to stagger multiple loader capsules.
     var timerDuration: TimeInterval
+    /// External binding that controls whether the animation is running; setting to `false` stops the loop.
     @Binding var startAnimating: Bool
     
     // MARK:- views

@@ -8,42 +8,79 @@
 
 import SwiftUI
 
+/// Layout descriptor for a single `ShrinkingPlus` particle in `LoginView`.
+///
+/// Each instance defines the position, color, animation timing, scale, and rotation
+/// of one `+` symbol in the decorative background particle layer.
 struct PlusPosition: Identifiable, Hashable {
     var id: Int
+    /// Color of the `+` stroke — typically white or the gradient accent color.
     var color: Color
-    
+
+    /// Horizontal offset from the center of the login view.
     var offsetX: CGFloat
+    /// Vertical offset from the center of the login view.
     var offsetY: CGFloat
+    /// Stagger delay before this `+` begins its shrink animation.
     var delay: TimeInterval
-    
+
+    /// Scale of the `+` symbol in its visible state.
     var scale: CGFloat
+    /// Opacity of the `+` symbol (allows dimmer particles for depth).
     var opacity: Double
+    /// Rotation angle of the `+` symbol — typically ±43° for a tilted ✕ look.
     var degree: Angle
 }
 
 
+/// A multi-phase "Sign in with Facebook" login screen animation.
+///
+/// **On appear:** The login button slides up from below and a `Bolt` lightning icon draws itself in.
+///
+/// **On tap:**
+/// 1. Button bounces (spring squeeze) then slides off-screen.
+/// 2. A gradient arc circle traces around a profile image placeholder.
+/// 3. After 3 s the profile image pops in (spring scale).
+/// 4. After 6.5 s the view blurs, simulating a screen transition away.
+///
+/// Seven `ShrinkingPlus` particles float around the profile image as decorative background elements.
 struct LoginView: View {
-    
+
     // MARK:- variables
+
+    /// `true` after the view appears — triggers the Bolt draw-in animation.
     @State var viewAppeared: Bool = false
+    /// Briefly `true` during button tap to trigger the spring squeeze animation.
     @State var bounceAnimation: Bool = false
+    /// `true` after button is tapped — hides the button and starts the circle/profile sequence.
     @State var loginButtonPressed: Bool = false
+    /// `true` after 3 s — reveals the profile image with a spring scale animation.
     @State var showProfileImage: Bool = false
+    /// Swaps which circle tracker is visible when `rotateCircles()` starts.
     @State var switchCircles: Bool = false
-    
+
+    /// Rotation angle of the orbiting small circle dot around the profile ring.
     @State var circleTrackerDegree: Angle = Angle.degrees(0)
+    /// Trim start of the arc gradient around the profile image.
     @State var circleTrackStart: CGFloat = 0
+    /// Trim end of the arc gradient — grows from 0 → 1 then collapses as the arc loops.
     @State var circleTrackEnd: CGFloat = 0
+    /// Applied to the whole center ZStack at `t = 6.5 s` to signal a screen transition.
     @State var blurRadius: CGFloat = 0
-    
+
+    /// Height of the login button — 0 before appear/after tap, `9.5% × screenHeight` otherwise.
     @State var loginButtonHeight: CGFloat = 0
+    /// Y-offset of the login button — starts at 24 (off-position), animates to 0 on appear.
     @State var loginButtonYOffset: CGFloat = 24
-    
-    
+
+    /// Seven hardcoded `PlusPosition` descriptors placed around the profile image.
     var positions: [PlusPosition] = []
+    /// Base duration shared by the circle arc and profile image animations.
     let animationDuration: TimeInterval = 0.75
+    /// Pixel distance used to position the profile ZStack above center and the button below.
     let offsetDifference: CGFloat = 100
-    
+
+    /// Gradient used for the Bolt icon stroke and the profile arc.
     let gradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color.circleRoundStart, Color.circleRoundEnd]), startPoint: .leading, endPoint: .trailing)
     
     // MARK:- initializers
@@ -182,6 +219,11 @@ struct LoginView: View {
     }
     
     // MARK:- functions
+
+    /// Starts the profile arc animation loop.
+    ///
+    /// Switches the visible circle tracker, begins `circleLines()`, then repeats
+    /// every `animationDuration × 4` until `blurRadius == 6` (screen transition).
     func rotateCircles() {
         self.switchCircles.toggle()
         circleLines()
@@ -198,6 +240,8 @@ struct LoginView: View {
         }
     }
     
+    /// Animates one arc cycle: grows `circleTrackEnd` from 0 → 1 while rotating the tracker dot,
+    /// then after `animationDuration × 2` collapses `circleTrackStart` from 0 → 1 to erase the arc.
     func circleLines() {
         withAnimation(Animation.easeIn(duration: animationDuration).delay(0.45)) {
             self.circleTrackerDegree = .degrees(360)
@@ -216,6 +260,10 @@ struct LoginView: View {
         }
     }
     
+    /// Returns the seven hardcoded `PlusPosition` descriptors for the decorative `+` particles.
+    ///
+    /// Each position is hand-tuned with a unique color, scale, rotation, opacity, and delay
+    /// so the particles appear organically scattered rather than evenly distributed.
     func getRandomPositions() -> [PlusPosition] {
         var positions = [PlusPosition]()
         positions.append(PlusPosition(id: 0, color: Color.white, offsetX: -92, offsetY: -100, delay: 0.2, scale: 0.8, opacity: 1, degree: Angle(degrees: 43)))

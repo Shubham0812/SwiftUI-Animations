@@ -8,11 +8,20 @@
 
 import SwiftUI
 
+/// The white face of the 3D cube loader, showing a dashed ring with two orbiting dots.
+///
+/// Displayed when the cube is flipped to its white side in `RotatingLoaderView`.
+/// The dashed circle rotates continuously (5 s linear loop), while two satellite dots
+/// orbit at 75% of that speed (3.75 s), creating an independent layered spin effect.
 struct DashedLoaderView: View {
-    
+
     // MARK:- variables
+
+    /// Drives all three `repeatForever` rotation animations — toggled once on appear.
     @State var isAnimating: Bool = false
-    
+
+    /// Duration for one full rotation of the dashed ring.
+    /// The two satellite dots use `animationDuration × 0.75` so they orbit faster.
     let animationDuration: TimeInterval = 5
     
     // MARK:- views

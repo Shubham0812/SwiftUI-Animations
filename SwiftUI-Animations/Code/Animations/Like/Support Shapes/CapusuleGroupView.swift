@@ -8,9 +8,16 @@
 
 import SwiftUI
 
+/// A radial burst of 11 shrinking capsules arranged in a fan, simulating a like confetti explosion.
+///
+/// Five upper `ShrinkingCapsule` instances spread at 0°, ±33°, and ±65° in a top fan.
+/// Six lower `ShrinkingCapsule` instances in `LowerCapsuleView` extend the burst downward.
+/// Together they form the colorful particle ring that appears above the heart on like.
 struct CapusuleGroupView: View {
-    
+
     // MARK:- variables
+
+    /// When `true`, all capsules shrink and fade — triggers the burst animation in each child.
     @Binding var isAnimating: Bool
     
     // MARK:- views

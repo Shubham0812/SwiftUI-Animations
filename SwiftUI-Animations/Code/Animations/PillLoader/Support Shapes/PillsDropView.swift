@@ -8,9 +8,18 @@
 
 import SwiftUI
 
+/// Composes three `PillGroupView` clusters into a full particle burst effect.
+///
+/// The three groups are vertically staggered (`y` offsets: 0, –45, –99.5 pt) so the
+/// dots appear to spill out from the bottom, middle, and upper portions of the pill.
+/// Together they create the visual effect of liquid dots erupting from the open pill.
+///
+/// Shown in `PillLoader` when `hideCapsule` is `true` (pill is split open).
 struct PillsDropView: View {
-    
+
     // MARK:- variables
+
+    /// Passed through to all three `PillGroupView` instances to trigger the burst.
     @Binding var isAnimating: Bool
     
     // MARK:- views

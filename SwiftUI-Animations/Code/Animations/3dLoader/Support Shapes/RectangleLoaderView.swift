@@ -8,10 +8,20 @@
 
 import SwiftUI
 
+/// Four thin white bars that pulse up and down in a staggered "equalizer" pattern.
+///
+/// Displayed on the dark face of the 3D cube loader (`RotatingLoaderView`).
+/// Each bar has a fixed width (12 pt) and a height that alternates between 25% and 10%
+/// of the container width, with delays of 0, 0.2, 0.4, and 0.6 s so they cascade.
+///
+/// The height is set from `GeometryProxy` on appear so it scales with any container size.
 struct RectangleLoaderView: View {
-    
+
     // MARK:- variables
+
+    /// Vertical offset for all bars — currently unused (always 0); reserved for future use.
     @State var yOffset: CGFloat = 0
+    /// Current height of all four bars, driven by `animateRectangles(in:)`.
     @State var rectangleHeight: CGFloat = 12
     
     // MARK:- views
@@ -53,6 +63,9 @@ struct RectangleLoaderView: View {
     }
     
     // MARK:- functions
+
+    /// Pulses bar heights: expands to 25% of container width, then collapses to 10% after 0.5 s.
+    /// Called on appear and repeats every 1.5 s so the animation loops continuously.
     func animateRectangles(in geometry: GeometryProxy) {
         rectangleHeight = geometry.size.width * 0.25
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in

@@ -8,10 +8,18 @@
 
 import SwiftUI
 
-// A custom Shape that draws a triangle within a given rectangle.
+/// A custom `Shape` that draws an isosceles triangle, used as the base shape for the TriangleLoader animation.
+///
+/// The triangle has its apex at the top-center and a flat base at 85% of the rect's height.
+/// The path is drawn twice (likely a copy-paste artifact) but this has no visual effect since
+/// both sub-paths are identical. When stroked with `trim(from:to:)` animation, this creates
+/// a drawing/undrawing effect for the loader.
 struct TriangleShape: Shape {
-    
-    // Required by the Shape protocol — defines the triangle's path within the bounding rect.
+
+    /// Draws the triangle path within the bounding rect.
+    ///
+    /// Vertices are placed at top-center (apex), bottom-left, and bottom-right, with the base
+    /// at 85% of the rect's height. The path is traced twice for the full triangle outline.
     func path(in rect: CGRect) -> Path {
         var path = Path()
         

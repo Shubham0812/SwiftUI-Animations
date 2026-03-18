@@ -8,17 +8,37 @@
 
 import SwiftUI
 
+/// A pill-shaped loader that spins, splits open, fills with a wave animation, then resets.
+///
+/// **Animation sequence (one full cycle):**
+/// 1. The pill rotates 1.5 × 360° = 540° with an interactive spring.
+/// 2. Near the end of the rotation, the top half slides away (`hideCapsule = true`),
+///    revealing the pill interior.
+/// 3. A wave-fill (`WaveFill`) rises up from the bottom half while `fillCapsule = true`.
+///    A repeating timer increments `time` to animate the wave curve.
+/// 4. After 2.5× the rotation window, everything snaps back to the initial state.
+///
+/// `FillShapes` decorators float above and below the pill to add particle depth.
 struct PillLoader: View {
-    
+
     // MARK:- variables
+
+    /// Number of full rotations per cycle. Total rotation = `trackerRotation × 360°`.
     let trackerRotation: Double = 1.5
+    /// Base duration driving both the rotation spring and the fill animation.
     let animationDuration: Double = 3
+    /// Cool blue-to-purple gradient background for the full screen.
     let backgroundColor: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.4), Color.purple.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottom)
-    
+
+    /// Drives the initial rotation spring. Toggled at cycle start and mid-cycle reset.
     @State var isAnimating: Bool = false
+    /// When `true`, the top half of the pill slides away, revealing the fill interior.
     @State var hideCapsule: Bool = false
+    /// When `true`, the `WaveFill` rises up to fill the lower half of the pill.
     @State var fillCapsule: Bool = false
 
+    /// Wave curve phase offset, incremented every 10 ms while `hideCapsule` is true.
+    /// Passed to `WaveFill` to produce a continuously undulating liquid surface.
     @State private var time: CGFloat = 0.5
     
     // MARK:- views
@@ -82,10 +102,18 @@ struct PillLoader: View {
     }
     
     // MARK:- functions
+
+    /// Returns the total rotation for one cycle: `trackerRotation × 360°` = 540°.
     func getRotationAngle() -> Angle {
         return .degrees(360 * self.trackerRotation)
     }
-    
+
+    /// Runs one complete loader cycle with four overlapping timer phases:
+    ///
+    /// - **t = 0**: Rotates the pill 540° using an interactive spring.
+    /// - **t = (rotation − 0.25 s)**: Splits the pill open (`hideCapsule`) and starts the wave fill.
+    ///   A 10 ms repeating timer increments `time` to animate the wave while the pill is open.
+    /// - **t = rotation × 2.5**: Resets all state back to initial for the next cycle.
     func animateLoader() {
         withAnimation(Animation.interactiveSpring(response: self.animationDuration * self.trackerRotation, dampingFraction: 1, blendDuration: 1)) {
             self.isAnimating.toggle()

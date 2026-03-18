@@ -9,16 +9,16 @@
 
 import SwiftUI
 
-// Represents the four animation phases of the triangle loader.
-// Each phase defines where the stroke is drawn and where the circle sits.
+/// Represents the four animation phases of the triangle loader.
+/// Each phase defines where the stroke is drawn and where the circle sits.
 enum TriangleState {
     case begin
     case phaseOne
     case phaseTwo
     case stop
     
-    // Returns the (strokeStart, strokeEnd) trim values for each phase,
-    // controlling which portion of the triangle outline is visible.
+    /// Returns the (strokeStart, strokeEnd) trim values for each phase,
+    /// controlling which portion of the triangle outline is visible.
     func getStrokes() -> (CGFloat, CGFloat) {
         switch self {
         case .begin:
@@ -32,8 +32,8 @@ enum TriangleState {
         }
     }
     
-    // Returns the (x, y) offset for the circle indicator at each phase,
-    // positioning it at the corresponding corner/apex of the triangle.
+    /// Returns the (x, y) offset for the circle indicator at each phase,
+    /// positioning it at the corresponding corner/apex of the triangle.
     func getCircleOffset() -> (CGFloat, CGFloat) {
         switch self {
         /// you'll have to change the offset values here if you want to increase/decrease the size of the circle
@@ -49,21 +49,28 @@ enum TriangleState {
     }
 }
 
+/// An animated triangle loader where a stroke segment and circle indicator
+/// travel around the triangle's edges through four sequential phases.
+///
+/// Tap to start. A partial stroke slides along the triangle outline while a
+/// small circle bounces between vertices using spring physics. The animation
+/// loops indefinitely via a repeating `Timer`.
 struct TriangleLoader: View {
-    
+
     // MARK:- variables
-    
-    // Controls which segment of the triangle stroke is currently visible
+
+    /// Controls which segment of the triangle stroke is currently visible.
     @State var strokeStart: CGFloat = 0
+    /// End point of the visible stroke segment, paired with `strokeStart`.
     @State var strokeEnd: CGFloat = 0
-    
-    // Controls the position of the circle indicator
+
+    /// Controls the position of the circle indicator relative to the triangle center.
     @State var circleOffset: CGSize = CGSize(width: 0, height: 0)
-    
-    // Duration (in seconds) of each individual animation step
+
+    /// Duration (in seconds) of each individual animation step.
     let animationDuration: TimeInterval = 0.7
-    
-    // Color of the circle indicator — can be customised at the call site
+
+    /// Color of the circle indicator — can be customised at the call site.
     var circleColor: Color = Color.blue
     
     // MARK:- views
@@ -103,8 +110,8 @@ struct TriangleLoader: View {
     
     // MARK:- functions
     
-    // Orchestrates one full loop of the animation across three phases,
-    // using staggered timers to sequence stroke and circle transitions.
+    /// Orchestrates one full loop of the animation across three phases,
+    /// using staggered timers to sequence stroke and circle transitions.
     func animate() {
         // Phase 1: Stroke and circle move to the right corner
         Timer.scheduledTimer(withTimeInterval: animationDuration / 2, repeats: false) { _ in
@@ -140,12 +147,12 @@ struct TriangleLoader: View {
         }
     }
     
-    // Applies the stroke trim values for the given state to the @State properties
+    /// Applies the stroke trim values for the given state to the `@State` properties.
     func setStroke(state: TriangleState) {
         (self.strokeStart, self.strokeEnd) = state.getStrokes()
     }
     
-    // Converts the tuple offset from TriangleState into a CGSize and applies it
+    /// Converts the tuple offset from `TriangleState` into a `CGSize` and applies it.
     func setCircleOffset(state: TriangleState) {
         let offset = state.getCircleOffset()
         self.circleOffset = CGSize(width: offset.0, height: offset.1)

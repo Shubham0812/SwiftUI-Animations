@@ -8,13 +8,27 @@
 
 import SwiftUI
 
+/// An animated chat input bar with an expandable attachment menu.
+///
+/// Tapping the `+` button rotates it 137° and reveals three attachment buttons
+/// (camera, video, contact) via a rotation-in animation. Simultaneously, the
+/// text field rotates out of view (–120°) and the entire bar wiggles slightly
+/// (±3°) via an interpolating spring for a tactile feel.
+///
+/// After 0.5 s, the attachment panel auto-collapses and the text field rotates
+/// back into view, returning the bar to its normal input state.
 struct ChatBarView: View {
-    
+
     // MARK:- variables
+
+    /// `true` for 0.5 s after the `+` button is tapped — shows the attachment panel.
     @State var addAttachment: Bool = false
+    /// `true` while the attachment panel is open — rotates the `+` button and hides the text field.
     @State var rotateBar: Bool = false
+    /// The user's typed message, bound from the parent view.
     @Binding var message: String
-    
+
+    /// Fixed height of the chat bar pill — also used to derive the corner radius (`height / 2`).
     var chatBarHeight: CGFloat = 86
     
     // MARK:- views
@@ -77,6 +91,11 @@ struct ChatBarView: View {
         }
     }
     
+    /// Returns the bar's wiggle rotation angle based on the current animation state.
+    ///
+    /// - Both `rotateBar` and `addAttachment` true → –3° (tilts left as panel opens)
+    /// - Only `addAttachment` true → +3° (rebounds right briefly)
+    /// - Neither → 0° (normal horizontal position)
     func getBarRotationDegree() -> Angle {
         if (self.rotateBar && self.addAttachment) {
             return .degrees(-3)

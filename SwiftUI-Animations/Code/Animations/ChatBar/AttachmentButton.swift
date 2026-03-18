@@ -8,13 +8,24 @@
 
 import SwiftUI
 
+/// A circular icon button used inside `ChatBarView` for the `+` toggle and attachment options.
+///
+/// When `needsRotation` is `true`, the button icon rotates 137° — used on the `+` button
+/// to visually transform it into an ✕ (cancel) icon when the attachment panel is open.
+///
+/// A circular highlight overlay (`buttonPressAnimation`) is reserved for future tap feedback
+/// but is currently not wired to a gesture (see TODO comment in the source).
 struct AttachmentButton: View {
+    /// When `true`, the icon rotates 137°. Bound from the parent to the `+` button only.
     @Binding var needsRotation: Bool
+    /// Reserved for a press-ring feedback animation — not currently triggered by any gesture.
     @State var buttonPressAnimation: Bool = false
-    
-    
+
+    /// SF Symbol name for the button icon (e.g. `"plus"`, `"camera"`, `"video.fill"`).
     var iconName: String
+    /// Point size of the SF Symbol. Defaults to 20; the `+` button uses 24.
     var iconSize: CGFloat = 20
+    /// Closure executed when the button is tapped.
     var action: () -> Void
     
     var body: some View {

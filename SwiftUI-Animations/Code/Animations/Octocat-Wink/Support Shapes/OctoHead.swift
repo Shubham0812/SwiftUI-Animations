@@ -8,9 +8,19 @@
 
 import SwiftUI
 
+/// A filled `Shape` representing the Octocat's head outline — a smooth rounded ellipse
+/// constructed from a series of cubic bezier curves.
+///
+/// Coordinates are relative to `rect.mid` so the shape scales correctly in any frame.
+/// Used in `OctocatView` at 39.25% scale to fill the head area inside the stroked body outline.
+///
+/// Unlike `OctocatShape` (which includes the full body and tail), `OctoHead` covers
+/// only the cranial silhouette and is used as a filled mask, not a stroked path.
 struct OctoHead: Shape {
-    
+
     // MARK:- functions
+
+    /// Constructs the head outline as a closed bezier path centered in `rect`.
     func path(in rect: CGRect) -> Path {
         let cX: CGFloat = rect.midX
         let cY: CGFloat = rect.midY

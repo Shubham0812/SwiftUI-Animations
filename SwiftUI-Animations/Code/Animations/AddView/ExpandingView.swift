@@ -8,11 +8,25 @@
 
 import SwiftUI
 
+/// A single action tile that flies out from the center of `AddView` in a given direction.
+///
+/// When `expand` is `true`:
+/// - The white square container slides to `direction.offsets`, scales to full size,
+///   and rounds its corners to a circle (cornerRadius 41).
+/// - The SF Symbol icon fades in and counter-rotates by –43° so it appears upright
+///   despite the container's 43° rotation effect.
+///
+/// The container rotation and icon counter-rotation cancel each other out visually,
+/// creating the impression that the icon "pops" straight out while the tile spins open.
 struct ExpandingView: View {
-    
+
     // MARK:- variables
+
+    /// Bound to `AddView.isAnimating`; `true` = tile expanded, `false` = collapsed.
     @Binding var expand: Bool
+    /// Direction this tile flies toward when expanded.
     var direction: ExpandDirection
+    /// SF Symbol name rendered inside the tile (e.g. "mic.fill", "photo").
     var symbolName: String
     
     var body: some View {

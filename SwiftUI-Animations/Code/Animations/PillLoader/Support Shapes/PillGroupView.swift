@@ -8,12 +8,25 @@
 
 import SwiftUI
 
+/// A cluster of 10 `Pill` dots arranged in a tight group that explode upward when activated.
+///
+/// Each dot has a unique initial position (clustered at the bottom of the pill container)
+/// and a target position above the pill. Staggered delays of 0.05 s per dot make them
+/// scatter in a cascading burst rather than jumping all at once.
+///
+/// Three `PillGroupView` instances with different `initialOffSet` values compose the
+/// full `PillsDropView` particle system seen when the pill opens.
 struct PillGroupView: View {
-    
+
     // MARK:- variables
+
+    /// When `true`, all 10 dots spring to their respective `animationOffset` positions.
     @Binding var isAnimating: Bool
-    
+
+    /// Base (x, y) position added to each dot's hardcoded cluster offset.
+    /// Different values per group shift the entire cluster up, down, or sideways.
     let initialOffSet: CGSize
+    /// Base delay applied to all dots in this group; each dot adds an additional 0.05 s stagger.
     let animationOffset: Double
     
     // MARK:- views
