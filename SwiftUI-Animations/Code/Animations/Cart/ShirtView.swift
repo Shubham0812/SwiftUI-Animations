@@ -8,11 +8,17 @@
 
 import SwiftUI
 
+/// The three animation stages of the shirt icon in `ShirtView`.
+///
+/// - `.origin`: Shirt starts tiny (scale 0.2) at the cart position.
+/// - `.top`: Shirt grows to full size (scale 1) and floats upward to `iconOffset = –120`.
+/// - `.end`: Shirt shrinks (scale 0.5) and fades out (opacity 0) to simulate flying into the cart.
 enum ShirtState {
     case origin
     case top
     case end
-    
+
+    /// Scale factor applied to the shirt image at this stage.
     var scale: CGFloat {
         switch self {
         case .origin:
@@ -24,6 +30,7 @@ enum ShirtState {
         }
     }
     
+    /// Opacity of the shirt — 0 at `.end` (fade out), 1 otherwise.
     var opacity: Double {
         switch self {
         case .end:
@@ -34,11 +41,22 @@ enum ShirtState {
     }
 }
 
+/// A shirt icon that floats up and "flies into" the cart as confirmation of adding an item.
+///
+/// Waits for `itemAdded` to become `true` (polling every 0.1 s), then runs a two-phase animation:
+/// 1. Shirt rises to `iconOffset = –120` and grows to full size (`.top`).
+/// 2. Shirt changes color from white to black, shrinks, and fades out (`.end`).
+///
+/// Used inside `AddCartView` — positioned over the cart icon while it's centered.
 struct ShirtView: View {
+    /// Bound to `AddCartView.isAnimating`; animation begins when this becomes `true`.
     @Binding var itemAdded: Bool
-    
+
+    /// Current vertical offset of the shirt icon — starts low, rises, then drops slightly at end.
     @State var iconOffset: CGFloat = -12
+    /// When `true`, switches from `"shirt-white"` to `"shirt-black"` image asset.
     @State var changeShirtColor: Bool = false
+    /// Current animation stage driving scale and opacity.
     @State var shirtState: ShirtState = .origin
     
     

@@ -8,16 +8,26 @@
 
 import SwiftUI
 
+/// The front face of a bank card, showing type, number, validity, holder name, and logos.
+///
+/// Sized as `width × width/ratioConstant` (standard ISO 7810 ID-1 aspect ratio).
+/// The gradient background is overlaid with a faint `CardPatternOneView` swoosh and a
+/// semi-transparent `Circle` to add depth. Layout is driven entirely by `card`'s properties.
 struct CardFrontView: View {
-    
+
     // MARK:- variables
+    /// Width of the card — typically 85% of screen width, passed in by `CardView`.
     let width: CGFloat
-    
+
+    /// ISO 7810 card aspect ratio (85.6 mm ÷ 53.98 mm ≈ 1.586, rounded to 1.593).
     let ratioConstant: CGFloat = 1.593
+    /// Visa logo width-to-height ratio used to keep the logo proportional.
     let visaRatio: CGFloat = 2.095
-    
+
+    /// Card data driving all text labels and the gradient palette.
     var card: Card
-    
+
+    /// Unused rotation angle — reserved for a potential tilt animation.
     @State var rotationAngle: Double = 0
     
     // MARK:- views

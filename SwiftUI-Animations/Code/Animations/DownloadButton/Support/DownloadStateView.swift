@@ -8,14 +8,25 @@
 
 import SwiftUI
 
+/// A single visual panel representing one `DownloadState` inside `DownloadButton`.
+///
+/// Three instances are stacked and shown/hidden by animating their Y offsets (slot-machine effect).
+/// Each panel renders only its own state's background and label; `DownloadButton` owns transitions.
+/// The optional progress capsule at the bottom edge is only shown when `needsProgress = true`.
 struct DownloadStateView: View {
-    
+
     // MARK:- variables
+    /// The `DownloadState` this panel represents — drives background color and label text.
     var state: DownloadState = .downloaded
+    /// When `true`, renders a progress capsule along the bottom edge (`.downloading` panel only).
     var needsProgress: Bool = true
+    /// When `true`, renders the label in white; when `false`, uses `Color.background`.
     var isLight: Bool = false
-    
+
+    /// Shared download state — used to hide this panel's label when it is not the active state.
     @EnvironmentObject var downloader: Downloader
+    /// Download progress 0→1 from `DownloadButton`. Divided by 2 when passed to `.trim()`
+    /// so the fill spans the full button width (see progress bar notes in the annotated version).
     @Binding var progress: CGFloat
     
     // MARK:- views

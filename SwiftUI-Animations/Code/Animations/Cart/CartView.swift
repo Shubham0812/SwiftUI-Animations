@@ -8,12 +8,22 @@
 
 import SwiftUI
 
+/// A tappable cart icon that tilts and shows a checkmark when an item is added.
+///
+/// When `itemAdded` is `true`:
+/// - Switches from the empty `"cart"` image to the filled `"cart-fill"` image.
+/// - Rotates –22° to create a dynamic "received item" tilt.
+/// - Draws a red `Tick` checkmark that grows in using a trimmed stroke animation.
 struct CartView: View {
-    
+
+    /// `true` when an item has been added — drives the icon swap, tilt, and tick draw.
     @Binding var itemAdded: Bool
-    
+
+    /// Base animation duration (used for the tick trim animation).
     var animationDuration: Double = 0.55
+    /// Delay before the animation starts after `itemAdded` changes.
     var animationDelay: Double = 0.25
+    /// Animation curve injected by the parent, applied to both the image rotation and tick.
     var animation: Animation
     
     var body: some View {

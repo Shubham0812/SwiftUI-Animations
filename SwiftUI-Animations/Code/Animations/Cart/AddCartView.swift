@@ -8,12 +8,19 @@
 
 import SwiftUI
 
+/// The four stages of the cart icon's horizontal travel inside the "Add to cart" button.
+///
+/// - `.ready` / `.origin`: Cart starts off-screen to the left (hidden behind the label).
+/// - `.center`: Cart slides to the center of the button while the label fades out.
+/// - `.moveToEnd`: Cart flies off-screen to the right, simulating dispatch.
+/// After `.moveToEnd`, everything resets to `.origin` (linear 0-duration snap) for the next tap.
 enum CartState {
     case ready
     case center
     case moveToEnd
     case origin
-    
+
+    /// Horizontal x-offset for the cart icon at this state.
     var offset: CGFloat {
         switch self {
         case .origin, .ready:
@@ -25,6 +32,7 @@ enum CartState {
         }
     }
     
+    /// Cart image name — empty cart for idle states, filled cart when traveling.
     var image: String {
         switch self {
         case .origin, .ready:
@@ -34,6 +42,8 @@ enum CartState {
         }
     }
     
+    /// Animation curve for the cart's horizontal travel.
+    /// `.origin` uses a zero-duration linear snap (invisible reset); all other states ease in.
     var animation: Animation {
         switch self {
         case .origin:
@@ -44,14 +54,32 @@ enum CartState {
     }
 }
 
+/// A full "Add to cart" button with a multi-step cart travel animation.
+///
+/// **Tap sequence:**
+/// 1. Button bounces (spring squeeze) and "Add to cart" label fades out.
+/// 2. Cart icon slides from left edge to center (`.center`).
+/// 3. A tick checkmark appears on the cart icon at `t ≈ 1.4 s`.
+/// 4. Cart flies off the right edge (`.moveToEnd`) at `t ≈ 1.6 s`.
+/// 5. Everything resets at `t ≈ 2.5 s` — label fades back in, cart snaps to origin.
+///
+/// A white `Triangle` bubble pops above the button during the bounce phase
+/// and a `ShirtView` floats up from the cart while it's in the center.
 struct AddCartView: View {
     // MARK:- variables
+
+    /// `true` while the cart is in motion (label hidden, shirt visible).
     @State var isAnimating: Bool = false
+    /// Passed to `CartView` — triggers the tick checkmark and cart tilt at the right moment.
     @State var addItem: Bool = false
+    /// Current stage of the cart's horizontal travel; drives offset and image via `CartState`.
     @State var cartAnimation: CartState
+    /// Drives the button spring-squeeze and Triangle bubble animations.
     @State var bounceAnimation: Bool = false
-    
+
+    /// Background color of the full screen (passed through to the button overlay text color).
     var backgroundColor: Color
+    /// Fill color of the button pill.
     var color: Color
     
     // MARK:- views

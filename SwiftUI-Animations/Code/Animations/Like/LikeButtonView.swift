@@ -8,14 +8,24 @@
 
 import SwiftUI
 
+/// Duplicate entry point for `LikeView` — see `LikeView.swift` for full documentation.
+///
+/// Both files define the same `LikeView` struct. This file is kept as an alternate
+/// preview/entry point. Refer to `LikeView.swift` for the complete animation description.
 struct LikeView: View {
-    
+
     // MARK:- variables
+
+    /// Base duration for all timed animations in the like sequence.
     let animationDuration: Double = 0.25
-    
+
+    /// `true` while the like animation is active — drives heart scale and circle color.
     @State var isAnimating: Bool = false
+    /// Briefly `true` during the initial spring pulse — causes the circle to shrink then snap back.
     @State var shrinkIcon: Bool = false
+    /// `true` while the liked state is active — shows `CapusuleGroupView` and `FloatingLike`.
     @State var floatLike: Bool = false
+    /// Toggled after `animationDuration` to scale the capsule burst from 0.8× to 1.25×.
     @State var showFlare: Bool = false
     
     // MARK:- views

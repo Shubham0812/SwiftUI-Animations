@@ -8,14 +8,29 @@
 
 import SwiftUI
 
+/// A full-screen like button with a multi-layered celebration animation.
+///
+/// **On first tap (like):**
+/// 1. The circle instantly shrinks (spring) then bounces back, giving a "pulse" feel.
+/// 2. The heart icon scales up and a pink color mask sweeps across it (`easeIn`).
+/// 3. A `CapusuleGroupView` burst of capsule particles appears above the heart.
+/// 4. A `FloatingLike` "+1" bubble floats upward and fades out.
+///
+/// **On second tap (unlike):** all state resets instantly — circle reverts, burst disappears.
 struct LikeView: View {
-    
+
     // MARK:- variables
+
+    /// Base duration for all timed animations in the like sequence.
     let animationDuration: Double = 0.25
-    
+
+    /// `true` while the like animation is active — drives heart scale and circle color.
     @State var isAnimating: Bool = false
+    /// Briefly `true` during the initial spring pulse — causes the circle to shrink then snap back.
     @State var shrinkIcon: Bool = false
+    /// `true` while the liked state is active — shows `CapusuleGroupView` and `FloatingLike`.
     @State var floatLike: Bool = false
+    /// Toggled after `animationDuration` to scale the capsule burst from 0.8× to 1.25×.
     @State var showFlare: Bool = false
     
     // MARK:- views

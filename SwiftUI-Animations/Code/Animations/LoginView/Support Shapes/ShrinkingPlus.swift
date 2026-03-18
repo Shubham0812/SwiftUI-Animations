@@ -8,13 +8,27 @@
 
 import SwiftUI
 
+/// A `+` symbol particle that periodically rotates and collapses then re-expands.
+///
+/// Placed at a fixed `PlusPosition` in `LoginView`, each `ShrinkingPlus`:
+/// 1. Appears at `position.scale`, rotated to `position.degree`.
+/// 2. Collapses to scale 0 (easeOut) after `position.delay`.
+/// 3. Re-expands to `position.scale` after a further `delay × 3`, then repeats every `delay × 20`.
+///
+/// The varying delays across 7 instances mean they collapse and re-expand asynchronously,
+/// creating a twinkling `+` field around the profile image.
 struct ShrinkingPlus: View {
-    
+
     // MARK:- variables
+
+    /// Layout and timing data for this specific particle instance.
     let position: PlusPosition
+    /// Duration for both the collapse and re-expand easeOut animations.
     let animationDuration: TimeInterval = 0.4
-    
+
+    /// Current rotation angle — starts at 0 then snaps to `position.degree` on appear.
     @State var rotationDegree: Angle = Angle.degrees(0)
+    /// Current scale — starts at 0, grows to `position.scale` on appear, collapses periodically.
     @State var scale: CGFloat = 0
     
     // MARK:- views
@@ -36,6 +50,10 @@ struct ShrinkingPlus: View {
     }
     
     // MARK:- functions
+
+    /// Runs one collapse-and-re-expand cycle:
+    /// - After `position.delay`: rotates to `position.degree` and collapses scale to 0.
+    /// - After a further `delay × 3`: resets rotation to 0° and restores `position.scale`.
     func animatePlus() {
         Timer.scheduledTimer(withTimeInterval: position.delay, repeats: false) { _ in
             withAnimation(Animation.easeOut(duration: animationDuration)) {

@@ -8,13 +8,28 @@
 
 import SwiftUI
 
+/// An animated Octocat wink view combining a travelling stroke loader with a blinking eye effect.
+///
+/// Two `OctocatShape` layers are stacked:
+/// - A dim ghost outline (opacity 0.1) — always visible as the draw track.
+/// - A bright white trimmed segment (`strokeStart`→`strokeEnd`) that travels around the path.
+///
+/// Two eye-shaped `Path` overlays (left and right) use `scaleEffect(height:)` to squish
+/// to 0.225× when the matching eye winks. At each loop reset, `Bool.random()` picks
+/// which eye winks next — creating an alternating or random wink pattern.
 struct OctocatView: View {
-    
+
     // MARK:- variables
+
+    /// Guards against multiple resets firing in the same loop cycle.
+    /// Set `false` when a reset is scheduled; flipped back `true` after the stroke is zeroed.
     @State var resetStrokes: Bool = true
+    /// Leading edge of the travelling white arc segment (0–1 along the path).
     @State var strokeStart: CGFloat = 0
+    /// Trailing edge of the travelling white arc. Advances by 0.075–0.115 each tick.
     @State var strokeEnd: CGFloat = 0
-    
+
+    /// Randomly set each loop to determine which eye winks (`true` = left eye squishes).
     @State var winkLeft = false
     
     // MARK:- views

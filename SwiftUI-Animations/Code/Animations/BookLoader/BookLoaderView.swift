@@ -8,24 +8,42 @@
 
 import SwiftUI
 
+/// A book-opening loader animation composed of two capsule "covers" and a
+/// `BookHoldView` spine that open and close alternately to the left and right.
+///
+/// Tap to start. The book opens, page-flip particles play via `BookPagesView`,
+/// then the covers close to one side, reopen, and close to the other side in a
+/// continuous loop. Each cycle alternates between `closeRight` and `closeLeft`.
 struct BookLoaderView: View {
-    
+
     // MARK:- variables
+
+    /// Current animation direction — alternates between `.closeRight` and `.closeLeft`.
     @State var bookState: BookLoaderState = BookLoaderState.closeRight
-    
+
+    /// Position of the left cover capsule (moves down when closing right).
     @State var leftCoverOffset: CGSize = CGSize(width: -84, height: 0)
+    /// Rotation of the left cover (flips 180° when closing right).
     @State var leftRotationDegrees: Angle = .zero
-    
+
+    /// Position of the spine/book-hold shape.
     @State var middleBookOffset: CGSize = CGSize(width: -28, height: -28)
+    /// Rotation of the spine (swings ±90° to face the closing direction).
     @State var middleRotationDegrees: Angle = .degrees(-90)
-    
+
+    /// Position of the right cover capsule (moves down when closing left).
     @State var rightCoverOffset: CGSize = CGSize(width: 84, height: 55.75)
+    /// Rotation of the right cover (flips -180° when closing left).
     @State var rightRotationDegrees: Angle = .degrees(-180)
-    
+
+    /// Index into `BookLoaderState.allCases` for cycling through states.
     @State var currentIndex = 0
+    /// Passed to `BookPagesView` to trigger the page-flip particle effect.
     @State var animationStarted: Bool = false
-    
+
+    /// Width of each cover capsule.
     let bookCoverWidth: CGFloat = 120
+    /// Duration of one animation phase (open or close).
     let animationDuration: TimeInterval = 0.4
 
     // MARK:- views
@@ -65,6 +83,8 @@ struct BookLoaderView: View {
     }
     
     // MARK:- functions
+
+    /// Advances to the next `BookLoaderState`, wrapping around to the beginning.
     func getNextCase() -> BookLoaderState {
         let allCases = BookLoaderState.allCases
         if (self.currentIndex == allCases.count - 1) {
@@ -75,7 +95,8 @@ struct BookLoaderView: View {
         return allCases[index]
     }
     
-    // animates the book and closes it to either right or left depending on the state
+    /// Animates the book closing to the current state's end position,
+    /// then advances to the next state and opens again.
     func animateBook() {
         withAnimation(Animation.linear(duration: animationDuration)) {
             middleRotationDegrees = bookState.animationEnd.3
@@ -95,7 +116,7 @@ struct BookLoaderView: View {
         }
     }
     
-    // animates the book to the open position
+    /// Animates the book to its open position for the current state.
     func animateBookEnds() {
         withAnimation(Animation.easeOut(duration: animationDuration)) {
             middleRotationDegrees = bookState.animationBegin.3
@@ -121,11 +142,15 @@ struct BookLoaderView_Previews: PreviewProvider {
 }
 
 
+/// The two alternating states of the book loader — which side the book closes toward.
+///
+/// Each state provides begin (open) and end (closed) values as a 6-tuple:
+/// `(leftOffset, leftAngle, middleOffset, middleAngle, rightOffset, rightAngle)`.
 enum BookLoaderState: CaseIterable {
     case closeRight
     case closeLeft
-    
-    // left middle right
+
+    /// Layout values for the open position — both covers flat, spine centered.
     var animationBegin: (CGSize, Angle, CGSize, Angle, CGSize, Angle) {
         switch self {
         case .closeRight:
@@ -135,6 +160,7 @@ enum BookLoaderState: CaseIterable {
         }
     }
     
+    /// Layout values for the closed position — one cover flipped, spine rotated.
     var animationEnd: (CGSize, Angle, CGSize, Angle, CGSize, Angle) {
         switch self {
         case .closeRight:

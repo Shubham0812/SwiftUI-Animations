@@ -8,14 +8,28 @@
 
 import SwiftUI
 
+/// A single colored capsule particle that shrinks and fades as part of the like burst effect.
+///
+/// Each capsule starts tall (65 pt) and collapses to 30 pt when `isAnimating` becomes `true`,
+/// then fades to opacity 0 after `animationDuration`. This simulates a firework spark
+/// shooting outward and vanishing.
+///
+/// Used in both `CapusuleGroupView` and `LowerCapsuleView` at different rotation angles
+/// and offsets to produce the full 360° particle ring.
 struct ShrinkingCapsule: View {
-    
+
     // MARK:- variables
+
+    /// Duration of both the height collapse and the fade-out animation.
     let animationDuration: Double = 0.4
+    /// Angle the capsule is rotated to point outward from the heart center.
     let rotationAngle: Angle
+    /// (x, y) position of this capsule within the burst group.
     let offset: CGSize
-    
+
+    /// Triggers the height collapse from 65 → 30 pt when `true`.
     @Binding var isAnimating: Bool
+    /// Set to `true` after `animationDuration` to fade the capsule to opacity 0.
     @State var hideCapsule: Bool = false
     
     var body: some View {

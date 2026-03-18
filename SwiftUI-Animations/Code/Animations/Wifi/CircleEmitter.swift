@@ -8,7 +8,15 @@
 
 import SwiftUI
 
+/// A particle burst effect composed of 50 small white dots scattered across the screen.
+///
+/// When `isAnimating` is `true`, each dot scales from 0 to 1 with a staggered
+/// `easeInOut` delay (`0.01 s × index`), creating a rippling confetti-like reveal.
+/// When `false`, dots collapse back to zero scale with no animation (`.none`).
+///
+/// Used in `WifiView` to celebrate a simulated successful connection.
 struct CircleEmitter: View {
+    /// Controls whether the dots are visible. `true` = burst in; `false` = collapse out.
     @Binding var isAnimating: Bool
     
     var body: some View {

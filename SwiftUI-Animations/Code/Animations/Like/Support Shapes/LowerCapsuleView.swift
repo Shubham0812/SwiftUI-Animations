@@ -8,9 +8,16 @@
 
 import SwiftUI
 
+/// The lower six capsule bursts of the like particle animation.
+///
+/// Six `ShrinkingCapsule` instances placed at ±16°, ±48°, and ±82° form a downward fan
+/// that completes the circular burst begun by `CapusuleGroupView`'s upper five capsules.
+/// The entire group is offset 260 pt downward to position the lower fan below the heart.
 struct LowerCapsuleView: View {
-    
+
     // MARK:- variables
+
+    /// When `true`, triggers all six capsules to shrink and fade in sequence.
     @Binding var isAnimating: Bool
     
     // MARK:- views
