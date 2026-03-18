@@ -8,6 +8,7 @@
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-blue?style=for-the-badge&logo=swift&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-iOS%2014+-lightgrey?style=for-the-badge&logo=apple&logoColor=white)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green?style=for-the-badge)
+[![Build](https://github.com/Shubham0812/SwiftUI-Animations/actions/workflows/build.yml/badge.svg)](https://github.com/Shubham0812/SwiftUI-Animations/actions/workflows/build.yml)
 
 [![GitHub stars](https://img.shields.io/github/stars/shubham0812/SwiftUI-Animations?style=social)](https://github.com/Shubham0812/SwiftUI-Animations/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/shubham0812/SwiftUI-Animations?style=social)](https://github.com/Shubham0812/SwiftUI-Animations/network/members)

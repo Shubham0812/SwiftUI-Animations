@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 - CHANGELOG.md to track project changes
 - GitHub issue templates for bug reports and animation requests
 - Pull request template with checklist
+- GitHub Actions CI workflow for automated builds on PRs
+- Issue template config.yml with discussion and social links
+- Label setup script with difficulty levels and animation-specific labels
+- Build status badge in README
 - .gitignore for Xcode/Swift projects
 - Improved README footer with license details, share buttons, and contributor links
 
