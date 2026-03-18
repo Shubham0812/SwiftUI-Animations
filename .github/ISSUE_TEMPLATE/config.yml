@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Animation Ideas & Discussion
+    url: https://github.com/Shubham0812/SwiftUI-Animations/discussions
+    about: Have an idea or want to chat about SwiftUI animations? Start a discussion!
+  - name: Follow on Instagram
+    url: https://www.instagram.com/shubham_iosdev/
+    about: Follow for SwiftUI tips, animation breakdowns, and behind-the-scenes content.
