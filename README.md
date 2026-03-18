@@ -8,6 +8,7 @@
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-blue?style=for-the-badge&logo=swift&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-iOS%2014+-lightgrey?style=for-the-badge&logo=apple&logoColor=white)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green?style=for-the-badge)
+[![Build](https://github.com/Shubham0812/SwiftUI-Animations/actions/workflows/build.yml/badge.svg)](https://github.com/Shubham0812/SwiftUI-Animations/actions/workflows/build.yml)
 
 [![GitHub stars](https://img.shields.io/github/stars/shubham0812/SwiftUI-Animations?style=social)](https://github.com/Shubham0812/SwiftUI-Animations/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/shubham0812/SwiftUI-Animations?style=social)](https://github.com/Shubham0812/SwiftUI-Animations/network/members)
@@ -28,6 +29,7 @@ This repository contains **20+ custom SwiftUI animations** — from loaders and 
 - [Animations Gallery](#animations-gallery)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
+- [Contributors](#contributors)
 - [Author](#author)
 - [License](#license)
 
@@ -281,38 +283,72 @@ SwiftUI-Animations/
 
 Contributions are welcome! Whether it's a new animation, a bug fix, or an improvement to an existing one, feel free to open a pull request.
 
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-animation`)
-3. **Add** your animation inside `SwiftUI-Animations/Code/Animations/YourAnimation/`
-4. **Commit** your changes (`git commit -m 'Add amazing animation'`)
-5. **Push** to your branch (`git push origin feature/amazing-animation`)
-6. **Open** a Pull Request
+Please read the **[Contributing Guide](CONTRIBUTING.md)** for detailed instructions on how to get started, code style guidelines, and the pull request process.
 
-### Guidelines
+| Resource | Description |
+|----------|-------------|
+| [Contributing Guide](CONTRIBUTING.md) | How to contribute, code style, PR process |
+| [Code of Conduct](CODE_OF_CONDUCT.md) | Community standards and expectations |
+| [Security Policy](SECURITY.md) | How to report vulnerabilities |
+| [Changelog](CHANGELOG.md) | History of changes and new animations |
 
-- Keep each animation self-contained in its own folder
-- Include any custom shapes in a `Support Shapes/` subfolder
-- Use SwiftUI-native approaches — avoid UIKit bridges where possible
-- Add a GIF preview to the `GIFs/` folder for your animation
+## Contributors
 
-## Author
+Thanks to everyone who has helped make this project better!
 
-**Shubham Kumar Singh**
+<a href="https://github.com/Shubham0812/SwiftUI-Animations/graphs/contributors">
 
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/shubham_iosdev/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubham0812/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shubham0812)
+| Avatar | Name | GitHub |
+|--------|------|--------|
+| <img src="https://github.com/Shubham0812.png" width="50" style="border-radius:50%"/> | Shubham Kumar Singh | [@Shubham0812](https://github.com/Shubham0812) |
 
-## License
+</a>
 
-This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE.md) file for details.
+Want to see your name here? Check out the **[Contributing Guide](CONTRIBUTING.md)** and the full **[Contributors List](CONTRIBUTORS.md)**.
 
 ---
 
 <div align="center">
 
-If you found this project helpful, please consider giving it a star!
+## Author
 
-**[Star this repo](https://github.com/Shubham0812/SwiftUI-Animations)**
+<img src="https://github.com/Shubham0812.png" width="100" style="border-radius:50%"/>
+
+**Shubham Kumar Singh**
+<br/>
+iOS Developer | SwiftUI Enthusiast | Open Source Contributor
+
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/shubham_iosdev/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubham0812/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shubham0812)
+
+---
+
+## License
+
+This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE.md) file for details.
+
+You are free to use, modify, and distribute this project in your own apps — commercial or personal.
+
+---
+
+### Support This Project
+
+If you found this project helpful or learned something from the source code, please consider:
+
+**[Give it a Star](https://github.com/Shubham0812/SwiftUI-Animations)** — It helps others discover the project!
+
+[![GitHub stars](https://img.shields.io/github/stars/shubham0812/SwiftUI-Animations?style=for-the-badge&logo=github&label=Star%20this%20repo)](https://github.com/Shubham0812/SwiftUI-Animations/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/shubham0812/SwiftUI-Animations?style=for-the-badge&logo=github&label=Fork%20it)](https://github.com/Shubham0812/SwiftUI-Animations/network/members)
+
+**Share it with your friends and colleagues** — Let's grow the SwiftUI community together!
+
+[![Share on X](https://img.shields.io/badge/Share%20on-X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/intent/tweet?text=Check%20out%20this%20amazing%20collection%20of%20SwiftUI%20Animations!%20%F0%9F%9A%80&url=https://github.com/Shubham0812/SwiftUI-Animations)
+[![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Shubham0812/SwiftUI-Animations)
+[![Share on Reddit](https://img.shields.io/badge/Share%20on-Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white)](https://www.reddit.com/submit?url=https://github.com/Shubham0812/SwiftUI-Animations&title=SwiftUI%20Animations%20-%20A%20collection%20of%2020%2B%20custom%20animations)
+
+---
+
+<sub>Made with SwiftUI and lots of creativity</sub>
 
 </div>
