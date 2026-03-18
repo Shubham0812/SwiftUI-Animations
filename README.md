@@ -316,7 +316,7 @@ Want to see your name here? Check out the **[Contributing Guide](CONTRIBUTING.md
 
 **Shubham Kumar Singh**
 <br/>
-iOS Developer | SwiftUI Enthusiast | Open Source Contributor
+iOS Developer | SwiftUI / UIKit  | Indie Developer | Open Source Contributor
 
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/shubham_iosdev/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubham0812/)
