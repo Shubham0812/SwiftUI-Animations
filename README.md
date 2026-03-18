@@ -281,19 +281,7 @@ SwiftUI-Animations/
 
 Contributions are welcome! Whether it's a new animation, a bug fix, or an improvement to an existing one, feel free to open a pull request.
 
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-animation`)
-3. **Add** your animation inside `SwiftUI-Animations/Code/Animations/YourAnimation/`
-4. **Commit** your changes (`git commit -m 'Add amazing animation'`)
-5. **Push** to your branch (`git push origin feature/amazing-animation`)
-6. **Open** a Pull Request
-
-### Guidelines
-
-- Keep each animation self-contained in its own folder
-- Include any custom shapes in a `Support Shapes/` subfolder
-- Use SwiftUI-native approaches — avoid UIKit bridges where possible
-- Add a GIF preview to the `GIFs/` folder for your animation
+Please read the **[Contributing Guide](CONTRIBUTING.md)** for detailed instructions on how to get started, code style guidelines, and the pull request process.
 
 ## Author
 
