@@ -15,7 +15,7 @@ import SwiftUI
 /// orbit at 75% of that speed (3.75 s), creating an independent layered spin effect.
 struct DashedLoaderView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Drives all three `repeatForever` rotation animations — toggled once on appear.
     @State var isAnimating: Bool = false
@@ -23,43 +23,43 @@ struct DashedLoaderView: View {
     /// Duration for one full rotation of the dashed ring.
     /// The two satellite dots use `animationDuration × 0.75` so they orbit faster.
     let animationDuration: TimeInterval = 5
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Color.white
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
                 Circle()
                     .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, miterLimit: 2, dash: [10, 40, 20], dashPhase: 6))
-                    .foregroundColor(Color.black)
+                    .foregroundStyle(.black)
                     .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
-                    .rotationEffect(self.isAnimating ? .degrees(360) : .degrees(0))
+                    .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
                     .shadow(color: Color.black.opacity(0.2), radius: 10)
-                    .animation(Animation.linear(duration: animationDuration).repeatForever(autoreverses: false))
+                    .animation(.linear(duration: animationDuration).repeatForever(autoreverses: false), value: isAnimating)
                 Circle()
                     .frame(width: geometry.size.width * 0.06, height: geometry.size.width * 0.1)
                     .offset(x: -geometry.size.width / 4)
-                    .foregroundColor(Color.black)
-                    .rotationEffect(self.isAnimating ? .degrees(360) : .degrees(0))
+                    .foregroundStyle(.black)
+                    .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
                     .shadow(color: Color.black.opacity(0.2), radius: 10)
-                    .animation(Animation.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false))
+                    .animation(.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false), value: isAnimating)
                 Circle()
                     .frame(width: geometry.size.width * 0.06, height: geometry.size.width * 0.1)
                     .offset(x: geometry.size.width / 4)
-                    .foregroundColor(Color.black)
-                    .rotationEffect(self.isAnimating ? .degrees(360) : .degrees(0))
+                    .foregroundStyle(.black)
+                    .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
                     .shadow(color: Color.black.opacity(0.2), radius: 10)
-                    .animation(Animation.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false))
+                    .animation(.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false), value: isAnimating)
             }
-        }.onAppear() {
-            self.isAnimating.toggle()
+        }
+        .onAppear {
+            isAnimating.toggle()
         }
     }
 }
 
-struct DashedLoader_Previews: PreviewProvider {
-    static var previews: some View {
-        DashedLoaderView()
-    }
+#Preview {
+    DashedLoaderView()
 }

@@ -18,7 +18,7 @@ import SwiftUI
 /// so the direction reverses each cycle without any conditional branching.
 struct DotsLoaderView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Current x-offset applied to all three dots. Swaps with `rightOffset` each cycle.
     @State var leftOffset: CGFloat = -75
@@ -27,31 +27,32 @@ struct DotsLoaderView: View {
 
     /// Duration for one half-cycle (dots sliding from left to right, or vice versa).
     let animationDuration: TimeInterval = 1
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.white)
+                .fill(.white)
                 .frame(width: 20, height: 20)
                 .offset(x: leftOffset)
                 .opacity(0.7)
-                .animation(Animation.easeInOut(duration: animationDuration))
+                .animation(.easeInOut(duration: animationDuration), value: leftOffset)
             Circle()
-                .fill(Color.white)
+                .fill(.white)
                 .frame(width: 20, height: 20)
                 .offset(x: leftOffset)
                 .opacity(0.7)
-                .animation(Animation.easeInOut(duration: animationDuration).delay(0.2))
+                .animation(.easeInOut(duration: animationDuration).delay(0.2), value: leftOffset)
             Circle()
-                .fill(Color.white)
+                .fill(.white)
                 .frame(width: 20, height: 20)
                 .offset(x: leftOffset)
                 .opacity(0.7)
-                .animation(Animation.easeInOut(duration: animationDuration).delay(0.4))
+                .animation(.easeInOut(duration: animationDuration).delay(0.4), value: leftOffset)
         }
-        .onAppear() {
-            swap(&self.leftOffset, &self.rightOffset)
+        .onAppear {
+            swap(&leftOffset, &rightOffset)
             Timer.scheduledTimer(withTimeInterval: animationDuration * 1.5, repeats: true) { _ in
                 swap(&self.leftOffset, &self.rightOffset)
             }
@@ -59,12 +60,10 @@ struct DotsLoaderView: View {
     }
 }
 
-struct DotsLoaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            DotsLoaderView()
-        }
+#Preview {
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        DotsLoaderView()
     }
 }

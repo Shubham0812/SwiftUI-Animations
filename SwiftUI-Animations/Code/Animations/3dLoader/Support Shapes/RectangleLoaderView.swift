@@ -17,41 +17,37 @@ import SwiftUI
 /// The height is set from `GeometryProxy` on appear so it scales with any container size.
 struct RectangleLoaderView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
-    /// Vertical offset for all bars — currently unused (always 0); reserved for future use.
-    @State var yOffset: CGFloat = 0
     /// Current height of all four bars, driven by `animateRectangles(in:)`.
     @State var rectangleHeight: CGFloat = 12
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Color.materialBlack
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
                 HStack(alignment: .center, spacing: 8) {
                     Rectangle()
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(width: 12, height: rectangleHeight)
-                        .offset(x: 0, y: yOffset)
-                        .animation(Animation.easeOut.delay(0))
+                        .animation(.easeOut.delay(0), value: rectangleHeight)
                     Rectangle()
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(width: 12, height: rectangleHeight)
-                        .offset(x: 0, y: yOffset)
-                        .animation(Animation.easeOut.delay(0.2))
+                        .animation(.easeOut.delay(0.2), value: rectangleHeight)
                     Rectangle()
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(width: 12, height: rectangleHeight)
-                        .offset(x: 0, y: yOffset)
-                        .animation(Animation.easeOut.delay(0.4))
+                        .animation(.easeOut.delay(0.4), value: rectangleHeight)
                     Rectangle()
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(width: 12, height: rectangleHeight)
-                        .offset(x: 0, y: yOffset)
-                        .animation(Animation.easeOut.delay(0.6))
-                }.onAppear() {
+                        .animation(.easeOut.delay(0.6), value: rectangleHeight)
+                }
+                .onAppear {
                     rectangleHeight = geometry.size.width * 0.25
                     animateRectangles(in: geometry)
                     Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
@@ -61,8 +57,8 @@ struct RectangleLoaderView: View {
             }
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Pulses bar heights: expands to 25% of container width, then collapses to 10% after 0.5 s.
     /// Called on appear and repeats every 1.5 s so the animation loops continuously.
@@ -74,9 +70,7 @@ struct RectangleLoaderView: View {
     }
 }
 
-struct RectangleLoaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        RectangleLoaderView()
-            .frame(width: 200, height: 200)
-    }
+#Preview {
+    RectangleLoaderView()
+        .frame(width: 200, height: 200)
 }

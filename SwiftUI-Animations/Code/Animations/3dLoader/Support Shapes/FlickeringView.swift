@@ -21,7 +21,7 @@ import SwiftUI
 /// ```
 struct FlickeringView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Background color of the flickering rectangle (typically matching the face color).
     let backgroundColor: Color
@@ -45,39 +45,47 @@ struct FlickeringView: View {
     @State var rectangleOpacity: Double = 1
     /// When `true`, the rectangle adopts `finalSize` and `finalOffset`.
     @State var isAnimating: Bool = false
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(backgroundColor)
-                .offset(self.isAnimating ? finalOffset : initialOffset)
-                .frame(width: self.isAnimating ? self.finalSize.width : initialSize.width, height: self.isAnimating ? finalSize.height : initialSize.height)
-                .opacity(rectangleOpacity)
-        }.onAppear() {
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-                withAnimation(Animation.easeOut(duration: 0.25)) {
-                    isAnimating.toggle()
-                }
-                withAnimation(Animation.easeOut(duration: animationDuration)) {
-                    self.rectangleOpacity = 0.8
-                }
-                withAnimation(Animation.easeOut(duration: animationDuration).delay(animationDuration * 1.5)) {
-                    self.rectangleOpacity = 0.1
-                }
-                withAnimation(Animation.easeOut(duration: animationDuration).delay(animationDuration * 1.75)) {
-                    self.rectangleOpacity = 0.7
-                }
-                withAnimation(Animation.easeOut(duration: animationDuration).delay(fadeDuration)) {
-                    self.rectangleOpacity = 0
+        Rectangle()
+            .foregroundStyle(backgroundColor)
+            .offset(isAnimating ? finalOffset : initialOffset)
+            .frame(
+                width: isAnimating ? finalSize.width : initialSize.width,
+                height: isAnimating ? finalSize.height : initialSize.height
+            )
+            .opacity(rectangleOpacity)
+            .onAppear {
+                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+                    withAnimation(.easeOut(duration: 0.25)) {
+                        isAnimating.toggle()
+                    }
+                    withAnimation(.easeOut(duration: animationDuration)) {
+                        rectangleOpacity = 0.8
+                    }
+                    withAnimation(.easeOut(duration: animationDuration).delay(animationDuration * 1.5)) {
+                        rectangleOpacity = 0.1
+                    }
+                    withAnimation(.easeOut(duration: animationDuration).delay(animationDuration * 1.75)) {
+                        rectangleOpacity = 0.7
+                    }
+                    withAnimation(.easeOut(duration: animationDuration).delay(fadeDuration)) {
+                        rectangleOpacity = 0
+                    }
                 }
             }
-        }
     }
 }
 
-struct FlickeringView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlickeringView(backgroundColor: Color.black, initialOffset: CGSize(width: 50, height: -200), initialSize: CGSize(width: 200, height: 40), finalSize: CGSize(width: 40, height: 40), finalOffset: CGSize(width: -100, height: -200), fadeDuration: 4)
-    }
+#Preview {
+    FlickeringView(
+        backgroundColor: .black,
+        initialOffset: CGSize(width: 50, height: -200),
+        initialSize: CGSize(width: 200, height: 40),
+        finalSize: CGSize(width: 40, height: 40),
+        finalOffset: CGSize(width: -100, height: -200),
+        fadeDuration: 4
+    )
 }
