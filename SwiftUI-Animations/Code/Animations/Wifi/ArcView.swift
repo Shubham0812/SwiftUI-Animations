@@ -26,18 +26,16 @@ struct ArcView: View {
             .fill(fillColor)
             .shadow(color: shadowColor, radius: 5)
             .frame(height: radius)
-            .animation(Animation.spring().speed(0.75))
+            .animation(.spring().speed(0.75), value: fillColor)
             .onTapGesture {
-                self.fillColor = Color.wifiConnected
+                fillColor = Color.wifiConnected
             }
     }
 }
 
-struct ArcView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-            ArcView(radius: 42, fillColor: .constant(Color.wifiConnected), shadowColor: .constant(Color.red))
-        }
+#Preview {
+    ZStack {
+        Color.black
+        ArcView(radius: 42, fillColor: .constant(Color.wifiConnected), shadowColor: .constant(Color.red))
     }
 }

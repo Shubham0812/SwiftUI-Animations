@@ -14,7 +14,7 @@ import SwiftUI
 /// (2.5-7pt diameter) and random position. The circles are split into two groups of 18 -- one
 /// for the left half and one for the right half -- ensuring even distribution across the width.
 /// Because positions are randomized, each render produces a unique pattern.
-struct Circles : Shape {
+struct Circles: Shape {
 
     /// Generates a path of 36 randomly-placed small circles in the upper half of the rect.
     ///
@@ -44,14 +44,13 @@ struct Circles : Shape {
         return path
     }
 }
-struct Circles_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            Circles()
-                .fill(Color.red)
-                .frame(height: 300)
-        }
+
+#Preview {
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        Circles()
+            .fill(Color.red)
+            .frame(height: 300)
     }
 }

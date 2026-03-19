@@ -22,7 +22,7 @@ import SwiftUI
 /// Three overlapping repeating timers drive the arc oscillation during the searching phase.
 struct WifiView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// `true` while the arcs are oscillating in the scanning phase.
     @State var isAnimating: Bool = false
@@ -53,163 +53,156 @@ struct WifiView: View {
 
     /// Base timer interval; all arc oscillation periods are multiples of this.
     var animationDuration: Double = 0.35
-    
+
     var body: some View {
         ZStack {
             Color.wifiBackground
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             CircleEmitter(isAnimating: $isConnected)
-//                .offset(y: 90)
-//                .frame(height: 300)
             ZStack {
                 Circle()
-                    .fill(self.arcColor)
+                    .fill(arcColor)
                     .scaleEffect(0.075)
                     .shadow(color: Color.blue, radius: 5)
-                    .offset(y: self.circleOffset)
-                    .animation(Animation.easeOut(duration: animationDuration))
+                    .offset(y: circleOffset)
+                    .animation(.easeOut(duration: animationDuration), value: circleOffset)
                 ZStack {
                     ArcView(radius: 12, fillColor: $arcColor, shadowColor: $shadowColor)
                         .rotationEffect(getRotation(arcBoolean: Self.moveArc))
                         .offset(y: smallArcOffset)
-                        .animation(Animation.easeOut(duration: self.animationDuration))
-                    
+                        .animation(.easeOut(duration: animationDuration), value: smallArcOffset)
+
                     ArcView(radius: 24, fillColor: $arcColor, shadowColor: $shadowColor)
                         .rotationEffect(getRotation(arcBoolean: Self.moveArc))
-                        .offset(y: self.mediumArcOffset)
-                        .animation(Animation.easeOut(duration: self.animationDuration).delay(self.animationDuration))
-                    
-                    
+                        .offset(y: mediumArcOffset)
+                        .animation(.easeOut(duration: animationDuration).delay(animationDuration), value: mediumArcOffset)
+
                     ArcView(radius: 36, fillColor: $arcColor, shadowColor: $shadowColor)
                         .rotationEffect(getRotation(arcBoolean: Self.moveArc))
-                        .offset(y: self.largeArcOffset)
-                        .animation(Animation.easeOut(duration: self.animationDuration).delay(self.animationDuration * 1.9))
+                        .offset(y: largeArcOffset)
+                        .animation(.easeOut(duration: animationDuration).delay(animationDuration * 1.9), value: largeArcOffset)
                     Circle().stroke(style: StrokeStyle(lineWidth: 2.5))
-                        .foregroundColor(Color.white)
+                        .foregroundStyle(.white)
                         .opacity(0.8)
                     Circle().fill(Color.blue.opacity(0.1))
                     Circle().fill(Color.blue.opacity(0.025))
-                        .scaleEffect(self.isAnimating ? 5 : 0)
-                        .animation(self.isAnimating ? Animation.easeIn(duration: animationDuration * 2.5).repeatForever(autoreverses: false) :Animation.linear(duration: 0)
-                        )
-                    
+                        .scaleEffect(isAnimating ? 5 : 0)
+                        .animation(isAnimating ? .easeIn(duration: animationDuration * 2.5).repeatForever(autoreverses: false) : .linear(duration: 0), value: isAnimating)
                 }
             }.frame(height: 120)
             .onTapGesture {
                 resetValues()
                 animate()
-                
-                Timer.scheduledTimer(withTimeInterval: self.animationDuration * 12, repeats: false) { (_) in
-                    self.restoreAnimation()
-                    self.arcColor = Color.wifiConnected
-                    self.shadowColor = Color.white.opacity(0.5)
-                    self.wifiHeaderLabel = "Connected"
-                    self.isConnected.toggle()
-                    
-                    Timer.scheduledTimer(withTimeInterval: self.animationDuration + 0.05, repeats: false) { (Timer) in
-                        self.isConnected.toggle()
+
+                Timer.scheduledTimer(withTimeInterval: animationDuration * 12, repeats: false) { _ in
+                    restoreAnimation()
+                    arcColor = Color.wifiConnected
+                    shadowColor = Color.white.opacity(0.5)
+                    wifiHeaderLabel = "Connected"
+                    isConnected.toggle()
+
+                    Timer.scheduledTimer(withTimeInterval: animationDuration + 0.05, repeats: false) { _ in
+                        isConnected.toggle()
                     }
                 }
             }
-            Text(self.wifiHeaderLabel)
+            Text(wifiHeaderLabel)
                 .font(.system(size: 28, weight: .semibold, design: .rounded))
-                .opacity(self.isAnimating ? 0 : 1)
-                .foregroundColor(Color.white)
+                .opacity(isAnimating ? 0 : 1)
+                .foregroundStyle(.white)
                 .offset(y: 100)
-                .animation(self.isAnimating ? Animation.spring().speed(0.65).repeatForever(autoreverses: false) : Animation.linear(duration: 0).repeatCount(0))
+                .animation(isAnimating ? .spring().speed(0.65).repeatForever(autoreverses: false) : .linear(duration: 0).repeatCount(0), value: isAnimating)
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Returns the arc rotation during scanning. Currently only `+180°` is reachable
     /// (the second `else if` branch is unreachable due to identical condition).
     func getRotation(arcBoolean: Bool) -> Angle {
-        if (self.isAnimating && arcBoolean) {
-            return Angle.degrees(180)
-        } else if (self.isAnimating && arcBoolean) {
-            return Angle.degrees(-180)
+        if isAnimating && arcBoolean {
+            return .degrees(180)
+        } else if isAnimating && arcBoolean {
+            return .degrees(-180)
         }
-        return Angle.degrees(0)
+        return .degrees(0)
     }
-    
+
     /// Starts three overlapping repeating timers that drive the arc oscillation:
     /// - **1× timer**: moves the dot and small arc ±15 pt, reversing at ±25/+20 pt bounds.
     /// - **2× timer**: nudges the medium arc back upward every other tick.
     /// - **3× timer**: alternates `moveArc` and snaps small/medium/large offsets based on direction.
     /// All timers self-invalidate when `isAnimating` becomes `false`.
     func animate() {
-        Timer.scheduledTimer(withTimeInterval: self.animationDuration, repeats: true) { (arcTimer) in
-            if (self.isAnimating) {
-                self.circleOffset += Self.animationMovingUpwards ? -15 : 15
-                self.smallArcOffset += Self.moveArc ? -15 : 15
-                if (self.circleOffset == -25) {
+        Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: true) { arcTimer in
+            if isAnimating {
+                circleOffset += Self.animationMovingUpwards ? -15 : 15
+                smallArcOffset += Self.moveArc ? -15 : 15
+                if circleOffset == -25 {
                     Self.animationMovingUpwards = false
-                } else if (self.circleOffset == 20) {
+                } else if circleOffset == 20 {
                     Self.animationMovingUpwards = true
                 }
-                if (Self.moveArc) {
-                    self.mediumArcOffset += -15
+                if Self.moveArc {
+                    mediumArcOffset += -15
                 }
             } else {
                 arcTimer.invalidate()
             }
         }
-        
-        Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 2, repeats: true) { (arcTimer) in
-            if (self.isAnimating) {
-                self.mediumArcOffset += 15
+
+        Timer.scheduledTimer(withTimeInterval: animationDuration * 2, repeats: true) { arcTimer in
+            if isAnimating {
+                mediumArcOffset += 15
             } else {
                 arcTimer.invalidate()
             }
         }
-        
-        Timer.scheduledTimer(withTimeInterval: (self.animationDuration) * 3, repeats: true) { (arcTimer) in
-            if (self.isAnimating) {
+
+        Timer.scheduledTimer(withTimeInterval: animationDuration * 3, repeats: true) { arcTimer in
+            if isAnimating {
                 Self.moveArc.toggle()
-                self.smallArcOffset = !Self.moveArc ? -15 : 8.5
-                if (Self.animationMovingUpwards) {
-                    self.largeArcOffset = -19
-                    self.mediumArcOffset = -5.5
+                smallArcOffset = !Self.moveArc ? -15 : 8.5
+                if Self.animationMovingUpwards {
+                    largeArcOffset = -19
+                    mediumArcOffset = -5.5
                 } else {
-                    self.largeArcOffset = 14
-                    self.mediumArcOffset = 0
+                    largeArcOffset = 14
+                    mediumArcOffset = 0
                 }
             } else {
                 arcTimer.invalidate()
             }
         }
     }
-    
+
     /// Resets all animation state to the initial idle position, ready for the next tap.
     func restoreAnimation() {
-        self.isAnimating = false
+        isAnimating = false
         Self.animationMovingUpwards = true
         Self.moveArc = true
-        
-        self.circleOffset = 20
-        self.smallArcOffset = 16
-        self.mediumArcOffset = 14.5
-        self.largeArcOffset = 14
+
+        circleOffset = 20
+        smallArcOffset = 16
+        mediumArcOffset = 14.5
+        largeArcOffset = 14
     }
-    
+
     /// Begins the scanning phase: toggles `isAnimating`, sets label to "Searching",
     /// and snaps the arc offsets to their initial upward positions.
     func resetValues() {
-        self.isAnimating.toggle()
-        self.wifiHeaderLabel = "Searching"
-        self.smallArcOffset -= 7.5
-        self.circleOffset -= 15
-        self.mediumArcOffset = -5.5
-        self.largeArcOffset = -19
-        self.isConnected = false
-        self.arcColor = Color.white
-        self.shadowColor = Color.blue
+        isAnimating.toggle()
+        wifiHeaderLabel = "Searching"
+        smallArcOffset -= 7.5
+        circleOffset -= 15
+        mediumArcOffset = -5.5
+        largeArcOffset = -19
+        isConnected = false
+        arcColor = Color.white
+        shadowColor = Color.blue
     }
 }
 
-struct WifiView_Previews: PreviewProvider {
-    static var previews: some View {
-        WifiView()
-    }
+#Preview {
+    WifiView()
 }
