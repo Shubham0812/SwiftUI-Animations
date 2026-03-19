@@ -16,7 +16,8 @@ import SwiftUI
 /// the parent `CardView` completes the flip.
 struct CardBackView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
+
     /// Width of the card — must match the `CardFrontView` instance in the same `CardView`.
     let width: CGFloat
     /// ISO 7810 card aspect ratio used to derive the card height from its width.
@@ -24,8 +25,9 @@ struct CardBackView: View {
 
     /// Card data supplying the palette, security code, and card number watermark.
     let card: Card
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
             LinearGradient(gradient: Gradient(colors: [card.cardPalatte.colorTwo.opacity(0.9), card.cardPalatte.colorOne.opacity(0.9)]), startPoint: .trailing, endPoint: .leading)
@@ -33,35 +35,37 @@ struct CardBackView: View {
                 Rectangle()
                     .frame(height: 40)
                     .opacity(0.5)
-                    .foregroundColor(.black)
+                    .foregroundStyle(.black)
                     .overlay(
                         Rectangle()
                             .frame(width: 180, height: 38)
                             .cornerRadius(3)
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .overlay(
                                 HStack {
                                     Spacer()
                                     Text(card.security)
-                                        .foregroundColor(.black)
+                                        .foregroundStyle(.black)
                                         .font(.system(size: 16, weight: .semibold, design: .monospaced))
                                         .opacity(0.75)
-                                }.padding()
+                                }
+                                .padding()
                             )
                             .offset(x: 40)
                     )
                 Spacer()
                 Text(card.cardNumber)
                     .font(.system(size: width * 0.065, weight: .bold, design: .monospaced))
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .opacity(0.35)
-                    .shadow(color: Color.black, radius: 5)
+                    .shadow(color: .black, radius: 5)
                     .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
-                    .animation(Animation.default)
+                    .animation(.default, value: card.cardNumber)
                     .offset(y: -12)
                 Spacer()
                 Spacer()
-            }.padding(.top, 24)
+            }
+            .padding(.top, 24)
         }
         .shadow(radius: 5)
         .cornerRadius(20)
@@ -69,8 +73,6 @@ struct CardBackView: View {
     }
 }
 
-struct CardBackView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardBackView(width: UIScreen.main.bounds.width * 0.85, card: AppConstants.cards[0])
-    }
+#Preview {
+    CardBackView(width: UIScreen.main.bounds.width * 0.85, card: AppConstants.cards[0])
 }

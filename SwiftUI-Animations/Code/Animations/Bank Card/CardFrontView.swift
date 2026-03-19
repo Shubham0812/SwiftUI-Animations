@@ -15,7 +15,8 @@ import SwiftUI
 /// semi-transparent `Circle` to add depth. Layout is driven entirely by `card`'s properties.
 struct CardFrontView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
+
     /// Width of the card — typically 85% of screen width, passed in by `CardView`.
     let width: CGFloat
 
@@ -27,10 +28,8 @@ struct CardFrontView: View {
     /// Card data driving all text labels and the gradient palette.
     var card: Card
 
-    /// Unused rotation angle — reserved for a potential tilt animation.
-    @State var rotationAngle: Double = 0
-    
-    // MARK:- views
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
@@ -49,67 +48,63 @@ struct CardFrontView: View {
                                 .rotationEffect(.degrees(-27.5))
                         }
                     )
-                    .animation(Animation.easeOut(duration: 0.3))
+                    .animation(.easeOut(duration: 0.3), value: card.cardPalatte)
+
                 VStack(alignment: .leading) {
                     HStack {
                         Text("\(card.cardType.rawValue) Card")
                             .font(.system(size: 18, weight: .medium, design: .default))
-                            .foregroundColor(Color.white)
+                            .foregroundStyle(.white)
                         Spacer()
-                        ZStack {
-                            Image("axis")
-                                .resizable()
-                        }.frame(width: 34, height: 34)
-                        
+                        Image("axis")
+                            .resizable()
+                            .frame(width: 34, height: 34)
                     }
                     Spacer()
                     HStack {
                         Spacer()
                         Text(card.cardNumber)
                             .font(.system(size: width * 0.065, weight: .bold, design: .monospaced))
-                            .foregroundColor(Color.white)
+                            .foregroundStyle(.white)
                             .offset(y: 15)
                             .frame(minHeight: 29)
-                            .animation(Animation.default)
+                            .animation(.default, value: card.cardNumber)
                         Spacer()
                     }
                     Spacer()
                     VStack(alignment: .leading) {
                         Text("VALID THRU")
-                            .font(.system(size: 09, weight: .semibold, design: .monospaced))
-                            .foregroundColor(Color.white.opacity(0.6))
+                            .font(.system(size: 9, weight: .semibold, design: .monospaced))
+                            .foregroundStyle(.white.opacity(0.6))
                         Text(card.validity)
                             .font(.system(size: 15, weight: .semibold, design: .monospaced))
-                            .foregroundColor(Color.white)
-                    }.offset(y: 8)
+                            .foregroundStyle(.white)
+                    }
+                    .offset(y: 8)
                     HStack {
                         Text(card.cardHolderName)
                             .font(.system(size: 18, weight: .semibold, design: .rounded))
                             .textCase(.uppercase)
-                            .foregroundColor(Color.white)
+                            .foregroundStyle(.white)
                         Spacer()
-                            Image("visa")
-                                .resizable()
-                                .frame(width: 72, height: 72 / visaRatio)
+                        Image("visa")
+                            .resizable()
+                            .frame(width: 72, height: 72 / visaRatio)
                     }
-                }.padding()
+                }
+                .padding()
                 .shadow(radius: 5)
             }
         }
         .cornerRadius(20)
         .frame(width: width, height: width / ratioConstant)
-        .rotation3DEffect(
-            .degrees(rotationAngle),
-            axis: (x: 1.0, y: 0, z: 0.0)
-        )
     }
 }
 
-struct CardFrontView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            CardFrontView(width: 370, card: AppConstants.cards[0])
-        }    }
+#Preview {
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        CardFrontView(width: 370, card: AppConstants.cards[0])
+    }
 }

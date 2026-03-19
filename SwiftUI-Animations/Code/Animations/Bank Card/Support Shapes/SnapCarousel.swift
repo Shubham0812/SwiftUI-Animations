@@ -11,30 +11,32 @@ import SwiftUI
 
 /// Shared observable state for the bank-card snap carousel.
 ///
-/// Injected as an `@EnvironmentObject` into `Carousel` and polled by `CardView`
+/// Injected as an `@Environment` object into `Carousel` and polled by `CardView`
 /// to keep the displayed balance in sync with the active card.
-public class UIStateModel: ObservableObject {
+@Observable
+public class UIStateModel {
     /// Zero-based index of the card currently centered in the carousel.
-    @Published var activeCard: Int   = 0
+    var activeCard: Int = 0
     /// Live translation of the in-flight drag gesture (resets to 0 on gesture end).
-    @Published var screenDrag: Float = 0.0
+    var screenDrag: Float = 0.0
 }
 
 /// A full-screen container that expands its content to fill all available space.
 ///
 /// Used in `CardView` to give the `Carousel` a black backdrop that stretches edge-to-edge.
-struct Canvas<Content : View> : View {
+struct Canvas<Content: View>: View {
     let content: Content
+
     @inlinable init(@ViewBuilder _ content: () -> Content) {
         self.content = content()
     }
-    
+
     var body: some View {
         content
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
             .background(
                 Color.black
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
             )
     }
 }
@@ -45,8 +47,10 @@ struct Canvas<Content : View> : View {
 /// then derives an `activeOffset` to center the active card. During a drag the offset is
 /// augmented by `UIState.screenDrag` for live rubber-band feedback. A haptic impact fires
 /// each time the active card changes. Originally by T. Abbas Khan; adapted for this project.
-struct Carousel<Items : View> : View {
-    // MARK:- variables
+struct Carousel<Items: View>: View {
+
+    // MARK: - Variables
+
     /// The card `Item` views built by the `@ViewBuilder` closure.
     let items: Items
     /// Total number of cards — used to compute `totalSpacing` and canvas width.
@@ -63,59 +67,55 @@ struct Carousel<Items : View> : View {
     /// Tracks whether a long press is in progress (used to gate gesture state updates).
     @GestureState var isDetectingLongPress = false
     /// Shared carousel state — provides `activeCard` index and `screenDrag` translation.
-    @EnvironmentObject var UIState: UIStateModel
-    
-    // MARK:- initializers
+    @Environment(UIStateModel.self) var UIState
+
+    // MARK: - Initializers
+
     @inlinable public init(
         numberOfItems: CGFloat,
         spacing: CGFloat,
         widthOfHiddenCards: CGFloat,
-        @ViewBuilder _ items: () -> Items) {
-        
+        @ViewBuilder _ items: () -> Items
+    ) {
         self.items = items()
         self.numberOfItems = numberOfItems
         self.spacing = spacing
         self.widthOfHiddenCards = widthOfHiddenCards
         self.totalSpacing = (numberOfItems - 1) * spacing
-        self.cardWidth = UIScreen.main.bounds.width - (widthOfHiddenCards*2) - (spacing*2) //279
-        
+        self.cardWidth = UIScreen.main.bounds.width - (widthOfHiddenCards * 2) - (spacing * 2)
     }
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
-        
         let totalCanvasWidth: CGFloat = (cardWidth * numberOfItems) + totalSpacing
         let xOffsetToShift = (totalCanvasWidth - UIScreen.main.bounds.width) / 2
         let leftPadding = widthOfHiddenCards + spacing
         let totalMovement = cardWidth + spacing
-        
-        let activeOffset = xOffsetToShift + (leftPadding) - (totalMovement * CGFloat(UIState.activeCard))
-        let nextOffset = xOffsetToShift + (leftPadding) - (totalMovement * CGFloat(UIState.activeCard) + 1)
-        
+
+        let activeOffset = xOffsetToShift + leftPadding - (totalMovement * CGFloat(UIState.activeCard))
+        let nextOffset = xOffsetToShift + leftPadding - (totalMovement * CGFloat(UIState.activeCard) + 1)
+
         var calcOffset = Float(activeOffset)
-        if (calcOffset != Float(nextOffset)) {
+        if calcOffset != Float(nextOffset) {
             calcOffset = Float(activeOffset) + UIState.screenDrag
         }
-        
+
         return HStack(alignment: .center, spacing: spacing) {
             items
         }
         .offset(x: CGFloat(calcOffset), y: 0)
         .gesture(DragGesture().updating($isDetectingLongPress) { currentState, gestureState, transaction in
             self.UIState.screenDrag = Float(currentState.translation.width)
-            
         }.onEnded { value in
             self.UIState.screenDrag = 0
-            if (value.translation.width < -50) {
+            if value.translation.width < -50 {
                 self.UIState.activeCard = self.UIState.activeCard + 1
-                let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                impactMed.impactOccurred()
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             }
-            
-            if (value.translation.width > 50) {
+            if value.translation.width > 50 {
                 self.UIState.activeCard = self.UIState.activeCard - 1
-                let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                impactMed.impactOccurred()
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             }
         })
     }
@@ -137,7 +137,7 @@ struct Item<Content: View>: View {
     var content: Content
     /// Binding to the parent's selected index (currently passed as `.constant(1)`).
     @Binding var selectedIndex: Int
-    
+
     @inlinable public init(
         _id: Int,
         spacing: CGFloat,
@@ -147,12 +147,12 @@ struct Item<Content: View>: View {
         @ViewBuilder _ content: () -> Content
     ) {
         self.content = content()
-        self.cardWidth = UIScreen.main.bounds.width - (widthOfHiddenCards*2) - (spacing*2) //279
+        self.cardWidth = UIScreen.main.bounds.width - (widthOfHiddenCards * 2) - (spacing * 2)
         self.cardHeight = cardWidth / 1.593
         self._id = _id
         self._selectedIndex = selectedIndex
     }
-    
+
     var body: some View {
         content
             .frame(width: cardWidth, height: cardHeight, alignment: .top)
