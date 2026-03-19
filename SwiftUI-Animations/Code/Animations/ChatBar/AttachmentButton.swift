@@ -16,6 +16,7 @@ import SwiftUI
 /// A circular highlight overlay (`buttonPressAnimation`) is reserved for future tap feedback
 /// but is currently not wired to a gesture (see TODO comment in the source).
 struct AttachmentButton: View {
+
     /// When `true`, the icon rotates 137°. Bound from the parent to the `+` button only.
     @Binding var needsRotation: Bool
     /// Reserved for a press-ring feedback animation — not currently triggered by any gesture.
@@ -27,37 +28,29 @@ struct AttachmentButton: View {
     var iconSize: CGFloat = 20
     /// Closure executed when the button is tapped.
     var action: () -> Void
-    
+
     var body: some View {
         Button(action: action) {
-            Image(systemName: self.iconName)
+            Image(systemName: iconName)
                 .font(.system(size: iconSize, weight: .medium, design: .rounded))
-                .foregroundColor(Color.white)
+                .foregroundStyle(.white)
                 .padding()
                 .frame(width: 52, height: 52)
                 .background(Color.buttonBackground.opacity(0.5))
                 .cornerRadius(32)
-                .rotationEffect(self.needsRotation ? .degrees(137) : .degrees(0))
-                .animation(Animation.easeIn(duration: 0.25).speed(1.5))
+                .rotationEffect(needsRotation ? .degrees(137) : .degrees(0))
+                .animation(.easeIn(duration: 0.25).speed(1.5), value: needsRotation)
                 .overlay(
                     Circle()
-                        .opacity(self.buttonPressAnimation ? 0.1: 0)
-                        .scaleEffect(self.buttonPressAnimation ? 0.95 : 0.5)
-                        .animation(self.buttonPressAnimation ? .easeIn(duration: 0.25) : .easeIn(duration: 0))
-            )
+                        .opacity(buttonPressAnimation ? 0.1 : 0)
+                        .scaleEffect(buttonPressAnimation ? 0.95 : 0.5)
+                        .animation(buttonPressAnimation ? .easeIn(duration: 0.25) : .easeIn(duration: 0), value: buttonPressAnimation)
+                )
         }
-    // TODO:- Find a way to the tap gesture to the Button closure
-//        .onTapGesture {
-//            self.buttonPressAnimation.toggle()
-//            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (Timer) in
-//                self.buttonPressAnimation.toggle()
-//            }
-//        }
+        // TODO: - Find a way to wire the tap gesture to the Button closure
     }
 }
 
-struct AttachmentButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AttachmentButton(needsRotation: .constant(true), iconName: "plus", action: {})
-    }
+#Preview {
+    AttachmentButton(needsRotation: .constant(true), iconName: "plus", action: {})
 }

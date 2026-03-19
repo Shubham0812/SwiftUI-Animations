@@ -19,7 +19,7 @@ import SwiftUI
 /// back into view, returning the bar to its normal input state.
 struct ChatBarView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// `true` for 0.5 s after the `+` button is tapped — shows the attachment panel.
     @State var addAttachment: Bool = false
@@ -30,76 +30,76 @@ struct ChatBarView: View {
 
     /// Fixed height of the chat bar pill — also used to derive the corner radius (`height / 2`).
     var chatBarHeight: CGFloat = 86
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             Color.black
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack {
                 Color.chatBackground
                 HStack {
                     AttachmentButton(needsRotation: $rotateBar, iconName: "plus", iconSize: 24, action: {
-                        self.rotateBar.toggle()
-                        self.addAttachment.toggle()
-                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (Timer) in
-                            self.addAttachment.toggle()
+                        rotateBar.toggle()
+                        addAttachment.toggle()
+                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                            addAttachment.toggle()
                         }
                     })
                     Spacer()
                     ZStack {
-                        ZStack {
-                            HStack(alignment: .center, spacing: 20) {
-                                AttachmentButton(needsRotation: .constant(false), iconName: "camera", action: {})
-                                AttachmentButton(needsRotation: .constant(false), iconName: "video.fill", action: {})
-                                AttachmentButton(needsRotation: .constant(false), iconName: "rectangle.stack.person.crop", action: {})
-                            }
-                            .rotationEffect(!self.rotateBar ? .degrees(90) : .degrees(0), anchor: .zero)
-                            .offset(y: !self.rotateBar ? 72 : 0)
-                            .animation(Animation.spring())
+                        HStack(alignment: .center, spacing: 20) {
+                            AttachmentButton(needsRotation: .constant(false), iconName: "camera", action: {})
+                            AttachmentButton(needsRotation: .constant(false), iconName: "video.fill", action: {})
+                            AttachmentButton(needsRotation: .constant(false), iconName: "rectangle.stack.person.crop", action: {})
                         }
-                        ZStack {
-                            TextField("Message", text: self.$message)
-                                .font(.system(size: 18, weight: .semibold, design: .rounded))
-                                .disableAutocorrection(true)
-                                .foregroundColor(Color.white)
-                                .accentColor(Color.white)
-                                .frame(height: 50)
-                                .padding(.leading, 36)
-                                .background(
-                                    Color.buttonBackground.opacity(0.5)
-                                        .cornerRadius(24)
-                                        .padding(.leading)
-                                )
-                        }
-                        .rotationEffect(self.rotateBar ? .degrees(-120) : .degrees(0), anchor: .zero)
-                        .animation(Animation.spring())
+                        .rotationEffect(!rotateBar ? .degrees(90) : .degrees(0), anchor: .zero)
+                        .offset(y: !rotateBar ? 72 : 0)
+                        .animation(.spring(), value: rotateBar)
+
+                        TextField("Message", text: $message)
+                            .font(.system(size: 18, weight: .semibold, design: .rounded))
+                            .disableAutocorrection(true)
+                            .foregroundStyle(.white)
+                            .tint(.white)
+                            .frame(height: 50)
+                            .padding(.leading, 36)
+                            .background(
+                                Color.buttonBackground.opacity(0.5)
+                                    .cornerRadius(24)
+                                    .padding(.leading)
+                            )
+                            .rotationEffect(rotateBar ? .degrees(-120) : .degrees(0), anchor: .zero)
+                            .animation(.spring(), value: rotateBar)
                     }
-                } .padding()
+                }
+                .padding()
                 .padding([.leading, .trailing], 8)
             }
-            .frame(height: self.chatBarHeight)
-            .cornerRadius(self.chatBarHeight / 2)
+            .frame(height: chatBarHeight)
+            .cornerRadius(chatBarHeight / 2)
             .padding()
             .padding([.leading, .trailing], 24)
             .shadow(radius: 10)
-            .rotationEffect(self.getBarRotationDegree(), anchor: .leading)
+            .rotationEffect(getBarRotationDegree(), anchor: .leading)
             .animation(
-                Animation.interpolatingSpring(mass: 2, stiffness: 14, damping: 10, initialVelocity: 5)
-                    .delay(0.1)
+                .interpolatingSpring(mass: 2, stiffness: 14, damping: 10, initialVelocity: 5)
+                    .delay(0.1),
+                value: addAttachment
             )
         }
     }
-    
+
     /// Returns the bar's wiggle rotation angle based on the current animation state.
     ///
     /// - Both `rotateBar` and `addAttachment` true → –3° (tilts left as panel opens)
     /// - Only `addAttachment` true → +3° (rebounds right briefly)
     /// - Neither → 0° (normal horizontal position)
     func getBarRotationDegree() -> Angle {
-        if (self.rotateBar && self.addAttachment) {
+        if rotateBar && addAttachment {
             return .degrees(-3)
-        } else if (self.addAttachment) {
+        } else if addAttachment {
             return .degrees(3)
         } else {
             return .degrees(0)
@@ -107,8 +107,6 @@ struct ChatBarView: View {
     }
 }
 
-struct ChatBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatBarView(message: .constant(""))
-    }
+#Preview {
+    ChatBarView(message: .constant(""))
 }
