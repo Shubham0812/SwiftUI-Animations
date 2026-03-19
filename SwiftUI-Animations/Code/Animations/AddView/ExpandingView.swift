@@ -20,7 +20,7 @@ import SwiftUI
 /// creating the impression that the icon "pops" straight out while the tile spins open.
 struct ExpandingView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Bound to `AddView.isAnimating`; `true` = tile expanded, `false` = collapsed.
     @Binding var expand: Bool
@@ -28,32 +28,31 @@ struct ExpandingView: View {
     var direction: ExpandDirection
     /// SF Symbol name rendered inside the tile (e.g. "mic.fill", "photo").
     var symbolName: String
-    
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
-            ZStack {
-                Image(systemName: symbolName)
-                    .font(.system(size: 32, weight: .medium, design: .rounded))
-                    .foregroundColor(Color.black)
-                    .padding()
-                    .opacity(self.expand ? 0.85 : 0)
-                    .scaleEffect(self.expand ? 1: 0)
-                    .rotationEffect(self.expand ? .degrees(-43) : .degrees(0))
-                    .animation(Animation.easeOut(duration: 0.15))
-            }
-            .frame(width: 82, height: 82)
-            .background(Color.white)
-            .cornerRadius(self.expand ? 41 : 8)
-            .scaleEffect(self.expand ? 1 : 0.5)
-            .offset(x: self.expand ? self.direction.offsets.0 : 0, y: self.expand ? self.direction.offsets.1 : 0)
-            .rotationEffect(self.expand ? .degrees(43) : .degrees(0))
-            .animation(Animation.easeOut(duration: 0.25).delay(0.05))
-        }.offset(x: self.direction.containerOffset.0, y: self.direction.containerOffset.1)
+            Image(systemName: symbolName)
+                .font(.system(size: 32, weight: .medium, design: .rounded))
+                .foregroundStyle(.black)
+                .padding()
+                .opacity(expand ? 0.85 : 0)
+                .scaleEffect(expand ? 1 : 0)
+                .rotationEffect(expand ? .degrees(-43) : .degrees(0))
+                .animation(.easeOut(duration: 0.15), value: expand)
+        }
+        .frame(width: 82, height: 82)
+        .background(.white)
+        .cornerRadius(expand ? 41 : 8)
+        .scaleEffect(expand ? 1 : 0.5)
+        .offset(x: expand ? direction.offsets.0 : 0, y: expand ? direction.offsets.1 : 0)
+        .rotationEffect(expand ? .degrees(43) : .degrees(0))
+        .animation(.easeOut(duration: 0.25).delay(0.05), value: expand)
+        .offset(x: direction.containerOffset.0, y: direction.containerOffset.1)
     }
 }
 
-struct ExpandButton_Previews: PreviewProvider {
-    static var previews: some View {
-        ExpandingView(expand: .constant(true), direction: .bottom, symbolName: "doc.fill")
-    }
+#Preview {
+    ExpandingView(expand: .constant(true), direction: .bottom, symbolName: "doc.fill")
 }

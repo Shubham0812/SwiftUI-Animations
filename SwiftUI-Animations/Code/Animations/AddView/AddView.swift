@@ -16,40 +16,36 @@ import SwiftUI
 /// Tapping again collapses everything back to the `+`.
 struct AddView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// `true` when the four action tiles are expanded; drives all child animations.
     @State var isAnimating: Bool = false
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             Color.black
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack {
                 ExpandingView(expand: $isAnimating, direction: .bottom, symbolName: "note.text")
                 ExpandingView(expand: $isAnimating, direction: .left, symbolName: "doc")
                 ExpandingView(expand: $isAnimating, direction: .top, symbolName: "photo")
                 ExpandingView(expand: $isAnimating, direction: .right, symbolName: "mic.fill")
                 Image(systemName: "plus")
-                    .font(.system(size: 40, weight:  self.isAnimating ? .regular : .semibold, design: .rounded))
-                    .foregroundColor(self.isAnimating ? Color.white : Color.black)
-                    .rotationEffect(self.isAnimating ? .degrees(45) : .degrees(0))
-                    .scaleEffect(self.isAnimating ? 3 : 1)
-                    .opacity(self.isAnimating ? 0.5 : 1)
-                    .animation(Animation.spring(response: 0.35, dampingFraction: 0.85, blendDuration: 1))
+                    .font(.system(size: 40, weight: isAnimating ? .regular : .semibold, design: .rounded))
+                    .foregroundStyle(isAnimating ? Color.white : Color.black)
+                    .rotationEffect(isAnimating ? .degrees(45) : .degrees(0))
+                    .scaleEffect(isAnimating ? 3 : 1)
+                    .opacity(isAnimating ? 0.5 : 1)
+                    .animation(.spring(response: 0.35, dampingFraction: 0.85, blendDuration: 1), value: isAnimating)
                     .onTapGesture {
-                        self.isAnimating.toggle()
+                        isAnimating.toggle()
                     }
-            }.frame(height: 300)
+            }
+            .frame(height: 300)
             .padding()
         }
-    }
-}
-
-struct AddButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AddView()
     }
 }
 
@@ -78,7 +74,7 @@ enum ExpandDirection {
             return (62, -32)
         }
     }
-    
+
     /// Small static offset applied to the tile's outer container, unique per direction,
     /// so collapsed tiles don't overlap perfectly at the origin.
     var containerOffset: (CGFloat, CGFloat) {
@@ -93,4 +89,8 @@ enum ExpandDirection {
             return (18, -18)
         }
     }
+}
+
+#Preview {
+    AddView()
 }
