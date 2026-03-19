@@ -18,7 +18,7 @@ import SwiftUI
 /// 4. After a delay, the button resets to its initial "Submit" state
 struct SubmitView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Base duration for the button's shape transition (shrink/expand).
     let animationDuration: TimeInterval = 0.45
@@ -32,50 +32,50 @@ struct SubmitView: View {
 
     /// Scale factor for the pulsing "heartbeat" effect while the spinner is active.
     @State var submitScale: CGFloat = 1
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack {
             Color.black
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack {
-                RoundedRectangle(cornerRadius: self.isAnimating ? 46 : 20, style: .circular)
+                RoundedRectangle(cornerRadius: isAnimating ? 46 : 20, style: .circular)
                     .fill(Color.submitColor)
-                    .frame(width: self.isAnimating ? 92 : 300, height: 92)
+                    .frame(width: isAnimating ? 92 : 300, height: 92)
                     .scaleEffect(submitScale, anchor: .center)
                     .onTapGesture {
-                        if (!self.isAnimating) {
+                        if !isAnimating {
                             HapticManager().makeSelectionFeedback()
                             toggleIsAnimating()
                             animateButton()
                             resetSubmit()
-                            Timer.scheduledTimer(withTimeInterval:  trackerRotation * 0.95, repeats: false) { _ in
-                                self.taskDone.toggle()
+                            Timer.scheduledTimer(withTimeInterval: trackerRotation * 0.95, repeats: false) { _ in
+                                taskDone.toggle()
                             }
                         }
                     }
-                if (self.isAnimating) {
-                    RotatingCircle(trackerRotation: trackerRotation, timerInterval:  trackerRotation * 0.91)
+                if isAnimating {
+                    RotatingCircle(trackerRotation: trackerRotation, timerInterval: trackerRotation * 0.91)
                 }
                 Tick(scaleFactor: 0.4)
-                    .trim(from: 0, to: self.taskDone ? 1 : 0)
+                    .trim(from: 0, to: taskDone ? 1 : 0)
                     .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round))
-                    .foregroundColor(Color.white)
+                    .foregroundStyle(.white)
                     .frame(width: 16)
                     .offset(x: -4, y: 4)
-                    .animation(.easeOut(duration: 0.35))
+                    .animation(.easeOut(duration: 0.35), value: taskDone)
                 Text("Submit")
                     .font(.system(size: 32, weight: .bold, design: .monospaced))
-                    .foregroundColor(Color.white)
-                    .opacity(self.isAnimating ? 0 : 1)
-                    .animation(Animation.easeOut(duration: animationDuration))
-                    .scaleEffect(self.isAnimating ? 0.7 : 1)
-                    .animation(Animation.easeOut(duration: animationDuration))
+                    .foregroundStyle(.white)
+                    .opacity(isAnimating ? 0 : 1)
+                    .animation(.easeOut(duration: animationDuration), value: isAnimating)
+                    .scaleEffect(isAnimating ? 0.7 : 1)
+                    .animation(.easeOut(duration: animationDuration), value: isAnimating)
             }
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Triggers three "heartbeat" pulses at 0s, 1s, and 2s while the spinner is active.
     func animateButton() {
@@ -85,37 +85,36 @@ struct SubmitView: View {
         }
         Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
             expandButton()
-        }    }
-    
-    /// Performs one scale-up (1.35×) then scale-down (1×) pulse over 1 second total.
-    func expandButton() {
-        withAnimation(Animation.linear(duration: 0.5)) {
-            self.submitScale = 1.35
-        }
-        withAnimation(Animation.linear(duration: 0.5).delay(0.5)) {
-            self.submitScale = 1
         }
     }
-    
+
+    /// Performs one scale-up (1.35×) then scale-down (1×) pulse over 1 second total.
+    func expandButton() {
+        withAnimation(.linear(duration: 0.5)) {
+            submitScale = 1.35
+        }
+        withAnimation(.linear(duration: 0.5).delay(0.5)) {
+            submitScale = 1
+        }
+    }
+
     /// Schedules a reset that restores the button to its initial "Submit" state
     /// after the spinner and checkmark have finished.
     func resetSubmit() {
         Timer.scheduledTimer(withTimeInterval: trackerRotation * 0.95 + animationDuration * 3.5, repeats: false) { _ in
             toggleIsAnimating()
-            self.taskDone.toggle()
+            taskDone.toggle()
         }
     }
-    
+
     /// Toggles `isAnimating` with a spring animation that morphs the button shape.
     func toggleIsAnimating() {
-        withAnimation(Animation.spring(response: animationDuration * 1.25, dampingFraction: 0.9, blendDuration: 1)){
-            self.isAnimating.toggle()
+        withAnimation(.spring(response: animationDuration * 1.25, dampingFraction: 0.9, blendDuration: 1)) {
+            isAnimating.toggle()
         }
     }
 }
 
-struct SubmitView_Previews: PreviewProvider {
-    static var previews: some View {
-        SubmitView()
-    }
+#Preview {
+    SubmitView()
 }

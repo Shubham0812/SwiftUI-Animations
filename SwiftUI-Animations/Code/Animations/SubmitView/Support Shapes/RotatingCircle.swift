@@ -16,7 +16,7 @@ import SwiftUI
 /// ends, it shrinks, drifts upward, and fades out.
 struct RotatingCircle: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Unused flag — declared but never toggled in the current implementation.
     @State var isAnimating: Bool = false
@@ -35,8 +35,8 @@ struct RotatingCircle: View {
     let trackerRotation: Double
     /// Total duration of the rotation phase; also used to schedule the exit animation.
     let timerInterval: TimeInterval
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         Circle()
             .fill(Color.white)
@@ -45,45 +45,41 @@ struct RotatingCircle: View {
             .rotationEffect(rotationAngle)
             .scaleEffect(circleScale)
             .opacity(opacity)
-            .onAppear() {
-                //                Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
-                withAnimation(Animation.easeOut(duration: 0.2)) {
-                    self.circleScale = 1
-                    self.xOffset = 130
+            .onAppear {
+                withAnimation(.easeOut(duration: 0.2)) {
+                    circleScale = 1
+                    xOffset = 130
                 }
-                withAnimation(Animation.linear(duration: timerInterval)) {
-                    self.rotationAngle = getRotationAngle()
+                withAnimation(.linear(duration: timerInterval)) {
+                    rotationAngle = getRotationAngle()
                 }
                 Timer.scheduledTimer(withTimeInterval: timerInterval, repeats: false) { _ in
-                    withAnimation(Animation.easeOut(duration: 0.2)) {
-                        self.circleScale = 0.25
-                        self.xOffset = 60
-                        self.yOffSet = -40
+                    withAnimation(.easeOut(duration: 0.2)) {
+                        circleScale = 0.25
+                        xOffset = 60
+                        yOffSet = -40
                     }
                 }
                 Timer.scheduledTimer(withTimeInterval: timerInterval + 0.05, repeats: false) { _ in
-                    withAnimation(Animation.default) {
-                        self.opacity = 0
+                    withAnimation(.default) {
+                        opacity = 0
                     }
                 }
             }
-        //            }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Returns the total rotation angle: `360° × trackerRotation`.
     func getRotationAngle() -> Angle {
-        return .degrees(360 * self.trackerRotation)
+        return .degrees(360 * trackerRotation)
     }
 }
 
-struct RotatingCircle_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            RotatingCircle(trackerRotation: 2.4, timerInterval:  2.4 * 0.91)
-        }
+#Preview {
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        RotatingCircle(trackerRotation: 2.4, timerInterval: 2.4 * 0.91)
     }
 }
