@@ -15,12 +15,12 @@ import SwiftUI
 /// Together they form the colorful particle ring that appears above the heart on like.
 struct CapusuleGroupView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// When `true`, all capsules shrink and fade — triggers the burst animation in each child.
     @Binding var isAnimating: Bool
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack {
             ShrinkingCapsule(rotationAngle: .zero, offset: CGSize(width: 0, height: -15), isAnimating: $isAnimating)
@@ -31,13 +31,11 @@ struct CapusuleGroupView: View {
             LowerCapsuleView(isAnimating: $isAnimating)
         }
         .onTapGesture {
-            self.isAnimating.toggle()
+            isAnimating.toggle()
         }
     }
 }
 
-struct UpperCapsuleView_Previews: PreviewProvider {
-    static var previews: some View {
-        CapusuleGroupView(isAnimating: .constant(false))
-    }
+#Preview {
+    CapusuleGroupView(isAnimating: .constant(false))
 }

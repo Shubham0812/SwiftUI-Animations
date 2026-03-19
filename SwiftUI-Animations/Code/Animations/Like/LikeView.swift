@@ -19,7 +19,7 @@ import SwiftUI
 /// **On second tap (unlike):** all state resets instantly — circle reverts, burst disappears.
 struct LikeView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Base duration for all timed animations in the like sequence.
     let animationDuration: Double = 0.25
@@ -32,66 +32,64 @@ struct LikeView: View {
     @State var floatLike: Bool = false
     /// Toggled after `animationDuration` to scale the capsule burst from 0.8× to 1.25×.
     @State var showFlare: Bool = false
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack {
             Color.likeBackground
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack {
-                if (floatLike) {
+                if floatLike {
                     CapusuleGroupView(isAnimating: $floatLike)
                         .offset(y: -130)
-                        .scaleEffect(self.showFlare ? 1.25 : 0.8)
-                        .opacity(self.floatLike ? 1 : 0)
-                        .animation(Animation.spring().delay(animationDuration / 2))
+                        .scaleEffect(showFlare ? 1.25 : 0.8)
+                        .opacity(floatLike ? 1 : 0)
+                        .animation(.spring().delay(animationDuration / 2), value: showFlare)
                 }
                 Circle()
-                    .foregroundColor(self.isAnimating ? Color.likeColor : Color.likeOverlay)
-                    .animation(Animation.easeOut(duration: animationDuration * 2).delay(animationDuration))
+                    .foregroundStyle(isAnimating ? Color.likeColor : Color.likeOverlay)
+                    .animation(.easeOut(duration: animationDuration * 2).delay(animationDuration), value: isAnimating)
                 HeartImageView()
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .offset(y: 12)
-                    .scaleEffect(self.isAnimating ? 1.25 : 1)
+                    .scaleEffect(isAnimating ? 1.25 : 1)
                     .overlay(
                         Color.likeColor
                             .mask(
                                 HeartImageView()
                             )
                             .offset(y: 12)
-                            .scaleEffect(self.isAnimating ? 1.35 : 0)
-                            .animation(Animation.easeIn(duration: animationDuration))
-                            .opacity(self.isAnimating ? 0 : 1)
-                            .animation(Animation.easeIn(duration: animationDuration).delay(animationDuration))
+                            .scaleEffect(isAnimating ? 1.35 : 0)
+                            .animation(.easeIn(duration: animationDuration), value: isAnimating)
+                            .opacity(isAnimating ? 0 : 1)
+                            .animation(.easeIn(duration: animationDuration).delay(animationDuration), value: isAnimating)
                     )
             }.frame(width: 250, height: 250)
-            .scaleEffect(self.shrinkIcon ? 0.35 : 1)
-            .animation(Animation.spring(response: animationDuration, dampingFraction: 1, blendDuration: 1))
-            if (floatLike) {
+            .scaleEffect(shrinkIcon ? 0.35 : 1)
+            .animation(.spring(response: animationDuration, dampingFraction: 1, blendDuration: 1), value: shrinkIcon)
+            if floatLike {
                 FloatingLike(isAnimating: $floatLike)
                     .offset(y: -40)
             }
         }.onTapGesture {
-            if (!floatLike) {
-                self.floatLike.toggle()
-                self.isAnimating.toggle()
-                self.shrinkIcon.toggle()
+            if !floatLike {
+                floatLike.toggle()
+                isAnimating.toggle()
+                shrinkIcon.toggle()
                 Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: false) { _ in
-                    self.shrinkIcon.toggle()
-                    self.showFlare.toggle()
+                    shrinkIcon.toggle()
+                    showFlare.toggle()
                 }
             } else {
-                self.isAnimating = false
-                self.shrinkIcon = false
-                self.showFlare = false
-                self.floatLike = false
+                isAnimating = false
+                shrinkIcon = false
+                showFlare = false
+                floatLike = false
             }
         }
     }
 }
 
-struct LikeButton_Previews: PreviewProvider {
-    static var previews: some View {
-        LikeView()
-    }
+#Preview {
+    LikeView()
 }

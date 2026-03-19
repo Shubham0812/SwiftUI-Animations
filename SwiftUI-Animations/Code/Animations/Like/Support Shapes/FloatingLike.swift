@@ -26,24 +26,24 @@ struct FloatingLike: View {
     /// Current (x, y) offset driving the upward float path.
     @State var offset: CGSize = CGSize(width: 0, height: 0)
     /// Sway angle — oscillates –10° → +10° → 0° across the three phases.
-    @State var rotationAngle: Angle = Angle.degrees(-4)
+    @State var rotationAngle: Angle = .degrees(-4)
     /// Fades to 0 at `animationDuration × 1.5` to make the bubble disappear.
     @State var opacity: Double = 1
 
     /// Bound from the parent `LikeView`; starts the float when `true`.
     @Binding var isAnimating: Bool
-    
+
     var body: some View {
-        ZStack{
+        ZStack {
             Capsule(style: .circular)
                 .fill(Color.likeColor)
             HStack {
                 Spacer()
                 Image(systemName: "plus")
-                    .foregroundColor(Color.white)
+                    .foregroundStyle(.white)
                     .font(.system(size: 52, weight: .bold, design: .monospaced))
                 Text("1")
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .font(.system(size: 72, weight: .bold, design: .rounded))
                 Spacer()
             }
@@ -52,52 +52,49 @@ struct FloatingLike: View {
         .scaleEffect(scale)
         .offset(offset)
         .opacity(opacity)
-        .onAppear() {
-            self.scale = 0.1
+        .onAppear {
+            scale = 0.1
             Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { checkingTimer in
-                if (isAnimating) {
+                if isAnimating {
                     checkingTimer.invalidate()
                     floatCapsule()
                 }
             }
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Animates the "+1" bubble through three upward phases with left/right sway,
     /// then fades it out at the end.
     func floatCapsule() {
         withAnimation(animation) {
-            self.scale = 0.75
-            self.offset = CGSize(width: 10, height: -100)
-            self.rotationAngle = .degrees(-10)
+            scale = 0.75
+            offset = CGSize(width: 10, height: -100)
+            rotationAngle = .degrees(-10)
         }
         Timer.scheduledTimer(withTimeInterval: animationDuration / 2, repeats: false) { _ in
             withAnimation(animation) {
-                self.offset = CGSize(width: -10, height: -200)
+                offset = CGSize(width: -10, height: -200)
             }
-            withAnimation(Animation.spring(response: animationDuration * 1.2).speed(0.75)) {
-                self.rotationAngle = .degrees(10)
+            withAnimation(.spring(response: animationDuration * 1.2).speed(0.75)) {
+                rotationAngle = .degrees(10)
             }
         }
-        Timer.scheduledTimer(withTimeInterval: animationDuration , repeats: false) { _ in
+        Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: false) { _ in
             withAnimation(animation) {
-                self.offset = CGSize(width: 0, height: -300)
-                self.rotationAngle = .degrees(0)
+                offset = CGSize(width: 0, height: -300)
+                rotationAngle = .degrees(0)
             }
         }
-        
         Timer.scheduledTimer(withTimeInterval: animationDuration * 1.5, repeats: false) { _ in
             withAnimation(animation) {
-                self.opacity = 0
+                opacity = 0
             }
         }
     }
 }
 
-struct FloatingLike_Previews: PreviewProvider {
-    static var previews: some View {
-        FloatingLike(isAnimating: .constant(true))
-    }
+#Preview {
+    FloatingLike(isAnimating: .constant(true))
 }

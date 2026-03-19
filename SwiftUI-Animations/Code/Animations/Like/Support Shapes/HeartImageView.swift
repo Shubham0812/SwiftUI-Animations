@@ -19,8 +19,6 @@ struct HeartImageView: View {
     }
 }
 
-struct HeartImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        HeartImageView()
-    }
+#Preview {
+    HeartImageView()
 }

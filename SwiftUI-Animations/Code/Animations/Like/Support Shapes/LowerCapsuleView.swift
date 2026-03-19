@@ -15,16 +15,16 @@ import SwiftUI
 /// The entire group is offset 260 pt downward to position the lower fan below the heart.
 struct LowerCapsuleView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// When `true`, triggers all six capsules to shrink and fade in sequence.
     @Binding var isAnimating: Bool
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack {
             ShrinkingCapsule(rotationAngle: .degrees(16), offset: CGSize(width: -42.5, height: 10), isAnimating: $isAnimating)
-            ShrinkingCapsule(rotationAngle: .degrees( -16), offset: CGSize(width: 42.5, height: 10), isAnimating: $isAnimating)
+            ShrinkingCapsule(rotationAngle: .degrees(-16), offset: CGSize(width: 42.5, height: 10), isAnimating: $isAnimating)
             ShrinkingCapsule(rotationAngle: .degrees(48), offset: CGSize(width: -107, height: -30), isAnimating: $isAnimating)
             ShrinkingCapsule(rotationAngle: .degrees(-48), offset: CGSize(width: 107, height: -30), isAnimating: $isAnimating)
             ShrinkingCapsule(rotationAngle: .degrees(82), offset: CGSize(width: -142, height: -95), isAnimating: $isAnimating)
@@ -34,8 +34,6 @@ struct LowerCapsuleView: View {
     }
 }
 
-struct LowerCapsuleView_Previews: PreviewProvider {
-    static var previews: some View {
-        LowerCapsuleView(isAnimating: .constant(false))
-    }
+#Preview {
+    LowerCapsuleView(isAnimating: .constant(false))
 }
