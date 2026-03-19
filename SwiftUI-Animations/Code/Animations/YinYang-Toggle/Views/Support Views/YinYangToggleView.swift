@@ -44,7 +44,7 @@ struct YinToggleView: View {
             Capsule(style: .continuous)
                 .trim(from: 0, to: viewAppeared ? 1 : 0)
                 .stroke(lineWidth: 3)
-                .foregroundColor(.gray)
+                .foregroundStyle(.gray)
                 .animation(.smooth(duration: animationDuration).delay(animationDuration * 1.25), value: viewAppeared)
             
                 // ── Yin-yang knob ─────────────────────────────────────────────
@@ -88,7 +88,7 @@ struct YinToggleView: View {
                 }
             
                 // One-shot toggle that fires the entrance animation sequence
-                .onAppear() {
+                .onAppear {
                     viewAppeared.toggle()
                 }
         }

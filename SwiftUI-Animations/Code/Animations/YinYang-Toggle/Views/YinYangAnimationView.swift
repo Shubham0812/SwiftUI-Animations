@@ -81,7 +81,7 @@ struct YinYangAnimationView: View {
         }
         // Inject the view model so child views (e.g. YinToggleView) can read it
         .environment(yinYangViewModel)
-        .onAppear() {
+        .onAppear {
             // One-shot toggle that fires all entrance animations simultaneously
             viewAppeared.toggle()
         }
@@ -129,7 +129,7 @@ struct YinYangAnimationView: View {
         ZStack {
             // Upper decorative line
             Rectangle()
-                .foregroundColor(.label)
+                .foregroundStyle(.label)
                 .opacity(yinYangViewModel.themeToggled ? 0.25 : 0.02)
                 .frame(height: 3)
                 .scaleEffect(3)         // Stretched horizontally to bleed past screen edges

@@ -124,14 +124,14 @@ struct YinYangView: View {
                             .opacity(viewAppeared ? 1 : 0)
                             .animation(.smooth.delay(animationDuration * 1.5), value: viewAppeared)
                     }
-                    .foregroundColor(Color.white)
+                    .foregroundStyle(.white)
                     .frame(width: 12 * scale)
                     // Positive offset pushes the dot downward into the dark half.
                     // Adjust alongside `scale`.
                     .offset(y: yYangOffset)
                 }
         }
-        .onAppear() {
+        .onAppear {
             // One-shot toggle — flips `viewAppeared` to true and kicks off
             // the entire animation sequence. Never toggled back to false.
             viewAppeared.toggle()
