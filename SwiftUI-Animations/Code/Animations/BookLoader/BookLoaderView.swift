@@ -16,10 +16,10 @@ import SwiftUI
 /// continuous loop. Each cycle alternates between `closeRight` and `closeLeft`.
 struct BookLoaderView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Current animation direction — alternates between `.closeRight` and `.closeLeft`.
-    @State var bookState: BookLoaderState = BookLoaderState.closeRight
+    @State var bookState: BookLoaderState = .closeRight
 
     /// Position of the left cover capsule (moves down when closing right).
     @State var leftCoverOffset: CGSize = CGSize(width: -84, height: 0)
@@ -46,99 +46,98 @@ struct BookLoaderView: View {
     /// Duration of one animation phase (open or close).
     let animationDuration: TimeInterval = 0.4
 
-    // MARK:- views
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             Color.black
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             Capsule()
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(leftCoverOffset)
                 .rotationEffect(leftRotationDegrees)
             BookHoldView()
                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .miter))
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .rotationEffect(middleRotationDegrees)
                 .offset(middleBookOffset)
             Capsule()
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(rightCoverOffset)
                 .rotationEffect(rightRotationDegrees)
             BookPagesView(animationStarted: $animationStarted, animationDuration: animationDuration)
                 .offset(y: -20)
-        }.onTapGesture() {
+        }
+        .onTapGesture {
             animationStarted.toggle()
             animateBookEnds()
-            
+
             Timer.scheduledTimer(withTimeInterval: animationDuration * 3.4, repeats: false) { _ in
                 animateBook()
-                
+
                 Timer.scheduledTimer(withTimeInterval: animationDuration * 5, repeats: true) { _ in
                     animateBook()
                 }
             }
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Advances to the next `BookLoaderState`, wrapping around to the beginning.
     func getNextCase() -> BookLoaderState {
         let allCases = BookLoaderState.allCases
-        if (self.currentIndex == allCases.count - 1) {
-            self.currentIndex = -1
+        if currentIndex == allCases.count - 1 {
+            currentIndex = -1
         }
-        self.currentIndex += 1
-        let index = self.currentIndex
-        return allCases[index]
+        currentIndex += 1
+        return allCases[currentIndex]
     }
-    
+
     /// Animates the book closing to the current state's end position,
     /// then advances to the next state and opens again.
     func animateBook() {
-        withAnimation(Animation.linear(duration: animationDuration)) {
+        withAnimation(.linear(duration: animationDuration)) {
             middleRotationDegrees = bookState.animationEnd.3
             leftCoverOffset = bookState.animationEnd.0
             rightCoverOffset = bookState.animationEnd.4
         }
-        
-        withAnimation(Animation.easeOut(duration: animationDuration)) {
+
+        withAnimation(.easeOut(duration: animationDuration)) {
             leftRotationDegrees = bookState.animationEnd.1
             rightRotationDegrees = bookState.animationEnd.5
             middleBookOffset = bookState.animationEnd.2
         }
-        
-        Timer.scheduledTimer(withTimeInterval: animationDuration * 1.6, repeats: false) { _  in
-            self.bookState = self.getNextCase()
-            self.animateBookEnds()
+
+        Timer.scheduledTimer(withTimeInterval: animationDuration * 1.6, repeats: false) { _ in
+            bookState = getNextCase()
+            animateBookEnds()
         }
     }
-    
+
     /// Animates the book to its open position for the current state.
     func animateBookEnds() {
-        withAnimation(Animation.easeOut(duration: animationDuration)) {
+        withAnimation(.easeOut(duration: animationDuration)) {
             middleRotationDegrees = bookState.animationBegin.3
             middleBookOffset = bookState.animationBegin.2
         }
-        
-        withAnimation(Animation.easeOut(duration: animationDuration)) {
+
+        withAnimation(.easeOut(duration: animationDuration)) {
             leftCoverOffset = bookState.animationBegin.0
             rightCoverOffset = bookState.animationBegin.4
         }
-        
-        withAnimation(Animation.linear(duration: animationDuration * 0.9).delay(animationDuration * 0.05)) {
+
+        withAnimation(.linear(duration: animationDuration * 0.9).delay(animationDuration * 0.05)) {
             leftRotationDegrees = bookState.animationBegin.1
             rightRotationDegrees = bookState.animationBegin.5
         }
     }
 }
 
-struct BookLoaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookLoaderView()
-    }
+#Preview {
+    BookLoaderView()
 }
 
 
@@ -154,19 +153,19 @@ enum BookLoaderState: CaseIterable {
     var animationBegin: (CGSize, Angle, CGSize, Angle, CGSize, Angle) {
         switch self {
         case .closeRight:
-            return (CGSize(width: -84, height: 0), Angle.degrees(0), CGSize(width: 0, height: 0), Angle.degrees(0), CGSize(width: 84, height: 0), Angle.degrees(0))
+            return (CGSize(width: -84, height: 0), .degrees(0), CGSize(width: 0, height: 0), .degrees(0), CGSize(width: 84, height: 0), .degrees(0))
         case .closeLeft:
-            return (CGSize(width: -84, height: 0), Angle.degrees(0), CGSize(width: 0, height: 0), Angle.degrees(0), CGSize(width: 84, height: 0), Angle.degrees(0))
+            return (CGSize(width: -84, height: 0), .degrees(0), CGSize(width: 0, height: 0), .degrees(0), CGSize(width: 84, height: 0), .degrees(0))
         }
     }
-    
+
     /// Layout values for the closed position — one cover flipped, spine rotated.
     var animationEnd: (CGSize, Angle, CGSize, Angle, CGSize, Angle) {
         switch self {
         case .closeRight:
-            return (CGSize(width: -84, height: 55.75), Angle.degrees(180), CGSize(width: 28, height: -28), Angle.degrees(90), CGSize(width: 84, height: 0), Angle.degrees(0))
+            return (CGSize(width: -84, height: 55.75), .degrees(180), CGSize(width: 28, height: -28), .degrees(90), CGSize(width: 84, height: 0), .degrees(0))
         case .closeLeft:
-            return (CGSize(width: -84, height: 0), Angle.degrees(0), CGSize(width: -28, height: -28), Angle.degrees(-90), CGSize(width: 84, height: 55.75), Angle.degrees(-180))
+            return (CGSize(width: -84, height: 0), .degrees(0), CGSize(width: -28, height: -28), .degrees(-90), CGSize(width: 84, height: 55.75), .degrees(-180))
         }
     }
 }

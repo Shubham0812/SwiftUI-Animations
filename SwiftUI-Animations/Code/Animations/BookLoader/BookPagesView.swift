@@ -20,10 +20,7 @@ import SwiftUI
 /// then `animatePages()` fires immediately and repeats every `animationDuration × 10`.
 struct BookPagesView: View {
 
-    // MARK:- variables
-
-    /// Unused directly in layout — reserved as a flag that `onAppear` polling can check.
-    @State var isAppeared: Bool = false
+    // MARK: - Variables
 
     /// Rotation of the left end-cap capsule (flips to 180° when the book opens).
     @State var leftEndDegree: Angle = .zero
@@ -47,36 +44,37 @@ struct BookPagesView: View {
     let barsOffset: CGFloat = -78
     /// Duration injected by `BookLoaderView`; all internal timers are multiples of this.
     let animationDuration: TimeInterval
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             Capsule()
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(x: barsOffset, y: leftYOffset)
                 .rotationEffect(leftEndDegree)
-                .animation(Animation.easeOut(duration: animationDuration))
-            
+                .animation(.easeOut(duration: animationDuration), value: leftEndDegree)
+
             Capsule()
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(x: barsOffset, y: rightYOffset)
                 .rotationEffect(rightEndDegree)
-                .animation(Animation.easeOut(duration: animationDuration))
-            
-            //            // Bars
+                .animation(.easeOut(duration: animationDuration), value: rightEndDegree)
+
             ForEach(0..<13) { num in
                 Capsule()
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .frame(width: bookCoverWidth, height: 8)
                     .offset(x: barsOffset)
                     .rotationEffect(pagesDegree)
-                    .animation(Animation.easeOut(duration: animationDuration).delay((animationDuration * 0.21) * Double(num)))
+                    .animation(.easeOut(duration: animationDuration).delay((animationDuration * 0.21) * Double(num)), value: pagesDegree)
             }
-        }.onAppear() {
+        }
+        .onAppear {
             Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { animationTimer in
-                if (animationStarted) {
+                if animationStarted {
                     animatePages()
                     Timer.scheduledTimer(withTimeInterval: animationDuration * 10, repeats: true) { _ in
                         animatePages()
@@ -86,8 +84,8 @@ struct BookPagesView: View {
             }
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Runs one full page-turn animation cycle across five timer phases:
     ///
@@ -97,40 +95,35 @@ struct BookPagesView: View {
     /// - **t = duration × 5.25**: Page fan collapses back to 0°.
     /// - **t = duration × 7.0**: Right end-cap resets to its initial position.
     func animatePages() {
-        self.isAppeared.toggle()
-        self.rightEndDegree = .degrees(180)
-        self.pagesDegree = .degrees(180)
-        self.rightYOffset = 0
-        
-        
+        rightEndDegree = .degrees(180)
+        pagesDegree = .degrees(180)
+        rightYOffset = 0
+
         Timer.scheduledTimer(withTimeInterval: animationDuration * 2.7, repeats: false) { _ in
-            self.leftYOffset = 20
-            self.leftEndDegree = .degrees(180)
+            leftYOffset = 20
+            leftEndDegree = .degrees(180)
         }
-        
+
         Timer.scheduledTimer(withTimeInterval: animationDuration * 5, repeats: false) { _ in
-            self.leftYOffset = 0
-            self.leftEndDegree = .zero
+            leftYOffset = 0
+            leftEndDegree = .zero
         }
-        
+
         Timer.scheduledTimer(withTimeInterval: animationDuration * 5.25, repeats: false) { _ in
-            self.pagesDegree = .degrees(0)
+            pagesDegree = .degrees(0)
         }
-        
+
         Timer.scheduledTimer(withTimeInterval: animationDuration * 7, repeats: false) { _ in
-            self.rightEndDegree = .degrees(0)
-            self.rightYOffset = -20
+            rightEndDegree = .degrees(0)
+            rightYOffset = -20
         }
     }
-    
 }
 
-struct BookPagesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            BookPagesView(animationStarted: .constant(true), animationDuration: 0.5)
-        }
+#Preview {
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        BookPagesView(animationStarted: .constant(true), animationDuration: 0.5)
     }
 }
