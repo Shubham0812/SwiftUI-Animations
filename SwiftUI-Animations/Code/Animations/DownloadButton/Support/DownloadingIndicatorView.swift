@@ -19,7 +19,7 @@ import SwiftUI
 /// useful for previews or states where motion isn't appropriate.
 struct DownloadingIndicatorView: View {
     
-    // MARK:- variables
+    // MARK: - Variables
     
     /// Current vertical offset of the arrow symbol.
     /// Animates from `-size` (above the circle) to `+size` (below the circle),
@@ -38,7 +38,7 @@ struct DownloadingIndicatorView: View {
     /// Useful for previews or embedding in a non-animated context.
     var needsAnimation: Bool = true
     
-    // MARK:- views
+    // MARK: - Views
     var body: some View {
         ZStack {
             // ── Circle border ─────────────────────────────────────────────────
@@ -62,7 +62,7 @@ struct DownloadingIndicatorView: View {
                         .frame(width: size, height: size)
                 )
         }
-        .onAppear() {
+        .onAppear {
             guard needsAnimation else { return }
             
             // Kick off the first sweep immediately on appear,

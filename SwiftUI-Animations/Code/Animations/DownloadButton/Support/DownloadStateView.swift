@@ -15,7 +15,8 @@ import SwiftUI
 /// The optional progress capsule at the bottom edge is only shown when `needsProgress = true`.
 struct DownloadStateView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
+
     /// The `DownloadState` this panel represents — drives background color and label text.
     var state: DownloadState = .downloaded
     /// When `true`, renders a progress capsule along the bottom edge (`.downloading` panel only).
@@ -24,31 +25,31 @@ struct DownloadStateView: View {
     var isLight: Bool = false
 
     /// Shared download state — used to hide this panel's label when it is not the active state.
-    @EnvironmentObject var downloader: Downloader
-    /// Download progress 0→1 from `DownloadButton`. Divided by 2 when passed to `.trim()`
-    /// so the fill spans the full button width (see progress bar notes in the annotated version).
+    @Environment(Downloader.self) var downloader
+    /// Download progress 0→1 from `DownloadButton`.
     @Binding var progress: CGFloat
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 0)
-                .foregroundColor(state.getBackground())
+                .foregroundStyle(state.getBackground())
             Text(state.getStateName())
-                .foregroundColor(isLight ? .white : .background)
+                .foregroundStyle(isLight ? .white : Color.background)
                 .font(.system(size: 26, weight: .bold))
                 .shadow(color: Color.white.opacity(0.3), radius: 5, y: 2)
                 .opacity(downloader.currentState != state ? 0 : 1)
                 .offset(x: downloader.currentState.offsetForText() + 26)
-                .animation(Animation.easeOut(duration: ButtonDimension.animationDuration / 2.25))
+                .animation(.easeOut(duration: ButtonDimension.animationDuration / 2.25), value: downloader.currentState)
                 .frame(alignment: .leading)
-            
-            if (needsProgress) {
+
+            if needsProgress {
                 Capsule(style: .circular)
                     .trim(from: 0, to: progress / 2)
                     .stroke(lineWidth: 8)
                     .rotationEffect(.degrees(180))
-                    .foregroundColor(Color(hex: "25D366"))
+                    .foregroundStyle(Color(hex: "25D366"))
                     .frame(width: ButtonDimension.width, height: 12)
                     .offset(y: ButtonDimension.height / 2 + 4.5)
                     .mask(
@@ -56,15 +57,14 @@ struct DownloadStateView: View {
                             .frame(width: 320, height: 84)
                     )
                     .opacity(downloader.currentState != state ? 0 : 1)
-                    .animation(.default)
+                    .animation(.default, value: downloader.currentState)
             }
         }
         .frame(width: ButtonDimension.width, height: ButtonDimension.height)
     }
 }
 
-struct DownloadingStatesView_Previews: PreviewProvider {
-    static var previews: some View {
-        DownloadStateView(progress: .constant(0))
-    }
+#Preview {
+    DownloadStateView(progress: .constant(0))
+        .environment(Downloader())
 }

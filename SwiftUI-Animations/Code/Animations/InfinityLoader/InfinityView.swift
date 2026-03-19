@@ -23,7 +23,7 @@ import SwiftUI
 ///   gradually lengthening the visible white tail until the next reset.
 struct InfinityView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Interval for the fast advance timer. Each tick moves `strokeEnd` forward by 0.05.
     let animationDuration: TimeInterval = 0.2
@@ -39,38 +39,39 @@ struct InfinityView: View {
     @State var strokeEnd: CGFloat = 0
     /// Grows over time via the slow timer, elongating the visible white tail segment.
     @State var additionalLength: CGFloat = 0
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
             Color.black
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             InfinityShape()
                 .stroke(style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round, lineJoin: .round))
-                .foregroundColor(.white)
-                .shadow(color: Color.white,radius: 4)
+                .foregroundStyle(.white)
+                .shadow(color: .white, radius: 4)
                 .overlay(
                     InfinityShape()
                         .trim(from: strokeStart, to: strokeEnd)
                         .stroke(style: StrokeStyle(lineWidth: strokeWidth - 0.5, lineCap: .round, lineJoin: .round))
-                        .foregroundColor(.materialBlack)
-                        .shadow(color: Color.white, radius: 5)
+                        .foregroundStyle(Color.materialBlack)
+                        .shadow(color: .white, radius: 5)
                 )
-        }.onAppear() {
+        }
+        .onAppear {
             Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: true) { _ in
-                withAnimation(Animation.linear(duration: animationDuration)) {
+                withAnimation(.linear(duration: animationDuration)) {
                     strokeEnd += 0.05
                     strokeStart = strokeEnd - (0.05 + additionalLength)
                 }
-                
-                // reset values
-                if (strokeEnd >= animationCap) {
+
+                if strokeEnd >= animationCap {
                     strokeEnd = 0
                     additionalLength = 0
                     strokeStart = 0
                 }
             }
-            
+
             Timer.scheduledTimer(withTimeInterval: animationDuration * 3, repeats: true) { _ in
                 additionalLength += 0.015
             }
@@ -78,8 +79,6 @@ struct InfinityView: View {
     }
 }
 
-struct InfinityView_Previews: PreviewProvider {
-    static var previews: some View {
-        InfinityView()
-    }
+#Preview {
+    InfinityView()
 }

@@ -23,11 +23,11 @@ import SwiftUI
 /// ```
 struct DownloadButton: View {
     
-    // MARK:- variables
-    
+    // MARK: - Variables
+
     /// Owns the current `DownloadState` and is passed to each `DownloadStateView`
     /// via the environment so all panels share the same state.
-    @StateObject var downloader = Downloader()
+    @State var downloader = Downloader()
     
     // ── Panel Y offsets ───────────────────────────────────────────────────────
     // Each panel starts off-screen and is animated into/out of the visible frame.
@@ -53,7 +53,7 @@ struct DownloadButton: View {
     /// triggers `itemDownloaded()` when it reaches 1.0.
     @State var downloadProgress: CGFloat = 0
     
-    // MARK:- views
+    // MARK: - Views
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .center)) {
             
@@ -62,17 +62,17 @@ struct DownloadButton: View {
             
             // Downloaded panel — starts furthest off-screen (2× height above)
             DownloadStateView(state: .downloaded, isLight: true, progress: .constant(0))
-                .environmentObject(downloader)
+                .environment(downloader)
                 .offset(y: downloadedOffset)
             
             // Downloading panel — starts one height above, slides in when active
             DownloadStateView(state: .downloading, needsProgress: true, isLight: true, progress: $downloadProgress)
-                .environmentObject(downloader)
+                .environment(downloader)
                 .offset(y: downloadingYOffset)
             
             // NotInitiated panel — starts visible (offset 0), the default resting state
             DownloadStateView(state: .notInitiated, progress: .constant(0))
-                .environmentObject(downloader)
+                .environment(downloader)
                 .offset(y: downloadYOffset)
             
             // ── Supporting icon overlay ───────────────────────────────────────
@@ -100,7 +100,7 @@ struct DownloadButton: View {
         .shadow(color: Color.background.opacity(0.4), radius: 10)
     }
     
-    // MARK:- functions
+    // MARK: - Functions
     
     /// Transitions from `.notInitiated` to `.downloading`.
     ///
@@ -193,7 +193,7 @@ struct DownloadButton: View {
         if downloader.currentState == .notInitiated {
             // Static arrow — animation disabled since the button is idle
             DownloadingIndicatorView(needsAnimation: false)
-                .foregroundColor(.background)
+                .foregroundStyle(.background)
             
         } else if downloader.currentState == .downloading {
             // Animated looping arrow — shifted left to sit beside the progress bar
@@ -207,7 +207,7 @@ struct DownloadButton: View {
             CircleTickShape()
                 .trim(from: 0, to: self.downloadProgress == 1 ? 0 : 1)
                 .stroke(style: StrokeStyle(lineWidth: 5.5, lineCap: .round, lineJoin: .round))
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .scaleEffect(0.6)
                 .opacity(self.downloader.currentState == .downloaded ? 1 : 0)
                 .animation(
@@ -225,7 +225,7 @@ struct DownloadButton: View {
 #Preview {
     ZStack {
         Color.background
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
         DownloadButton(downloader: Downloader())
     }
     .colorScheme(.dark)
