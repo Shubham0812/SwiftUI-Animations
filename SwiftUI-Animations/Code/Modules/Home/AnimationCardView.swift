@@ -24,11 +24,12 @@ struct AnimationCardView: View {
                 .background {
                     Circle()
                         .fill(item.iconColor.gradient)
-                        .opacity(0.25)
+                        .opacity(0.2)
                 }
 
             Text(item.title)
-                .font(.system(size: 14, weight: .semibold))
+                .font(ClashGrotestk.semibold.font(size: 14))
+                .tracking(0.1)
                 .foregroundStyle(Color.label)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
