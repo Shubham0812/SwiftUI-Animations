@@ -77,7 +77,7 @@ struct LightSwitchView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "arrow.left")
-                        .foregroundColor(isOff ? .white : .black)
+                        .foregroundStyle(isOff ? .white : .black)
                         .font(.system(size: 24, weight: .semibold, design: .monospaced))
                     Spacer()
                 }
@@ -95,7 +95,7 @@ struct LightSwitchView: View {
             ZStack {
                 // a) Static dim capsule track
                 Capsule(style: .continuous)
-                    .foregroundColor(.gray)
+                    .foregroundStyle(.gray)
                     .frame(width: 52, height: appHeight * 0.25 + 6)
                     .opacity(0.275)
                     .offset(x: appWidth / 2 - 48, y: 16)
@@ -108,7 +108,7 @@ struct LightSwitchView: View {
                     
                     Capsule()
                         .frame(width: 3, height: totalHeight)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         // THE FIX: Capsules expand from the center.
                         // To keep the TOP stationary, we must move the center DOWN by half the height.
                         .offset(y: totalHeight / 2)
@@ -157,10 +157,10 @@ struct LightSwitchView: View {
             }
             // Spring animation on the switch — gives the knob a satisfying bounce
             // when pulled. Applied to the whole cord+knob ZStack so both animate together.
-            .animation(Animation.spring(dampingFraction: 0.65).speed(1.25))
-            
+            .animation(.spring(dampingFraction: 0.65).speed(1.25), value: isOff)
+
         }
-        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
     }
     
     // MARK: - Functions

@@ -57,7 +57,7 @@ enum TriangleState {
 /// loops indefinitely via a repeating `Timer`.
 struct TriangleLoader: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Controls which segment of the triangle stroke is currently visible.
     @State var strokeStart: CGFloat = 0
@@ -73,11 +73,11 @@ struct TriangleLoader: View {
     /// Color of the circle indicator — can be customised at the call site.
     var circleColor: Color = Color.blue
     
-    // MARK:- views
+    // MARK: - Views
     var body: some View {
         ZStack {
             Color.background
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack {
                 // Trimmed triangle outline — only the segment between strokeStart and strokeEnd is drawn
                 TriangleShape()
@@ -87,12 +87,12 @@ struct TriangleLoader: View {
                 // Circle indicator that moves around the triangle's vertices
                 Circle()
                     .offset(circleOffset)
-                    .foregroundColor(circleColor)
+                    .foregroundStyle(circleColor)
                     .frame(width: 15, height: 15)
             }
             .frame(width: 100, height: 100)
             .offset(y: -75)
-        }.onAppear() {
+        }.onAppear {
             // Set initial state before animation begins
             setStroke(state: .begin)
             setCircleOffset(state: .begin)
@@ -108,7 +108,7 @@ struct TriangleLoader: View {
         }
     }
     
-    // MARK:- functions
+    // MARK: - Functions
     
     /// Orchestrates one full loop of the animation across three phases,
     /// using staggered timers to sequence stroke and circle transitions.
@@ -149,13 +149,13 @@ struct TriangleLoader: View {
     
     /// Applies the stroke trim values for the given state to the `@State` properties.
     func setStroke(state: TriangleState) {
-        (self.strokeStart, self.strokeEnd) = state.getStrokes()
+        (strokeStart, strokeEnd) = state.getStrokes()
     }
     
     /// Converts the tuple offset from `TriangleState` into a `CGSize` and applies it.
     func setCircleOffset(state: TriangleState) {
         let offset = state.getCircleOffset()
-        self.circleOffset = CGSize(width: offset.0, height: offset.1)
+        circleOffset = CGSize(width: offset.0, height: offset.1)
     }
 }
 
