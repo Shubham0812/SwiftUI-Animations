@@ -13,6 +13,8 @@ struct HomeView: View {
     // MARK: - Variables
     @State private var chatMessage: String = ""
     @State private var selectedCategory: AnimationCategory? = nil
+    @State private var isFilterPinned: Bool = false
+    @State private var scrollViewTopY: CGFloat = 0
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -28,12 +30,13 @@ struct HomeView: View {
     // MARK: - Views
     var body: some View {
         NavigationStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 filterChips
                     .safeAreaPadding(.trailing, 12)
                     .safeAreaPadding(.leading, 42)
                     .padding(.horizontal, -24)
                     .padding(.top, 12)
+                
                 LazyVGrid(columns: columns, spacing: 32) {
                     ForEach(filteredItems) { item in
                         NavigationLink(value: item.destination) {
@@ -43,15 +46,29 @@ struct HomeView: View {
                     }
                 }
                 .padding(16)
-                .padding(.top, 6)
+                .padding(.top, 12)
                 .animation(.spring(response: 0.35, dampingFraction: 0.8), value: selectedCategory)
+            }
+            .background(GeometryReader { geo in
+                Color.clear.onAppear {
+                    scrollViewTopY = geo.frame(in: .global).minY
+                }
+            })
+
+            .overlay(alignment: .top) {
+                if isFilterPinned {
+                    filterChips
+                        .padding(.vertical, 10)
+                        .background(Color(UIColor.systemGroupedBackground))
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                }
             }
             .background(Color(UIColor.systemGroupedBackground))
             .toolbar {
                 if #available(iOS 26.0, *) {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("SwiftUI")
-                            .font(.system(size: 32, weight: .bold, design: .rounded))
+                            .font(ClashGrotestk.bold.font(size: 32))
                             .frame(width: 120)
                             .padding(.leading, 10)
                     }
@@ -59,7 +76,7 @@ struct HomeView: View {
                 } else {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("SwiftUI")
-                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                            .font(ClashGrotestk.bold.font(size: 24))
                             .frame(width: 120)
                             .padding(.leading, 16)
                     }
@@ -91,7 +108,7 @@ struct HomeView: View {
             }
         } label: {
             Text(title)
-                .font(.system(.subheadline, design: .rounded).weight(isSelected ? .bold : .medium))
+                .font(isSelected ? ClashGrotestk.semibold.font(size: 14) : ClashGrotestk.medium.font(size: 14))
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
                 .background(isSelected ? Color.accentColor.opacity(0.2) : Color(.secondarySystemFill).opacity(0.7))
@@ -164,5 +181,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-    
+
 }

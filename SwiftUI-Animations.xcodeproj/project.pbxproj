@@ -93,6 +93,13 @@
 		F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */; };
 		F3DAEDF1253B18500067F963 /* DotsLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDF0253B184F0067F963 /* DotsLoaderView.swift */; };
 		F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDF3253B23950067F963 /* FlickeringView.swift */; };
+		CF0001AB2603180100000001 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0001AA2603180100000001 /* FontManager.swift */; };
+		CF0001DB2603180100000001 /* ClashGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */; };
+		CF0001EB2603180100000001 /* ClashGrotesk-Extralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */; };
+		CF0001FB2603180100000001 /* ClashGrotesk-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */; };
+		CF0002AB2603180100000001 /* ClashGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */; };
+		CF0002BB2603180100000001 /* ClashGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */; };
+		CF0002CB2603180100000001 /* ClashGrotesk-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +191,13 @@
 		F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLoaderView.swift; sourceTree = "<group>"; };
 		F3DAEDF0253B184F0067F963 /* DotsLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsLoaderView.swift; sourceTree = "<group>"; };
 		F3DAEDF3253B23950067F963 /* FlickeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickeringView.swift; sourceTree = "<group>"; };
+		CF0001AA2603180100000001 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Bold.otf"; sourceTree = "<group>"; };
+		CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Extralight.otf"; sourceTree = "<group>"; };
+		CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Light.otf"; sourceTree = "<group>"; };
+		CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Medium.otf"; sourceTree = "<group>"; };
+		CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Regular.otf"; sourceTree = "<group>"; };
+		CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Semibold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,8 +262,30 @@
 			isa = PBXGroup;
 			children = (
 				515557EB24DEAC350001E523 /* Colors.swift */,
+				CF0001AA2603180100000001 /* FontManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CF0001BA2603180100000001 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CF0001CA2603180100000001 /* ClashGrotesk */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CF0001CA2603180100000001 /* ClashGrotesk */ = {
+			isa = PBXGroup;
+			children = (
+				CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */,
+				CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */,
+				CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */,
+				CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */,
+				CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */,
+				CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */,
+			);
+			path = ClashGrotesk;
 			sourceTree = "<group>";
 		};
 		517BFA5C24DC45B200D4F78A /* SupportShapes */ = {
@@ -658,6 +694,7 @@
 				518E823624DAA667002CB679 /* Assets.xcassets */,
 				518E823B24DAA667002CB679 /* LaunchScreen.storyboard */,
 				518E823824DAA667002CB679 /* Preview Content */,
+				CF0001BA2603180100000001 /* Fonts */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -784,6 +821,12 @@
 				518E823D24DAA667002CB679 /* LaunchScreen.storyboard in Resources */,
 				518E823A24DAA667002CB679 /* Preview Assets.xcassets in Resources */,
 				518E823724DAA667002CB679 /* Assets.xcassets in Resources */,
+				CF0001DB2603180100000001 /* ClashGrotesk-Bold.otf in Resources */,
+				CF0001EB2603180100000001 /* ClashGrotesk-Extralight.otf in Resources */,
+				CF0001FB2603180100000001 /* ClashGrotesk-Light.otf in Resources */,
+				CF0002AB2603180100000001 /* ClashGrotesk-Medium.otf in Resources */,
+				CF0002BB2603180100000001 /* ClashGrotesk-Regular.otf in Resources */,
+				CF0002CB2603180100000001 /* ClashGrotesk-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +861,7 @@
 				F3714E8E251F528700D627D4 /* FloatingLike.swift in Sources */,
 				F3DAEDC3253629F80067F963 /* GithubLoader.swift in Sources */,
 				515557EC24DEAC350001E523 /* Colors.swift in Sources */,
+				CF0001AB2603180100000001 /* FontManager.swift in Sources */,
 				F30DD1562589E96700864877 /* LightSwitchView.swift in Sources */,
 				F30BA97025441E3200DC8367 /* ShrinkingPlus.swift in Sources */,
 				5184227F262064E40004FA3A /* DownloadingIndicatorView.swift in Sources */,
