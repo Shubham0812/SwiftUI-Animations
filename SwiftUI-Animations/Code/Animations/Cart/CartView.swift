@@ -25,32 +25,29 @@ struct CartView: View {
     var animationDelay: Double = 0.25
     /// Animation curve injected by the parent, applied to both the image rotation and tick.
     var animation: Animation
-    
+
     var body: some View {
         ZStack {
-            Image(self.itemAdded ? "cart-fill" : "cart")
+            Image(itemAdded ? "cart-fill" : "cart")
                 .resizable()
                 .frame(width: 42, height: 42)
-                .rotationEffect(self.itemAdded ? .degrees(-22) : .degrees(0))
-                .animation(self.animation)
+                .rotationEffect(itemAdded ? .degrees(-22) : .degrees(0))
+                .animation(animation, value: itemAdded)
             Tick(scaleFactor: 0.125)
-                .trim(from: 0, to: self.itemAdded ? 1 : 0)
+                .trim(from: 0, to: itemAdded ? 1 : 0)
                 .stroke(style: StrokeStyle(lineWidth: 2.4, lineCap: .round))
-                .foregroundColor(Color.red)
+                .foregroundStyle(.red)
                 .frame(width: 42, height: 42)
-                .animation(.easeOut(duration: 0.35))
-                .rotationEffect(self.itemAdded ? .degrees(-22) : .degrees(0))
-                .animation(Animation.easeIn(duration: self.animationDuration).delay(self.animationDelay))
-        }.onTapGesture {
-            self.itemAdded.toggle()
+                .animation(.easeOut(duration: 0.35), value: itemAdded)
+                .rotationEffect(itemAdded ? .degrees(-22) : .degrees(0))
+                .animation(.easeIn(duration: animationDuration).delay(animationDelay), value: itemAdded)
+        }
+        .onTapGesture {
+            itemAdded.toggle()
         }
     }
 }
 
-
-
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView(itemAdded: .constant(true), animation: Animation.easeIn(duration: 0.55).delay(0.25))
-    }
+#Preview {
+    CartView(itemAdded: .constant(true), animation: .easeIn(duration: 0.55).delay(0.25))
 }

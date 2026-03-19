@@ -24,14 +24,14 @@ enum CartState {
     var offset: CGFloat {
         switch self {
         case .origin, .ready:
-            return  -(UIScreen.main.bounds.width / 2 - 80)
+            return -(UIScreen.main.bounds.width / 2 - 80)
         case .center:
             return -4
         case .moveToEnd:
             return (UIScreen.main.bounds.width / 2 + 42)
         }
     }
-    
+
     /// Cart image name — empty cart for idle states, filled cart when traveling.
     var image: String {
         switch self {
@@ -41,15 +41,15 @@ enum CartState {
             return "cart-fill"
         }
     }
-    
+
     /// Animation curve for the cart's horizontal travel.
     /// `.origin` uses a zero-duration linear snap (invisible reset); all other states ease in.
     var animation: Animation {
         switch self {
         case .origin:
-            return Animation.linear(duration: 0)
+            return .linear(duration: 0)
         default:
-            return Animation.easeIn(duration: 0.55).delay(0.25)
+            return .easeIn(duration: 0.55).delay(0.25)
         }
     }
 }
@@ -66,7 +66,8 @@ enum CartState {
 /// A white `Triangle` bubble pops above the button during the bounce phase
 /// and a `ShirtView` floats up from the cart while it's in the center.
 struct AddCartView: View {
-    // MARK:- variables
+
+    // MARK: - Variables
 
     /// `true` while the cart is in motion (label hidden, shirt visible).
     @State var isAnimating: Bool = false
@@ -81,67 +82,61 @@ struct AddCartView: View {
     var backgroundColor: Color
     /// Fill color of the button pill.
     var color: Color
-    
-    // MARK:- views
+
+    // MARK: - Views
+
     var body: some View {
         ZStack {
-            self.backgroundColor
-                .edgesIgnoringSafeArea(.all)
+            backgroundColor
+                .ignoresSafeArea()
             ZStack {
-                    self.color
-                    CartView(itemAdded: $addItem, animation: self.cartAnimation.animation)
-                        .offset(x: self.cartAnimation.offset)
-                        .scaleEffect(self.isAnimating ? 1.1 : 1)
-                        .animation(Animation.linear(duration: 0.5).delay(0.25))
-                    
-                    
-                    Text("Add to cart")
-                        .foregroundColor(self.backgroundColor)
-                        .font(.system(size: 24, weight: .bold, design: .rounded))
-                        .opacity(self.isAnimating ? 0 : 1)
-                        .animation(Animation.spring())
-                
-            }.frame(height: 72)
-                .cornerRadius(12)
-                .padding()
-                .padding([.leading, .trailing], 24)
-                .shadow(radius: 10)
-                .scaleEffect(x: self.bounceAnimation ? 0.98 : 1, y: 1, anchor: .center)
-                .animation(
-                    Animation.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1)
-                        .delay(0.15)
-            )
-                
-                .onTapGesture {
-                    self.cartAnimation = .center
-                    self.isAnimating.toggle()
-                    self.bounceAnimation.toggle()
-                    
-                    Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { (Timer) in
-                        self.bounceAnimation.toggle()
-                    }
-                    
-                    Timer.scheduledTimer(withTimeInterval: 1.4, repeats: false) { (Timer) in
-                        self.addItem.toggle()
-                    }
-                    Timer.scheduledTimer(withTimeInterval: 1.6, repeats: false) { (Timer) in
-                        self.cartAnimation = .moveToEnd
-                    }
-                    Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { (Timer) in
-                        self.isAnimating.toggle()
-                        self.addItem.toggle()
-                        self.cartAnimation = .origin
-                    }
+                color
+                CartView(itemAdded: $addItem, animation: cartAnimation.animation)
+                    .offset(x: cartAnimation.offset)
+                    .scaleEffect(isAnimating ? 1.1 : 1)
+                    .animation(.linear(duration: 0.5).delay(0.25), value: isAnimating)
+
+                Text("Add to cart")
+                    .foregroundStyle(backgroundColor)
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    .opacity(isAnimating ? 0 : 1)
+                    .animation(.spring(), value: isAnimating)
             }
+            .frame(height: 72)
+            .cornerRadius(12)
+            .padding()
+            .padding([.leading, .trailing], 24)
+            .shadow(radius: 10)
+            .scaleEffect(x: bounceAnimation ? 0.98 : 1, y: 1, anchor: .center)
+            .animation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15), value: bounceAnimation)
+            .onTapGesture {
+                cartAnimation = .center
+                isAnimating.toggle()
+                bounceAnimation.toggle()
+
+                Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
+                    bounceAnimation.toggle()
+                }
+                Timer.scheduledTimer(withTimeInterval: 1.4, repeats: false) { _ in
+                    addItem.toggle()
+                }
+                Timer.scheduledTimer(withTimeInterval: 1.6, repeats: false) { _ in
+                    cartAnimation = .moveToEnd
+                }
+                Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
+                    isAnimating.toggle()
+                    addItem.toggle()
+                    cartAnimation = .origin
+                }
+            }
+
             Triangle()
-                .fill(Color.white)
-                .frame(width: 120, height: self.bounceAnimation ? 22 : 0)
-                .animation(
-                    Animation.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1)
-                        .delay(0.35)
-            )
+                .fill(.white)
+                .frame(width: 120, height: bounceAnimation ? 22 : 0)
+                .animation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.35), value: bounceAnimation)
                 .offset(y: -36)
-            if (self.isAnimating) {
+
+            if isAnimating {
                 ShirtView(itemAdded: $isAnimating)
                     .frame(width: 22, height: 22)
             }
@@ -149,10 +144,6 @@ struct AddCartView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            AddCartView(cartAnimation: .ready, backgroundColor: Color.black, color: Color.white)
-        }
-    }
+#Preview {
+    AddCartView(cartAnimation: .ready, backgroundColor: .black, color: .white)
 }

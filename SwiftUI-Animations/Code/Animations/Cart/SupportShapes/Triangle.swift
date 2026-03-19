@@ -21,21 +21,14 @@ struct Triangle: Shape {
     /// giving the triangle a slightly elevated appearance within its bounding rect.
     func path(in rect: CGRect) -> Path {
         var path = Path()
-
-        // Apex at top-center
         path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-        // Bottom-left corner at 85% height
         path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY * 0.85))
-        // Bottom-right corner at 85% height
         path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY * 0.85))
-        // Close back to apex
         path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
         return path
     }
 }
 
-struct Triangle_Previews: PreviewProvider {
-    static var previews: some View {
-        Triangle()
-    }
+#Preview {
+    Triangle()
 }
