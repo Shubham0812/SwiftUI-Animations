@@ -20,9 +20,7 @@ import SwiftUI
 /// separate open sub-path and won't close cleanly as a filled shape.
 struct OctocatShape: Shape {
     
-    // MARK:- variables
-    
-    // MARK:- functions
+    // MARK: - Functions
     func path(in rect: CGRect) -> Path {
         
         // Center of the bounding rect — every coordinate is relative to this point

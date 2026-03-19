@@ -18,7 +18,7 @@ import SwiftUI
 /// only the cranial silhouette and is used as a filled mask, not a stroked path.
 struct OctoHead: Shape {
 
-    // MARK:- functions
+    // MARK: - Functions
 
     /// Constructs the head outline as a closed bezier path centered in `rect`.
     func path(in rect: CGRect) -> Path {
@@ -52,9 +52,7 @@ struct OctoHead: Shape {
     }
 }
 
-struct OctoHead_Previews: PreviewProvider {
-    static var previews: some View {
-        OctoHead()
-            .stroke(lineWidth: 12)
-    }
+#Preview {
+    OctoHead()
+        .stroke(lineWidth: 12)
 }

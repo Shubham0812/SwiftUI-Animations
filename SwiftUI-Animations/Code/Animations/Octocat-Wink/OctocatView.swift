@@ -19,7 +19,7 @@ import SwiftUI
 /// which eye winks next — creating an alternating or random wink pattern.
 struct OctocatView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Guards against multiple resets firing in the same loop cycle.
     /// Set `false` when a reset is scheduled; flipped back `true` after the stroke is zeroed.
@@ -31,34 +31,34 @@ struct OctocatView: View {
 
     /// Randomly set each loop to determine which eye winks (`true` = left eye squishes).
     @State var winkLeft = false
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         GeometryReader { proxy in
             let cX: CGFloat = proxy.frame(in: .global).midX
             let cY: CGFloat = proxy.frame(in: .global).midY
-            
+
             ZStack {
                 Color.background
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
                 ZStack {
                     OctocatShape()
                         .trim(from: 0, to: 1)
                         .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round, miterLimit: 8))
                         .scaleEffect(1.35)
-                        .foregroundColor(.label.opacity(0.1))
+                        .foregroundStyle(.label.opacity(0.1))
                         .shadow(color: Color.white.opacity(0.075), radius: 5, y: 2)
                     OctocatShape()
                         .trim(from: strokeStart, to: strokeEnd)
                         .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round, miterLimit: 8))
                         .scaleEffect(1.35)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .shadow(color: Color.black.opacity(0.5), radius: 5, x: 1)
                     OctoHead()
                         .scaleEffect(0.3925)
                         .opacity(0.8)
                         .offset(x: 3)
-                    
+
                     Path { path in
                         path.move(to: CGPoint(x: cX + -66.13, y: cY + -14.34))
                         path.addCurve(to: CGPoint(x: cX + -80.6, y: cY + 7.17), control1: CGPoint(x: cX + -73.81, y: cY + -13.04), control2: CGPoint(x: cX + -79.51, y: cY + -4.54))
@@ -74,11 +74,11 @@ struct OctocatView: View {
                         path.closeSubpath()
                     }
                     .scaleEffect(0.3925)
-                    .foregroundColor(.background)
+                    .foregroundStyle(.background)
                     .offset(y: -19)
                     .scaleEffect(CGSize(width: 1.0, height: resetStrokes ? 1 : winkLeft ? 0.225 : 1))
-                    .animation(.easeInOut(duration: 0.3))
-                    
+                    .animation(.easeInOut(duration: 0.3), value: resetStrokes)
+
                     Path { path in
                         path.move(to: CGPoint(x: cX + 66.87, y: cY + -14.34))
                         path.addCurve(to: CGPoint(x: cX + 52.4, y: cY + 7.17), control1: CGPoint(x: cX + 59.19, y: cY + -13.04), control2: CGPoint(x: cX + 53.49, y: cY + -4.54))
@@ -94,31 +94,30 @@ struct OctocatView: View {
                         path.closeSubpath()
                     }
                     .scaleEffect(0.3925)
-                    .foregroundColor(.background)
+                    .foregroundStyle(.background)
                     .offset(y: -19)
                     .scaleEffect(CGSize(width: 1.0, height: resetStrokes ? 1 : !winkLeft ? 0.225 : 1))
-                    .animation(.easeInOut(duration: 0.3))
+                    .animation(.easeInOut(duration: 0.3), value: resetStrokes)
                 }
                 .scaleEffect(1.5)
                 .offset(y: -42)
             }
         }
-        .onAppear() {
+        .onAppear {
             Timer.scheduledTimer(withTimeInterval: 0.35, repeats: true) { timer in
-                withAnimation(Animation.easeOut(duration: 0.55)) {
-                    self.strokeEnd += CGFloat.random(in: 0.075 ..<  0.115)
-                    self.strokeStart = self.strokeEnd - 0.25
+                withAnimation(.easeOut(duration: 0.55)) {
+                    strokeEnd += CGFloat.random(in: 0.075 ..< 0.115)
+                    strokeStart = strokeEnd - 0.25
                 }
-                if (self.strokeEnd >= 1) {
-                    if (self.resetStrokes) {
+                if strokeEnd >= 1 {
+                    if resetStrokes {
                         Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-                            
-                            self.strokeEnd = 0
-                            self.strokeStart = 0
-                            self.resetStrokes.toggle()
-                            self.winkLeft = Bool.random()
+                            strokeEnd = 0
+                            strokeStart = 0
+                            resetStrokes.toggle()
+                            winkLeft = Bool.random()
                         }
-                        self.resetStrokes = false
+                        resetStrokes = false
                     }
                 }
             }
@@ -126,11 +125,9 @@ struct OctocatView: View {
     }
 }
 
-struct OctocatView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            OctocatView()
-        }
-        .preferredColorScheme(.dark)
+#Preview {
+    ZStack {
+        OctocatView()
     }
+    .preferredColorScheme(.dark)
 }
