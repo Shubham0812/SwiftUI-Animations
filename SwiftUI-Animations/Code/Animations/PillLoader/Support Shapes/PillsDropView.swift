@@ -17,12 +17,12 @@ import SwiftUI
 /// Shown in `PillLoader` when `hideCapsule` is `true` (pill is split open).
 struct PillsDropView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Passed through to all three `PillGroupView` instances to trigger the burst.
     @Binding var isAnimating: Bool
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack {
             PillGroupView(isAnimating: $isAnimating, initialOffSet: CGSize(width: 0, height: 0), animationOffset: 0.05)
@@ -32,8 +32,6 @@ struct PillsDropView: View {
     }
 }
 
-struct PillDropView_Previews: PreviewProvider {
-    static var previews: some View {
-        PillsDropView(isAnimating: .constant(false))
-    }
+#Preview {
+    PillsDropView(isAnimating: .constant(false))
 }

@@ -16,7 +16,7 @@ import SwiftUI
 /// on link order. The different spring tuning makes drops feel more liquid than snappy.
 struct Pill: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Fixed dot width (40 pt).
     let width: CGFloat = 40
@@ -35,19 +35,17 @@ struct Pill: View {
 
     /// Shared with the parent group; `true` triggers the spring jump to `animationOffset`.
     @Binding var isAnimating: Bool
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         Circle()
-            .foregroundColor(Color.pillColor)
+            .foregroundStyle(Color.pillColor)
             .frame(width: width, height: height)
-            .offset(self.isAnimating ? animationOffset : initialOffset)
-            .animation(Animation.interpolatingSpring(stiffness: 0.5, damping: 1) .delay(animationDelay))
+            .offset(isAnimating ? animationOffset : initialOffset)
+            .animation(.interpolatingSpring(stiffness: 0.5, damping: 1).delay(animationDelay), value: isAnimating)
     }
 }
 
-struct Circle_Previews: PreviewProvider {
-    static var previews: some View {
-        Pill(initialOffset: CGSize(width: 0, height: 0), animationOffset: CGSize(width: 40, height: 40), animationDelay: 0.1, isAnimating: .constant(true))
-    }
+#Preview {
+    Pill(initialOffset: CGSize(width: 0, height: 0), animationOffset: CGSize(width: 40, height: 40), animationDelay: 0.1, isAnimating: .constant(true))
 }

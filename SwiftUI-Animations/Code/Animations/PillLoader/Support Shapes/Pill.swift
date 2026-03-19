@@ -18,7 +18,7 @@ import SwiftUI
 /// This version uses `.spring().speed(1.35)` for a snappy response.
 struct Pill: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Fixed dot width (40 pt).
     let width: CGFloat = 40
@@ -37,21 +37,17 @@ struct Pill: View {
 
     /// Shared with the parent group; `true` triggers the spring jump to `animationOffset`.
     @Binding var isAnimating: Bool
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         Circle()
-            .foregroundColor(Color.pillColor)
+            .foregroundStyle(Color.pillColor)
             .frame(width: width, height: height)
-            .offset(self.isAnimating ? animationOffset : initialOffset)
-            .animation(Animation.spring()
-                .speed(1.35)
-                .delay(self.animationDelay))
-        }
+            .offset(isAnimating ? animationOffset : initialOffset)
+            .animation(.spring().speed(1.35).delay(animationDelay), value: isAnimating)
     }
-    
-    struct Circle_Previews: PreviewProvider {
-        static var previews: some View {
-            Pill(initialOffset: CGSize(width: 0, height: 0), animationOffset: CGSize(width: 40, height: 40), animationDelay: 0.1, isAnimating: .constant(true))
-        }
+}
+
+#Preview {
+    Pill(initialOffset: CGSize(width: 0, height: 0), animationOffset: CGSize(width: 40, height: 40), animationDelay: 0.1, isAnimating: .constant(true))
 }

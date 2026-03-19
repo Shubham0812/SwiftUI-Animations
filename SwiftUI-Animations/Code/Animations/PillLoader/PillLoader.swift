@@ -21,7 +21,7 @@ import SwiftUI
 /// `FillShapes` decorators float above and below the pill to add particle depth.
 struct PillLoader: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Number of full rotations per cycle. Total rotation = `trackerRotation × 360°`.
     let trackerRotation: Double = 1.5
@@ -40,72 +40,71 @@ struct PillLoader: View {
     /// Wave curve phase offset, incremented every 10 ms while `hideCapsule` is true.
     /// Passed to `WaveFill` to produce a continuously undulating liquid surface.
     @State private var time: CGFloat = 0.5
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack {
             backgroundColor
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack {
                 PillsDropView(isAnimating: $hideCapsule)
-                    .opacity(self.hideCapsule ? 1 : 0)
+                    .opacity(hideCapsule ? 1 : 0)
                 // Outer container
                 Capsule(style: .circular)
                     .stroke(style: StrokeStyle(lineWidth: 10))
-                    .foregroundColor(Color.white)
+                    .foregroundStyle(.white)
                     .shadow(color: Color.white.opacity(0.1), radius: 1)
-                
+
                 FillShapes(xOffset: -45, yOffset: -100, capsuleSpacing: 40)
-                
+
                 // Line
                 Color.white
                     .frame(height: 6, alignment: .center)
-                
+
                 // Initial Half Capsule
                 Capsule(style: .circular)
                     .trim(from: 0, to: 0.5)
-                    .foregroundColor(Color.pillColor)
+                    .foregroundStyle(Color.pillColor)
                     .padding(5.5)
                     .padding(.top, 6)
-                    .opacity(self.hideCapsule ? 0 : 1)
+                    .opacity(hideCapsule ? 0 : 1)
                 FillShapes(xOffset: 45, yOffset: 100, capsuleSpacing: -40)
-                
+
                 // Filling Capsule
                 ZStack {
                     WaveFill(curve: time * 0.25, curveHeight: 10, curveLength: 1.5)
                         .fill(Color.pillColor.opacity(0.985))
-                        .offset(y: self.fillCapsule ? 0 : 180)
+                        .offset(y: fillCapsule ? 0 : 180)
                     WaveFill(curve: time * 5, curveHeight: 12, curveLength: 1.5)
                         .fill(Color.pillColor.opacity(0.9))
-                        .offset(y: self.fillCapsule ? 0 : 180)
+                        .offset(y: fillCapsule ? 0 : 180)
                     FillShapes(xOffset: 45, yOffset: 100, capsuleSpacing: -40)
                 }
                 .rotationEffect(.degrees(180))
-                .opacity(self.hideCapsule ? 1 : 0)
+                .opacity(hideCapsule ? 1 : 0)
                 .mask(
                     Capsule(style: .circular)
                         .trim(from: 0.5, to: 1)
-                        .foregroundColor(Color.red)
+                        .foregroundStyle(Color.red)
                         .padding(5.5)
                         .padding(.bottom, 8)
-                    
                 )
             }
             .frame(width: 140, height: 360)
-            .rotationEffect(self.isAnimating ? getRotationAngle() : .degrees(0))
-        }.onAppear() {
-            self.animateLoader()
-            Timer.scheduledTimer(withTimeInterval: (self.animationDuration * self.trackerRotation) * 3.75, repeats: true) { _ in
-                self.animateLoader()
+            .rotationEffect(isAnimating ? getRotationAngle() : .degrees(0))
+        }.onAppear {
+            animateLoader()
+            Timer.scheduledTimer(withTimeInterval: (animationDuration * trackerRotation) * 3.75, repeats: true) { _ in
+                animateLoader()
             }
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Returns the total rotation for one cycle: `trackerRotation × 360°` = 540°.
     func getRotationAngle() -> Angle {
-        return .degrees(360 * self.trackerRotation)
+        return .degrees(360 * trackerRotation)
     }
 
     /// Runs one complete loader cycle with four overlapping timer phases:
@@ -115,35 +114,33 @@ struct PillLoader: View {
     ///   A 10 ms repeating timer increments `time` to animate the wave while the pill is open.
     /// - **t = rotation × 2.5**: Resets all state back to initial for the next cycle.
     func animateLoader() {
-        withAnimation(Animation.interactiveSpring(response: self.animationDuration * self.trackerRotation, dampingFraction: 1, blendDuration: 1)) {
-            self.isAnimating.toggle()
+        withAnimation(.interactiveSpring(response: animationDuration * trackerRotation, dampingFraction: 1, blendDuration: 1)) {
+            isAnimating.toggle()
         }
-        Timer.scheduledTimer(withTimeInterval: (self.animationDuration * self.trackerRotation) - 0.25, repeats: false) { _ in
-            withAnimation(Animation.easeOut(duration: self.animationDuration / 2)) {
-                self.hideCapsule.toggle()
+        Timer.scheduledTimer(withTimeInterval: (animationDuration * trackerRotation) - 0.25, repeats: false) { _ in
+            withAnimation(.easeOut(duration: animationDuration / 2)) {
+                hideCapsule.toggle()
             }
-            withAnimation(Animation.easeIn(duration: self.animationDuration * 1.85).delay(0.05)) {
-                self.fillCapsule.toggle()
+            withAnimation(.easeIn(duration: animationDuration * 1.85).delay(0.05)) {
+                fillCapsule.toggle()
             }
             Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { curveTimer in
-                if (self.hideCapsule) {
-                    self.time += 0.01
+                if hideCapsule {
+                    time += 0.01
                 } else {
                     curveTimer.invalidate()
                 }
             }
         }
-        Timer.scheduledTimer(withTimeInterval: (self.animationDuration * self.trackerRotation) * 2.5, repeats: false) { (_) in
-            self.hideCapsule.toggle()
-            self.isAnimating.toggle()
-            self.fillCapsule.toggle()
-            self.time = 0.5
+        Timer.scheduledTimer(withTimeInterval: (animationDuration * trackerRotation) * 2.5, repeats: false) { _ in
+            hideCapsule.toggle()
+            isAnimating.toggle()
+            fillCapsule.toggle()
+            time = 0.5
         }
     }
 }
 
-struct PillLoader_Previews: PreviewProvider {
-    static var previews: some View {
-        PillLoader()
-    }
+#Preview {
+    PillLoader()
 }
