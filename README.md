@@ -28,6 +28,7 @@ This repository contains **20+ custom SwiftUI animations** — from loaders and 
 - [Getting Started](#getting-started)
 - [Animations Gallery](#animations-gallery)
 - [Project Structure](#project-structure)
+- [How to Run](#how-to-run)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 - [Author](#author)
@@ -278,6 +279,25 @@ SwiftUI-Animations/
 ├── GIFs/                    # Animation preview GIFs
 └── SwiftUI-Animations.xcodeproj
 ```
+
+## How to Run
+
+1. **Clone & open**
+   ```bash
+   git clone https://github.com/Shubham0812/SwiftUI-Animations.git
+   cd SwiftUI-Animations
+   open SwiftUI-Animations.xcodeproj
+   ```
+
+2. **Select a target** — choose any iOS simulator (iPhone 14 or later recommended) from the device picker in the Xcode toolbar.
+
+3. **Build & run** — press <kbd>⌘ R</kbd> or click the **Run** button. The app launches on the home screen listing all available animations.
+
+4. **Browse an animation** — tap any card to open it full-screen and interact with it directly.
+
+5. **Jump to the source** — each animation lives in its own self-contained folder under `Code/Animations/`. Open the folder in Xcode's Project Navigator to read or copy the code.
+
+> **Tip:** Every view file includes a `PreviewProvider` / `#Preview`, so you can also run individual animations directly in Xcode Previews without launching the full app — just open the file and press <kbd>⌘ ⌥ P</kbd>.
 
 ## Contributing
 
