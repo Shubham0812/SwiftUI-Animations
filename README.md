@@ -6,7 +6,7 @@
 
 ![Swift](https://img.shields.io/badge/Swift-5.0+-FA7343?style=for-the-badge&logo=swift&logoColor=white)
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-blue?style=for-the-badge&logo=swift&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-iOS%2014+-lightgrey?style=for-the-badge&logo=apple&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-iOS%2017.0+-lightgrey?style=for-the-badge&logo=apple&logoColor=white)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green?style=for-the-badge)
 [![Build](https://github.com/Shubham0812/SwiftUI-Animations/actions/workflows/build.yml/badge.svg)](https://github.com/Shubham0812/SwiftUI-Animations/actions/workflows/build.yml)
 
