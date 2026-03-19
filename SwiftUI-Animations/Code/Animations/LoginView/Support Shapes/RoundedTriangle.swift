@@ -31,8 +31,6 @@ struct RoundedTriangle: Shape {
     }
 }
 
-struct RounedTriangle_Previews: PreviewProvider {
-    static var previews: some View {
-        RoundedTriangle()
-    }
+#Preview {
+    RoundedTriangle()
 }

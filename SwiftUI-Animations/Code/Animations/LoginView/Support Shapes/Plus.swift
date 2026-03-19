@@ -33,9 +33,7 @@ struct Plus: Shape {
     
 }
 
-struct Plus_Previews: PreviewProvider {
-    static var previews: some View {
-        Plus()
-            .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round))
-    }
+#Preview {
+    Plus()
+        .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round))
 }

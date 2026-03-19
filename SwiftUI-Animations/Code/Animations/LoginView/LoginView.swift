@@ -46,7 +46,7 @@ struct PlusPosition: Identifiable, Hashable {
 /// Seven `ShrinkingPlus` particles float around the profile image as decorative background elements.
 struct LoginView: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// `true` after the view appears — triggers the Bolt draw-in animation.
     @State var viewAppeared: Bool = false
@@ -60,7 +60,7 @@ struct LoginView: View {
     @State var switchCircles: Bool = false
 
     /// Rotation angle of the orbiting small circle dot around the profile ring.
-    @State var circleTrackerDegree: Angle = Angle.degrees(0)
+    @State var circleTrackerDegree: Angle = .degrees(0)
     /// Trim start of the arc gradient around the profile image.
     @State var circleTrackStart: CGFloat = 0
     /// Trim end of the arc gradient — grows from 0 → 1 then collapses as the arc loops.
@@ -82,17 +82,17 @@ struct LoginView: View {
 
     /// Gradient used for the Bolt icon stroke and the profile arc.
     let gradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color.circleRoundStart, Color.circleRoundEnd]), startPoint: .leading, endPoint: .trailing)
-    
-    // MARK:- initializers
+
+    // MARK: - Initializers
     init() {
-        self.positions = self.getRandomPositions()
+        positions = getRandomPositions()
     }
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack {
             Color.black
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack {
                 VStack {
                     Spacer()
@@ -105,35 +105,36 @@ struct LoginView: View {
                                 .scaleEffect(0.8)
                             Text("Sign in with Facebook")
                                 .font(.system(size: 20, weight: .semibold, design: .default))
-                                .foregroundColor(Color.white)
+                                .foregroundStyle(.white)
                         }
-                    }.scaleEffect(x: self.bounceAnimation ? 0.98 : 1, y: 1, anchor: .center)
+                    }.scaleEffect(x: bounceAnimation ? 0.98 : 1, y: 1, anchor: .center)
+                    .animation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15), value: bounceAnimation)
                     .frame(height: loginButtonHeight)
                     .onTapGesture {
-                        self.loginButtonPressed.toggle()
-                        
-                        withAnimation(Animation.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15)) {
-                            self.bounceAnimation.toggle()
+                        loginButtonPressed.toggle()
+
+                        withAnimation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15)) {
+                            bounceAnimation.toggle()
                         }
                         Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
-                            withAnimation(Animation.spring(response: 0.2, dampingFraction: 0.85, blendDuration: 1)) {
-                                self.bounceAnimation.toggle()
+                            withAnimation(.spring(response: 0.2, dampingFraction: 0.85, blendDuration: 1)) {
+                                bounceAnimation.toggle()
                             }
                             rotateCircles()
-                            
-                            withAnimation(Animation.easeIn(duration: 0.3).delay(0.2)) {
-                                self.loginButtonHeight = 0
-                                self.loginButtonYOffset = 24
+
+                            withAnimation(.easeIn(duration: 0.3).delay(0.2)) {
+                                loginButtonHeight = 0
+                                loginButtonYOffset = 24
                             }
                         }
                         Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-                            self.showProfileImage.toggle()
+                            showProfileImage.toggle()
                         }
-                        
+
                         // Replace by view transition
                         Timer.scheduledTimer(withTimeInterval: 6.5, repeats: false) { _ in
-                            withAnimation(Animation.default) {
-                                self.blurRadius = 6
+                            withAnimation(.default) {
+                                blurRadius = 6
                             }
                         }
                     }
@@ -142,17 +143,16 @@ struct LoginView: View {
                     Triangle()
                         .fill(Color.circleRoundStart)
                         .cornerRadius(24)
-                        .frame(width: 300, height: self.bounceAnimation ? 48 : 0, alignment: .center)
+                        .frame(width: 300, height: bounceAnimation ? 48 : 0, alignment: .center)
                         .offset(y: -4)
-                        .animation(Animation.spring(response: 0.35, dampingFraction: 0.75, blendDuration: 1)
-                                    .delay(0.05))
+                        .animation(.spring(response: 0.35, dampingFraction: 0.75, blendDuration: 1).delay(0.05), value: bounceAnimation)
                     Circle()
                         .fill(Color.circleRoundStart)
-                        .frame(width: self.loginButtonHeight > 0 ? 20 : 0 )
-                        .scaleEffect(self.loginButtonPressed ? 1 : 0.75)
-                        .offset(y:  self.loginButtonPressed ? -UIScreen.main.bounds.height * 0.31 - offsetDifference : 20)
-                        .opacity(self.switchCircles ? 0 : 1)
-                        .animation(Animation.easeOut(duration: 0.3).delay(0.2))
+                        .frame(width: loginButtonHeight > 0 ? 20 : 0)
+                        .scaleEffect(loginButtonPressed ? 1 : 0.75)
+                        .offset(y: loginButtonPressed ? -UIScreen.main.bounds.height * 0.31 - offsetDifference : 20)
+                        .opacity(switchCircles ? 0 : 1)
+                        .animation(.easeOut(duration: 0.3).delay(0.2), value: loginButtonPressed)
                 }.offset(y: UIScreen.main.bounds.height / 2 - UIScreen.main.bounds.height * 0.09)
                 ZStack {
                     Bolt()
@@ -161,13 +161,13 @@ struct LoginView: View {
                         .scale(2)
                         .offset(y: offsetDifference)
                         .fill(gradient)
-                        .animation(Animation.easeOut(duration: 0.7))
+                        .animation(.easeOut(duration: 0.7), value: viewAppeared)
                     Text("Bolt")
                         .font(.system(size: 38, weight: .semibold, design: .monospaced))
-                        .foregroundColor(Color.white)
+                        .foregroundStyle(.white)
                         .padding(.top, offsetDifference)
                 }.opacity(loginButtonPressed ? 0 : 1)
-                .animation(Animation.easeOut(duration: 0.35))
+                .animation(.easeOut(duration: 0.35), value: loginButtonPressed)
                 ZStack {
                     ForEach(positions, id: \.self) { position in
                         ShrinkingPlus(position: position)
@@ -177,10 +177,10 @@ struct LoginView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 160, height: 160)
-                        .scaleEffect(self.showProfileImage ? 1 : 0)
-                        .animation(Animation.spring())
-                        .blur(radius: self.showProfileImage ? 0 : 3)
-                        .animation(Animation.spring().delay(animationDuration / 1.5))
+                        .scaleEffect(showProfileImage ? 1 : 0)
+                        .animation(.spring(), value: showProfileImage)
+                        .blur(radius: showProfileImage ? 0 : 3)
+                        .animation(.spring().delay(animationDuration / 1.5), value: showProfileImage)
                         .mask(Circle()
                                 .frame(width: 160, height: 160)
                                 .shadow(color: .white, radius: 5)
@@ -191,96 +191,92 @@ struct LoginView: View {
                         .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
                         .fill(gradient)
                         .frame(width: 185, height: 185)
-                    
+
                     Circle()
                         .fill(Color.circleRoundStart)
                         .frame(width: 20)
                         .offset(y: 90)
                         .rotationEffect(circleTrackerDegree)
-                        .opacity(self.switchCircles ? 1 : 0)
-                    
+                        .opacity(switchCircles ? 1 : 0)
+
                     Text("Hello, Shubham")
-                        .foregroundColor(Color.white)
+                        .foregroundStyle(.white)
                         .font(.system(size: 30, weight: .semibold, design: .monospaced))
                         .padding(.top, 32)
                         .offset(y: offsetDifference * 1.25)
-                        .opacity(self.showProfileImage ? 1 : 0)
-                        .animation(Animation.easeOut(duration: animationDuration).delay(animationDuration * 1.75))
+                        .opacity(showProfileImage ? 1 : 0)
+                        .animation(.easeOut(duration: animationDuration).delay(animationDuration * 1.75), value: showProfileImage)
                 }.offset(y: -offsetDifference)
-                .blur(radius: self.blurRadius)
-            }.edgesIgnoringSafeArea(.all)
-        }.onAppear() {
-            withAnimation(Animation.easeIn(duration: 0.3)) {
-                self.loginButtonHeight = UIScreen.main.bounds.height * 0.095
-                self.loginButtonYOffset = 0
+                .blur(radius: blurRadius)
+            }.ignoresSafeArea()
+        }.onAppear {
+            withAnimation(.easeIn(duration: 0.3)) {
+                loginButtonHeight = UIScreen.main.bounds.height * 0.095
+                loginButtonYOffset = 0
             }
-            self.viewAppeared.toggle()
+            viewAppeared.toggle()
         }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Starts the profile arc animation loop.
     ///
     /// Switches the visible circle tracker, begins `circleLines()`, then repeats
     /// every `animationDuration × 4` until `blurRadius == 6` (screen transition).
     func rotateCircles() {
-        self.switchCircles.toggle()
+        switchCircles.toggle()
         circleLines()
         Timer.scheduledTimer(withTimeInterval: animationDuration * 4, repeats: true) { rotationTimer in
             // stop and transition to a new view here
-            if (self.blurRadius == 6) {
+            if blurRadius == 6 {
                 rotationTimer.invalidate()
                 return
             }
-            self.circleTrackStart = 0
-            self.circleTrackEnd = 0
-            self.circleTrackerDegree = .degrees(0)
+            circleTrackStart = 0
+            circleTrackEnd = 0
+            circleTrackerDegree = .degrees(0)
             circleLines()
         }
     }
-    
+
     /// Animates one arc cycle: grows `circleTrackEnd` from 0 → 1 while rotating the tracker dot,
     /// then after `animationDuration × 2` collapses `circleTrackStart` from 0 → 1 to erase the arc.
     func circleLines() {
-        withAnimation(Animation.easeIn(duration: animationDuration).delay(0.45)) {
-            self.circleTrackerDegree = .degrees(360)
+        withAnimation(.easeIn(duration: animationDuration).delay(0.45)) {
+            circleTrackerDegree = .degrees(360)
         }
-        withAnimation(Animation.easeIn(duration: animationDuration).delay(0.5)) {
-            self.circleTrackEnd = 1
+        withAnimation(.easeIn(duration: animationDuration).delay(0.5)) {
+            circleTrackEnd = 1
         }
         Timer.scheduledTimer(withTimeInterval: animationDuration * 2, repeats: false) { _ in
-            withAnimation(Animation.easeIn(duration: animationDuration).delay(0.25)) {
-                self.circleTrackStart = 1
+            withAnimation(.easeIn(duration: animationDuration).delay(0.25)) {
+                circleTrackStart = 1
             }
-            self.circleTrackerDegree = .degrees(0)
-            withAnimation(Animation.easeIn(duration: animationDuration).delay(0.25)) {
-                self.circleTrackerDegree = .degrees(360)
+            circleTrackerDegree = .degrees(0)
+            withAnimation(.easeIn(duration: animationDuration).delay(0.25)) {
+                circleTrackerDegree = .degrees(360)
             }
         }
     }
-    
+
     /// Returns the seven hardcoded `PlusPosition` descriptors for the decorative `+` particles.
     ///
     /// Each position is hand-tuned with a unique color, scale, rotation, opacity, and delay
     /// so the particles appear organically scattered rather than evenly distributed.
     func getRandomPositions() -> [PlusPosition] {
         var positions = [PlusPosition]()
-        positions.append(PlusPosition(id: 0, color: Color.white, offsetX: -92, offsetY: -100, delay: 0.2, scale: 0.8, opacity: 1, degree: Angle(degrees: 43)))
-        positions.append(PlusPosition(id: 1, color: Color.white, offsetX: 72, offsetY: -100, delay: 0.1, scale: 0.5, opacity: 0.8, degree: Angle(degrees: -43)))
-        positions.append(PlusPosition(id: 2, color: Color.circleRoundEnd, offsetX: -42, offsetY: -50, delay: 0.225, scale: 0.5, opacity: 1, degree: Angle(degrees: -43)))
-        positions.append(PlusPosition(id: 3, color: Color.circleRoundEnd, offsetX: 110, offsetY: -20, delay: 0.135, scale: 0.25, opacity: 0.95, degree: Angle(degrees: 43)))
-        positions.append(PlusPosition(id: 4, color: Color.white, offsetX: -130, offsetY: 82, delay: 0.075, scale: 1.1, opacity: 0.85, degree: Angle(degrees: 43)))
-        positions.append(PlusPosition(id: 5, color: Color.white, offsetX: -150, offsetY: 32, delay: 0.15, scale: 0.3, opacity: 0.45, degree: Angle(degrees: 43)))
-        positions.append(PlusPosition(id: 6, color: Color.circleRoundEnd, offsetX: 120, offsetY: 102, delay: 0.2, scale: 0.65, opacity: 0.85, degree: Angle(degrees: 43)))
-        
-        
+        positions.append(PlusPosition(id: 0, color: Color.white, offsetX: -92, offsetY: -100, delay: 0.2, scale: 0.8, opacity: 1, degree: .degrees(43)))
+        positions.append(PlusPosition(id: 1, color: Color.white, offsetX: 72, offsetY: -100, delay: 0.1, scale: 0.5, opacity: 0.8, degree: .degrees(-43)))
+        positions.append(PlusPosition(id: 2, color: Color.circleRoundEnd, offsetX: -42, offsetY: -50, delay: 0.225, scale: 0.5, opacity: 1, degree: .degrees(-43)))
+        positions.append(PlusPosition(id: 3, color: Color.circleRoundEnd, offsetX: 110, offsetY: -20, delay: 0.135, scale: 0.25, opacity: 0.95, degree: .degrees(43)))
+        positions.append(PlusPosition(id: 4, color: Color.white, offsetX: -130, offsetY: 82, delay: 0.075, scale: 1.1, opacity: 0.85, degree: .degrees(43)))
+        positions.append(PlusPosition(id: 5, color: Color.white, offsetX: -150, offsetY: 32, delay: 0.15, scale: 0.3, opacity: 0.45, degree: .degrees(43)))
+        positions.append(PlusPosition(id: 6, color: Color.circleRoundEnd, offsetX: 120, offsetY: 102, delay: 0.2, scale: 0.65, opacity: 0.85, degree: .degrees(43)))
         return positions
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
+#Preview {
+    LoginView()
 }

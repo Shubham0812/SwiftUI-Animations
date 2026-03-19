@@ -19,7 +19,7 @@ import SwiftUI
 /// creating a twinkling `+` field around the profile image.
 struct ShrinkingPlus: View {
 
-    // MARK:- variables
+    // MARK: - Variables
 
     /// Layout and timing data for this specific particle instance.
     let position: PlusPosition
@@ -27,47 +27,47 @@ struct ShrinkingPlus: View {
     let animationDuration: TimeInterval = 0.4
 
     /// Current rotation angle — starts at 0 then snaps to `position.degree` on appear.
-    @State var rotationDegree: Angle = Angle.degrees(0)
+    @State var rotationDegree: Angle = .degrees(0)
     /// Current scale — starts at 0, grows to `position.scale` on appear, collapses periodically.
     @State var scale: CGFloat = 0
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         Plus()
             .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round))
-            .foregroundColor(position.color)
+            .foregroundStyle(position.color)
             .rotationEffect(rotationDegree)
             .scaleEffect(scale)
             .opacity(position.opacity)
-            .onAppear() {
-                self.scale = position.scale
-                self.rotationDegree = position.degree
+            .onAppear {
+                scale = position.scale
+                rotationDegree = position.degree
                 animatePlus()
                 Timer.scheduledTimer(withTimeInterval: position.delay * 20, repeats: true) { _ in
                     animatePlus()
                 }
             }
     }
-    
-    // MARK:- functions
+
+    // MARK: - Functions
 
     /// Runs one collapse-and-re-expand cycle:
     /// - After `position.delay`: rotates to `position.degree` and collapses scale to 0.
     /// - After a further `delay × 3`: resets rotation to 0° and restores `position.scale`.
     func animatePlus() {
         Timer.scheduledTimer(withTimeInterval: position.delay, repeats: false) { _ in
-            withAnimation(Animation.easeOut(duration: animationDuration)) {
-                rotationDegree = (position.degree)
+            withAnimation(.easeOut(duration: animationDuration)) {
+                rotationDegree = position.degree
             }
-            withAnimation(Animation.easeOut(duration: animationDuration).delay(animationDuration / 4)) {
+            withAnimation(.easeOut(duration: animationDuration).delay(animationDuration / 4)) {
                 scale = 0
             }
-            
+
             Timer.scheduledTimer(withTimeInterval: position.delay * 3, repeats: false) { _ in
-                withAnimation(Animation.easeOut(duration: animationDuration)) {
+                withAnimation(.easeOut(duration: animationDuration)) {
                     rotationDegree = .degrees(0)
                 }
-                withAnimation(Animation.easeOut(duration: animationDuration).delay(animationDuration / 4)) {
+                withAnimation(.easeOut(duration: animationDuration).delay(animationDuration / 4)) {
                     scale = position.scale
                 }
             }
@@ -75,12 +75,10 @@ struct ShrinkingPlus: View {
     }
 }
 
-struct ShrinkingPlus_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            ShrinkingPlus(position: PlusPosition(id: 0, color: Color.white, offsetX: -92, offsetY: -100, delay: 0.2, scale: 0.8, opacity: 1, degree: Angle(degrees: 43)))
-        }
+#Preview {
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        ShrinkingPlus(position: PlusPosition(id: 0, color: Color.white, offsetX: -92, offsetY: -100, delay: 0.2, scale: 0.8, opacity: 1, degree: .degrees(43)))
     }
 }

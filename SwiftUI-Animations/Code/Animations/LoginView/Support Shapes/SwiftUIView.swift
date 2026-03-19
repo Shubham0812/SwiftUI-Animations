@@ -16,15 +16,11 @@ struct SwiftUIView: View {
     var body: some View {
         ZStack {
             Color.black
-                .edgesIgnoringSafeArea(.all)
-            
-            
+                .ignoresSafeArea()
         }
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
-    }
+#Preview {
+    SwiftUIView()
 }

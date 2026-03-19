@@ -35,8 +35,6 @@ struct Bolt: Shape {
     }
 }
 
-struct Bolt_Previews: PreviewProvider {
-    static var previews: some View {
-        Bolt()
-    }
+#Preview {
+    Bolt()
 }
