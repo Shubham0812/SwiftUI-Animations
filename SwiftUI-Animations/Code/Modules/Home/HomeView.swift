@@ -32,10 +32,27 @@ struct HomeView: View {
                     }
                 }
                 .padding(16)
-                .padding(.top, 24)
+                .padding(.top, 18)
             }
             .background(Color(UIColor.systemGroupedBackground))
-            .navigationTitle("SwiftUI Animations")
+            .toolbar {
+                if #available(iOS 26.0, *) {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Text("SwiftUI")
+                            .font(.system(size: 32, weight: .bold, design: .rounded))
+                            .frame(width: 120)
+                            .padding(.leading, 16)
+                    }
+                    .sharedBackgroundVisibility(.hidden)
+                } else {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Text("SwiftUI")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
+                            .frame(width: 120)
+                            .padding(.leading, 16)
+                    }
+                }
+            }
             .navigationDestination(for: AnimationDestination.self) { destination in
                 destinationView(for: destination)
             }

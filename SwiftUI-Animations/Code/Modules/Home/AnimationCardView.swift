@@ -21,11 +21,11 @@ struct AnimationCardView: View {
                 .foregroundStyle(Color.label)
                 .frame(width: 60, height: 60)
                 .padding(6)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
+                .background {
+                    Circle()
                         .fill(item.iconColor.gradient)
-                        .opacity(0.2)
-                )
+                        .opacity(0.25)
+                }
 
             Text(item.title)
                 .font(.system(size: 14, weight: .semibold))

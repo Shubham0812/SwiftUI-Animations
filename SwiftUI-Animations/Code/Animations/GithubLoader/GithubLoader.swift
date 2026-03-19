@@ -72,18 +72,6 @@ struct GithubLoader: View {
                     }
             }
             .scaleEffect(2)
-
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Text("@Shubham_iosdev")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 28, weight: .medium, design: .monospaced))
-                        .opacity(0.3)
-                }
-                .padding(.trailing, 16)
-            }
         }
     }
 }
