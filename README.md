@@ -37,8 +37,8 @@ This repository contains **20+ custom SwiftUI animations** — from loaders and 
 
 | Dependency | Version |
 |------------|---------|
-| iOS        | 14.0+   |
-| Xcode      | 12.0+   |
+| iOS        | 17.0+   |
+| Xcode      | 16.0+   |
 | Swift      | 5.0+    |
 
 ## Getting Started
