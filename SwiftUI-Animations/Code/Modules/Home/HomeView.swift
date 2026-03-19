@@ -12,6 +12,7 @@ struct HomeView: View {
 
     // MARK: - Variables
     @State private var chatMessage: String = ""
+    @State private var selectedCategory: AnimationCategory? = nil
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -19,12 +20,22 @@ struct HomeView: View {
         GridItem(.flexible(), spacing: 16),
     ]
 
+    private var filteredItems: [AnimationItem] {
+        guard let selected = selectedCategory else { return AnimationItem.all }
+        return AnimationItem.all.filter { $0.category == selected }
+    }
+
     // MARK: - Views
     var body: some View {
         NavigationStack {
             ScrollView {
+                filterChips
+                    .safeAreaPadding(.trailing, 12)
+                    .safeAreaPadding(.leading, 42)
+                    .padding(.horizontal, -24)
+                    .padding(.top, 12)
                 LazyVGrid(columns: columns, spacing: 32) {
-                    ForEach(AnimationItem.all) { item in
+                    ForEach(filteredItems) { item in
                         NavigationLink(value: item.destination) {
                             AnimationCardView(item: item)
                         }
@@ -32,7 +43,8 @@ struct HomeView: View {
                     }
                 }
                 .padding(16)
-                .padding(.top, 18)
+                .padding(.top, 6)
+                .animation(.spring(response: 0.35, dampingFraction: 0.8), value: selectedCategory)
             }
             .background(Color(UIColor.systemGroupedBackground))
             .toolbar {
@@ -41,7 +53,7 @@ struct HomeView: View {
                         Text("SwiftUI")
                             .font(.system(size: 32, weight: .bold, design: .rounded))
                             .frame(width: 120)
-                            .padding(.leading, 16)
+                            .padding(.leading, 10)
                     }
                     .sharedBackgroundVisibility(.hidden)
                 } else {
@@ -57,6 +69,37 @@ struct HomeView: View {
                 destinationView(for: destination)
             }
         }
+    }
+
+    private var filterChips: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 14) {
+                chipButton(title: "All", category: nil)
+                ForEach(AnimationCategory.allCases, id: \.self) { category in
+                    chipButton(title: category.rawValue.capitalized, category: category)
+                }
+            }
+            .safeAreaPadding(.leading, 16)
+        }
+    }
+
+    private func chipButton(title: String, category: AnimationCategory?) -> some View {
+        let isSelected = selectedCategory == category
+        return Button {
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                selectedCategory = isSelected ? nil : category
+            }
+        } label: {
+            Text(title)
+                .font(.system(.subheadline, design: .rounded).weight(isSelected ? .bold : .medium))
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(isSelected ? Color.accentColor.opacity(0.2) : Color(.secondarySystemFill).opacity(0.7))
+                .foregroundStyle(isSelected ? Color.accentColor : Color.primary)
+                .clipShape(Capsule())
+        }
+        .buttonStyle(.plain)
+        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectedCategory)
     }
 
     // MARK: - Functions
