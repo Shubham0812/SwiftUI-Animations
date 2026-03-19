@@ -46,7 +46,7 @@ struct OctocatView: View {
                         .trim(from: 0, to: 1)
                         .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round, miterLimit: 8))
                         .scaleEffect(1.35)
-                        .foregroundStyle(.label.opacity(0.1))
+                        .foregroundStyle(Color.label.opacity(0.1))
                         .shadow(color: Color.white.opacity(0.075), radius: 5, y: 2)
                     OctocatShape()
                         .trim(from: strokeStart, to: strokeEnd)

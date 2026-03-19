@@ -129,7 +129,7 @@ struct YinYangAnimationView: View {
         ZStack {
             // Upper decorative line
             Rectangle()
-                .foregroundStyle(.label)
+                .foregroundStyle(Color.label)
                 .opacity(yinYangViewModel.themeToggled ? 0.25 : 0.02)
                 .frame(height: 3)
                 .scaleEffect(3)         // Stretched horizontally to bleed past screen edges
