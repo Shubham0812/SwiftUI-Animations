@@ -27,7 +27,7 @@ import SwiftUI
 /// ```
 struct LoaderIIView: View {
     
-    // MARK:- views
+    // MARK: - Views
     var body: some View {
         ZStack {
             VStack(spacing: 24) {
@@ -50,7 +50,7 @@ struct LoaderIIView: View {
 #Preview {
     ZStack {
         Color.black
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
         LoaderIIView()
     }
 }

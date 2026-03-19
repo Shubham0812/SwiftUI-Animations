@@ -33,33 +33,33 @@ enum CircleState {
 /// .right →  moves to +moveOffset, then -moveOffset, then repeats
 /// ```
 struct MovingCircleView: View {
-    
-    // MARK:- variables
-    
+
+    // MARK: - Variables
+
     /// Determines which direction the circle moves first on appear.
     /// Pairing two instances with `.left` and `.right` creates a mirrored oscillation.
     var state: CircleState = .undefined
-    
+
     /// The maximum horizontal distance the circle travels from its center in either direction.
     /// A value of `0` produces no movement — set this to a positive number to enable oscillation.
     var moveOffset: CGFloat = 0
-    
+
     /// Duration of one half-swing (center → edge).
     /// A full back-and-forth cycle takes `animationDuration * 2`.
     /// The repeat timer fires every `animationDuration` to kick off each new half-swing.
     var animationDuration: TimeInterval = 0.3
-    
+
     /// Current horizontal offset of the circle, animated between `-moveOffset` and `+moveOffset`.
     @State var xOffset: CGFloat = 0
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         Circle()
             .fill(Color.white)
             .frame(width: 18, height: 18)
             .offset(x: xOffset)
             .shadow(color: Color.white, radius: 5) // Soft glow that travels with the circle
-            .onAppear() {
+            .onAppear {
                 // Start the appropriate oscillation direction and repeat every half-cycle.
                 // `.left` and `.right` use mirrored logic — `.undefined` falls through to `.right`.
                 if state == .left {
@@ -73,9 +73,9 @@ struct MovingCircleView: View {
                 }
             }
     }
-    
-    // MARK:- functions
-    
+
+    // MARK: - Functions
+
     /// Performs one full left-biased oscillation: moves left first, then swings right.
     ///
     /// ```
@@ -88,17 +88,17 @@ struct MovingCircleView: View {
     /// > perfectly symmetrical swing.
     func initiateWithLeft() {
         // First half: swing to the left
-        withAnimation(Animation.easeInOut(duration: animationDuration / 2)) {
-            self.xOffset = -moveOffset
+        withAnimation(.easeInOut(duration: animationDuration / 2)) {
+            xOffset = -moveOffset
         }
         // Second half: swing back to the right (hardcoded 0.5s — see note above)
         Timer.scheduledTimer(withTimeInterval: animationDuration / 2, repeats: false) { _ in
-            withAnimation(Animation.easeInOut(duration: 0.5)) {
-                self.xOffset = moveOffset
+            withAnimation(.easeInOut(duration: 0.5)) {
+                xOffset = moveOffset
             }
         }
     }
-    
+
     /// Performs one full right-biased oscillation: moves right first, then swings left.
     ///
     /// ```
@@ -109,13 +109,13 @@ struct MovingCircleView: View {
     /// (unlike `initiateWithLeft` which has a hardcoded `0.5s` on the return stroke).
     func initiateWithRight() {
         // First half: swing to the right
-        withAnimation(Animation.easeInOut(duration: animationDuration / 2)) {
-            self.xOffset = moveOffset
+        withAnimation(.easeInOut(duration: animationDuration / 2)) {
+            xOffset = moveOffset
         }
         // Second half: swing back to the left
         Timer.scheduledTimer(withTimeInterval: animationDuration / 2, repeats: false) { _ in
-            withAnimation(Animation.easeInOut(duration: animationDuration / 2)) {
-                self.xOffset = -moveOffset
+            withAnimation(.easeInOut(duration: animationDuration / 2)) {
+                xOffset = -moveOffset
             }
         }
     }
@@ -124,7 +124,7 @@ struct MovingCircleView: View {
 #Preview {
     ZStack {
         Color.black
-            .edgesIgnoringSafeArea(.all)
+            .ignoresSafeArea()
         MovingCircleView(moveOffset: 40, animationDuration: 1)
     }
 }

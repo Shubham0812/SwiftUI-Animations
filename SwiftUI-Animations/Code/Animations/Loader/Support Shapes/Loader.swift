@@ -18,7 +18,7 @@ import SwiftUI
 /// all `LoaderState` cases (directions) continuously.
 struct Loader: View {
 
-    // MARK:- variables
+    // MARK: - Variables
     /// The current width of the animated capsule, changes during stretch/contract phases.
     @State var capsuleWidth: CGFloat = 40
     /// The current height of the animated capsule, changes during stretch/contract phases.
@@ -38,85 +38,81 @@ struct Loader: View {
     var timerDuration: TimeInterval
     /// External binding that controls whether the animation is running; setting to `false` stops the loop.
     @Binding var startAnimating: Bool
-    
-    // MARK:- views
+
+    // MARK: - Views
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom), content: {
             Capsule()
                 .stroke(style: StrokeStyle(lineWidth: 14, lineCap: .round))
-                .foregroundColor(Color.white)
+                .foregroundStyle(.white)
                 .frame(width: capsuleWidth, height: capsuleHeight, alignment: .center)
-                .animation(.easeOut(duration: 0.35))
-                .offset(x: self.xOffset, y: self.yOffset)
-            
+                .animation(.easeOut(duration: 0.35), value: capsuleWidth)
+                .offset(x: xOffset, y: yOffset)
+
         }).frame(width: 40, height: 0, alignment: loaderState.alignment)
-        .onAppear() {
-            self.setIndex()
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (initialTimer) in
-                if (self.startAnimating) {
-                    Timer.scheduledTimer(withTimeInterval: self.timerDuration, repeats: false) { (separatorTimer) in
-                        self.animateCapsule()
-                        Timer.scheduledTimer(withTimeInterval: 2.1, repeats: true) { (loaderTimer) in
-                            if (!self.startAnimating) {
+        .onAppear {
+            setIndex()
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { initialTimer in
+                if startAnimating {
+                    Timer.scheduledTimer(withTimeInterval: timerDuration, repeats: false) { _ in
+                        animateCapsule()
+                        Timer.scheduledTimer(withTimeInterval: 2.1, repeats: true) { loaderTimer in
+                            if !startAnimating {
                                 loaderTimer.invalidate()
                             }
-                            self.loaderState = self.getNextCase()
-                            self.animateCapsule()
+                            loaderState = getNextCase()
+                            animateCapsule()
                         }
                     }
-                    // invalidate the initialTimer that starts the animation once the binding constant is true
                     initialTimer.invalidate()
                 }
             }
         }
     }
-    
-    // MARK:- functions
-    
+
+    // MARK: - Functions
+
     // provides the next case defined in the enum based on the currentIndex
     func getNextCase() -> LoaderState {
         let allCases = LoaderState.allCases
-        if (self.currentIndex == allCases.count - 1) {
-            self.currentIndex = -1
+        if currentIndex == allCases.count - 1 {
+            currentIndex = -1
         }
-        self.currentIndex += 1
-        let index = self.currentIndex
-        return allCases[index]
+        currentIndex += 1
+        return allCases[currentIndex]
     }
-    
+
     // sets the initialIndex & offset values based on the loader state provided to the view
     func setIndex() {
         for (ix, loaderCase) in LoaderState.allCases.enumerated() {
-            if (loaderCase == self.loaderState) {
-                self.currentIndex = ix
-                self.xOffset = LoaderState.allCases[self.currentIndex].increment_before.0
-                self.yOffset = LoaderState.allCases[self.currentIndex].increment_before.1
+            if loaderCase == loaderState {
+                currentIndex = ix
+                xOffset = LoaderState.allCases[currentIndex].increment_before.0
+                yOffset = LoaderState.allCases[currentIndex].increment_before.1
             }
         }
     }
-    
+
     // animates the capsule to a direction
     func animateCapsule() {
-        self.xOffset = self.loaderState.increment_before.0
-        self.yOffset = self.loaderState.increment_before.1
-        self.capsuleWidth = self.loaderState.increment_before.2
-        self.capsuleHeight = self.loaderState.increment_before.3
-        
-        Timer.scheduledTimer(withTimeInterval: 0.35, repeats: false) { (Timer) in
-            self.xOffset = self.loaderState.increment_after.0
-            self.yOffset = self.loaderState.increment_after.1
-            self.capsuleWidth = self.loaderState.increment_after.2
-            self.capsuleHeight = self.loaderState.increment_after.3
+        xOffset = loaderState.increment_before.0
+        yOffset = loaderState.increment_before.1
+        capsuleWidth = loaderState.increment_before.2
+        capsuleHeight = loaderState.increment_before.3
+
+        Timer.scheduledTimer(withTimeInterval: 0.35, repeats: false) { _ in
+            xOffset = loaderState.increment_after.0
+            yOffset = loaderState.increment_after.1
+            capsuleWidth = loaderState.increment_after.2
+            capsuleHeight = loaderState.increment_after.3
         }
     }
 }
 
-struct Loader_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.black
-                .edgesIgnoringSafeArea(.all)
-            Loader(loaderState: .down, timerDuration: 0.35, startAnimating: .constant(true))
-        }
+#Preview {
+    ZStack {
+        Color.black
+            .ignoresSafeArea()
+        Loader(loaderState: .down, timerDuration: 0.35, startAnimating: .constant(true))
     }
 }
