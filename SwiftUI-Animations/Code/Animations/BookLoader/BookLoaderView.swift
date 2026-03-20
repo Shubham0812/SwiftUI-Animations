@@ -78,6 +78,7 @@ struct BookLoaderView: View {
                 .padding(.top, 24)
         }
         .onTapGesture {
+            HapticManager().makeImpactFeedback(mode: .light)
             animationStarted.toggle()
             animateBookEnds()
 

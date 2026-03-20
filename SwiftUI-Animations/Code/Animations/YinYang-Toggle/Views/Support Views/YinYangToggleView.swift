@@ -82,6 +82,7 @@ struct YinToggleView: View {
                 //   • swaps the capsule background color
                 //   • triggers the full-screen background transition in YinYangAnimationView
                 .onTapGesture {
+                    HapticManager().makeImpactFeedback(mode: .medium)
                     withAnimation(.snappy(duration: animationDuration)) {
                         yinYangViewModel.themeToggled.toggle()
                     }

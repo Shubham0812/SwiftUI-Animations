@@ -31,6 +31,7 @@ struct CapusuleGroupView: View {
             LowerCapsuleView(isAnimating: $isAnimating)
         }
         .onTapGesture {
+            HapticManager().makeImpactFeedback(mode: .light)
             isAnimating.toggle()
         }
     }

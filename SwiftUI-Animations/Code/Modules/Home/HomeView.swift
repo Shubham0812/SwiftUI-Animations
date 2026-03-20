@@ -125,6 +125,7 @@ struct HomeView: View {
     private func chipButton(title: String, category: AnimationCategory?) -> some View {
         let isSelected = selectedCategory == category
         return Button {
+            HapticManager().makeSelectionFeedback()
             withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                 selectedCategory = isSelected ? nil : category
             }

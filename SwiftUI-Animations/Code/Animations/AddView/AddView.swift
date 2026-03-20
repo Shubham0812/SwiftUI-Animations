@@ -48,6 +48,7 @@ struct AddView: View {
                     }
                     .animation(.spring(response: 0.35, dampingFraction: 0.85, blendDuration: 1), value: isAnimating)
                     .onTapGesture {
+                        HapticManager().makeImpactFeedback(mode: .light)
                         isAnimating.toggle()
                     }
             }

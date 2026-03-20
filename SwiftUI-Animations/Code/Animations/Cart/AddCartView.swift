@@ -110,6 +110,7 @@ struct AddCartView: View {
             .scaleEffect(x: bounceAnimation ? 0.98 : 1, y: 1, anchor: .center)
             .animation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15), value: bounceAnimation)
             .onTapGesture {
+                HapticManager().makeNotifiationFeedback(mode: .success)
                 cartAnimation = .center
                 isAnimating.toggle()
                 bounceAnimation.toggle()

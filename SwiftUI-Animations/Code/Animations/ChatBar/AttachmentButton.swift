@@ -30,7 +30,10 @@ struct AttachmentButton: View {
     var action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            HapticManager().makeImpactFeedback(mode: .light)
+            action()
+        } label: {
             Image(systemName: iconName)
                 .font(.system(size: iconSize, weight: .medium, design: .rounded))
                 .foregroundStyle(.white)

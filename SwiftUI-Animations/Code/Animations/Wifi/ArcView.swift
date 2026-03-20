@@ -28,6 +28,7 @@ struct ArcView: View {
             .frame(height: radius)
             .animation(.spring().speed(0.75), value: fillColor)
             .onTapGesture {
+                HapticManager().makeSelectionFeedback()
                 fillColor = Color.wifiConnected
             }
     }

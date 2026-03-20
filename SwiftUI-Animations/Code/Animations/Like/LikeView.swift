@@ -75,6 +75,7 @@ struct LikeView: View {
             }
         }.onTapGesture {
             if !floatLike {
+                HapticManager().makeNotifiationFeedback(mode: .success)
                 floatLike.toggle()
                 isAnimating.toggle()
                 shrinkIcon.toggle()
@@ -83,6 +84,7 @@ struct LikeView: View {
                     showFlare.toggle()
                 }
             } else {
+                HapticManager().makeImpactFeedback(mode: .light)
                 isAnimating = false
                 shrinkIcon = false
                 showFlare = false
