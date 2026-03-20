@@ -22,60 +22,42 @@ import SwiftUI
 /// - A slow timer fires every `animationDuration × 3` (0.6 s) and grows `additionalLength` by 0.015,
 ///   gradually lengthening the visible white tail until the next reset.
 struct InfinityView: View {
-
-    // MARK: - Variables
-
-    /// Interval for the fast advance timer. Each tick moves `strokeEnd` forward by 0.05.
-    let animationDuration: TimeInterval = 0.2
-    /// Stroke width of both the white glow and the dark eraser overlay.
     let strokeWidth: CGFloat = 20
-    /// Reset threshold for `strokeEnd`. Slightly above 1.0 ensures the arc cleanly exits
-    /// the path endpoint before wrapping — avoids a visible seam at the ∞ crossover.
-    let animationCap: CGFloat = 1.205
-
-    /// Leading edge of the dark eraser arc (moves forward each tick).
-    @State var strokeStart: CGFloat = 0
-    /// Trailing edge of the dark eraser arc — always `strokeEnd - (0.05 + additionalLength)`.
-    @State var strokeEnd: CGFloat = 0
-    /// Grows over time via the slow timer, elongating the visible white tail segment.
-    @State var additionalLength: CGFloat = 0
-
-    // MARK: - Views
+    let duration: Double = 2.0
+    
+    @State private var phase: CGFloat = 0
 
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
+            Color.black.ignoresSafeArea()
             InfinityShape()
                 .stroke(style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round, lineJoin: .round))
-                .foregroundStyle(.white)
-                .shadow(color: .white, radius: 4)
-                .overlay(
-                    InfinityShape()
-                        .trim(from: strokeStart, to: strokeEnd)
-                        .stroke(style: StrokeStyle(lineWidth: strokeWidth - 0.5, lineCap: .round, lineJoin: .round))
-                        .foregroundStyle(Color.materialBlack)
-                        .shadow(color: .white, radius: 5)
-                )
+                .foregroundStyle(.gray)
+                .opacity(0.4)
+            
+            // Layer 1: The Main Stroke
+            renderStroke(from: phase - 0.1, to: phase)
+            
+            // Layer 2: The "Wrap-Around" Stroke
+            // When phase is 0.1, this draws from -0.1 to 0.1
+            // When phase is 0.9, this draws from 0.7 to 0.9
+            // By adding/subtracting 1.0, we catch the "overflow"
+            renderStroke(from: phase - 1.2, to: phase - 1.0)
+            renderStroke(from: phase + 0.9, to: phase + 1.0)
         }
         .onAppear {
-            Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: true) { _ in
-                withAnimation(.linear(duration: animationDuration)) {
-                    strokeEnd += 0.05
-                    strokeStart = strokeEnd - (0.05 + additionalLength)
-                }
-
-                if strokeEnd >= animationCap {
-                    strokeEnd = 0
-                    additionalLength = 0
-                    strokeStart = 0
-                }
-            }
-
-            Timer.scheduledTimer(withTimeInterval: animationDuration * 3, repeats: true) { _ in
-                additionalLength += 0.015
+            withAnimation(.linear(duration: duration).repeatForever(autoreverses: false)) {
+                phase = 1.0
             }
         }
+    }
+
+    @ViewBuilder
+    private func renderStroke(from: CGFloat, to: CGFloat) -> some View {
+        InfinityShape()
+            .trim(from: from, to: to)
+            .stroke(style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round, lineJoin: .round))
+            .foregroundStyle(.white)
     }
 }
 
