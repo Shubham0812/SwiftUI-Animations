@@ -46,11 +46,10 @@ struct HomeView: View {
 
     // MARK: - Views
     var body: some View {
-        NavigationStack {
-            ScrollView(showsIndicators: false) {
+        ScrollView(showsIndicators: false) {
                 filterChips
                     .safeAreaPadding(.trailing, 12)
-                    .safeAreaPadding(.leading, 42)
+                    .safeAreaPadding(.leading, 24)
                     .padding(.horizontal, -24)
                     .padding(.top, 12)
                 
@@ -93,7 +92,7 @@ struct HomeView: View {
                     }
                     .sharedBackgroundVisibility(.hidden)
                     
-                    DefaultToolbarItem(kind: .search, placement: .bottomBar)
+                    DefaultToolbarItem(kind: .search, placement: .automatic)
                     
                 } else {
                     ToolbarItem(placement: .topBarLeading) {
@@ -107,7 +106,6 @@ struct HomeView: View {
             .navigationDestination(for: AnimationDestination.self) { destination in
                 destinationView(for: destination)
             }
-        }
     }
 
     private var filterChips: some View {
@@ -216,6 +214,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
-
+    NavigationStack {
+        HomeView()
+    }
 }
