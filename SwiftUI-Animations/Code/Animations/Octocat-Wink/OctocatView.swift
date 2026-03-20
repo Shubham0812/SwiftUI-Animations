@@ -47,13 +47,13 @@ struct OctocatView: View {
                         .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round, miterLimit: 8))
                         .scaleEffect(1.35)
                         .foregroundStyle(Color.label.opacity(0.1))
-                        .shadow(color: Color.white.opacity(0.075), radius: 5, y: 2)
+                        .shadow(color: Color.label.opacity(0.075), radius: 5, y: 2)
                     OctocatShape()
                         .trim(from: strokeStart, to: strokeEnd)
                         .stroke(style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round, miterLimit: 8))
                         .scaleEffect(1.35)
-                        .foregroundStyle(.white)
-                        .shadow(color: Color.black.opacity(0.5), radius: 5, x: 1)
+                        .foregroundStyle(Color.label)
+                        .shadow(color: Color.label.opacity(0.5), radius: 5, x: 1)
                     OctoHead()
                         .scaleEffect(0.3925)
                         .opacity(0.8)
@@ -104,14 +104,14 @@ struct OctocatView: View {
             }
         }
         .onAppear {
-            Timer.scheduledTimer(withTimeInterval: 0.35, repeats: true) { timer in
-                withAnimation(.easeOut(duration: 0.55)) {
+            Timer.scheduledTimer(withTimeInterval: 0.4, repeats: true) { timer in
+                withAnimation(.easeInOut(duration: 0.55)) {
                     strokeEnd += CGFloat.random(in: 0.075 ..< 0.115)
                     strokeStart = strokeEnd - 0.25
                 }
                 if strokeEnd >= 1 {
                     if resetStrokes {
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                        Timer.scheduledTimer(withTimeInterval: 1.3, repeats: false) { _ in
                             strokeEnd = 0
                             strokeStart = 0
                             resetStrokes.toggle()
@@ -129,5 +129,4 @@ struct OctocatView: View {
     ZStack {
         OctocatView()
     }
-    .preferredColorScheme(.dark)
 }

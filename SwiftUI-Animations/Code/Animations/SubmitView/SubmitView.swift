@@ -36,8 +36,9 @@ struct SubmitView: View {
     // MARK: - Views
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
+            
             ZStack {
                 RoundedRectangle(cornerRadius: isAnimating ? 46 : 20, style: .circular)
                     .fill(Color.submitColor)
@@ -60,18 +61,19 @@ struct SubmitView: View {
                 Tick(scaleFactor: 0.4)
                     .trim(from: 0, to: taskDone ? 1 : 0)
                     .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.label)
                     .frame(width: 16)
                     .offset(x: -4, y: 4)
                     .animation(.easeOut(duration: 0.35), value: taskDone)
                 Text("Submit")
                     .font(.system(size: 32, weight: .bold, design: .monospaced))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.white)
                     .opacity(isAnimating ? 0 : 1)
                     .animation(.easeOut(duration: animationDuration), value: isAnimating)
                     .scaleEffect(isAnimating ? 0.7 : 1)
                     .animation(.easeOut(duration: animationDuration), value: isAnimating)
             }
+            .offset(y: -50)
         }
     }
 

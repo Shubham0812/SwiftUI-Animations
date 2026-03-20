@@ -61,7 +61,7 @@ struct LightSwitchView: View {
         ZStack {
             
             // ── 1. Background ─────────────────────────────────────────────────
-            Color.black
+            Color.background
             
             // ── 2. Yellow light bloom ─────────────────────────────────────────
             // A circle scaled into an ellipse and positioned below the frame when off.
@@ -70,23 +70,7 @@ struct LightSwitchView: View {
                 .fill(Color.yellow)
                 .scaleEffect(CGSize(width: xScale, height: yScale))
                 .offset(y: yOffset)
-            
-            // ── 3. Back arrow ─────────────────────────────────────────────────
-            // Top-left navigation chevron. Color flips with `isOff` to stay
-            // readable on both dark (off) and bright yellow (on) backgrounds.
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "arrow.left")
-                        .foregroundStyle(isOff ? .white : .black)
-                        .font(.system(size: 24, weight: .semibold, design: .monospaced))
-                    Spacer()
-                }
-                .padding([.top, .bottom], 24)
-                Spacer()
-            }
-            .offset(y: 32)
-            .padding([.leading, .trailing], 24)
-            
+
             // ── 4. Pull-cord switch ───────────────────────────────────────────
             // Positioned along the right edge. Consists of three layers:
             //   a) A dim capsule track (static background rail)
@@ -108,14 +92,12 @@ struct LightSwitchView: View {
                     
                     Capsule()
                         .frame(width: 3, height: totalHeight)
-                        .foregroundStyle(.white)
                         // THE FIX: Capsules expand from the center.
                         // To keep the TOP stationary, we must move the center DOWN by half the height.
                         .offset(y: totalHeight / 2)
 
                     // c) Knob
                     Circle()
-                        .fill(Color.white)
                         .frame(width: 42, height: 42)
                         // The knob sits exactly at the bottom of the totalHeight.
                         .offset(y: totalHeight + (isOff ? 12.0 : -12.0))
@@ -143,7 +125,7 @@ struct LightSwitchView: View {
                                         }
                                 })
                                 .onEnded({ value in
-                                    if dragYOffset > 60 {
+                                    if dragYOffset > 100 {
                                         toggleAllLights()
                                     }
                                     withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {

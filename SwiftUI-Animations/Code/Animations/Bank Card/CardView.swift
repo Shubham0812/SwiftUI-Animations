@@ -31,7 +31,7 @@ struct CardView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
             
             VStack(spacing: 20) {
@@ -39,10 +39,8 @@ struct CardView: View {
                 VStack {
                     Text("Balance")
                         .font(.system(size: 20, weight: .medium))
-                        .foregroundStyle(.white.opacity(0.8))
                     Text("₹\(cardBalance.clean(places: 2))")
                         .font(.system(size: 24, weight: .semibold, design: .monospaced))
-                        .foregroundStyle(.white)
                         .shadow(radius: 4)
                 }
                 .padding(.top)
@@ -50,7 +48,6 @@ struct CardView: View {
 
                 Text(cardFlipped ? "Tap to flip back" : "Tap to view security code")
                     .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(.white)
 
                 // Carousel Section
                 Carousel(numberOfItems: CGFloat(userCards.count), spacing: 0, widthOfHiddenCards: 0) {

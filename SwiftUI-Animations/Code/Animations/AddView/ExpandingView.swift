@@ -35,7 +35,7 @@ struct ExpandingView: View {
         ZStack {
             Image(systemName: symbolName)
                 .font(.system(size: 32, weight: .medium, design: .rounded))
-                .foregroundStyle(.black)
+                .foregroundStyle(Color.background)
                 .padding()
                 .opacity(expand ? 0.85 : 0)
                 .scaleEffect(expand ? 1 : 0)
@@ -43,7 +43,7 @@ struct ExpandingView: View {
                 .animation(.easeOut(duration: 0.15), value: expand)
         }
         .frame(width: 82, height: 82)
-        .background(.white)
+        .background(Color.label)
         .cornerRadius(expand ? 41 : 8)
         .scaleEffect(expand ? 1 : 0.5)
         .offset(x: expand ? direction.offsets.0 : 0, y: expand ? direction.offsets.1 : 0)

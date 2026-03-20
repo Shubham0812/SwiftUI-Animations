@@ -77,38 +77,31 @@ struct SpinningView: View {
 
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
 
             ZStack {
                 Circle()
                     .trim(from: 0, to: circleEnd)
                     .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round))
-                    .fill(Color.white)
                     .rotationEffect(rotationDegree)
                     .frame(width: 130, height: 130)
 
                 Circle()
                     .trim(from: 0, to: smallerCircleEnd)
                     .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round))
-                    .fill(Color.white.opacity(0.9))
+                    .opacity(0.9)
                     .rotationEffect(smallerRotationDegree)
                     .frame(width: 48, height: 48)
             }
-            .offset(y: -48)
-
-            Text("@shubham_iosdev")
-                .foregroundStyle(.white)
-                .font(.system(size: 20, weight: .medium, design: .monospaced))
-                .opacity(0.7)
-                .offset(x: 96, y: 380)
-                .onAppear {
+            .offset(y: -72)
+            .onAppear {
+                animate()
+                Timer.scheduledTimer(withTimeInterval: animationDuration * 1.98, repeats: true) { _ in
+                    reset()
                     animate()
-                    Timer.scheduledTimer(withTimeInterval: animationDuration * 1.98, repeats: true) { _ in
-                        reset()
-                        animate()
-                    }
                 }
+            }
         }
     }
 

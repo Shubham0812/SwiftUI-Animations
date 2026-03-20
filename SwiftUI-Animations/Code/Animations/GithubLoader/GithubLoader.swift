@@ -36,21 +36,19 @@ struct GithubLoader: View {
 
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
 
             ZStack {
                 // Ghost track — full Octocat outline at low opacity
                 OctocatShape()
                     .stroke(style: StrokeStyle(lineWidth: 4.5, lineCap: .round, lineJoin: .round, miterLimit: 5))
-                    .foregroundStyle(.white)
                     .opacity(0.35)
 
                 // Travelling stroke — brighter, trimmed segment
                 OctocatShape()
                     .trim(from: strokeStart, to: strokeEnd)
                     .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round, miterLimit: 10))
-                    .foregroundStyle(.white)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: 0.35, repeats: true) { timer in
                             if strokeEnd >= 1 {
@@ -72,6 +70,7 @@ struct GithubLoader: View {
                     }
             }
             .scaleEffect(2)
+            .offset(y: -50)
         }
     }
 }

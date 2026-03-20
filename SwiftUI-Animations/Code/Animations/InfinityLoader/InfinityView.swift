@@ -29,7 +29,9 @@ struct InfinityView: View {
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color.background
+                .ignoresSafeArea()
+            
             InfinityShape()
                 .stroke(style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round, lineJoin: .round))
                 .foregroundStyle(.gray)
@@ -57,7 +59,7 @@ struct InfinityView: View {
         InfinityShape()
             .trim(from: from, to: to)
             .stroke(style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round, lineJoin: .round))
-            .foregroundStyle(.white)
+            .foregroundStyle(Color.label)
     }
 }
 

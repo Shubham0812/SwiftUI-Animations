@@ -35,7 +35,7 @@ struct Canvas<Content: View>: View {
         content
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
             .background(
-                Color.black
+                Color.background
                     .ignoresSafeArea()
             )
     }

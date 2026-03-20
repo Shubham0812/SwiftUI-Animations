@@ -25,8 +25,9 @@ struct AddView: View {
 
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
+            
             ZStack {
                 ExpandingView(expand: $isAnimating, direction: .bottom, symbolName: "note.text")
                 ExpandingView(expand: $isAnimating, direction: .left, symbolName: "doc")
@@ -34,17 +35,24 @@ struct AddView: View {
                 ExpandingView(expand: $isAnimating, direction: .right, symbolName: "mic.fill")
                 Image(systemName: "plus")
                     .font(.system(size: 40, weight: isAnimating ? .regular : .semibold, design: .rounded))
-                    .foregroundStyle(isAnimating ? Color.white : Color.black)
+                    .foregroundStyle(!isAnimating ? Color.white : Color.black)
                     .rotationEffect(isAnimating ? .degrees(45) : .degrees(0))
-                    .scaleEffect(isAnimating ? 3 : 1)
+                    .scaleEffect(isAnimating ? 2 : 1)
                     .opacity(isAnimating ? 0.5 : 1)
+                    .padding(24)
+                    .background {
+                        RoundedRectangle(cornerRadius: 24)
+                            .foregroundStyle(Color.label)
+                            .opacity(isAnimating ? 0 : 1)
+                            .animation(.smooth, value: isAnimating)
+                    }
                     .animation(.spring(response: 0.35, dampingFraction: 0.85, blendDuration: 1), value: isAnimating)
                     .onTapGesture {
                         isAnimating.toggle()
                     }
             }
             .frame(height: 300)
-            .padding()
+            .offset(y: -50)
         }
     }
 }
