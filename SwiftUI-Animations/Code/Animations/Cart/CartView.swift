@@ -35,13 +35,12 @@ struct CartView: View {
                 .stroke(style: StrokeStyle(lineWidth: 2.4, lineCap: .round))
                 .foregroundColor(Color.red)
                 .frame(width: 42, height: 42)
-                .animation(.easeOut(duration: 0.35), value: itemAdded)
-                .rotationEffect(itemAdded ? .degrees(-22) : .degrees(0))
-                .animation(.easeIn(duration: animationDuration).delay(animationDelay), value: itemAdded)
-        }
-        .onTapGesture {
+                .animation(.easeOut(duration: 0.35))
+                .rotationEffect(self.itemAdded ? .degrees(-22) : .degrees(0))
+                .animation(Animation.easeIn(duration: self.animationDuration).delay(self.animationDelay))
+        }.onTapGesture {
             HapticManager().makeImpactFeedback(mode: .light)
-            itemAdded.toggle()
+            self.itemAdded.toggle()
         }
     }
 }
