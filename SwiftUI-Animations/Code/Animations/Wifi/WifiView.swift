@@ -110,6 +110,7 @@ struct WifiView: View {
             .offset(y: -100)
         }
         .onTapGesture {
+            HapticManager().makeImpactFeedback(mode: .medium)
             resetValues()
             animate()
             

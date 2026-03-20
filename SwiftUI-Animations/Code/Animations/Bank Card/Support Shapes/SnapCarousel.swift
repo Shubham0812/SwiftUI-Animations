@@ -111,11 +111,11 @@ struct Carousel<Items: View>: View {
             self.UIState.screenDrag = 0
             if value.translation.width < -50 {
                 self.UIState.activeCard = self.UIState.activeCard + 1
-                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                HapticManager().makeImpactFeedback(mode: .medium)
             }
             if value.translation.width > 50 {
                 self.UIState.activeCard = self.UIState.activeCard - 1
-                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                HapticManager().makeImpactFeedback(mode: .medium)
             }
         })
     }

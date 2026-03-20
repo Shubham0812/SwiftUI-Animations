@@ -78,6 +78,7 @@ struct CardView: View {
                                 perspective: perspective
                             )
                             .onTapGesture {
+                                HapticManager().makeImpactFeedback(mode: .light)
                                 // 5. Use a spring for a more "physical" feel
                                 withAnimation(.spring(response: 0.45, dampingFraction: 0.75)) {
                                     cardFlipped.toggle()

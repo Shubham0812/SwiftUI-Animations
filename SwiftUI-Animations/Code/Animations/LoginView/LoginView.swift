@@ -111,6 +111,7 @@ struct LoginView: View {
                     .animation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15), value: bounceAnimation)
                     .frame(height: loginButtonHeight)
                     .onTapGesture {
+                        HapticManager().makeImpactFeedback(mode: .medium)
                         loginButtonPressed.toggle()
 
                         withAnimation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15)) {

@@ -43,6 +43,7 @@ struct CartView: View {
                 .animation(.easeIn(duration: animationDuration).delay(animationDelay), value: itemAdded)
         }
         .onTapGesture {
+            HapticManager().makeImpactFeedback(mode: .light)
             itemAdded.toggle()
         }
     }

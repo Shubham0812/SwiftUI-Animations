@@ -71,6 +71,7 @@ struct BookLoaderView: View {
                 .offset(y: -20)
         }
         .onTapGesture {
+            HapticManager().makeImpactFeedback(mode: .light)
             animationStarted.toggle()
             animateBookEnds()
 

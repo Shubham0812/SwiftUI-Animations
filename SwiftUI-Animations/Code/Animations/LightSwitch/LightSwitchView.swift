@@ -120,6 +120,7 @@ struct LightSwitchView: View {
                         // The knob sits exactly at the bottom of the totalHeight.
                         .offset(y: totalHeight + (isOff ? 12.0 : -12.0))
                         .onTapGesture {
+                            HapticManager().makeImpactFeedback(mode: .medium)
                             toggleAllLights()
                         }
                         .simultaneousGesture(

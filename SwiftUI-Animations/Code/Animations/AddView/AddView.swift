@@ -40,6 +40,7 @@ struct AddView: View {
                     .opacity(isAnimating ? 0.5 : 1)
                     .animation(.spring(response: 0.35, dampingFraction: 0.85, blendDuration: 1), value: isAnimating)
                     .onTapGesture {
+                        HapticManager().makeImpactFeedback(mode: .light)
                         isAnimating.toggle()
                     }
             }

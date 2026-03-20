@@ -94,6 +94,7 @@ struct DownloadButton: View {
                 .frame(width: ButtonDimension.width, height: ButtonDimension.height)
         )
         .onTapGesture {
+            HapticManager().makeImpactFeedback(mode: .medium)
             startDownloading()
         }
         .frame(width: ButtonDimension.width, height: ButtonDimension.height)
