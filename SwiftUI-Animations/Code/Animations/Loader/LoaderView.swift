@@ -24,15 +24,15 @@ struct LoaderView: View {
     // MARK: - Views
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
             ZStack {
                 // Three capsules offset by ~0.7s each so they're evenly spaced around the path
                 Loader(loaderState: .down, timerDuration: 0.35, startAnimating: $animateLoaders)
                 Loader(loaderState: .right, timerDuration: 1.05, startAnimating: $animateLoaders)
                 Loader(loaderState: .up, timerDuration: 1.75, startAnimating: $animateLoaders)
-            }.offset(x: -40, y: -40)
-        }.onAppear {
+            }
+            .offset(x: -40, y: -40)
+        }
+        .onAppear {
             animateLoaders.toggle()
         }
     }

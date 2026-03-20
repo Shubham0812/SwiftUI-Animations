@@ -21,14 +21,14 @@ import SwiftUI
 /// ```
 /// Three overlapping repeating timers drive the arc oscillation during the searching phase.
 struct WifiView: View {
-
+    
     // MARK: - Variables
-
+    
     /// `true` while the arcs are oscillating in the scanning phase.
     @State var isAnimating: Bool = false
     /// `true` for a brief window after connection to trigger the `CircleEmitter` particle burst.
     @State var isConnected: Bool = false
-
+    
     /// Vertical offset of the central dot — bounces between –25 and +20 pt during scanning.
     @State var circleOffset: CGFloat = 20
     /// Vertical offset of the small (innermost) arc.
@@ -37,28 +37,31 @@ struct WifiView: View {
     @State var mediumArcOffset: CGFloat = 14.5
     /// Vertical offset of the large (outermost) arc — oscillates on a 3× timer period.
     @State var largeArcOffset: CGFloat = 14
-
+    
     /// Fill color of all arcs — white during scanning, green (`wifiConnected`) on connection.
     @State var arcColor: Color = Color.white
     /// Shadow color for all arcs — blue during scanning, white on connection.
     @State var shadowColor: Color = Color.blue
     /// Label shown below the arcs — "Wi-Fi" → "Searching" → "Connected".
     @State var wifiHeaderLabel: String = "Wi-Fi"
-
+    
+    @State private var textOpacity: Double = 1.0
     /// Static flag indicating whether the animation is currently moving upward.
     /// Shared across all three arc timers to synchronise direction changes.
     static var animationMovingUpwards: Bool = true
     /// Static flag used by the 3× timer to alternate the small arc direction.
     static var moveArc: Bool = true
-
+    
     /// Base timer interval; all arc oscillation periods are multiples of this.
     var animationDuration: Double = 0.35
-
+    
     var body: some View {
         ZStack {
             Color.wifiBackground
                 .ignoresSafeArea()
+            
             CircleEmitter(isAnimating: $isConnected)
+            
             ZStack {
                 Circle()
                     .fill(arcColor)
@@ -66,57 +69,66 @@ struct WifiView: View {
                     .shadow(color: Color.blue, radius: 5)
                     .offset(y: circleOffset)
                     .animation(.easeOut(duration: animationDuration), value: circleOffset)
-                ZStack {
-                    ArcView(radius: 12, fillColor: $arcColor, shadowColor: $shadowColor)
-                        .rotationEffect(getRotation(arcBoolean: Self.moveArc))
-                        .offset(y: smallArcOffset)
-                        .animation(.easeOut(duration: animationDuration), value: smallArcOffset)
-
-                    ArcView(radius: 24, fillColor: $arcColor, shadowColor: $shadowColor)
-                        .rotationEffect(getRotation(arcBoolean: Self.moveArc))
-                        .offset(y: mediumArcOffset)
-                        .animation(.easeOut(duration: animationDuration).delay(animationDuration), value: mediumArcOffset)
-
-                    ArcView(radius: 36, fillColor: $arcColor, shadowColor: $shadowColor)
-                        .rotationEffect(getRotation(arcBoolean: Self.moveArc))
-                        .offset(y: largeArcOffset)
-                        .animation(.easeOut(duration: animationDuration).delay(animationDuration * 1.9), value: largeArcOffset)
-                    Circle().stroke(style: StrokeStyle(lineWidth: 2.5))
-                        .foregroundStyle(.white)
-                        .opacity(0.8)
-                    Circle().fill(Color.blue.opacity(0.1))
-                    Circle().fill(Color.blue.opacity(0.025))
-                        .scaleEffect(isAnimating ? 5 : 0)
-                        .animation(isAnimating ? .easeIn(duration: animationDuration * 2.5).repeatForever(autoreverses: false) : .linear(duration: 0), value: isAnimating)
-                }
-            }.frame(height: 120)
-            .onTapGesture {
-                resetValues()
-                animate()
-
-                Timer.scheduledTimer(withTimeInterval: animationDuration * 12, repeats: false) { _ in
-                    restoreAnimation()
-                    arcColor = Color.wifiConnected
-                    shadowColor = Color.white.opacity(0.5)
-                    wifiHeaderLabel = "Connected"
-                    isConnected.toggle()
-
-                    Timer.scheduledTimer(withTimeInterval: animationDuration + 0.05, repeats: false) { _ in
-                        isConnected.toggle()
+                    .overlay {
+                        ArcView(radius: 12, fillColor: $arcColor, shadowColor: $shadowColor)
+                            .rotationEffect(getRotation(arcBoolean: Self.moveArc))
+                            .offset(y: smallArcOffset)
+                            .animation(.easeOut(duration: animationDuration), value: smallArcOffset)
+                        
+                        ArcView(radius: 24, fillColor: $arcColor, shadowColor: $shadowColor)
+                            .rotationEffect(getRotation(arcBoolean: Self.moveArc))
+                            .offset(y: mediumArcOffset)
+                            .animation(.easeOut(duration: animationDuration).delay(animationDuration), value: mediumArcOffset)
+                        
+                        ArcView(radius: 36, fillColor: $arcColor, shadowColor: $shadowColor)
+                            .rotationEffect(getRotation(arcBoolean: Self.moveArc))
+                            .offset(y: largeArcOffset)
+                            .animation(.easeOut(duration: animationDuration).delay(animationDuration * 1.9), value: largeArcOffset)
+                        
+                        Circle()
+                            .stroke(style: StrokeStyle(lineWidth: 2.5))
+                            .foregroundStyle(.white)
+                            .opacity(0.8)
+                        
+                        Circle()
+                            .fill(Color.blue.opacity(0.1))
+                        
+                        Circle()
+                            .fill(Color.blue.opacity(0.025))
+                            .scaleEffect(isAnimating ? 5 : 0)
+                            .animation(isAnimating ? .easeIn(duration: animationDuration * 2.5).repeatForever(autoreverses: false) : .linear(duration: 0), value: isAnimating)
                     }
+                    .frame(height: 120)
+                
+                Text(wifiHeaderLabel)
+                    .font(.system(size: 28, weight: .semibold, design: .rounded))
+                    .opacity(isAnimating ? 0 : 1)
+                    .foregroundStyle(.white)
+                    .offset(y: 100)
+                    .animation(isAnimating ? .spring().speed(0.65).repeatForever(autoreverses: false) : .linear(duration: 0).repeatCount(0), value: isAnimating)
+            }
+            .offset(y: -100)
+        }
+        .onTapGesture {
+            resetValues()
+            animate()
+            
+            Timer.scheduledTimer(withTimeInterval: animationDuration * 12, repeats: false) { _ in
+                restoreAnimation()
+                arcColor = Color.wifiConnected
+                shadowColor = Color.white.opacity(0.5)
+                wifiHeaderLabel = "Connected"
+                isConnected.toggle()
+                
+                Timer.scheduledTimer(withTimeInterval: animationDuration + 0.05, repeats: false) { _ in
+                    isConnected.toggle()
                 }
             }
-            Text(wifiHeaderLabel)
-                .font(.system(size: 28, weight: .semibold, design: .rounded))
-                .opacity(isAnimating ? 0 : 1)
-                .foregroundStyle(.white)
-                .offset(y: 100)
-                .animation(isAnimating ? .spring().speed(0.65).repeatForever(autoreverses: false) : .linear(duration: 0).repeatCount(0), value: isAnimating)
         }
     }
-
+    
     // MARK: - Functions
-
+    
     /// Returns the arc rotation during scanning. Currently only `+180°` is reachable
     /// (the second `else if` branch is unreachable due to identical condition).
     func getRotation(arcBoolean: Bool) -> Angle {
@@ -127,7 +139,7 @@ struct WifiView: View {
         }
         return .degrees(0)
     }
-
+    
     /// Starts three overlapping repeating timers that drive the arc oscillation:
     /// - **1× timer**: moves the dot and small arc ±15 pt, reversing at ±25/+20 pt bounds.
     /// - **2× timer**: nudges the medium arc back upward every other tick.
@@ -150,7 +162,7 @@ struct WifiView: View {
                 arcTimer.invalidate()
             }
         }
-
+        
         Timer.scheduledTimer(withTimeInterval: animationDuration * 2, repeats: true) { arcTimer in
             if isAnimating {
                 mediumArcOffset += 15
@@ -158,7 +170,7 @@ struct WifiView: View {
                 arcTimer.invalidate()
             }
         }
-
+        
         Timer.scheduledTimer(withTimeInterval: animationDuration * 3, repeats: true) { arcTimer in
             if isAnimating {
                 Self.moveArc.toggle()
@@ -175,24 +187,25 @@ struct WifiView: View {
             }
         }
     }
-
+    
     /// Resets all animation state to the initial idle position, ready for the next tap.
     func restoreAnimation() {
         isAnimating = false
         Self.animationMovingUpwards = true
         Self.moveArc = true
-
+        
         circleOffset = 20
         smallArcOffset = 16
         mediumArcOffset = 14.5
         largeArcOffset = 14
     }
-
+    
     /// Begins the scanning phase: toggles `isAnimating`, sets label to "Searching",
     /// and snaps the arc offsets to their initial upward positions.
     func resetValues() {
         isAnimating.toggle()
         wifiHeaderLabel = "Searching"
+        
         smallArcOffset -= 7.5
         circleOffset -= 15
         mediumArcOffset = -5.5
