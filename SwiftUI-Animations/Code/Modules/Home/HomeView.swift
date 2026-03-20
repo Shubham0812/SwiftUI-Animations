@@ -15,16 +15,33 @@ struct HomeView: View {
     @State private var selectedCategory: AnimationCategory? = nil
     @State private var isFilterPinned: Bool = false
     @State private var scrollViewTopY: CGFloat = 0
-
+    
+    @State var searchText: String = ""
+    
     private let columns = [
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16),
     ]
+    
+    private let animationDuration: TimeInterval = 0.325
 
     private var filteredItems: [AnimationItem] {
-        guard let selected = selectedCategory else { return AnimationItem.all }
-        return AnimationItem.all.filter { $0.category == selected }
+        let baseItems: [AnimationItem]
+        
+        if let selected = selectedCategory {
+            baseItems = AnimationItem.all.filter { $0.category == selected }
+        } else {
+            baseItems = AnimationItem.all
+        }
+        
+        guard !searchText.isEmpty else { return baseItems }
+        
+        let query = searchText.lowercased()
+        
+        return baseItems.filter {
+            $0.title.lowercased().contains(query)
+        }
     }
 
     // MARK: - Views
@@ -48,6 +65,7 @@ struct HomeView: View {
                 .padding(16)
                 .padding(.top, 12)
                 .animation(.spring(response: 0.35, dampingFraction: 0.8), value: selectedCategory)
+                .animation(.smooth(duration: animationDuration), value: filteredItems.count)
             }
             .background(GeometryReader { geo in
                 Color.clear.onAppear {
@@ -64,6 +82,7 @@ struct HomeView: View {
                 }
             }
             .background(Color(UIColor.systemGroupedBackground))
+            .searchable(text: $searchText, prompt: Text("Search for a work"))
             .toolbar {
                 if #available(iOS 26.0, *) {
                     ToolbarItem(placement: .topBarLeading) {
@@ -73,6 +92,9 @@ struct HomeView: View {
                             .padding(.leading, 10)
                     }
                     .sharedBackgroundVisibility(.hidden)
+                    
+                    DefaultToolbarItem(kind: .search, placement: .bottomBar)
+                    
                 } else {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("SwiftUI")
