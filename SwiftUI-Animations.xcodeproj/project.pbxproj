@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512788882F6DC3C1004FEFB2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */; };
+		512788892F6DC3C1004FEFB2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788862F6DC3C1004FEFB2 /* RootView.swift */; };
+		5127888A2F6DC3C1004FEFB2 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788852F6DC3C1004FEFB2 /* AppTab.swift */; };
 		51370C4324EBD59A00103512 /* LoaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51370C4224EBD59A00103512 /* LoaderState.swift */; };
 		51390968250D1FAE000CE14A /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51390967250D1FAE000CE14A /* LikeView.swift */; };
 		51464370250BCB830046D835 /* WaveFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146436F250BCB830046D835 /* WaveFill.swift */; };
@@ -54,9 +57,18 @@
 		51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6273924E19F2A00BCE1C8 /* WifiView.swift */; };
 		51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
+		88CFFAAD54008A8AC63D9F0B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB8C183AB5B4355AA33084 /* Router.swift */; };
+		A141DA849790664EA6C96AA6 /* ShaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB44CCA0F93E933A6470DE /* ShaderView.swift */; };
 		AA0001012603180100000001 /* AnimationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001002603180100000001 /* AnimationItem.swift */; };
 		AA0001032603180100000002 /* AnimationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001022603180100000002 /* AnimationCardView.swift */; };
 		AA0001052603180100000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001042603180100000003 /* HomeView.swift */; };
+		CF0001AB2603180100000001 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0001AA2603180100000001 /* FontManager.swift */; };
+		CF0001DB2603180100000001 /* ClashGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */; };
+		CF0001EB2603180100000001 /* ClashGrotesk-Extralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */; };
+		CF0001FB2603180100000001 /* ClashGrotesk-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */; };
+		CF0002AB2603180100000001 /* ClashGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */; };
+		CF0002BB2603180100000001 /* ClashGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */; };
+		CF0002CB2603180100000001 /* ClashGrotesk-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */; };
 		DAF98EFF25F0D07F0052EDB8 /* SpinningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF98EFE25F0D07F0052EDB8 /* SpinningView.swift */; };
 		F30BA967254418B300DC8367 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA966254418B300DC8367 /* LoginView.swift */; };
 		F30BA96C25441BED00DC8367 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA96B25441BED00DC8367 /* Plus.swift */; };
@@ -93,16 +105,13 @@
 		F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */; };
 		F3DAEDF1253B18500067F963 /* DotsLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDF0253B184F0067F963 /* DotsLoaderView.swift */; };
 		F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DAEDF3253B23950067F963 /* FlickeringView.swift */; };
-		CF0001AB2603180100000001 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0001AA2603180100000001 /* FontManager.swift */; };
-		CF0001DB2603180100000001 /* ClashGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */; };
-		CF0001EB2603180100000001 /* ClashGrotesk-Extralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */; };
-		CF0001FB2603180100000001 /* ClashGrotesk-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */; };
-		CF0002AB2603180100000001 /* ClashGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */; };
-		CF0002BB2603180100000001 /* ClashGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */; };
-		CF0002CB2603180100000001 /* ClashGrotesk-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13DB8C183AB5B4355AA33084 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Navigation/Router.swift; sourceTree = "<group>"; };
+		512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		512788852F6DC3C1004FEFB2 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		512788862F6DC3C1004FEFB2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		51370C4224EBD59A00103512 /* LoaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderState.swift; sourceTree = "<group>"; };
 		51390967250D1FAE000CE14A /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		5146436F250BCB830046D835 /* WaveFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFill.swift; sourceTree = "<group>"; };
@@ -155,6 +164,14 @@
 		AA0001002603180100000001 /* AnimationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationItem.swift; sourceTree = "<group>"; };
 		AA0001022603180100000002 /* AnimationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCardView.swift; sourceTree = "<group>"; };
 		AA0001042603180100000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CCAB44CCA0F93E933A6470DE /* ShaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShaderView.swift; path = Shaders/ShaderView.swift; sourceTree = "<group>"; };
+		CF0001AA2603180100000001 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Bold.otf"; sourceTree = "<group>"; };
+		CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Extralight.otf"; sourceTree = "<group>"; };
+		CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Light.otf"; sourceTree = "<group>"; };
+		CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Medium.otf"; sourceTree = "<group>"; };
+		CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Regular.otf"; sourceTree = "<group>"; };
+		CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Semibold.otf"; sourceTree = "<group>"; };
 		DAF98EFE25F0D07F0052EDB8 /* SpinningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningView.swift; sourceTree = "<group>"; };
 		F30BA966254418B300DC8367 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F30BA96B25441BED00DC8367 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -191,13 +208,6 @@
 		F3DAEDEC253B0F220067F963 /* DashedLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLoaderView.swift; sourceTree = "<group>"; };
 		F3DAEDF0253B184F0067F963 /* DotsLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsLoaderView.swift; sourceTree = "<group>"; };
 		F3DAEDF3253B23950067F963 /* FlickeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickeringView.swift; sourceTree = "<group>"; };
-		CF0001AA2603180100000001 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
-		CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Bold.otf"; sourceTree = "<group>"; };
-		CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Extralight.otf"; sourceTree = "<group>"; };
-		CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Light.otf"; sourceTree = "<group>"; };
-		CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Medium.otf"; sourceTree = "<group>"; };
-		CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Regular.otf"; sourceTree = "<group>"; };
-		CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Semibold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +221,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		512788872F6DC3C1004FEFB2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */,
+				512788852F6DC3C1004FEFB2 /* AppTab.swift */,
+				512788862F6DC3C1004FEFB2 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		51390966250D1F97000CE14A /* Like */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,27 +285,6 @@
 				CF0001AA2603180100000001 /* FontManager.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		CF0001BA2603180100000001 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				CF0001CA2603180100000001 /* ClashGrotesk */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		CF0001CA2603180100000001 /* ClashGrotesk */ = {
-			isa = PBXGroup;
-			children = (
-				CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */,
-				CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */,
-				CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */,
-				CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */,
-				CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */,
-				CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */,
-			);
-			path = ClashGrotesk;
 			sourceTree = "<group>";
 		};
 		517BFA5C24DC45B200D4F78A /* SupportShapes */ = {
@@ -510,6 +509,43 @@
 			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
+		7C06ABDDD4DE1F748F3CF715 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				13DB8C183AB5B4355AA33084 /* Router.swift */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		C30857784914BCE8CAE99041 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				CCAB44CCA0F93E933A6470DE /* ShaderView.swift */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		CF0001BA2603180100000001 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CF0001CA2603180100000001 /* ClashGrotesk */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CF0001CA2603180100000001 /* ClashGrotesk */ = {
+			isa = PBXGroup;
+			children = (
+				CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */,
+				CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */,
+				CF0001FA2603180100000001 /* ClashGrotesk-Light.otf */,
+				CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */,
+				CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */,
+				CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */,
+			);
+			path = ClashGrotesk;
+			sourceTree = "<group>";
+		};
 		DAF98EF725F0D05B0052EDB8 /* SpinningLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +672,7 @@
 				F3DA13CC2535B96B005E384E /* Modules */,
 				F3DA13D42535B9F2005E384E /* Services */,
 				515557EA24DEABE40001E523 /* Utils */,
+				7C06ABDDD4DE1F748F3CF715 /* Navigation */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -644,6 +681,8 @@
 			isa = PBXGroup;
 			children = (
 				F3DA13CD2535B976005E384E /* Home */,
+				C30857784914BCE8CAE99041 /* Shaders */,
+				512788872F6DC3C1004FEFB2 /* App */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -909,10 +948,15 @@
 				51C8BB2024E4514B00DCE354 /* LoaderView.swift in Sources */,
 				51CBD281250B69550005D9C2 /* Pill.swift in Sources */,
 				51AFB36524DB00AD006840D3 /* CartView.swift in Sources */,
+				512788882F6DC3C1004FEFB2 /* AppCoordinator.swift in Sources */,
+				512788892F6DC3C1004FEFB2 /* RootView.swift in Sources */,
+				5127888A2F6DC3C1004FEFB2 /* AppTab.swift in Sources */,
 				F34DDAC82573E9C5009BAF83 /* CardBackView.swift in Sources */,
 				51464372250BD7700046D835 /* PillsDropView.swift in Sources */,
 				518E823524DAA665002CB679 /* AddCartView.swift in Sources */,
 				F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */,
+				88CFFAAD54008A8AC63D9F0B /* Router.swift in Sources */,
+				A141DA849790664EA6C96AA6 /* ShaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
