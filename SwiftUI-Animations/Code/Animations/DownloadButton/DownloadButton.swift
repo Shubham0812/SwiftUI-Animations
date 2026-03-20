@@ -61,7 +61,7 @@ struct DownloadButton: View {
             // Rendered back-to-front so the active panel is always on top.
             
             // Downloaded panel — starts furthest off-screen (2× height above)
-            DownloadStateView(state: .downloaded, isLight: true, progress: .constant(0))
+            DownloadStateView(state: .downloaded, isLight: true, progress: $downloadProgress)
                 .environment(downloader)
                 .offset(y: downloadedOffset)
             
@@ -136,7 +136,10 @@ struct DownloadButton: View {
                 itemDownloaded()
                 return
             }
-            downloadProgress += 0.045   // Hardcoded increment — replace with real progress
+            
+            withAnimation(.linear) {
+                downloadProgress += 0.045   // Hardcoded increment — replace with real progress
+            }
         }
     }
     
@@ -229,7 +232,6 @@ struct DownloadButton: View {
             .ignoresSafeArea()
         DownloadButton(downloader: Downloader())
     }
-    .colorScheme(.dark)
 }
 
 

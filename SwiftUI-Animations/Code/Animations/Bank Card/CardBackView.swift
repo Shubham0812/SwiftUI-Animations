@@ -35,7 +35,7 @@ struct CardBackView: View {
                 Rectangle()
                     .frame(height: 40)
                     .opacity(0.5)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(Color.label)
                     .overlay(
                         Rectangle()
                             .frame(width: 180, height: 38)
@@ -45,7 +45,7 @@ struct CardBackView: View {
                                 HStack {
                                     Spacer()
                                     Text(card.security)
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(Color.label)
                                         .font(.system(size: 16, weight: .semibold, design: .monospaced))
                                         .opacity(0.75)
                                 }
@@ -56,9 +56,9 @@ struct CardBackView: View {
                 Spacer()
                 Text(card.cardNumber)
                     .font(.system(size: width * 0.065, weight: .bold, design: .monospaced))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.background)
                     .opacity(0.35)
-                    .shadow(color: .black, radius: 5)
+                    .shadow(color: .background, radius: 5)
                     .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
                     .animation(.default, value: card.cardNumber)
                     .offset(y: -12)

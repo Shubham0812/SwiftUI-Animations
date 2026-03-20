@@ -30,7 +30,7 @@ struct LoaderView: View {
                 Loader(loaderState: .right, timerDuration: 1.05, startAnimating: $animateLoaders)
                 Loader(loaderState: .up, timerDuration: 1.75, startAnimating: $animateLoaders)
             }
-            .offset(x: -40, y: -40)
+            .offset(x: -40, y: -80)
         }
         .onAppear {
             animateLoaders.toggle()

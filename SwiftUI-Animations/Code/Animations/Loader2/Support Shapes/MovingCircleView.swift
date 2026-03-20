@@ -55,7 +55,7 @@ struct MovingCircleView: View {
     // MARK: - Views
     var body: some View {
         Circle()
-            .fill(Color.white)
+            .fill(Color.label)
             .frame(width: 18, height: 18)
             .offset(x: xOffset)
             .shadow(color: Color.white, radius: 5) // Soft glow that travels with the circle

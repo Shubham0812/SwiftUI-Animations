@@ -72,7 +72,7 @@ struct RotatingLoaderView: View {
     /// Total duration of one pause (face fully visible) before the next flip begins.
     let timerDuration: TimeInterval = 3.5
     /// Duration of the easeOut flip animation (face swings in/out).
-    let animationDuration: TimeInterval = 1.5
+    let animationDuration: TimeInterval = 1
     /// Alternates the leading/trailing direction of each flip.
     @State var animateTrail: Bool = false
 
@@ -83,13 +83,14 @@ struct RotatingLoaderView: View {
 
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
             ZStack {
                 ZStack {
                     Rectangle()
                         .foregroundStyle(.white)
                         .frame(width: 260, height: 260)
+                    
                     DashedLoaderView()
                         .frame(width: 140, height: 140)
                 }
@@ -111,10 +112,11 @@ struct RotatingLoaderView: View {
                 .rotation3DEffect(.degrees(firstViewDegree), axis: (x: 0, y: firstViewYAxis, z: 0), anchor: firstViewAnchor, anchorZ: 0, perspective: 0.1)
                 .offset(x: firstViewOffset)
             }
+            .clipShape(.rect(cornerRadius: 12))
         }
         .onAppear {
             Timer.scheduledTimer(withTimeInterval: timerDuration, repeats: false) { _ in
-                withAnimation(Animation.easeOut(duration: animationDuration)) {
+                withAnimation(Animation.smooth(duration: animationDuration)) {
                     self.setValuesOnState(rotation1: .finalTrailing, rotation2: .finalLeading)
                     counter += 1
                     rotateCube()

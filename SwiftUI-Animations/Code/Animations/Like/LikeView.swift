@@ -64,7 +64,9 @@ struct LikeView: View {
                             .opacity(isAnimating ? 0 : 1)
                             .animation(.easeIn(duration: animationDuration).delay(animationDuration), value: isAnimating)
                     )
-            }.frame(width: 250, height: 250)
+            }
+            .frame(width: 250, height: 250)
+            .offset(y: -60)
             .scaleEffect(shrinkIcon ? 0.35 : 1)
             .animation(.spring(response: animationDuration, dampingFraction: 1, blendDuration: 1), value: shrinkIcon)
             if floatLike {

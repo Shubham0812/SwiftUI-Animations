@@ -35,7 +35,7 @@ struct ChatBarView: View {
 
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
             ZStack {
                 Color.chatBackground
@@ -61,8 +61,7 @@ struct ChatBarView: View {
                         TextField("Message", text: $message)
                             .font(.system(size: 18, weight: .semibold, design: .rounded))
                             .disableAutocorrection(true)
-                            .foregroundStyle(.white)
-                            .tint(.white)
+                            .tint(Color.label)
                             .frame(height: 50)
                             .padding(.leading, 36)
                             .background(

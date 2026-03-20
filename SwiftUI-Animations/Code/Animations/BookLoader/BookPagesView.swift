@@ -50,14 +50,12 @@ struct BookPagesView: View {
     var body: some View {
         ZStack {
             Capsule()
-                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(x: barsOffset, y: leftYOffset)
                 .rotationEffect(leftEndDegree)
                 .animation(.easeOut(duration: animationDuration), value: leftEndDegree)
 
             Capsule()
-                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(x: barsOffset, y: rightYOffset)
                 .rotationEffect(rightEndDegree)
@@ -65,7 +63,6 @@ struct BookPagesView: View {
 
             ForEach(0..<13) { num in
                 Capsule()
-                    .foregroundStyle(.white)
                     .frame(width: bookCoverWidth, height: 8)
                     .offset(x: barsOffset)
                     .rotationEffect(pagesDegree)
@@ -122,8 +119,6 @@ struct BookPagesView: View {
 
 #Preview {
     ZStack {
-        Color.black
-            .ignoresSafeArea()
         BookPagesView(animationStarted: .constant(true), animationDuration: 0.5)
     }
 }

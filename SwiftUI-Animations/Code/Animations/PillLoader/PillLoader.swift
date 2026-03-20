@@ -26,7 +26,7 @@ struct PillLoader: View {
     /// Number of full rotations per cycle. Total rotation = `trackerRotation × 360°`.
     let trackerRotation: Double = 1.5
     /// Base duration driving both the rotation spring and the fill animation.
-    let animationDuration: Double = 0.3
+    let animationDuration: Double = 0.425
     /// Cool blue-to-purple gradient background for the full screen.
     let backgroundColor: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.4), Color.purple.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottom)
 

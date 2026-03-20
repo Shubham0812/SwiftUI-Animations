@@ -29,30 +29,33 @@ struct DashedLoaderView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Color.white
+                Color.background
+                    .brightness(-0.1)
                     .ignoresSafeArea()
-                Circle()
-                    .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, miterLimit: 2, dash: [10, 40, 20], dashPhase: 6))
-                    .foregroundStyle(.black)
-                    .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
-                    .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
-                    .shadow(color: Color.black.opacity(0.2), radius: 10)
-                    .animation(.linear(duration: animationDuration).repeatForever(autoreverses: false), value: isAnimating)
-                Circle()
-                    .frame(width: geometry.size.width * 0.06, height: geometry.size.width * 0.1)
-                    .offset(x: -geometry.size.width / 4)
-                    .foregroundStyle(.black)
-                    .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
-                    .shadow(color: Color.black.opacity(0.2), radius: 10)
-                    .animation(.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false), value: isAnimating)
-                Circle()
-                    .frame(width: geometry.size.width * 0.06, height: geometry.size.width * 0.1)
-                    .offset(x: geometry.size.width / 4)
-                    .foregroundStyle(.black)
-                    .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
-                    .shadow(color: Color.black.opacity(0.2), radius: 10)
-                    .animation(.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false), value: isAnimating)
+                ZStack {
+                    Circle()
+                        .stroke(style: StrokeStyle(lineWidth: 2, lineCap: .round, miterLimit: 2, dash: [10, 40, 20], dashPhase: 6))
+                        .frame(width: geometry.size.width / 2, height: geometry.size.height / 2)
+                        .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
+                        .shadow(color: Color.black.opacity(0.2), radius: 10)
+                        .animation(.linear(duration: animationDuration).repeatForever(autoreverses: false), value: isAnimating)
+                    Circle()
+                        .frame(width: geometry.size.width * 0.06, height: geometry.size.width * 0.1)
+                        .offset(x: -geometry.size.width / 4)
+                        .foregroundStyle(.black)
+                        .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
+                        .shadow(color: Color.black.opacity(0.2), radius: 10)
+                        .animation(.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false), value: isAnimating)
+                    Circle()
+                        .frame(width: geometry.size.width * 0.06, height: geometry.size.width * 0.1)
+                        .offset(x: geometry.size.width / 4)
+                        .foregroundStyle(.black)
+                        .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
+                        .shadow(color: Color.black.opacity(0.2), radius: 10)
+                        .animation(.linear(duration: animationDuration * 0.75).repeatForever(autoreverses: false), value: isAnimating)
+                }
             }
+            .scaleEffect(2)
         }
         .onAppear {
             isAnimating.toggle()

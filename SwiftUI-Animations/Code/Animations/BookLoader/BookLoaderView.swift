@@ -50,25 +50,32 @@ struct BookLoaderView: View {
 
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
+            
             Capsule()
-                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(leftCoverOffset)
                 .rotationEffect(leftRotationDegrees)
+            
             BookHoldView()
                 .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .miter))
-                .foregroundStyle(.white)
                 .rotationEffect(middleRotationDegrees)
                 .offset(middleBookOffset)
+            
             Capsule()
-                .foregroundStyle(.white)
                 .frame(width: bookCoverWidth, height: 8)
                 .offset(rightCoverOffset)
                 .rotationEffect(rightRotationDegrees)
+            
             BookPagesView(animationStarted: $animationStarted, animationDuration: animationDuration)
                 .offset(y: -20)
+        }
+        .overlay(alignment: .top) {
+            Text("Tap to begin animation")
+                .font(.system(size: 18, weight: .medium, design: .rounded))
+                .opacity(0.8)
+                .padding(.top, 24)
         }
         .onTapGesture {
             HapticManager().makeImpactFeedback(mode: .light)

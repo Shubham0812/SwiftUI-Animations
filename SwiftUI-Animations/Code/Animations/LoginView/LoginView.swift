@@ -16,14 +16,14 @@ struct PlusPosition: Identifiable, Hashable {
     var id: Int
     /// Color of the `+` stroke — typically white or the gradient accent color.
     var color: Color
-
+    
     /// Horizontal offset from the center of the login view.
     var offsetX: CGFloat
     /// Vertical offset from the center of the login view.
     var offsetY: CGFloat
     /// Stagger delay before this `+` begins its shrink animation.
     var delay: TimeInterval
-
+    
     /// Scale of the `+` symbol in its visible state.
     var scale: CGFloat
     /// Opacity of the `+` symbol (allows dimmer particles for depth).
@@ -45,9 +45,9 @@ struct PlusPosition: Identifiable, Hashable {
 ///
 /// Seven `ShrinkingPlus` particles float around the profile image as decorative background elements.
 struct LoginView: View {
-
+    
     // MARK: - Variables
-
+    
     /// `true` after the view appears — triggers the Bolt draw-in animation.
     @State var viewAppeared: Bool = false
     /// Briefly `true` during button tap to trigger the spring squeeze animation.
@@ -58,7 +58,7 @@ struct LoginView: View {
     @State var showProfileImage: Bool = false
     /// Swaps which circle tracker is visible when `rotateCircles()` starts.
     @State var switchCircles: Bool = false
-
+    
     /// Rotation angle of the orbiting small circle dot around the profile ring.
     @State var circleTrackerDegree: Angle = .degrees(0)
     /// Trim start of the arc gradient around the profile image.
@@ -67,31 +67,31 @@ struct LoginView: View {
     @State var circleTrackEnd: CGFloat = 0
     /// Applied to the whole center ZStack at `t = 6.5 s` to signal a screen transition.
     @State var blurRadius: CGFloat = 0
-
+    
     /// Height of the login button — 0 before appear/after tap, `9.5% × screenHeight` otherwise.
     @State var loginButtonHeight: CGFloat = 0
     /// Y-offset of the login button — starts at 24 (off-position), animates to 0 on appear.
     @State var loginButtonYOffset: CGFloat = 24
-
+    
     /// Seven hardcoded `PlusPosition` descriptors placed around the profile image.
     var positions: [PlusPosition] = []
     /// Base duration shared by the circle arc and profile image animations.
     let animationDuration: TimeInterval = 0.75
     /// Pixel distance used to position the profile ZStack above center and the button below.
     let offsetDifference: CGFloat = 100
-
+    
     /// Gradient used for the Bolt icon stroke and the profile arc.
     let gradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [Color.circleRoundStart, Color.circleRoundEnd]), startPoint: .leading, endPoint: .trailing)
-
+    
     // MARK: - Initializers
     init() {
         positions = getRandomPositions()
     }
-
+    
     // MARK: - Views
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
             ZStack {
                 VStack {
@@ -107,13 +107,14 @@ struct LoginView: View {
                                 .font(.system(size: 20, weight: .semibold, design: .default))
                                 .foregroundStyle(.white)
                         }
-                    }.scaleEffect(x: bounceAnimation ? 0.98 : 1, y: 1, anchor: .center)
+                    }
+                    .scaleEffect(x: bounceAnimation ? 0.98 : 1, y: 1, anchor: .center)
                     .animation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15), value: bounceAnimation)
                     .frame(height: loginButtonHeight)
                     .onTapGesture {
                         HapticManager().makeImpactFeedback(mode: .medium)
                         loginButtonPressed.toggle()
-
+                        
                         withAnimation(.spring(response: 0.25, dampingFraction: 0.85, blendDuration: 1).delay(0.15)) {
                             bounceAnimation.toggle()
                         }
@@ -122,7 +123,7 @@ struct LoginView: View {
                                 bounceAnimation.toggle()
                             }
                             rotateCircles()
-
+                            
                             withAnimation(.easeIn(duration: 0.3).delay(0.2)) {
                                 loginButtonHeight = 0
                                 loginButtonYOffset = 24
@@ -131,7 +132,7 @@ struct LoginView: View {
                         Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                             showProfileImage.toggle()
                         }
-
+                        
                         // Replace by view transition
                         Timer.scheduledTimer(withTimeInterval: 6.5, repeats: false) { _ in
                             withAnimation(.default) {
@@ -167,8 +168,9 @@ struct LoginView: View {
                         .font(.system(size: 38, weight: .semibold, design: .monospaced))
                         .foregroundStyle(.white)
                         .padding(.top, offsetDifference)
-                }.opacity(loginButtonPressed ? 0 : 1)
-                .animation(.easeOut(duration: 0.35), value: loginButtonPressed)
+                }
+                .opacity(loginButtonPressed ? 0 : 1)
+                    .animation(.easeOut(duration: 0.35), value: loginButtonPressed)
                 ZStack {
                     ForEach(positions, id: \.self) { position in
                         ShrinkingPlus(position: position)
@@ -183,8 +185,8 @@ struct LoginView: View {
                         .blur(radius: showProfileImage ? 0 : 3)
                         .animation(.spring().delay(animationDuration / 1.5), value: showProfileImage)
                         .mask(Circle()
-                                .frame(width: 160, height: 160)
-                                .shadow(color: .white, radius: 5)
+                            .frame(width: 160, height: 160)
+                            .shadow(color: .white, radius: 5)
                         )
                     Circle()
                         .trim(from: circleTrackStart, to: circleTrackEnd)
@@ -192,14 +194,14 @@ struct LoginView: View {
                         .stroke(style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
                         .fill(gradient)
                         .frame(width: 185, height: 185)
-
+                    
                     Circle()
                         .fill(Color.circleRoundStart)
                         .frame(width: 20)
                         .offset(y: 90)
                         .rotationEffect(circleTrackerDegree)
                         .opacity(switchCircles ? 1 : 0)
-
+                    
                     Text("Hello, Shubham")
                         .foregroundStyle(.white)
                         .font(.system(size: 30, weight: .semibold, design: .monospaced))
@@ -207,10 +209,13 @@ struct LoginView: View {
                         .offset(y: offsetDifference * 1.25)
                         .opacity(showProfileImage ? 1 : 0)
                         .animation(.easeOut(duration: animationDuration).delay(animationDuration * 1.75), value: showProfileImage)
-                }.offset(y: -offsetDifference)
-                .blur(radius: blurRadius)
-            }.ignoresSafeArea()
-        }.onAppear {
+                }
+                .offset(y: -offsetDifference)
+                    .blur(radius: blurRadius)
+            }
+            .ignoresSafeArea()
+        }
+        .onAppear {
             withAnimation(.easeIn(duration: 0.3)) {
                 loginButtonHeight = UIScreen.main.bounds.height * 0.095
                 loginButtonYOffset = 0
@@ -218,9 +223,9 @@ struct LoginView: View {
             viewAppeared.toggle()
         }
     }
-
+    
     // MARK: - Functions
-
+    
     /// Starts the profile arc animation loop.
     ///
     /// Switches the visible circle tracker, begins `circleLines()`, then repeats
@@ -240,7 +245,7 @@ struct LoginView: View {
             circleLines()
         }
     }
-
+    
     /// Animates one arc cycle: grows `circleTrackEnd` from 0 → 1 while rotating the tracker dot,
     /// then after `animationDuration × 2` collapses `circleTrackStart` from 0 → 1 to erase the arc.
     func circleLines() {
@@ -260,7 +265,7 @@ struct LoginView: View {
             }
         }
     }
-
+    
     /// Returns the seven hardcoded `PlusPosition` descriptors for the decorative `+` particles.
     ///
     /// Each position is hand-tuned with a unique color, scale, rotation, opacity, and delay

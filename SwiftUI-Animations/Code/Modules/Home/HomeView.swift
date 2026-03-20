@@ -148,54 +148,67 @@ struct HomeView: View {
         switch destination {
         case .rotatingLoader:
             RotatingLoaderView()
+            
         case .addView:
             AddView()
+            
         case .bankCard:
             CardView(card: AppConstants.cards[0], UIState: UIStateModel())
+            
         case .bookLoader:
             BookLoaderView()
+            
         case .cart:
-            AddCartView(cartAnimation: .ready, backgroundColor: Color.black, color: Color.white)
+            AddCartView(cartAnimation: .ready, backgroundColor: Color.background, color: Color.label)
+            
         case .chatBar:
             ChatBarView(message: $chatMessage)
+            
         case .circleLoader:
             CircleLoader()
+            
         case .downloadButton:
             DownloadButton()
+            
         case .githubLoader:
             GithubLoader()
+            
         case .infinityLoader:
             InfinityView()
+            
         case .lightSwitch:
             LightSwitchView()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+            
         case .like:
             LikeView()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+            
         case .loader:
             LoaderView()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+            
         case .loaderII:
             LoaderIIView()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+            
         case .loginView:
             LoginView()
+            
         case .octocat:
             OctocatView()
+            
         case .pillLoader:
             PillLoader()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+            
         case .spinningLoader:
             SpinningView()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+            
         case .submitView:
             SubmitView()
+            
         case .triangleLoader:
             TriangleLoader()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+
         case .wifi:
             WifiView()
-                .toolbarColorScheme(.dark, for: .navigationBar)
+            
         case .yinYangToggle:
             YinYangAnimationView()
         }

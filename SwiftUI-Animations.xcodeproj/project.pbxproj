@@ -727,17 +727,9 @@
 		F3DAEDC1253629E90067F963 /* GithubLoader */ = {
 			isa = PBXGroup;
 			children = (
-				F3DAEDC6253629FE0067F963 /* Support Shapes */,
 				F3DAEDC2253629F80067F963 /* GithubLoader.swift */,
 			);
 			path = GithubLoader;
-			sourceTree = "<group>";
-		};
-		F3DAEDC6253629FE0067F963 /* Support Shapes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Support Shapes";
 			sourceTree = "<group>";
 		};
 		F3DAEDE1253ABBBD0067F963 /* 3dLoader */ = {

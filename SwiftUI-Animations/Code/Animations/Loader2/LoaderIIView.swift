@@ -49,8 +49,6 @@ struct LoaderIIView: View {
 
 #Preview {
     ZStack {
-        Color.black
-            .ignoresSafeArea()
         LoaderIIView()
     }
 }

@@ -39,7 +39,6 @@ struct RotatingCircle: View {
     // MARK: - Views
     var body: some View {
         Circle()
-            .fill(Color.white)
             .frame(width: 40)
             .offset(x: xOffset, y: yOffSet)
             .rotationEffect(rotationAngle)
