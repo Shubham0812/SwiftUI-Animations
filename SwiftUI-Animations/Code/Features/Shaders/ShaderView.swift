@@ -128,6 +128,8 @@ struct ShaderView: View {
         switch destination {
         case .burnEffect:
             BurnEffectView()
+        case .emberReveal:
+            EmberRevealView()
         }
     }
 }

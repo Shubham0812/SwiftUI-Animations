@@ -20,6 +20,7 @@ enum ShaderCategory: String, CaseIterable, Hashable {
 /// Add a new case here when a new shader demo is introduced.
 enum ShaderDestination: Hashable {
     case burnEffect
+    case emberReveal
 }
 
 // MARK: - ShaderItem
@@ -34,6 +35,7 @@ struct ShaderItem: Identifiable {
 
     // MARK: - All Shaders
     static let all: [ShaderItem] = [
-        ShaderItem(title: "Burn Effect", systemIcon: "flame.fill", iconColor: Color(r: 255, g: 69, b: 0), destination: .burnEffect, category: .transition),
+        ShaderItem(title: "Burn Effect",   systemIcon: "flame.fill",       iconColor: Color(r: 255, g: 69,  b: 0),   destination: .burnEffect,   category: .transition),
+        ShaderItem(title: "Ember Reveal",  systemIcon: "sparkles",         iconColor: Color(r: 255, g: 140, b: 0),   destination: .emberReveal,  category: .transition),
     ]
 }
