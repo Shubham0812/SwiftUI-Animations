@@ -105,6 +105,7 @@ struct HomeView: View {
             }
             .navigationDestination(for: AnimationDestination.self) { destination in
                 destinationView(for: destination)
+                    .toolbar(.hidden, for: .tabBar)
             }
     }
 

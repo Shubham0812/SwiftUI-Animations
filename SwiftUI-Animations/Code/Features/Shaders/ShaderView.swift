@@ -85,6 +85,7 @@ struct ShaderView: View {
         }
         .navigationDestination(for: ShaderDestination.self) { destination in
             destinationView(for: destination)
+                .toolbar(.hidden, for: .tabBar)
         }
     }
 
