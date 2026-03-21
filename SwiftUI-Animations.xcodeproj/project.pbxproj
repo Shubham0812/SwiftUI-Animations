@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		512788882F6DC3C1004FEFB2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */; };
-		512788892F6DC3C1004FEFB2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788862F6DC3C1004FEFB2 /* RootView.swift */; };
-		5127888A2F6DC3C1004FEFB2 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788852F6DC3C1004FEFB2 /* AppTab.swift */; };
+		51278DE72F6DE6C1004FEFB2 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51278DE42F6DE6C1004FEFB2 /* AppTab.swift */; };
+		51278DE82F6DE6C1004FEFB2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51278DE52F6DE6C1004FEFB2 /* RootView.swift */; };
+		51278DE92F6DE6C1004FEFB2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51278DE32F6DE6C1004FEFB2 /* AppCoordinator.swift */; };
 		51370C4324EBD59A00103512 /* LoaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51370C4224EBD59A00103512 /* LoaderState.swift */; };
 		51390968250D1FAE000CE14A /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51390967250D1FAE000CE14A /* LikeView.swift */; };
 		51464370250BCB830046D835 /* WaveFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146436F250BCB830046D835 /* WaveFill.swift */; };
@@ -109,9 +109,9 @@
 
 /* Begin PBXFileReference section */
 		13DB8C183AB5B4355AA33084 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Navigation/Router.swift; sourceTree = "<group>"; };
-		512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		512788852F6DC3C1004FEFB2 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
-		512788862F6DC3C1004FEFB2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		51278DE32F6DE6C1004FEFB2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		51278DE42F6DE6C1004FEFB2 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		51278DE52F6DE6C1004FEFB2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		51370C4224EBD59A00103512 /* LoaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderState.swift; sourceTree = "<group>"; };
 		51390967250D1FAE000CE14A /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		5146436F250BCB830046D835 /* WaveFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFill.swift; sourceTree = "<group>"; };
@@ -221,12 +221,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		512788872F6DC3C1004FEFB2 /* App */ = {
+		51278DE62F6DE6C1004FEFB2 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */,
-				512788852F6DC3C1004FEFB2 /* AppTab.swift */,
-				512788862F6DC3C1004FEFB2 /* RootView.swift */,
+				51278DE32F6DE6C1004FEFB2 /* AppCoordinator.swift */,
+				51278DE42F6DE6C1004FEFB2 /* AppTab.swift */,
+				51278DE52F6DE6C1004FEFB2 /* RootView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -682,7 +682,7 @@
 			children = (
 				F3DA13CD2535B976005E384E /* Home */,
 				C30857784914BCE8CAE99041 /* Shaders */,
-				512788872F6DC3C1004FEFB2 /* App */,
+				51278DE62F6DE6C1004FEFB2 /* App */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -869,6 +869,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F34DDAC22573E859009BAF83 /* CardPatternOneView.swift in Sources */,
+				51278DE72F6DE6C1004FEFB2 /* AppTab.swift in Sources */,
+				51278DE82F6DE6C1004FEFB2 /* RootView.swift in Sources */,
+				51278DE92F6DE6C1004FEFB2 /* AppCoordinator.swift in Sources */,
 				F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */,
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
 				51464374250BD8840046D835 /* FillShapes.swift in Sources */,
@@ -948,9 +951,6 @@
 				51C8BB2024E4514B00DCE354 /* LoaderView.swift in Sources */,
 				51CBD281250B69550005D9C2 /* Pill.swift in Sources */,
 				51AFB36524DB00AD006840D3 /* CartView.swift in Sources */,
-				512788882F6DC3C1004FEFB2 /* AppCoordinator.swift in Sources */,
-				512788892F6DC3C1004FEFB2 /* RootView.swift in Sources */,
-				5127888A2F6DC3C1004FEFB2 /* AppTab.swift in Sources */,
 				F34DDAC82573E9C5009BAF83 /* CardBackView.swift in Sources */,
 				51464372250BD7700046D835 /* PillsDropView.swift in Sources */,
 				518E823524DAA665002CB679 /* AddCartView.swift in Sources */,

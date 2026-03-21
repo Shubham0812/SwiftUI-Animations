@@ -26,8 +26,8 @@ final class AppCoordinator: ObservableObject {
     // MARK:- variables
     @Published var selectedTab: AppTab = .home
 
-    let homeRouter    = Router<AnimationDestination>()
-    let shadersRouter = Router<ShaderDestination>()
+    var homeRouter    = Router<AnimationDestination>()
+    var shadersRouter = Router<ShaderDestination>()
 
     // MARK:- functions
     /// Selects a tab. If the tab is already active, pops its navigation stack to root —
