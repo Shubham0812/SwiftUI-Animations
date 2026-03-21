@@ -294,7 +294,9 @@ SwiftUI-Animations/
 │   │       └── Burn/             # Burn transition effect (.metal + .swift)
 │   ├── Features/
 │   │   ├── App/                  # Root app views & coordinator
-│   │   ├── Home/                 # Home screen, animation cards
+│   │   ├── Home/                 # Home screen
+│   │   │   ├── Models/           # Animation item models
+│   │   │   └── Views/            # Home views & support views
 │   │   ├── Shaders/              # Shader showcase views
 │   │   └── Support Views/        # Shared feature UI components
 │   ├── Navigation/               # Router & navigation logic
