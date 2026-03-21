@@ -56,8 +56,6 @@
 		51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
 		88CFFAAD54008A8AC63D9F0B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB8C183AB5B4355AA33084 /* Router.swift */; };
-		AA0001012603180100000001 /* AnimationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001002603180100000001 /* AnimationItem.swift */; };
-		AA0001032603180100000002 /* AnimationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001022603180100000002 /* AnimationCardView.swift */; };
 		AA0001052603180100000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001042603180100000003 /* HomeView.swift */; };
 		CF0001AB2603180100000001 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0001AA2603180100000001 /* FontManager.swift */; };
 		CF0001DB2603180100000001 /* ClashGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */; };
@@ -92,7 +90,6 @@
 		F3714E94251F8DEB00D627D4 /* HeartImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3714E93251F8DEB00D627D4 /* HeartImageView.swift */; };
 		F39D62DF251CF07900BB25D2 /* CapusuleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */; };
 		F39D62E2251CF2CA00BB25D2 /* LowerCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */; };
-		F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA13D02535B9CB005E384E /* IntroView.swift */; };
 		F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA13D52535BA02005E384E /* HapticManager.swift */; };
 		F3DA9AAD252DB1DE00CF2516 /* SubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */; };
 		F3DA9AB2252DB4C100CF2516 /* RotatingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */; };
@@ -156,8 +153,6 @@
 		51D6273924E19F2A00BCE1C8 /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
 		51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCapsule.swift; sourceTree = "<group>"; };
 		51F6B07E24E81E0300EF840F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
-		AA0001002603180100000001 /* AnimationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationItem.swift; sourceTree = "<group>"; };
-		AA0001022603180100000002 /* AnimationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCardView.swift; sourceTree = "<group>"; };
 		AA0001042603180100000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CF0001AA2603180100000001 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Bold.otf"; sourceTree = "<group>"; };
@@ -192,7 +187,6 @@
 		F3714E93251F8DEB00D627D4 /* HeartImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartImageView.swift; sourceTree = "<group>"; };
 		F39D62DE251CF07900BB25D2 /* CapusuleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapusuleGroupView.swift; sourceTree = "<group>"; };
 		F39D62E1251CF2CA00BB25D2 /* LowerCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerCapsuleView.swift; sourceTree = "<group>"; };
-		F3DA13D02535B9CB005E384E /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		F3DA13D52535BA02005E384E /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		F3DA9AAC252DB1DE00CF2516 /* SubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitView.swift; sourceTree = "<group>"; };
 		F3DA9AB1252DB4C100CF2516 /* RotatingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingCircle.swift; sourceTree = "<group>"; };
@@ -210,6 +204,8 @@
 		51278ECC2F6E713E004FEFB2 /* Shaders */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shaders; sourceTree = "<group>"; };
 		51278ED62F6E717C004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		51278ED72F6E7181004FEFB2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+		51278ED82F6E73E0004FEFB2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+		51278EDA2F6E73E7004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -702,9 +698,8 @@
 		F3DA13CD2535B976005E384E /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F3DA13D02535B9CB005E384E /* IntroView.swift */,
-				AA0001002603180100000001 /* AnimationItem.swift */,
-				AA0001022603180100000002 /* AnimationCardView.swift */,
+				51278EDA2F6E73E7004FEFB2 /* Models */,
+				51278ED82F6E73E0004FEFB2 /* Views */,
 				AA0001042603180100000003 /* HomeView.swift */,
 			);
 			path = Home;
@@ -824,6 +819,8 @@
 				51278ECC2F6E713E004FEFB2 /* Shaders */,
 				51278ED62F6E717C004FEFB2 /* Models */,
 				51278ED72F6E7181004FEFB2 /* Views */,
+				51278ED82F6E73E0004FEFB2 /* Views */,
+				51278EDA2F6E73E7004FEFB2 /* Models */,
 			);
 			name = "SwiftUI-Animations";
 			productName = "SwiftUI-Animations";
@@ -901,9 +898,6 @@
 				F3DA13D62535BA02005E384E /* HapticManager.swift in Sources */,
 				5184228326207DE90004FA3A /* DownloadStateView.swift in Sources */,
 				F3367903256187FB0043EF73 /* BookLoaderView.swift in Sources */,
-				F3DA13D12535B9CB005E384E /* IntroView.swift in Sources */,
-				AA0001012603180100000001 /* AnimationItem.swift in Sources */,
-				AA0001032603180100000002 /* AnimationCardView.swift in Sources */,
 				AA0001052603180100000003 /* HomeView.swift in Sources */,
 				F336790825618E3B0043EF73 /* BookHold.swift in Sources */,
 				51D3E49724F14591004325B5 /* ExpandingView.swift in Sources */,
