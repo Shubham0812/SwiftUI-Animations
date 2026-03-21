@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13C4EF4072EA95FE5712AB9F /* ShaderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984C1BB5A22CDC75B79AF84 /* ShaderCardView.swift */; };
+		33D1AA061FE48DB9A7AEA4B4 /* BurnEffect.metal in Sources */ = {isa = PBXBuildFile; fileRef = CF1365C17E3EE017173AEF3C /* BurnEffect.metal */; };
 		512788882F6DC3C1004FEFB2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */; };
 		512788892F6DC3C1004FEFB2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788862F6DC3C1004FEFB2 /* RootView.swift */; };
 		5127888A2F6DC3C1004FEFB2 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512788852F6DC3C1004FEFB2 /* AppTab.swift */; };
@@ -57,11 +59,13 @@
 		51D6273A24E19F2A00BCE1C8 /* WifiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6273924E19F2A00BCE1C8 /* WifiView.swift */; };
 		51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
+		57C8CFECFA2B6A61BFF95769 /* BurnEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88173E5456A175B31881EE /* BurnEffect.swift */; };
 		88CFFAAD54008A8AC63D9F0B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB8C183AB5B4355AA33084 /* Router.swift */; };
 		A141DA849790664EA6C96AA6 /* ShaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB44CCA0F93E933A6470DE /* ShaderView.swift */; };
 		AA0001012603180100000001 /* AnimationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001002603180100000001 /* AnimationItem.swift */; };
 		AA0001032603180100000002 /* AnimationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001022603180100000002 /* AnimationCardView.swift */; };
 		AA0001052603180100000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001042603180100000003 /* HomeView.swift */; };
+		B05671FDF36C7F2AA06BC2E2 /* BurnEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377E70B90901D0CFB5AC756 /* BurnEffectView.swift */; };
 		CF0001AB2603180100000001 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0001AA2603180100000001 /* FontManager.swift */; };
 		CF0001DB2603180100000001 /* ClashGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */; };
 		CF0001EB2603180100000001 /* ClashGrotesk-Extralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */; };
@@ -70,6 +74,7 @@
 		CF0002BB2603180100000001 /* ClashGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */; };
 		CF0002CB2603180100000001 /* ClashGrotesk-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */; };
 		DAF98EFF25F0D07F0052EDB8 /* SpinningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF98EFE25F0D07F0052EDB8 /* SpinningView.swift */; };
+		F2F8DEF7A88949A448785480 /* ShaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C192F14E3BD6F4373E5B5CA /* ShaderItem.swift */; };
 		F30BA967254418B300DC8367 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA966254418B300DC8367 /* LoginView.swift */; };
 		F30BA96C25441BED00DC8367 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA96B25441BED00DC8367 /* Plus.swift */; };
 		F30BA97025441E3200DC8367 /* ShrinkingPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BA96F25441E3200DC8367 /* ShrinkingPlus.swift */; };
@@ -109,6 +114,7 @@
 
 /* Begin PBXFileReference section */
 		13DB8C183AB5B4355AA33084 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Navigation/Router.swift; sourceTree = "<group>"; };
+		3C192F14E3BD6F4373E5B5CA /* ShaderItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShaderItem.swift; path = Shaders/ShaderItem.swift; sourceTree = "<group>"; };
 		512788842F6DC3C1004FEFB2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		512788852F6DC3C1004FEFB2 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
 		512788862F6DC3C1004FEFB2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -161,9 +167,11 @@
 		51D6273924E19F2A00BCE1C8 /* WifiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiView.swift; sourceTree = "<group>"; };
 		51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingCapsule.swift; sourceTree = "<group>"; };
 		51F6B07E24E81E0300EF840F /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		5377E70B90901D0CFB5AC756 /* BurnEffectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BurnEffectView.swift; path = Shaders/BurnEffectView.swift; sourceTree = "<group>"; };
 		AA0001002603180100000001 /* AnimationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationItem.swift; sourceTree = "<group>"; };
 		AA0001022603180100000002 /* AnimationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCardView.swift; sourceTree = "<group>"; };
 		AA0001042603180100000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C984C1BB5A22CDC75B79AF84 /* ShaderCardView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShaderCardView.swift; path = Shaders/ShaderCardView.swift; sourceTree = "<group>"; };
 		CCAB44CCA0F93E933A6470DE /* ShaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShaderView.swift; path = Shaders/ShaderView.swift; sourceTree = "<group>"; };
 		CF0001AA2603180100000001 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Bold.otf"; sourceTree = "<group>"; };
@@ -172,7 +180,9 @@
 		CF0002AA2603180100000001 /* ClashGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Medium.otf"; sourceTree = "<group>"; };
 		CF0002BA2603180100000001 /* ClashGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Regular.otf"; sourceTree = "<group>"; };
 		CF0002CA2603180100000001 /* ClashGrotesk-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Semibold.otf"; sourceTree = "<group>"; };
+		CF1365C17E3EE017173AEF3C /* BurnEffect.metal */ = {isa = PBXFileReference; includeInIndex = 1; name = BurnEffect.metal; path = Shaders/BurnEffect.metal; sourceTree = "<group>"; };
 		DAF98EFE25F0D07F0052EDB8 /* SpinningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningView.swift; sourceTree = "<group>"; };
+		DD88173E5456A175B31881EE /* BurnEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BurnEffect.swift; path = Shaders/BurnEffect.swift; sourceTree = "<group>"; };
 		F30BA966254418B300DC8367 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F30BA96B25441BED00DC8367 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
 		F30BA96F25441E3200DC8367 /* ShrinkingPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrinkingPlus.swift; sourceTree = "<group>"; };
@@ -521,6 +531,11 @@
 			isa = PBXGroup;
 			children = (
 				CCAB44CCA0F93E933A6470DE /* ShaderView.swift */,
+				3C192F14E3BD6F4373E5B5CA /* ShaderItem.swift */,
+				C984C1BB5A22CDC75B79AF84 /* ShaderCardView.swift */,
+				DD88173E5456A175B31881EE /* BurnEffect.swift */,
+				CF1365C17E3EE017173AEF3C /* BurnEffect.metal */,
+				5377E70B90901D0CFB5AC756 /* BurnEffectView.swift */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -957,6 +972,11 @@
 				F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */,
 				88CFFAAD54008A8AC63D9F0B /* Router.swift in Sources */,
 				A141DA849790664EA6C96AA6 /* ShaderView.swift in Sources */,
+				F2F8DEF7A88949A448785480 /* ShaderItem.swift in Sources */,
+				13C4EF4072EA95FE5712AB9F /* ShaderCardView.swift in Sources */,
+				57C8CFECFA2B6A61BFF95769 /* BurnEffect.swift in Sources */,
+				33D1AA061FE48DB9A7AEA4B4 /* BurnEffect.metal in Sources */,
+				B05671FDF36C7F2AA06BC2E2 /* BurnEffectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
