@@ -87,7 +87,7 @@ struct HomeView: View {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("SwiftUI")
                             .font(ClashGrotestk.bold.font(size: 32))
-                            .frame(width: 120)
+                            .frame(width: 120, alignment: .leading)
                             .padding(.leading, 10)
                     }
                     .sharedBackgroundVisibility(.hidden)
@@ -98,7 +98,7 @@ struct HomeView: View {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("SwiftUI")
                             .font(ClashGrotestk.bold.font(size: 24))
-                            .frame(width: 120)
+                            .frame(width: 120, alignment: .leading)
                             .padding(.leading, 16)
                     }
                 }

@@ -65,9 +65,9 @@ struct ShaderView: View {
         .toolbar {
             if #available(iOS 26.0, *) {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("Shaders")
+                    Text("SwiftUI")
                         .font(ClashGrotestk.bold.font(size: 32))
-                        .frame(width: 120)
+                        .frame(width: 120, alignment: .leading)
                         .padding(.leading, 10)
                 }
                 .sharedBackgroundVisibility(.hidden)
@@ -76,7 +76,7 @@ struct ShaderView: View {
 
             } else {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("Shaders")
+                    Text("SwiftUI")
                         .font(ClashGrotestk.bold.font(size: 24))
                         .frame(width: 120)
                         .padding(.leading, 16)
