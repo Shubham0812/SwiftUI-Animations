@@ -1,16 +1,14 @@
 //
-//  EmberReveal.swift
+//  PixelSnapView.swift
 //  SwiftUI-Animations
 //
-//  Created by Shubham Singh on 21/03/26.
+//  Created by Shubham on 21/03/26.
 //  Copyright © 2026 Shubham Singh. All rights reserved.
 //
 
 import SwiftUI
 
-// MARK: - EmberRevealView
-struct EmberRevealView: View {
-
+struct PixelSnapView: View {
     // MARK: - variables
     @State private var progress: Float = 0.0
 
@@ -26,7 +24,7 @@ struct EmberRevealView: View {
                 .frame(width: 350, height: 400)
                 .clipped()
                 .layerEffect(
-                    ShaderLibrary.emberReveal(
+                    ShaderLibrary.pixelSnap(
                         .float(progress),
                         .float2(CGSize(width: 350, height: 300))
                     ),
@@ -57,6 +55,6 @@ struct EmberRevealView: View {
 
 #Preview {
     NavigationStack {
-        EmberRevealView()
+        PixelSnapView()
     }
 }

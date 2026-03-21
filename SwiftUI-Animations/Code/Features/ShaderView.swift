@@ -72,8 +72,6 @@ struct ShaderView: View {
                 }
                 .sharedBackgroundVisibility(.hidden)
 
-                DefaultToolbarItem(kind: .search, placement: .automatic)
-
             } else {
                 ToolbarItem(placement: .topBarLeading) {
                     Text("SwiftUI")
@@ -85,6 +83,7 @@ struct ShaderView: View {
         }
         .navigationDestination(for: ShaderDestination.self) { destination in
             destinationView(for: destination)
+                .toolbar(.hidden, for: .tabBar)
         }
     }
 
@@ -127,6 +126,12 @@ struct ShaderView: View {
         switch destination {
         case .burnEffect:
             BurnEffectView()
+            
+        case .pixelSnap:
+            PixelSnapView()
+            
+        case .emberReveal:
+            EmberRevealView()
         }
     }
 }

@@ -92,8 +92,6 @@ struct HomeView: View {
                     }
                     .sharedBackgroundVisibility(.hidden)
                     
-                    DefaultToolbarItem(kind: .search, placement: .automatic)
-                    
                 } else {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("SwiftUI")

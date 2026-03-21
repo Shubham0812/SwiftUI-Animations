@@ -21,40 +21,35 @@ float valueNoise(float2 p) {
     float2 f = fract(p);
     f = f * f * (3.0 - 2.0 * f);
     float bottom = mix(hashTwo(i + float2(0, 0)), hashTwo(i + float2(1, 0)), f.x);
-    float top    = mix(hashTwo(i + float2(0, 1)), hashTwo(i + float2(1, 1)), f.x);
+    float top = mix(hashTwo(i + float2(0, 1)), hashTwo(i + float2(1, 1)), f.x);
     return mix(bottom, top, f.y);
 }
-
-// MARK: - Ember Reveal
-// The image burns into existence from the centre outward with a glowing ember edge.
-// progress: 0.0 = fully hidden, 1.0 = fully revealed
-[[ stitchable ]] half4 emberReveal(float2 position,
-                                   SwiftUI::Layer layer,
-                                   float progress,
-                                   float2 size) {
+//
+//// --- EFFECT 1: EMBER BURN ---
+//// The image burns into existence from the center outward with a glowing edge.
+[[ stitchable ]] half4 emberReveal(float2 position, SwiftUI::Layer layer, float progress, float2 size) {
+    // Normalize coordinates
     float2 uv = position / size;
-
-    // Multi-octave noise for a more organic edge
-    float noise  = valueNoise(uv * 10.0) * 0.60
-                 + valueNoise(uv * 20.0) * 0.25
-                 + valueNoise(uv * 40.0) * 0.15;
-
-    // Distance from centre (0 at centre, ~0.7 at corners)
+    
+    // Create noise pattern
+    float noise = valueNoise(uv * 10.0); // 10.0 is the noise scale
+    
+    // Calculate distance from center (0.0 at center, 0.7 at corners)
     float dist = distance(uv, float2(0.5, 0.5));
-
-    // Signed threshold: negative = hidden, positive = revealed
+    
+    // Combine distance and noise for the mask
+    // Progress 0->1 moves the threshold from center to edges
     float threshold = (progress * 1.5) - dist + (noise * 0.2);
-
+    
     half4 color = layer.sample(position);
-
+    
     if (threshold < 0.0) {
-        // Not yet revealed — fully transparent
+        // Not revealed yet
         return half4(0, 0, 0, 0);
     } else if (threshold < 0.15) {
-        // Burning edge — blend an orange/red ember glow onto the pixel
-        float edgeFactor = 1.0 - (threshold / 0.15);          // 1 at edge, 0 at interior
-        half4 ember = half4(1.0, 0.4 + edgeFactor * 0.2, 0.0, 1.0);
-        return mix(color, color + ember * half4(1, 1, 1, 0), half(edgeFactor));
+        // The "Burning Edge" (Orange/Red add-on)
+        // We add bright orange to the image pixel
+        return color + half4(1.0, 0.5, 0.0, 1.0);
     } else {
         // Fully revealed
         return color;

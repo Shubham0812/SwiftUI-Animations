@@ -16,23 +16,27 @@ import SwiftUI
 /// and navigation stacks survive tab switches — each tab maintains its own independent
 /// navigation state.
 struct RootView: View {
-
+    
     // MARK:- variables
     @StateObject private var coordinator = AppCoordinator()
-
+    
     // MARK:- views
     var body: some View {
         TabView(selection: $coordinator.selectedTab) {
             NavigationStack(path: $coordinator.homeRouter.path) {
                 HomeView()
             }
-            .tabItem { Label(AppTab.home.title, systemImage: AppTab.home.systemIcon) }
+            .tabItem {
+                Label(AppTab.home.title, systemImage: AppTab.home.systemIcon)
+            }
             .tag(AppTab.home)
-
+            
             NavigationStack(path: $coordinator.shadersRouter.path) {
                 ShaderView()
             }
-            .tabItem { Label(AppTab.shaders.title, systemImage: AppTab.shaders.systemIcon) }
+            .tabItem {
+                Label(AppTab.shaders.title, systemImage: AppTab.shaders.systemIcon)
+            }
             .tag(AppTab.shaders)
         }
         .environmentObject(coordinator)

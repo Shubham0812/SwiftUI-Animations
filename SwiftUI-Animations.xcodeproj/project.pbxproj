@@ -22,8 +22,6 @@
 		517BFA6024DC45C800D4F78A /* Tick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BFA5F24DC45C800D4F78A /* Tick.swift */; };
 		5184227F262064E40004FA3A /* DownloadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184227E262064E40004FA3A /* DownloadingIndicatorView.swift */; };
 		5184228326207DE90004FA3A /* DownloadStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184228226207DE90004FA3A /* DownloadStateView.swift */; };
-		518E823124DAA665002CB679 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823024DAA665002CB679 /* AppDelegate.swift */; };
-		518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823224DAA665002CB679 /* SceneDelegate.swift */; };
 		518E823524DAA665002CB679 /* AddCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518E823424DAA665002CB679 /* AddCartView.swift */; };
 		518E823724DAA667002CB679 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518E823624DAA667002CB679 /* Assets.xcassets */; };
 		518E823A24DAA667002CB679 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518E823924DAA667002CB679 /* Preview Assets.xcassets */; };
@@ -119,8 +117,6 @@
 		5184227E262064E40004FA3A /* DownloadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingIndicatorView.swift; sourceTree = "<group>"; };
 		5184228226207DE90004FA3A /* DownloadStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStateView.swift; sourceTree = "<group>"; };
 		518E822D24DAA665002CB679 /* SwiftUI-Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		518E823024DAA665002CB679 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		518E823224DAA665002CB679 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		518E823424DAA665002CB679 /* AddCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCartView.swift; sourceTree = "<group>"; };
 		518E823624DAA667002CB679 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		518E823924DAA667002CB679 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -206,6 +202,7 @@
 		51278ED72F6E7181004FEFB2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 		51278ED82F6E73E0004FEFB2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 		51278EDA2F6E73E7004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		51278EE82F6EAB7C004FEFB2 /* Controllers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Controllers; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,11 +318,8 @@
 		518E822F24DAA665002CB679 /* SwiftUI-Animations */ = {
 			isa = PBXGroup;
 			children = (
-				F3DA13CF2535B9AE005E384E /* Assets */,
 				F3DA13CB2535B962005E384E /* Code */,
-				518E823024DAA665002CB679 /* AppDelegate.swift */,
-				518E823224DAA665002CB679 /* SceneDelegate.swift */,
-				518E823E24DAA667002CB679 /* Info.plist */,
+				F3DA13CF2535B9AE005E384E /* Resources */,
 			);
 			path = "SwiftUI-Animations";
 			sourceTree = "<group>";
@@ -676,6 +670,7 @@
 		F3DA13CB2535B962005E384E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				51278EE82F6EAB7C004FEFB2 /* Controllers */,
 				51278ECB2F6E712F004FEFB2 /* Common */,
 				F3DA13CC2535B96B005E384E /* Features */,
 				F3DA13D42535B9F2005E384E /* Services */,
@@ -734,15 +729,16 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		F3DA13CF2535B9AE005E384E /* Assets */ = {
+		F3DA13CF2535B9AE005E384E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				518E823624DAA667002CB679 /* Assets.xcassets */,
+				CF0001BA2603180100000001 /* Fonts */,
+				518E823E24DAA667002CB679 /* Info.plist */,
 				518E823B24DAA667002CB679 /* LaunchScreen.storyboard */,
 				518E823824DAA667002CB679 /* Preview Content */,
-				CF0001BA2603180100000001 /* Fonts */,
 			);
-			path = Assets;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F3DA13D42535B9F2005E384E /* Services */ = {
@@ -821,6 +817,7 @@
 				51278ED72F6E7181004FEFB2 /* Views */,
 				51278ED82F6E73E0004FEFB2 /* Views */,
 				51278EDA2F6E73E7004FEFB2 /* Models */,
+				51278EE82F6EAB7C004FEFB2 /* Controllers */,
 			);
 			name = "SwiftUI-Animations";
 			productName = "SwiftUI-Animations";
@@ -886,7 +883,6 @@
 			files = (
 				F34DDAC22573E859009BAF83 /* CardPatternOneView.swift in Sources */,
 				F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */,
-				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
 				51464374250BD8840046D835 /* FillShapes.swift in Sources */,
 				F30BA967254418B300DC8367 /* LoginView.swift in Sources */,
 				51C8BB1B24E3F6CF00DCE354 /* Circles.swift in Sources */,
@@ -923,7 +919,6 @@
 				F36DF4CE258F4D2600BF9AA5 /* MovingCircleView.swift in Sources */,
 				519B74392C85DE1B0021306C /* YinYangView.swift in Sources */,
 				51AFB36724DB1393006840D3 /* ShirtView.swift in Sources */,
-				518E823324DAA665002CB679 /* SceneDelegate.swift in Sources */,
 				F3672DF62563864500967A8A /* BookPagesView.swift in Sources */,
 				51D3E49624F14591004325B5 /* AddView.swift in Sources */,
 				F321C78A2578C1220018C82F /* InfinityShape.swift in Sources */,
@@ -1104,10 +1099,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Assets/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = VXZ7XFH447;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
+				INFOPLIST_FILE = "SwiftUI-Animations/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = SwiftUI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1129,10 +1124,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Assets/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Animations/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = VXZ7XFH447;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "SwiftUI-Animations/Info.plist";
+				INFOPLIST_FILE = "SwiftUI-Animations/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = SwiftUI;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
