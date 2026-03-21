@@ -3,13 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51278DE72F6DE6C1004FEFB2 /* AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51278DE42F6DE6C1004FEFB2 /* AppTab.swift */; };
-		51278DE82F6DE6C1004FEFB2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51278DE52F6DE6C1004FEFB2 /* RootView.swift */; };
-		51278DE92F6DE6C1004FEFB2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51278DE32F6DE6C1004FEFB2 /* AppCoordinator.swift */; };
+		51278ED52F6E715F004FEFB2 /* ShaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51278ED42F6E715F004FEFB2 /* ShaderView.swift */; };
 		51370C4324EBD59A00103512 /* LoaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51370C4224EBD59A00103512 /* LoaderState.swift */; };
 		51390968250D1FAE000CE14A /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51390967250D1FAE000CE14A /* LikeView.swift */; };
 		51464370250BCB830046D835 /* WaveFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146436F250BCB830046D835 /* WaveFill.swift */; };
@@ -58,7 +56,6 @@
 		51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DAC7B2250E07E800ECA895 /* ShrinkingCapsule.swift */; };
 		51F6B07F24E81E0300EF840F /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6B07E24E81E0300EF840F /* Loader.swift */; };
 		88CFFAAD54008A8AC63D9F0B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB8C183AB5B4355AA33084 /* Router.swift */; };
-		A141DA849790664EA6C96AA6 /* ShaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAB44CCA0F93E933A6470DE /* ShaderView.swift */; };
 		AA0001012603180100000001 /* AnimationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001002603180100000001 /* AnimationItem.swift */; };
 		AA0001032603180100000002 /* AnimationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001022603180100000002 /* AnimationCardView.swift */; };
 		AA0001052603180100000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001042603180100000003 /* HomeView.swift */; };
@@ -109,9 +106,7 @@
 
 /* Begin PBXFileReference section */
 		13DB8C183AB5B4355AA33084 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Navigation/Router.swift; sourceTree = "<group>"; };
-		51278DE32F6DE6C1004FEFB2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		51278DE42F6DE6C1004FEFB2 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
-		51278DE52F6DE6C1004FEFB2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		51278ED42F6E715F004FEFB2 /* ShaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderView.swift; sourceTree = "<group>"; };
 		51370C4224EBD59A00103512 /* LoaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderState.swift; sourceTree = "<group>"; };
 		51390967250D1FAE000CE14A /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		5146436F250BCB830046D835 /* WaveFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFill.swift; sourceTree = "<group>"; };
@@ -164,7 +159,6 @@
 		AA0001002603180100000001 /* AnimationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationItem.swift; sourceTree = "<group>"; };
 		AA0001022603180100000002 /* AnimationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCardView.swift; sourceTree = "<group>"; };
 		AA0001042603180100000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		CCAB44CCA0F93E933A6470DE /* ShaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShaderView.swift; path = Shaders/ShaderView.swift; sourceTree = "<group>"; };
 		CF0001AA2603180100000001 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		CF0001DA2603180100000001 /* ClashGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Bold.otf"; sourceTree = "<group>"; };
 		CF0001EA2603180100000001 /* ClashGrotesk-Extralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ClashGrotesk-Extralight.otf"; sourceTree = "<group>"; };
@@ -210,6 +204,14 @@
 		F3DAEDF3253B23950067F963 /* FlickeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickeringView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		51278EC62F6E70A6004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		51278EC72F6E70B5004FEFB2 /* Support Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Support Views"; sourceTree = "<group>"; };
+		51278ECC2F6E713E004FEFB2 /* Shaders */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shaders; sourceTree = "<group>"; };
+		51278ED62F6E717C004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+		51278ED72F6E7181004FEFB2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		518E822A24DAA665002CB679 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -224,11 +226,19 @@
 		51278DE62F6DE6C1004FEFB2 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				51278DE32F6DE6C1004FEFB2 /* AppCoordinator.swift */,
-				51278DE42F6DE6C1004FEFB2 /* AppTab.swift */,
-				51278DE52F6DE6C1004FEFB2 /* RootView.swift */,
+				51278ED62F6E717C004FEFB2 /* Models */,
+				51278ED72F6E7181004FEFB2 /* Views */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		51278ECB2F6E712F004FEFB2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				51278ECC2F6E713E004FEFB2 /* Shaders */,
+				F3DA13CE2535B993005E384E /* Animations */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		51390966250D1F97000CE14A /* Like */ = {
@@ -520,7 +530,9 @@
 		C30857784914BCE8CAE99041 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
-				CCAB44CCA0F93E933A6470DE /* ShaderView.swift */,
+				51278EC72F6E70B5004FEFB2 /* Support Views */,
+				51278EC62F6E70A6004FEFB2 /* Models */,
+				51278ED42F6E715F004FEFB2 /* ShaderView.swift */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -668,8 +680,8 @@
 		F3DA13CB2535B962005E384E /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				F3DA13CE2535B993005E384E /* Animations */,
-				F3DA13CC2535B96B005E384E /* Modules */,
+				51278ECB2F6E712F004FEFB2 /* Common */,
+				F3DA13CC2535B96B005E384E /* Features */,
 				F3DA13D42535B9F2005E384E /* Services */,
 				515557EA24DEABE40001E523 /* Utils */,
 				7C06ABDDD4DE1F748F3CF715 /* Navigation */,
@@ -677,14 +689,14 @@
 			path = Code;
 			sourceTree = "<group>";
 		};
-		F3DA13CC2535B96B005E384E /* Modules */ = {
+		F3DA13CC2535B96B005E384E /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				F3DA13CD2535B976005E384E /* Home */,
 				C30857784914BCE8CAE99041 /* Shaders */,
 				51278DE62F6DE6C1004FEFB2 /* App */,
 			);
-			path = Modules;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		F3DA13CD2535B976005E384E /* Home */ = {
@@ -806,6 +818,13 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				51278EC62F6E70A6004FEFB2 /* Models */,
+				51278EC72F6E70B5004FEFB2 /* Support Views */,
+				51278ECC2F6E713E004FEFB2 /* Shaders */,
+				51278ED62F6E717C004FEFB2 /* Models */,
+				51278ED72F6E7181004FEFB2 /* Views */,
+			);
 			name = "SwiftUI-Animations";
 			productName = "SwiftUI-Animations";
 			productReference = 518E822D24DAA665002CB679 /* SwiftUI-Animations.app */;
@@ -869,9 +888,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F34DDAC22573E859009BAF83 /* CardPatternOneView.swift in Sources */,
-				51278DE72F6DE6C1004FEFB2 /* AppTab.swift in Sources */,
-				51278DE82F6DE6C1004FEFB2 /* RootView.swift in Sources */,
-				51278DE92F6DE6C1004FEFB2 /* AppCoordinator.swift in Sources */,
 				F3DAEDF4253B23960067F963 /* FlickeringView.swift in Sources */,
 				518E823124DAA665002CB679 /* AppDelegate.swift in Sources */,
 				51464374250BD8840046D835 /* FillShapes.swift in Sources */,
@@ -945,6 +961,7 @@
 				F3DAEDE7253B073A0067F963 /* RectangleLoaderView.swift in Sources */,
 				519B743B2C85DE280021306C /* YinYangToggleView.swift in Sources */,
 				51DAC7B3250E07E800ECA895 /* ShrinkingCapsule.swift in Sources */,
+				51278ED52F6E715F004FEFB2 /* ShaderView.swift in Sources */,
 				51C16C0124E2F7FB006A4BBE /* ArcView.swift in Sources */,
 				F34DDAD32573EAD7009BAF83 /* CardView.swift in Sources */,
 				51370C4324EBD59A00103512 /* LoaderState.swift in Sources */,
@@ -956,7 +973,6 @@
 				518E823524DAA665002CB679 /* AddCartView.swift in Sources */,
 				F3DAEDED253B0F220067F963 /* DashedLoaderView.swift in Sources */,
 				88CFFAAD54008A8AC63D9F0B /* Router.swift in Sources */,
-				A141DA849790664EA6C96AA6 /* ShaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
