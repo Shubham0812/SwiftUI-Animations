@@ -20,7 +20,7 @@
 
 ## Overview
 
-This repository contains **20+ custom SwiftUI animations** — from loaders and toggles to interactive UI components — all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
+This repository contains **20+ custom SwiftUI animations** and **Metal shaders** — from loaders and toggles to interactive UI components and GPU-powered visual effects — all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
 
 ## Table of Contents
 
@@ -65,7 +65,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/cart.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/Cart)
+[View Code](SwiftUI-Animations/Code/Common/Animations/Cart)
 
 </td>
 <td width="33%" align="center">
@@ -74,7 +74,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/chat-bar.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/ChatBar)
+[View Code](SwiftUI-Animations/Code/Common/Animations/ChatBar)
 
 </td>
 <td width="33%" align="center">
@@ -83,7 +83,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/wifi.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/Wifi)
+[View Code](SwiftUI-Animations/Code/Common/Animations/Wifi)
 
 </td>
 </tr>
@@ -94,7 +94,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/loader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/Loader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/Loader)
 
 </td>
 <td align="center">
@@ -103,7 +103,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/addView.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/AddView)
+[View Code](SwiftUI-Animations/Code/Common/Animations/AddView)
 
 </td>
 <td align="center">
@@ -112,7 +112,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/circle-loader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/CircleLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/CircleLoader)
 
 </td>
 </tr>
@@ -123,7 +123,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/pill-loader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/PillLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/PillLoader)
 
 </td>
 <td align="center">
@@ -132,7 +132,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/likeVIew.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/Like)
+[View Code](SwiftUI-Animations/Code/Common/Animations/Like)
 
 </td>
 <td align="center">
@@ -141,7 +141,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/submit-button.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/SubmitView)
+[View Code](SwiftUI-Animations/Code/Common/Animations/SubmitView)
 
 </td>
 </tr>
@@ -152,7 +152,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/github-loader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/GithubLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/GithubLoader)
 
 </td>
 <td align="center">
@@ -161,7 +161,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/3-d-Loader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/3dLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/3dLoader)
 
 </td>
 <td align="center">
@@ -170,7 +170,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/login.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/LoginView)
+[View Code](SwiftUI-Animations/Code/Common/Animations/LoginView)
 
 </td>
 </tr>
@@ -181,7 +181,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/book-loader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/BookLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/BookLoader)
 
 </td>
 <td align="center">
@@ -190,7 +190,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/cards.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/Bank%20Card)
+[View Code](SwiftUI-Animations/Code/Common/Animations/Bank%20Card)
 
 </td>
 <td align="center">
@@ -199,7 +199,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/infinity.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/InfinityLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/InfinityLoader)
 
 </td>
 </tr>
@@ -210,7 +210,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/lightswitch.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/LightSwitch)
+[View Code](SwiftUI-Animations/Code/Common/Animations/LightSwitch)
 
 </td>
 <td align="center">
@@ -219,7 +219,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/spinningloader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/SpinningLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/SpinningLoader)
 
 </td>
 <td align="center">
@@ -228,7 +228,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/downloadButton.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/DownloadButton)
+[View Code](SwiftUI-Animations/Code/Common/Animations/DownloadButton)
 
 </td>
 </tr>
@@ -239,7 +239,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/triLoader.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/TriangleLoader)
+[View Code](SwiftUI-Animations/Code/Common/Animations/TriangleLoader)
 
 </td>
 <td align="center">
@@ -248,14 +248,14 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 <img src="SwiftUI-Animations/GIFs/octocat-wink.gif" width="220"/>
 
-[View Code](SwiftUI-Animations/Code/Animations/Octocat-Wink)
+[View Code](SwiftUI-Animations/Code/Common/Animations/Octocat-Wink)
 
 </td>
 <td align="center">
 
 **Yin-Yang Toggle**
 
-[View Code](SwiftUI-Animations/Code/Animations/YinYang-Toggle)
+[View Code](SwiftUI-Animations/Code/Common/Animations/YinYang-Toggle)
 
 </td>
 </tr>
@@ -266,17 +266,45 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 ```
 SwiftUI-Animations/
 ├── Code/
-│   ├── Animations/          # Each animation in its own folder
-│   │   ├── Cart/
-│   │   ├── ChatBar/
-│   │   ├── Wifi/
-│   │   ├── ...              # 20+ animation folders
-│   │   └── YinYang-Toggle/
-│   ├── Modules/
-│   │   └── Home/            # Home screen / navigation
-│   ├── Services/            # Haptic feedback manager
-│   └── Utils/               # Shared colors & helpers
-├── GIFs/                    # Animation preview GIFs
+│   ├── Common/
+│   │   ├── Animations/           # Each animation in its own folder
+│   │   │   ├── 3dLoader/
+│   │   │   ├── AddView/
+│   │   │   ├── Bank Card/
+│   │   │   ├── BookLoader/
+│   │   │   ├── Cart/
+│   │   │   ├── ChatBar/
+│   │   │   ├── CircleLoader/
+│   │   │   ├── DownloadButton/
+│   │   │   ├── GithubLoader/
+│   │   │   ├── InfinityLoader/
+│   │   │   ├── LightSwitch/
+│   │   │   ├── Like/
+│   │   │   ├── Loader/
+│   │   │   ├── Loader2/
+│   │   │   ├── LoginView/
+│   │   │   ├── Octocat-Wink/
+│   │   │   ├── PillLoader/
+│   │   │   ├── SpinningLoader/
+│   │   │   ├── SubmitView/
+│   │   │   ├── TriangleLoader/
+│   │   │   ├── Wifi/
+│   │   │   └── YinYang-Toggle/
+│   │   └── Shaders/              # Metal shader effects
+│   │       └── Burn/             # Burn transition effect (.metal + .swift)
+│   ├── Features/
+│   │   ├── App/                  # Root app views & coordinator
+│   │   ├── Home/                 # Home screen
+│   │   │   ├── Models/           # Animation item models
+│   │   │   └── Views/            # Home views & support views
+│   │   ├── Shaders/              # Shader showcase views
+│   │   └── Support Views/        # Shared feature UI components
+│   ├── Navigation/               # Router & navigation logic
+│   ├── Services/                 # Haptic feedback manager
+│   └── Utils/                    # Colors, fonts & helpers
+├── Assets/
+│   └── Fonts/                    # ClashGrotesk custom font family
+├── GIFs/                         # Animation preview GIFs
 └── SwiftUI-Animations.xcodeproj
 ```
 
@@ -295,7 +323,7 @@ SwiftUI-Animations/
 
 4. **Browse an animation** — tap any card to open it full-screen and interact with it directly.
 
-5. **Jump to the source** — each animation lives in its own self-contained folder under `Code/Animations/`. Open the folder in Xcode's Project Navigator to read or copy the code.
+5. **Jump to the source** — each animation lives in its own self-contained folder under `Code/Common/Animations/`. Shader effects are under `Code/Common/Shaders/`. Open any folder in Xcode's Project Navigator to read or copy the code.
 
 > **Tip:** Every view file includes a `PreviewProvider` / `#Preview`, so you can also run individual animations directly in Xcode Previews without launching the full app — just open the file and press <kbd>⌘ ⌥ P</kbd>.
 

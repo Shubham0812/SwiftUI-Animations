@@ -17,6 +17,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 - Issue template config.yml with discussion and social links
 - Label setup script with difficulty levels and animation-specific labels
 - Build status badge in README
+
+### Changed
+- README updated for new folder structure (Code/Common/Animations, Code/Features, Code/Common/Shaders)
+- All animation "View Code" links updated to new Common/Animations paths
+- Project structure section rewritten to reflect full reorganization
+- Overview updated to mention Metal shaders
 - .gitignore for Xcode/Swift projects
 - Improved README footer with license details, share buttons, and contributor links
 
