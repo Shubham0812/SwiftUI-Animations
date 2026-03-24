@@ -22,6 +22,10 @@ enum ShaderDestination: Hashable {
     case burnEffect
     case pixelSnap
     case emberReveal
+    case rippleEffect
+    case chromaticAberration
+    case halftone
+    case glitchEffect
 }
 
 // MARK: - ShaderItem
@@ -36,8 +40,12 @@ struct ShaderItem: Identifiable {
 
     // MARK: - All Shaders
     static let all: [ShaderItem] = [
-        ShaderItem(title: "Burn Effect",   systemIcon: "flame.fill",       iconColor: Color(r: 255, g: 69,  b: 0),   destination: .burnEffect,   category: .effect),
-        ShaderItem(title: "Pixel Appear",   systemIcon: "hand.point.up.braille.fill",       iconColor: .indigo,   destination: .pixelSnap,   category: .effect),
-        ShaderItem(title: "Ember Reveal",  systemIcon: "sparkles",         iconColor: Color(r: 255, g: 140, b: 0),   destination: .emberReveal,  category: .effect),
+        ShaderItem(title: "Burn Effect",          systemIcon: "flame.fill",                  iconColor: Color(r: 255, g: 69,  b: 0),   destination: .burnEffect,          category: .effect),
+        ShaderItem(title: "Pixel Appear",         systemIcon: "hand.point.up.braille.fill",  iconColor: .indigo,                       destination: .pixelSnap,           category: .effect),
+        ShaderItem(title: "Ember Reveal",         systemIcon: "sparkles",                    iconColor: Color(r: 255, g: 140, b: 0),   destination: .emberReveal,         category: .effect),
+        ShaderItem(title: "Wave Ripple",          systemIcon: "water.waves",                 iconColor: .cyan,                         destination: .rippleEffect,        category: .effect),
+        ShaderItem(title: "Chromatic Aberration", systemIcon: "camera.filters",              iconColor: .purple,                       destination: .chromaticAberration, category: .filter),
+        ShaderItem(title: "Halftone",             systemIcon: "circle.grid.3x3.fill",        iconColor: Color(r: 210, g: 105, b: 30),  destination: .halftone,            category: .transition),
+        ShaderItem(title: "Glitch",               systemIcon: "bolt.fill",                   iconColor: Color(r: 57,  g: 255, b: 20),  destination: .glitchEffect,        category: .effect),
     ]
 }

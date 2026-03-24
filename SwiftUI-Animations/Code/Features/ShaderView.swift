@@ -126,12 +126,24 @@ struct ShaderView: View {
         switch destination {
         case .burnEffect:
             BurnEffectView()
-            
+
         case .pixelSnap:
             PixelSnapView()
-            
+
         case .emberReveal:
             EmberRevealView()
+
+        case .rippleEffect:
+            RippleEffectView()
+
+        case .chromaticAberration:
+            ChromaticAberrationView()
+
+        case .halftone:
+            HalftoneView()
+
+        case .glitchEffect:
+            GlitchEffectView()
         }
     }
 }
