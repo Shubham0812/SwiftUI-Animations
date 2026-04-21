@@ -38,6 +38,7 @@ enum AnimationDestination: String, Hashable, CaseIterable {
     case triangleLoader
     case wifi
     case yinYangToggle
+    case textSwirl
 }
 
 // MARK: - AnimationItem
@@ -49,6 +50,7 @@ struct AnimationItem: Identifiable {
     let iconColor: Color
     let destination: AnimationDestination
     let category: AnimationCategory
+    var isNew: Bool = false
     
     // MARK: - All Animations
     static let all: [AnimationItem] = [
@@ -73,6 +75,7 @@ struct AnimationItem: Identifiable {
         AnimationItem(title: "Submit View", systemIcon: "paperplane.fill", iconColor: Color.submitColor, destination: .submitView, category: .component),
         AnimationItem(title: "Triangle Loader", systemIcon: "triangle.fill", iconColor: Color.expandingAccent, destination: .triangleLoader, category: .loader),
         AnimationItem(title: "Wifi", systemIcon: "wifi", iconColor: Color.wifiConnected, destination: .wifi, category: .animation),
-        AnimationItem(title: "Yin Yang Toggle", systemIcon: "circle.lefthalf.filled", iconColor: Color.label, destination: .yinYangToggle, category: .component),
+        AnimationItem(title: "Yin Yang Toggle", systemIcon: "circle.lefthalf.filled", iconColor: Color.label, destination: .yinYangToggle, category: .component, isNew: true),
+        AnimationItem(title: "Text Swirl", systemIcon: "tornado", iconColor: Color.blue, destination: .textSwirl, category: .component, isNew: true),
     ]
 }

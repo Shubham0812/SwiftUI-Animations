@@ -26,6 +26,12 @@ struct AnimationCardView: View {
                         .fill(item.iconColor.gradient)
                         .opacity(0.2)
                 }
+                .overlay(alignment: .topTrailing) {
+                    if item.isNew {
+                        newTag
+                            .offset(x: 4, y: -2)
+                    }
+                }
 
             Text(item.title)
                 .font(ClashGrotestk.semibold.font(size: 14))
@@ -36,6 +42,19 @@ struct AnimationCardView: View {
                 .minimumScaleFactor(0.8)
         }
         .frame(maxWidth: .infinity)
+    }
+
+    private var newTag: some View {
+        Text("NEW")
+            .font(ClashGrotestk.semibold.font(size: 8))
+            .tracking(1)
+            .foregroundStyle(Color.white)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 3)
+            .background(
+                Capsule()
+                    .fill(Color.accentColor)
+            )
     }
 }
 

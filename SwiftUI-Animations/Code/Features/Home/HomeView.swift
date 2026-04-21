@@ -208,6 +208,9 @@ struct HomeView: View {
             
         case .yinYangToggle:
             YinYangAnimationView()
+
+        case .textSwirl:
+            TextSwirlView()
         }
     }
 }
