@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HomeView: View {
-
+    
     // MARK: - Variables
     @State private var chatMessage: String = ""
     @State private var selectedCategory: AnimationCategory? = nil
@@ -25,7 +25,7 @@ struct HomeView: View {
     ]
     
     private let animationDuration: TimeInterval = 0.325
-
+    
     private var filteredItems: [AnimationItem] {
         let baseItems: [AnimationItem]
         
@@ -43,70 +43,70 @@ struct HomeView: View {
             $0.title.lowercased().contains(query)
         }
     }
-
+    
     // MARK: - Views
     var body: some View {
         ScrollView(showsIndicators: false) {
-                filterChips
-                    .safeAreaPadding(.trailing, 12)
-                    .safeAreaPadding(.leading, 24)
-                    .padding(.horizontal, -24)
-                    .padding(.top, 12)
-                
-                LazyVGrid(columns: columns, spacing: 32) {
-                    ForEach(filteredItems) { item in
-                        NavigationLink(value: item.destination) {
-                            AnimationCardView(item: item)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-                .padding(16)
+            filterChips
+                .safeAreaPadding(.trailing, 12)
+                .safeAreaPadding(.leading, 24)
+                .padding(.horizontal, -24)
                 .padding(.top, 12)
-                .animation(.spring(response: 0.35, dampingFraction: 0.8), value: selectedCategory)
-                .animation(.smooth(duration: animationDuration), value: filteredItems.count)
-            }
-            .background(GeometryReader { geo in
-                Color.clear.onAppear {
-                    scrollViewTopY = geo.frame(in: .global).minY
-                }
-            })
-
-            .overlay(alignment: .top) {
-                if isFilterPinned {
-                    filterChips
-                        .padding(.vertical, 10)
-                        .background(Color(UIColor.systemGroupedBackground))
-                        .transition(.move(edge: .top).combined(with: .opacity))
-                }
-            }
-            .background(Color(UIColor.systemGroupedBackground))
-            .searchable(text: $searchText, prompt: Text("Search for a work"))
-            .toolbar {
-                if #available(iOS 26.0, *) {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("SwiftUI")
-                            .font(ClashGrotestk.bold.font(size: 32))
-                            .frame(width: 120, alignment: .leading)
-                            .padding(.leading, 10)
+            
+            LazyVGrid(columns: columns, spacing: 32) {
+                ForEach(filteredItems) { item in
+                    NavigationLink(value: item.destination) {
+                        AnimationCardView(item: item)
                     }
-                    .sharedBackgroundVisibility(.hidden)
-                    
-                } else {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("SwiftUI")
-                            .font(ClashGrotestk.bold.font(size: 24))
-                            .frame(width: 120, alignment: .leading)
-                            .padding(.leading, 16)
-                    }
+                    .buttonStyle(.plain)
                 }
             }
-            .navigationDestination(for: AnimationDestination.self) { destination in
-                destinationView(for: destination)
-                    .toolbar(.hidden, for: .tabBar)
+            .padding(16)
+            .padding(.top, 12)
+            .animation(.spring(response: 0.35, dampingFraction: 0.8), value: selectedCategory)
+            .animation(.smooth(duration: animationDuration), value: filteredItems.count)
+        }
+        .background(GeometryReader { geo in
+            Color.clear.onAppear {
+                scrollViewTopY = geo.frame(in: .global).minY
             }
+        })
+        
+        .overlay(alignment: .top) {
+            if isFilterPinned {
+                filterChips
+                    .padding(.vertical, 10)
+                    .background(Color(UIColor.systemGroupedBackground))
+                    .transition(.move(edge: .top).combined(with: .opacity))
+            }
+        }
+        .background(Color(UIColor.systemGroupedBackground))
+        .searchable(text: $searchText, prompt: Text("Search for a work"))
+        .toolbar {
+            if #available(iOS 26.0, *) {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("SwiftUI")
+                        .font(ClashGrotestk.bold.font(size: 32))
+                        .frame(width: 120, alignment: .leading)
+                        .padding(.leading, 10)
+                }
+                .sharedBackgroundVisibility(.hidden)
+                
+            } else {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("SwiftUI")
+                        .font(ClashGrotestk.bold.font(size: 24))
+                        .frame(width: 120, alignment: .leading)
+                        .padding(.leading, 16)
+                }
+            }
+        }
+        .navigationDestination(for: AnimationDestination.self) { destination in
+            destinationView(for: destination)
+                .toolbar(.hidden, for: .tabBar)
+        }
     }
-
+    
     private var filterChips: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 14) {
@@ -118,7 +118,7 @@ struct HomeView: View {
             .safeAreaPadding(.leading, 16)
         }
     }
-
+    
     private func chipButton(title: String, category: AnimationCategory?) -> some View {
         let isSelected = selectedCategory == category
         return Button {
@@ -138,7 +138,7 @@ struct HomeView: View {
         .buttonStyle(.plain)
         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: selectedCategory)
     }
-
+    
     // MARK: - Functions
     @ViewBuilder
     private func destinationView(for destination: AnimationDestination) -> some View {
@@ -202,7 +202,7 @@ struct HomeView: View {
             
         case .triangleLoader:
             TriangleLoader()
-
+            
         case .wifi:
             WifiView()
             

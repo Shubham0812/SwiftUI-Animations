@@ -18,7 +18,7 @@ struct AnimationCardView: View {
         VStack(spacing: 12) {
             Image(systemName: item.systemIcon)
                 .font(.system(size: 32, weight: .semibold))
-                .foregroundStyle(Color.label)
+                .foregroundStyle(item.iconColor)
                 .frame(width: 60, height: 60)
                 .padding(6)
                 .background {
