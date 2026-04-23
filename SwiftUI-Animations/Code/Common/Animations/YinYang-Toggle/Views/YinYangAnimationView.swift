@@ -15,10 +15,6 @@ struct YinYangAnimationView: View {
     
     // MARK: - Variables
     
-    /// Used to read the current system color scheme (light/dark),
-    /// though visual theming is driven by `yinYangViewModel.themeToggled` instead.
-    @Environment(\.colorScheme) var colorScheme
-    
     /// The shared view model that owns the toggle state and is passed
     /// down the view hierarchy via the environment.
     @State var yinYangViewModel: YinYangViewModel = .init()
@@ -79,6 +75,7 @@ struct YinYangAnimationView: View {
                     .padding(.top, 54)
             }
         }
+        .environment(\.colorScheme, .light)
         // Inject the view model so child views (e.g. YinToggleView) can read it
         .environment(yinYangViewModel)
         .onAppear {
