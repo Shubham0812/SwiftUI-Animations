@@ -24,7 +24,7 @@ public class UIStateModel {
 /// A full-screen container that expands its content to fill all available space.
 ///
 /// Used in `CardView` to give the `Carousel` a black backdrop that stretches edge-to-edge.
-struct Canvas<Content: View>: View {
+struct CarouselCanvas<Content: View>: View {
     let content: Content
 
     @inlinable init(@ViewBuilder _ content: () -> Content) {
