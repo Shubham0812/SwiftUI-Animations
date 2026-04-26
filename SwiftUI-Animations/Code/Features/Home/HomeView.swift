@@ -211,6 +211,12 @@ struct HomeView: View {
 
         case .textSwirl:
             TextSwirlView()
+
+        case .cardSwap:
+            CardSwapView()
+
+        case .scratchToReveal:
+            RevealView()
         }
     }
 }

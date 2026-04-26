@@ -20,7 +20,7 @@
 
 ## Overview
 
-This repository contains **20+ custom SwiftUI animations** and **Metal shaders** — from loaders and toggles to interactive UI components and GPU-powered visual effects — all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
+This repository contains **23+ custom SwiftUI animations** and **Metal shaders** — from loaders and toggles to interactive UI components and GPU-powered visual effects — all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
 
 ## Table of Contents
 
@@ -259,6 +259,29 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 
 </td>
 </tr>
+<tr>
+<td align="center">
+
+**Text Swirl**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/TextSwirl)
+
+</td>
+<td align="center">
+
+**Card Swap**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Cards%20Swap)
+
+</td>
+<td align="center">
+
+**Scratch to Reveal**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Scratch%20to%20Reveal)
+
+</td>
+</tr>
 </table>
 
 ## Project Structure
@@ -272,6 +295,7 @@ SwiftUI-Animations/
 │   │   │   ├── AddView/
 │   │   │   ├── Bank Card/
 │   │   │   ├── BookLoader/
+│   │   │   ├── Cards Swap/
 │   │   │   ├── Cart/
 │   │   │   ├── ChatBar/
 │   │   │   ├── CircleLoader/
@@ -285,8 +309,10 @@ SwiftUI-Animations/
 │   │   │   ├── LoginView/
 │   │   │   ├── Octocat-Wink/
 │   │   │   ├── PillLoader/
+│   │   │   ├── Scratch to Reveal/
 │   │   │   ├── SpinningLoader/
 │   │   │   ├── SubmitView/
+│   │   │   ├── TextSwirl/
 │   │   │   ├── TriangleLoader/
 │   │   │   ├── Wifi/
 │   │   │   └── YinYang-Toggle/

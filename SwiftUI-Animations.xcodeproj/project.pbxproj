@@ -203,6 +203,8 @@
 		51278ED82F6E73E0004FEFB2 /* Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Views; sourceTree = "<group>"; };
 		51278EDA2F6E73E7004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		51278EE82F6EAB7C004FEFB2 /* Controllers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Controllers; sourceTree = "<group>"; };
+		51416B2E2F9C97CA007C9A80 /* Scratch to Reveal */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Scratch to Reveal"; sourceTree = "<group>"; };
+		5141717A2F9D50CC007C9A80 /* Cards Swap */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Cards Swap"; sourceTree = "<group>"; };
 		51CE0AF62F974C2900EBB174 /* TextSwirl */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TextSwirl; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -708,6 +710,7 @@
 				51D3E49324F14591004325B5 /* AddView */,
 				F34DDAB12573E6FC009BAF83 /* Bank Card */,
 				F3367901256187ED0043EF73 /* BookLoader */,
+				5141717A2F9D50CC007C9A80 /* Cards Swap */,
 				51AFB36324DB0096006840D3 /* Cart */,
 				515557E524DE963C0001E523 /* ChatBar */,
 				51B885D12503A3FC007DFDCA /* CircleLoader */,
@@ -721,6 +724,7 @@
 				F30BA964254418A400DC8367 /* LoginView */,
 				518E97342715BD29008820A8 /* Octocat-Wink */,
 				51CBD27C250B30650005D9C2 /* PillLoader */,
+				51416B2E2F9C97CA007C9A80 /* Scratch to Reveal */,
 				DAF98EF725F0D05B0052EDB8 /* SpinningLoader */,
 				F3DA9AAB252DB1D200CF2516 /* SubmitView */,
 				51CE0AF62F974C2900EBB174 /* TextSwirl */,
@@ -820,6 +824,8 @@
 				51278ED82F6E73E0004FEFB2 /* Views */,
 				51278EDA2F6E73E7004FEFB2 /* Models */,
 				51278EE82F6EAB7C004FEFB2 /* Controllers */,
+				51416B2E2F9C97CA007C9A80 /* Scratch to Reveal */,
+				5141717A2F9D50CC007C9A80 /* Cards Swap */,
 				51CE0AF62F974C2900EBB174 /* TextSwirl */,
 			);
 			name = "SwiftUI-Animations";
