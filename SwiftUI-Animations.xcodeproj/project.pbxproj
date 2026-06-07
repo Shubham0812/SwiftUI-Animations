@@ -195,6 +195,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5109F9112FAC5B790047E077 /* RotatingWords */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RotatingWords; sourceTree = "<group>"; };
 		51278EC62F6E70A6004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		51278EC72F6E70B5004FEFB2 /* Support Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Support Views"; sourceTree = "<group>"; };
 		51278ECC2F6E713E004FEFB2 /* Shaders */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shaders; sourceTree = "<group>"; };
@@ -706,6 +707,7 @@
 		F3DA13CE2535B993005E384E /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				5109F9112FAC5B790047E077 /* RotatingWords */,
 				F3DAEDE1253ABBBD0067F963 /* 3dLoader */,
 				51D3E49324F14591004325B5 /* AddView */,
 				F34DDAB12573E6FC009BAF83 /* Bank Card */,
@@ -816,6 +818,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5109F9112FAC5B790047E077 /* RotatingWords */,
 				51278EC62F6E70A6004FEFB2 /* Models */,
 				51278EC72F6E70B5004FEFB2 /* Support Views */,
 				51278ECC2F6E713E004FEFB2 /* Shaders */,
