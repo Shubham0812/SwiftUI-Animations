@@ -81,6 +81,14 @@ struct YinYangAnimationView: View {
         }
         // Inject the view model so child views (e.g. YinToggleView) can read it
         .environment(yinYangViewModel)
+        // This animation is authored for light mode: the yin-yang symbol and the
+        // expanding ripple both rely on the default (primary) foreground being dark,
+        // and the white backing fills assume a light base. When the view was the app
+        // root the SceneDelegate forced a light scheme; now that it's pushed from Home
+        // it would otherwise inherit dark mode and invert — hiding the symbol and
+        // turning the dark ripple white. Lock it to light so it renders correctly
+        // regardless of the host's color scheme.
+        .environment(\.colorScheme, .light)
         .onAppear {
             // One-shot toggle that fires all entrance animations simultaneously
             viewAppeared.toggle()
