@@ -18,9 +18,9 @@ import SwiftUI
 /// The animation is driven entirely by SwiftUI's `withAnimation` (with completion
 /// handlers) and `sensoryFeedback` — no timers or polling.
 struct LikeView: View {
-
+    
     // MARK: - variables
-
+    
     /// Whether the heart is currently liked. Drives the symbol, colour, and glow.
     @State private var isLiked = false
     /// Springy pop scale applied to the heart on like.
@@ -33,25 +33,25 @@ struct LikeView: View {
     @State private var showPlusOne = false
     /// 0 → 1 progress of the "+1" float, driving its rise, sway, and fade.
     @State private var plusOneProgress: CGFloat = 0
-
+    
     /// Number of capsule particles in the radial burst.
     private let particleCount = 14
     /// How far the particles travel from the heart's centre.
     private let burstRadius: CGFloat = 150
-
+    
     /// Reddish heart palette and the matching backdrop.
     private let heartColor = Color(hex: "#F53342")
     private let heartColorDeep = Color(hex: "#CC1233")
     private let backgroundTop = Color(hex: "#29080F")
     private let backgroundBottom = Color(hex: "#570F1F")
-
+    
     /// Shared reddish gradient used by the heart fill and the "+1" bubble.
     private let heartGradient = LinearGradient(
         colors: [Color(hex: "#F53342"), Color(hex: "#CC1233")],
         startPoint: .top,
         endPoint: .bottom
     )
-
+    
     /// Colours cycled through the burst particles for a livelier explosion.
     private let particleColors: [Color] = [
         Color(hex: "#F53342"),
@@ -59,7 +59,7 @@ struct LikeView: View {
         .orange,
         Color(hex: "#CC1233")
     ]
-
+    
     // MARK: - views
     var body: some View {
         ZStack {
@@ -70,70 +70,69 @@ struct LikeView: View {
                 endPoint: .bottom
             )
             .ignoresSafeArea()
-
-            // Soft radial bloom that fades in behind the heart once liked.
-            Circle()
-                .fill(
-                    RadialGradient(
-                        colors: [heartColor.opacity(isLiked ? 0.45 : 0), .clear],
-                        center: .center,
-                        startRadius: 0,
-                        endRadius: 170
-                    )
-                )
-                .frame(width: 340, height: 340)
-                .animation(.smooth(duration: 0.5), value: isLiked)
-
-            // A thin ring that expands and fades outward on each like.
-            Circle()
-                .stroke(heartColor, lineWidth: 2)
-                .frame(width: 130, height: 130)
-                .scaleEffect(0.6 + burstProgress * 1.6)
-                .opacity(isBursting ? (1 - burstProgress) : 0)
-
-            // A radial fan of capsule particles that shoot out and fade as the burst plays.
-            if isBursting {
-                ForEach(0..<particleCount, id: \.self) { index in
-                    let angle = Angle.degrees(Double(index) / Double(particleCount) * 360)
-                    Capsule(style: .continuous)
-                        .fill(particleColors[index % particleColors.count])
-                        .frame(width: 10, height: 26)
-                        .scaleEffect(1 - burstProgress * 0.7)
-                        .rotationEffect(angle + .degrees(90))
-                        .offset(
-                            x: cos(angle.radians) * burstProgress * burstRadius,
-                            y: sin(angle.radians) * burstProgress * burstRadius
+            
+            ZStack {
+                // Soft radial bloom that fades in behind the heart once liked.
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [heartColor.opacity(isLiked ? 0.45 : 0), .clear],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: 170
                         )
-                        .opacity(1 - burstProgress)
+                    )
+                    .frame(width: 340, height: 340)
+                    .animation(.smooth(duration: 0.5), value: isLiked)
+                
+                // A thin ring that expands and fades outward on each like.
+                Circle()
+                    .stroke(heartColor, lineWidth: 2)
+                    .frame(width: 130, height: 130)
+                    .scaleEffect(0.6 + burstProgress * 1.6)
+                    .opacity(isBursting ? (1 - burstProgress) : 0)
+                
+                // A radial fan of capsule particles that shoot out and fade as the burst plays.
+                if isBursting {
+                    ForEach(0..<particleCount, id: \.self) { index in
+                        let angle = Angle.degrees(Double(index) / Double(particleCount) * 360)
+                        Capsule(style: .continuous)
+                            .fill(particleColors[index % particleColors.count])
+                            .frame(width: 10, height: 26)
+                            .scaleEffect(1 - burstProgress * 0.7)
+                            .rotationEffect(angle + .degrees(90))
+                            .offset(
+                                x: cos(angle.radians) * burstProgress * burstRadius,
+                                y: sin(angle.radians) * burstProgress * burstRadius
+                            )
+                            .opacity(1 - burstProgress)
+                    }
+                }
+                
+                // The central heart symbol, swapping between outline and filled-gradient states.
+                Image(systemName: isLiked ? "heart.fill" : "heart")
+                    .font(.system(size: 180, weight: .semibold))
+                    .foregroundStyle( isLiked ? AnyShapeStyle(heartGradient) : AnyShapeStyle(Color.white.opacity(0.35)))
+                    .contentTransition(.symbolEffect(.replace))
+                    .scaleEffect(heartScale)
+                
+                // A "+1" bubble that floats up and fades out each time the heart is liked.
+                if showPlusOne {
+                    Text("+1")
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 8)
+                        .background(
+                            Capsule(style: .continuous).fill(heartGradient)
+                        )
+                        .rotationEffect(.degrees(-6 + Double(plusOneProgress) * 12))     // gentle sway
+                        .scaleEffect(0.85 + (1 - plusOneProgress) * 0.15)
+                        .offset(y: -70 - plusOneProgress * 170)                          // rises above the heart
+                        .opacity(1 - plusOneProgress)
                 }
             }
-
-            // The central heart symbol, swapping between outline and filled-gradient states.
-            Image(systemName: isLiked ? "heart.fill" : "heart")
-                .font(.system(size: 150, weight: .semibold))
-                .foregroundStyle(
-                    isLiked
-                        ? AnyShapeStyle(heartGradient)
-                        : AnyShapeStyle(Color.white.opacity(0.35))
-                )
-                .contentTransition(.symbolEffect(.replace))
-                .scaleEffect(heartScale)
-
-            // A "+1" bubble that floats up and fades out each time the heart is liked.
-            if showPlusOne {
-                Text("+1")
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 18)
-                    .padding(.vertical, 8)
-                    .background(
-                        Capsule(style: .continuous).fill(heartGradient)
-                    )
-                    .rotationEffect(.degrees(-6 + Double(plusOneProgress) * 12))     // gentle sway
-                    .scaleEffect(0.85 + (1 - plusOneProgress) * 0.15)
-                    .offset(y: -70 - plusOneProgress * 170)                          // rises above the heart
-                    .opacity(1 - plusOneProgress)
-            }
+            .offset(y: -60)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .contentShape(Rectangle())
@@ -155,17 +154,17 @@ struct LikeView: View {
             liked ? .success : .impact(weight: .light)
         }
     }
-
+    
     // MARK: - functions
-
+    
     /// Likes the heart: pops the symbol and fires the particle/ring burst.
     private func like() {
         guard !isLiked else { return }
-
+        
         withAnimation(.smooth(duration: 0.25)) {
             isLiked = true
         }
-
+        
         // Springy pop — overshoot up, then settle back down.
         withAnimation(.spring(response: 0.2, dampingFraction: 0.45)) {
             heartScale = 1.3
@@ -174,7 +173,7 @@ struct LikeView: View {
                 heartScale = 1
             }
         }
-
+        
         // One-shot burst: reset progress, animate to 1, then stop rendering particles.
         isBursting = true
         burstProgress = 0
@@ -183,7 +182,7 @@ struct LikeView: View {
         } completion: {
             isBursting = false
         }
-
+        
         // "+1" bubble: float up and fade, then stop rendering it.
         showPlusOne = true
         plusOneProgress = 0
@@ -193,7 +192,7 @@ struct LikeView: View {
             showPlusOne = false
         }
     }
-
+    
     /// Returns the heart to its unliked resting state.
     private func reset() {
         withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {

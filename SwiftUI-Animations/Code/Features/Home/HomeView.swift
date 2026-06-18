@@ -223,6 +223,9 @@ struct HomeView: View {
 
         case .textBouncing:
             TextBouncingView()
+
+        case .autoScroller:
+            AutoScrollerView()
         }
     }
 }

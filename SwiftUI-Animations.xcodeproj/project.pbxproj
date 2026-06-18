@@ -196,6 +196,7 @@
 		51278EE82F6EAB7C004FEFB2 /* Controllers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Controllers; sourceTree = "<group>"; };
 		51416B2E2F9C97CA007C9A80 /* Scratch to Reveal */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Scratch to Reveal"; sourceTree = "<group>"; };
 		5141717A2F9D50CC007C9A80 /* Cards Swap */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Cards Swap"; sourceTree = "<group>"; };
+		51A75C0112B30A2400AB1201 /* Auto Scroller */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Auto Scroller"; sourceTree = "<group>"; };
 		51CE0AF62F974C2900EBB174 /* TextSwirl */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TextSwirl; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -693,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				5109F9112FAC5B790047E077 /* Text Bouncing */,
+				51A75C0112B30A2400AB1201 /* Auto Scroller */,
 				F3DAEDE1253ABBBD0067F963 /* 3dLoader */,
 				51D3E49324F14591004325B5 /* AddView */,
 				F34DDAB12573E6FC009BAF83 /* Bank Card */,
@@ -814,6 +816,7 @@
 				51278EE82F6EAB7C004FEFB2 /* Controllers */,
 				51416B2E2F9C97CA007C9A80 /* Scratch to Reveal */,
 				5141717A2F9D50CC007C9A80 /* Cards Swap */,
+				51A75C0112B30A2400AB1201 /* Auto Scroller */,
 				51CE0AF62F974C2900EBB174 /* TextSwirl */,
 			);
 			name = "SwiftUI-Animations";
