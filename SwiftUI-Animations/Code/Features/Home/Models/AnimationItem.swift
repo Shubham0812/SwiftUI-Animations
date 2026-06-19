@@ -41,6 +41,8 @@ enum AnimationDestination: String, Hashable, CaseIterable {
     case textSwirl
     case cardSwap
     case scratchToReveal
+    case textBouncing
+    case autoScroller
 }
 
 // MARK: - AnimationItem
@@ -81,5 +83,7 @@ struct AnimationItem: Identifiable {
         AnimationItem(title: "Text Swirl", systemIcon: "tornado", iconColor: Color.blue, destination: .textSwirl, category: .component, isNew: true),
         AnimationItem(title: "Card Swap", systemIcon: "creditcard.and.123", iconColor: Color.orange, destination: .cardSwap, category: .component, isNew: true),
         AnimationItem(title: "Scratch to Reveal", systemIcon: "wand.and.sparkles", iconColor: Color.purple, destination: .scratchToReveal, category: .animation, isNew: true),
+        AnimationItem(title: "Text Bouncing", systemIcon: "character.bubble.fill", iconColor: Color.blue, destination: .textBouncing, category: .component, isNew: true),
+        AnimationItem(title: "Auto Scroller", systemIcon: "rectangle.stack.fill", iconColor: Color.submitColor, destination: .autoScroller, category: .component, isNew: true),
     ]
 }

@@ -2,98 +2,208 @@
 //  LikeView.swift
 //  SwiftUI-Animations
 //
-//  Created by Shubham Singh on 26/09/20.
-//  Copyright © 2020 Shubham Singh. All rights reserved.
+//  Created by Shubham Singh on 26/09/25.
+//  Copyright © 2025 Shubham Singh. All rights reserved.
 //
 
 import SwiftUI
 
-/// A full-screen like button with a multi-layered celebration animation.
+/// A heart "like" button with a celebratory burst animation.
 ///
-/// **On first tap (like):**
-/// 1. The circle instantly shrinks (spring) then bounces back, giving a "pulse" feel.
-/// 2. The heart icon scales up and a pink color mask sweeps across it (`easeIn`).
-/// 3. A `CapusuleGroupView` burst of capsule particles appears above the heart.
-/// 4. A `FloatingLike` "+1" bubble floats upward and fades out.
+/// Tap the heart to like it: the symbol swaps to a filled gradient heart with a
+/// springy pop, a ring of capsule particles bursts outward and fades, an expanding
+/// ring pulses out, and a soft glow blooms behind the heart. Use the reset button in
+/// the top-trailing toolbar to return to the unliked state.
 ///
-/// **On second tap (unlike):** all state resets instantly — circle reverts, burst disappears.
+/// The animation is driven entirely by SwiftUI's `withAnimation` (with completion
+/// handlers) and `sensoryFeedback` — no timers or polling.
 struct LikeView: View {
-
-    // MARK: - Variables
-
-    /// Base duration for all timed animations in the like sequence.
-    let animationDuration: Double = 0.25
-
-    /// `true` while the like animation is active — drives heart scale and circle color.
-    @State var isAnimating: Bool = false
-    /// Briefly `true` during the initial spring pulse — causes the circle to shrink then snap back.
-    @State var shrinkIcon: Bool = false
-    /// `true` while the liked state is active — shows `CapusuleGroupView` and `FloatingLike`.
-    @State var floatLike: Bool = false
-    /// Toggled after `animationDuration` to scale the capsule burst from 0.8× to 1.25×.
-    @State var showFlare: Bool = false
-
-    // MARK: - Views
+    
+    // MARK: - variables
+    
+    /// Whether the heart is currently liked. Drives the symbol, colour, and glow.
+    @State private var isLiked = false
+    /// Springy pop scale applied to the heart on like.
+    @State private var heartScale: CGFloat = 1
+    /// `true` only while a burst is playing, so particles aren't rendered at rest.
+    @State private var isBursting = false
+    /// 0 → 1 progress of the current burst, driving particle radius, fade, and the ring pulse.
+    @State private var burstProgress: CGFloat = 0
+    /// `true` only while the "+1" bubble is floating up.
+    @State private var showPlusOne = false
+    /// 0 → 1 progress of the "+1" float, driving its rise, sway, and fade.
+    @State private var plusOneProgress: CGFloat = 0
+    
+    /// Number of capsule particles in the radial burst.
+    private let particleCount = 14
+    /// How far the particles travel from the heart's centre.
+    private let burstRadius: CGFloat = 150
+    
+    /// Reddish heart palette and the matching backdrop.
+    private let heartColor = Color(hex: "#F53342")
+    private let heartColorDeep = Color(hex: "#CC1233")
+    private let backgroundTop = Color(hex: "#29080F")
+    private let backgroundBottom = Color(hex: "#570F1F")
+    
+    /// Shared reddish gradient used by the heart fill and the "+1" bubble.
+    private let heartGradient = LinearGradient(
+        colors: [Color(hex: "#F53342"), Color(hex: "#CC1233")],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+    
+    /// Colours cycled through the burst particles for a livelier explosion.
+    private let particleColors: [Color] = [
+        Color(hex: "#F53342"),
+        .pink,
+        .orange,
+        Color(hex: "#CC1233")
+    ]
+    
+    // MARK: - views
     var body: some View {
         ZStack {
-            Color.likeBackground
-                .ignoresSafeArea()
+            // A dark reddish gradient that matches the heart.
+            LinearGradient(
+                colors: [backgroundTop, backgroundBottom],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            
             ZStack {
-                if floatLike {
-                    CapusuleGroupView(isAnimating: $floatLike)
-                        .offset(y: -130)
-                        .scaleEffect(showFlare ? 1.25 : 0.8)
-                        .opacity(floatLike ? 1 : 0)
-                        .animation(.spring().delay(animationDuration / 2), value: showFlare)
-                }
+                // Soft radial bloom that fades in behind the heart once liked.
                 Circle()
-                    .foregroundStyle(isAnimating ? Color.likeColor : Color.likeOverlay)
-                    .animation(.easeOut(duration: animationDuration * 2).delay(animationDuration), value: isAnimating)
-                HeartImageView()
-                    .foregroundStyle(.white)
-                    .offset(y: 12)
-                    .scaleEffect(isAnimating ? 1.25 : 1)
-                    .overlay(
-                        Color.likeColor
-                            .mask(
-                                HeartImageView()
-                            )
-                            .offset(y: 12)
-                            .scaleEffect(isAnimating ? 1.35 : 0)
-                            .animation(.easeIn(duration: animationDuration), value: isAnimating)
-                            .opacity(isAnimating ? 0 : 1)
-                            .animation(.easeIn(duration: animationDuration).delay(animationDuration), value: isAnimating)
+                    .fill(
+                        RadialGradient(
+                            colors: [heartColor.opacity(isLiked ? 0.45 : 0), .clear],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: 170
+                        )
                     )
-            }
-            .frame(width: 250, height: 250)
-            .offset(y: -60)
-            .scaleEffect(shrinkIcon ? 0.35 : 1)
-            .animation(.spring(response: animationDuration, dampingFraction: 1, blendDuration: 1), value: shrinkIcon)
-            if floatLike {
-                FloatingLike(isAnimating: $floatLike)
-                    .offset(y: -40)
-            }
-        }.onTapGesture {
-            if !floatLike {
-                HapticManager().makeNotifiationFeedback(mode: .success)
-                floatLike.toggle()
-                isAnimating.toggle()
-                shrinkIcon.toggle()
-                Timer.scheduledTimer(withTimeInterval: animationDuration, repeats: false) { _ in
-                    shrinkIcon.toggle()
-                    showFlare.toggle()
+                    .frame(width: 340, height: 340)
+                    .animation(.smooth(duration: 0.5), value: isLiked)
+                
+                // A thin ring that expands and fades outward on each like.
+                Circle()
+                    .stroke(heartColor, lineWidth: 2)
+                    .frame(width: 130, height: 130)
+                    .scaleEffect(0.6 + burstProgress * 1.6)
+                    .opacity(isBursting ? (1 - burstProgress) : 0)
+                
+                // A radial fan of capsule particles that shoot out and fade as the burst plays.
+                if isBursting {
+                    ForEach(0..<particleCount, id: \.self) { index in
+                        let angle = Angle.degrees(Double(index) / Double(particleCount) * 360)
+                        Capsule(style: .continuous)
+                            .fill(particleColors[index % particleColors.count])
+                            .frame(width: 10, height: 26)
+                            .scaleEffect(1 - burstProgress * 0.7)
+                            .rotationEffect(angle + .degrees(90))
+                            .offset(
+                                x: cos(angle.radians) * burstProgress * burstRadius,
+                                y: sin(angle.radians) * burstProgress * burstRadius
+                            )
+                            .opacity(1 - burstProgress)
+                    }
                 }
-            } else {
-                HapticManager().makeImpactFeedback(mode: .light)
-                isAnimating = false
-                shrinkIcon = false
-                showFlare = false
-                floatLike = false
+                
+                // The central heart symbol, swapping between outline and filled-gradient states.
+                Image(systemName: isLiked ? "heart.fill" : "heart")
+                    .font(.system(size: 180, weight: .semibold))
+                    .foregroundStyle( isLiked ? AnyShapeStyle(heartGradient) : AnyShapeStyle(Color.white.opacity(0.35)))
+                    .contentTransition(.symbolEffect(.replace))
+                    .scaleEffect(heartScale)
+                
+                // A "+1" bubble that floats up and fades out each time the heart is liked.
+                if showPlusOne {
+                    Text("+1")
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 8)
+                        .background(
+                            Capsule(style: .continuous).fill(heartGradient)
+                        )
+                        .rotationEffect(.degrees(-6 + Double(plusOneProgress) * 12))     // gentle sway
+                        .scaleEffect(0.85 + (1 - plusOneProgress) * 0.15)
+                        .offset(y: -70 - plusOneProgress * 170)                          // rises above the heart
+                        .opacity(1 - plusOneProgress)
+                }
             }
+            .offset(y: -60)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .contentShape(Rectangle())
+        .onTapGesture { like() }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    reset()
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                        .font(.system(size: 17, weight: .semibold))
+                }
+                .tint(heartColor)
+                .disabled(!isLiked)
+            }
+        }
+        // Success haptic on like, a lighter tap on reset.
+        .sensoryFeedback(trigger: isLiked) { _, liked in
+            liked ? .success : .impact(weight: .light)
+        }
+    }
+    
+    // MARK: - functions
+    
+    /// Likes the heart: pops the symbol and fires the particle/ring burst.
+    private func like() {
+        guard !isLiked else { return }
+        
+        withAnimation(.smooth(duration: 0.25)) {
+            isLiked = true
+        }
+        
+        // Springy pop — overshoot up, then settle back down.
+        withAnimation(.spring(response: 0.2, dampingFraction: 0.45)) {
+            heartScale = 1.3
+        } completion: {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.6)) {
+                heartScale = 1
+            }
+        }
+        
+        // One-shot burst: reset progress, animate to 1, then stop rendering particles.
+        isBursting = true
+        burstProgress = 0
+        withAnimation(.easeOut(duration: 0.7)) {
+            burstProgress = 1
+        } completion: {
+            isBursting = false
+        }
+        
+        // "+1" bubble: float up and fade, then stop rendering it.
+        showPlusOne = true
+        plusOneProgress = 0
+        withAnimation(.easeOut(duration: 0.9)) {
+            plusOneProgress = 1
+        } completion: {
+            showPlusOne = false
+        }
+    }
+    
+    /// Returns the heart to its unliked resting state.
+    private func reset() {
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+            isLiked = false
+            heartScale = 1
         }
     }
 }
 
 #Preview {
-    LikeView()
+    NavigationStack {
+        LikeView()
+    }
 }

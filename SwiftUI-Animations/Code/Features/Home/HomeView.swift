@@ -27,21 +27,24 @@ struct HomeView: View {
     private let animationDuration: TimeInterval = 0.325
     
     private var filteredItems: [AnimationItem] {
-        let baseItems: [AnimationItem]
-        
+        var baseItems: [AnimationItem]
+
         if let selected = selectedCategory {
             baseItems = AnimationItem.all.filter { $0.category == selected }
         } else {
             baseItems = AnimationItem.all
         }
-        
-        guard !searchText.isEmpty else { return baseItems }
-        
-        let query = searchText.lowercased()
-        
-        return baseItems.filter {
-            $0.title.lowercased().contains(query)
+
+        if !searchText.isEmpty {
+            let query = searchText.lowercased()
+            baseItems = baseItems.filter {
+                $0.title.lowercased().contains(query)
+            }
         }
+
+        // Surface newly added animations first. New items are appended chronologically
+        // to AnimationItem.all, so reverse them to show the most recently added first.
+        return baseItems.filter { $0.isNew }.reversed() + baseItems.filter { !$0.isNew }
     }
     
     // MARK: - Views
@@ -217,6 +220,12 @@ struct HomeView: View {
 
         case .scratchToReveal:
             RevealView()
+
+        case .textBouncing:
+            TextBouncingView()
+
+        case .autoScroller:
+            AutoScrollerView()
         }
     }
 }
