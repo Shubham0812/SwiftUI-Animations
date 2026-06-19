@@ -61,21 +61,25 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 <tr>
 <td width="33%" align="center">
 
-**Auto Scroller**
+**Auto Scroller** 🆕
+
+<img src="SwiftUI-Animations/GIFs/auto-scroller.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Auto%20Scroller)
 
 </td>
 <td width="33%" align="center">
 
-**Text Bouncing**
+**Text Bouncing** 🆕
+
+<img src="SwiftUI-Animations/GIFs/text-bouncing.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Text%20Bouncing)
 
 </td>
 <td width="33%" align="center">
 
-**Scratch to Reveal**
+**Scratch to Reveal** 🆕
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Scratch%20to%20Reveal)
 
@@ -84,21 +88,21 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 <tr>
 <td align="center">
 
-**Card Swap**
+**Card Swap** 🆕
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Cards%20Swap)
 
 </td>
 <td align="center">
 
-**Text Swirl**
+**Text Swirl** 🆕
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/TextSwirl)
 
 </td>
 <td align="center">
 
-**Yin-Yang Toggle**
+**Yin-Yang Toggle** 🆕
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/YinYang-Toggle)
 
