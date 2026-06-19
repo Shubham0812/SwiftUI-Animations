@@ -81,6 +81,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 
 **Scratch to Reveal** 🆕
 
+<img src="SwiftUI-Animations/GIFs/scratch-to-reveal.gif" width="220"/>
+
 [View Code](SwiftUI-Animations/Code/Common/Animations/Scratch%20to%20Reveal)
 
 </td>
@@ -90,6 +92,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 
 **Card Swap** 🆕
 
+<img src="SwiftUI-Animations/GIFs/card-swap.gif" width="220"/>
+
 [View Code](SwiftUI-Animations/Code/Common/Animations/Cards%20Swap)
 
 </td>
@@ -97,12 +101,16 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 
 **Text Swirl** 🆕
 
+<img src="SwiftUI-Animations/GIFs/text-swirl.gif" width="220"/>
+
 [View Code](SwiftUI-Animations/Code/Common/Animations/TextSwirl)
 
 </td>
 <td align="center">
 
 **Yin-Yang Toggle** 🆕
+
+<img src="SwiftUI-Animations/GIFs/yin-yang.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/YinYang-Toggle)
 
