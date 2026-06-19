@@ -20,7 +20,7 @@
 
 ## Overview
 
-This repository contains **23+ custom SwiftUI animations** and **Metal shaders** — from loaders and toggles to interactive UI components and GPU-powered visual effects — all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
+This repository contains **25+ custom SwiftUI animations** and **Metal shaders** — from loaders and toggles to interactive UI components and GPU-powered visual effects — all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
 
 ## Table of Contents
 
@@ -61,6 +61,52 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 <tr>
 <td width="33%" align="center">
 
+**Auto Scroller**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Auto%20Scroller)
+
+</td>
+<td width="33%" align="center">
+
+**Text Bouncing**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Text%20Bouncing)
+
+</td>
+<td width="33%" align="center">
+
+**Scratch to Reveal**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Scratch%20to%20Reveal)
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+**Card Swap**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Cards%20Swap)
+
+</td>
+<td align="center">
+
+**Text Swirl**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/TextSwirl)
+
+</td>
+<td align="center">
+
+**Yin-Yang Toggle**
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/YinYang-Toggle)
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
 **Add to Cart**
 
 <img src="SwiftUI-Animations/GIFs/cart.gif" width="220"/>
@@ -68,7 +114,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 [View Code](SwiftUI-Animations/Code/Common/Animations/Cart)
 
 </td>
-<td width="33%" align="center">
+<td align="center">
 
 **Chat Bar**
 
@@ -77,7 +123,7 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 [View Code](SwiftUI-Animations/Code/Common/Animations/ChatBar)
 
 </td>
-<td width="33%" align="center">
+<td align="center">
 
 **Wi-Fi Signal**
 
@@ -253,33 +299,6 @@ Select a simulator and hit **Run** — each animation is accessible from the hom
 </td>
 <td align="center">
 
-**Yin-Yang Toggle**
-
-[View Code](SwiftUI-Animations/Code/Common/Animations/YinYang-Toggle)
-
-</td>
-</tr>
-<tr>
-<td align="center">
-
-**Text Swirl**
-
-[View Code](SwiftUI-Animations/Code/Common/Animations/TextSwirl)
-
-</td>
-<td align="center">
-
-**Card Swap**
-
-[View Code](SwiftUI-Animations/Code/Common/Animations/Cards%20Swap)
-
-</td>
-<td align="center">
-
-**Scratch to Reveal**
-
-[View Code](SwiftUI-Animations/Code/Common/Animations/Scratch%20to%20Reveal)
-
 </td>
 </tr>
 </table>
@@ -293,6 +312,7 @@ SwiftUI-Animations/
 │   │   ├── Animations/           # Each animation in its own folder
 │   │   │   ├── 3dLoader/
 │   │   │   ├── AddView/
+│   │   │   ├── Auto Scroller/
 │   │   │   ├── Bank Card/
 │   │   │   ├── BookLoader/
 │   │   │   ├── Cards Swap/
@@ -312,6 +332,7 @@ SwiftUI-Animations/
 │   │   │   ├── Scratch to Reveal/
 │   │   │   ├── SpinningLoader/
 │   │   │   ├── SubmitView/
+│   │   │   ├── Text Bouncing/
 │   │   │   ├── TextSwirl/
 │   │   │   ├── TriangleLoader/
 │   │   │   ├── Wifi/
@@ -375,6 +396,7 @@ Thanks to everyone who has helped make this project better!
 | Avatar | Name | GitHub |
 |--------|------|--------|
 | <img src="https://github.com/Shubham0812.png" width="50" style="border-radius:50%"/> | Shubham Kumar Singh | [@Shubham0812](https://github.com/Shubham0812) |
+| <img src="https://github.com/12ya.png" width="50" style="border-radius:50%"/> | iliya | [@12ya](https://github.com/12ya) |
 
 </a>
 
