@@ -110,12 +110,18 @@ struct Carousel<Items: View>: View {
         }.onEnded { value in
             self.UIState.screenDrag = 0
             if value.translation.width < -50 {
-                self.UIState.activeCard = self.UIState.activeCard + 1
-                HapticManager().makeImpactFeedback(mode: .medium)
+                let nextIndex = min(self.UIState.activeCard + 1, Int(self.numberOfItems) - 1)
+                if nextIndex != self.UIState.activeCard {
+                    self.UIState.activeCard = nextIndex
+                    HapticManager().makeImpactFeedback(mode: .medium)
+                }
             }
             if value.translation.width > 50 {
-                self.UIState.activeCard = self.UIState.activeCard - 1
-                HapticManager().makeImpactFeedback(mode: .medium)
+                let nextIndex = max(self.UIState.activeCard - 1, 0)
+                if nextIndex != self.UIState.activeCard {
+                    self.UIState.activeCard = nextIndex
+                    HapticManager().makeImpactFeedback(mode: .medium)
+                }
             }
         })
     }
