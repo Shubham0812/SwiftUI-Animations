@@ -20,7 +20,7 @@
 
 ## Overview
 
-This repository contains **25+ custom SwiftUI animations** and **Metal shaders** — from loaders and toggles to interactive UI components and GPU-powered visual effects — all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
+This repository contains **25+ custom SwiftUI animations** and **Metal shaders** - from loaders and toggles to interactive UI components and GPU-powered visual effects - all built entirely with SwiftUI. Each animation lives in its own self-contained folder with all the source code you need to integrate it into your project.
 
 ## Table of Contents
 
@@ -53,7 +53,7 @@ cd SwiftUI-Animations
 open SwiftUI-Animations.xcodeproj
 ```
 
-Select a simulator and hit **Run** — each animation is accessible from the home screen.
+Select a simulator and hit **Run** - each animation is accessible from the home screen.
 
 ## Animations Gallery
 
@@ -368,15 +368,15 @@ SwiftUI-Animations/
    open SwiftUI-Animations.xcodeproj
    ```
 
-2. **Select a target** — choose any iOS simulator (iPhone 14 or later recommended) from the device picker in the Xcode toolbar.
+2. **Select a target** - choose any iOS simulator (iPhone 14 or later recommended) from the device picker in the Xcode toolbar.
 
-3. **Build & run** — press <kbd>⌘ R</kbd> or click the **Run** button. The app launches on the home screen listing all available animations.
+3. **Build & run** - press <kbd>⌘ R</kbd> or click the **Run** button. The app launches on the home screen listing all available animations.
 
-4. **Browse an animation** — tap any card to open it full-screen and interact with it directly.
+4. **Browse an animation** - tap any card to open it full-screen and interact with it directly.
 
-5. **Jump to the source** — each animation lives in its own self-contained folder under `Code/Common/Animations/`. Shader effects are under `Code/Common/Shaders/`. Open any folder in Xcode's Project Navigator to read or copy the code.
+5. **Jump to the source** - each animation lives in its own self-contained folder under `Code/Common/Animations/`. Shader effects are under `Code/Common/Shaders/`. Open any folder in Xcode's Project Navigator to read or copy the code.
 
-> **Tip:** Every view file includes a `PreviewProvider` / `#Preview`, so you can also run individual animations directly in Xcode Previews without launching the full app — just open the file and press <kbd>⌘ ⌥ P</kbd>.
+> **Tip:** Every view file includes a `PreviewProvider` / `#Preview`, so you can also run individual animations directly in Xcode Previews without launching the full app - just open the file and press <kbd>⌘ ⌥ P</kbd>.
 
 ## Contributing
 
@@ -426,9 +426,9 @@ iOS Developer | SwiftUI / UIKit  | Indie Developer | Open Source Contributor
 
 ## License
 
-This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE.md) file for details.
 
-You are free to use, modify, and distribute this project in your own apps — commercial or personal.
+You are free to use, modify, and distribute this project in your own apps - commercial or personal.
 
 ---
 
@@ -436,12 +436,12 @@ You are free to use, modify, and distribute this project in your own apps — co
 
 If you found this project helpful or learned something from the source code, please consider:
 
-**[Give it a Star](https://github.com/Shubham0812/SwiftUI-Animations)** — It helps others discover the project!
+**[Give it a Star](https://github.com/Shubham0812/SwiftUI-Animations)** - It helps others discover the project!
 
 [![GitHub stars](https://img.shields.io/github/stars/shubham0812/SwiftUI-Animations?style=for-the-badge&logo=github&label=Star%20this%20repo)](https://github.com/Shubham0812/SwiftUI-Animations/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/shubham0812/SwiftUI-Animations?style=for-the-badge&logo=github&label=Fork%20it)](https://github.com/Shubham0812/SwiftUI-Animations/network/members)
 
-**Share it with your friends and colleagues** — Let's grow the SwiftUI community together!
+**Share it with your friends and colleagues** - Let's grow the SwiftUI community together!
 
 [![Share on X](https://img.shields.io/badge/Share%20on-X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/intent/tweet?text=Check%20out%20this%20amazing%20collection%20of%20SwiftUI%20Animations!%20%F0%9F%9A%80&url=https://github.com/Shubham0812/SwiftUI-Animations)
 [![Share on LinkedIn](https://img.shields.io/badge/Share%20on-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https://github.com/Shubham0812/SwiftUI-Animations)
