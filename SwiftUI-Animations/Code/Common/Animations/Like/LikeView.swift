@@ -96,15 +96,16 @@ struct LikeView: View {
                 if isBursting {
                     ForEach(0..<particleCount, id: \.self) { index in
                         let angle = Angle.degrees(Double(index) / Double(particleCount) * 360)
+                        let travel: CGFloat = burstProgress * burstRadius
+                        let offsetX: CGFloat = cos(angle.radians) * travel
+                        let offsetY: CGFloat = sin(angle.radians) * travel
+                        let particleColor = particleColors[index % particleColors.count]
                         Capsule(style: .continuous)
-                            .fill(particleColors[index % particleColors.count])
+                            .fill(particleColor)
                             .frame(width: 10, height: 26)
                             .scaleEffect(1 - burstProgress * 0.7)
                             .rotationEffect(angle + .degrees(90))
-                            .offset(
-                                x: cos(angle.radians) * burstProgress * burstRadius,
-                                y: sin(angle.radians) * burstProgress * burstRadius
-                            )
+                            .offset(x: offsetX, y: offsetY)
                             .opacity(1 - burstProgress)
                     }
                 }
