@@ -226,6 +226,12 @@ struct HomeView: View {
 
         case .autoScroller:
             AutoScrollerView()
+
+        case .circularDownload:
+            CircularDownloadView()
+
+        case .lightBulb:
+            LightBulbView()
         }
     }
 }
