@@ -61,6 +61,29 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 <tr>
 <td width="33%" align="center">
 
+**Light Bulb** 🆕
+
+<img src="SwiftUI-Animations/GIFs/light-bulb.gif" width="220"/>
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Light%20Bulb)
+
+</td>
+<td width="33%" align="center">
+
+**Circular Download** 🆕
+
+<img src="SwiftUI-Animations/GIFs/circular-download.gif" width="220"/>
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/Circular%20Download)
+
+</td>
+<td width="33%" align="center">
+
+</td>
+</tr>
+<tr>
+<td width="33%" align="center">
+
 **Auto Scroller** 🆕
 
 <img src="SwiftUI-Animations/GIFs/auto-scroller.gif" width="220"/>
