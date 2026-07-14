@@ -42,7 +42,7 @@ struct CardsShuffleView: View {
         ShuffleCard(color: Color(white: 0.9)),      // Light gray (back)
         ShuffleCard(color: .blue),                  // Blue
         ShuffleCard(color: .red),                   // Red
-        ShuffleCard(color: Color(hex: "CCB333"))    // Yellow (front)
+        ShuffleCard(color: Color.yellow)    // Yellow (front)
     ]
 
     /// Live translation of the front card while a drag is in progress.
@@ -56,7 +56,7 @@ struct CardsShuffleView: View {
     // MARK: - Views
     var body: some View {
         ZStack {
-            Color.black
+            Color.background
                 .ignoresSafeArea()
 
             ForEach(Array(cards.enumerated()), id: \.element.id) { index, card in
