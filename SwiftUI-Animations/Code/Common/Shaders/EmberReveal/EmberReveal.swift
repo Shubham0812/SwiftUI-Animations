@@ -16,39 +16,45 @@ struct EmberRevealView: View {
 
     // MARK: - views
     var body: some View {
-        ZStack {
-            Color.background
-                .ignoresSafeArea()
+        // GeometryReader gives us the real rendered size so the shader can normalize
+        // coordinates correctly. The `emberReveal` shader computes `uv = position / size`,
+        // so `size` must match the view's actual bounds — passing a hardcoded size breaks
+        // the center-out reveal whenever the image isn't exactly that size.
+        GeometryReader { proxy in
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
 
-            Image(.charmeleon)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 350, height: 400)
-                .clipped()
-                .layerEffect(
-                    ShaderLibrary.emberReveal(
-                        .float(progress),
-                        .float2(CGSize(width: 350, height: 300))
-                    ),
-                    maxSampleOffset: .zero
-                )
-                .background {
-                    RoundedRectangle(cornerRadius: 12)
-                        .foregroundStyle(.gray.opacity(0.1))
-                }
-                .cornerRadius(12)
-                .offset(y: -40)
-                .onTapGesture {
-                    progress = 0.0
-                    withAnimation(.interpolatingSpring(stiffness: 5, damping: 12)) {
-                        progress = 1.0
+                Image(.landing1)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: proxy.size.width, height: proxy.size.height)
+                    .clipped()
+                    .layerEffect(
+                        ShaderLibrary.emberReveal(
+                            .float(progress),
+                            .float2(proxy.size)
+                        ),
+                        maxSampleOffset: .zero
+                    )
+                    .background {
+                        RoundedRectangle(cornerRadius: 12)
+                            .foregroundStyle(.gray.opacity(0.1))
                     }
-                }
+                    .onTapGesture {
+                        progress = 0.0
+                        withAnimation(.smooth(duration: 5)) {
+                            progress = 1.0
+                        }
+                    }
+            }
+            .frame(width: proxy.size.width, height: proxy.size.height)
         }
+        .ignoresSafeArea()
         .overlay(alignment: .top) {
             Text("Tap to reveal")
                 .font(.system(size: 17, weight: .medium))
-                .foregroundStyle(Color.label)
+                .foregroundStyle(Color.background)
                 .padding(.top, 24)
         }
         .navigationBarTitleDisplayMode(.inline)
