@@ -188,6 +188,7 @@
 		5109F9112FAC5B790047E077 /* Text Bouncing */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Text Bouncing"; sourceTree = "<group>"; };
 		51CD10AD2FB0000000000001 /* Circular Download */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Circular Download"; sourceTree = "<group>"; };
 		51B01B0B2FB0000000000002 /* Light Bulb */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Light Bulb"; sourceTree = "<group>"; };
+		51C5A0FF2FB0000000000003 /* Cards Shuffle */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Cards Shuffle"; sourceTree = "<group>"; };
 		51278EC62F6E70A6004FEFB2 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		51278EC72F6E70B5004FEFB2 /* Support Views */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Support Views"; sourceTree = "<group>"; };
 		51278ECC2F6E713E004FEFB2 /* Shaders */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shaders; sourceTree = "<group>"; };
@@ -704,6 +705,7 @@
 				5141717A2F9D50CC007C9A80 /* Cards Swap */,
 				51AFB36324DB0096006840D3 /* Cart */,
 				515557E524DE963C0001E523 /* ChatBar */,
+				51C5A0FF2FB0000000000003 /* Cards Shuffle */,
 				51CD10AD2FB0000000000001 /* Circular Download */,
 				51B885D12503A3FC007DFDCA /* CircleLoader */,
 				519F1A49261F4A3F0006566C /* DownloadButton */,
@@ -824,6 +826,7 @@
 				51CE0AF62F974C2900EBB174 /* TextSwirl */,
 				51CD10AD2FB0000000000001 /* Circular Download */,
 				51B01B0B2FB0000000000002 /* Light Bulb */,
+				51C5A0FF2FB0000000000003 /* Cards Shuffle */,
 			);
 			name = "SwiftUI-Animations";
 			productName = "SwiftUI-Animations";

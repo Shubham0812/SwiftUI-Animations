@@ -45,6 +45,7 @@ enum AnimationDestination: String, Hashable, CaseIterable {
     case autoScroller
     case circularDownload
     case lightBulb
+    case cardsShuffle
 }
 
 // MARK: - AnimationItem
@@ -89,5 +90,6 @@ struct AnimationItem: Identifiable {
         AnimationItem(title: "Auto Scroller", systemIcon: "rectangle.stack.fill", iconColor: Color.submitColor, destination: .autoScroller, category: .component, isNew: true),
         AnimationItem(title: "Circular Download", systemIcon: "arrow.down.circle.dotted", iconColor: Color(hex: "2079ff"), destination: .circularDownload, category: .component, isNew: true),
         AnimationItem(title: "Light Bulb", systemIcon: "lightbulb.fill", iconColor: Color(r: 255, g: 204, b: 0), destination: .lightBulb, category: .component, isNew: true),
+        AnimationItem(title: "Cards Shuffle", systemIcon: "square.stack.3d.up.fill", iconColor: Color.orange, destination: .cardsShuffle, category: .component, isNew: true),
     ]
 }

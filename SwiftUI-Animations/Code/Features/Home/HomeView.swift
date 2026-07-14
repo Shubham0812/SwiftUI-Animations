@@ -232,6 +232,9 @@ struct HomeView: View {
 
         case .lightBulb:
             LightBulbView()
+
+        case .cardsShuffle:
+            CardsShuffleView()
         }
     }
 }
