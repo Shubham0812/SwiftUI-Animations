@@ -46,6 +46,7 @@ enum AnimationDestination: String, Hashable, CaseIterable {
     case circularDownload
     case lightBulb
     case cardsShuffle
+    case threeDGraph
 }
 
 // MARK: - AnimationItem
@@ -82,14 +83,15 @@ struct AnimationItem: Identifiable {
         AnimationItem(title: "Submit View", systemIcon: "paperplane.fill", iconColor: Color.submitColor, destination: .submitView, category: .component),
         AnimationItem(title: "Triangle Loader", systemIcon: "triangle.fill", iconColor: Color.expandingAccent, destination: .triangleLoader, category: .loader),
         AnimationItem(title: "Wifi", systemIcon: "wifi", iconColor: Color.wifiConnected, destination: .wifi, category: .animation),
-        AnimationItem(title: "Yin Yang Toggle", systemIcon: "circle.lefthalf.filled", iconColor: Color.label, destination: .yinYangToggle, category: .component, isNew: true),
-        AnimationItem(title: "Text Swirl", systemIcon: "tornado", iconColor: Color.blue, destination: .textSwirl, category: .component, isNew: true),
-        AnimationItem(title: "Card Swap", systemIcon: "creditcard.and.123", iconColor: Color.orange, destination: .cardSwap, category: .component, isNew: true),
-        AnimationItem(title: "Scratch to Reveal", systemIcon: "wand.and.sparkles", iconColor: Color.purple, destination: .scratchToReveal, category: .animation, isNew: true),
-        AnimationItem(title: "Text Bouncing", systemIcon: "character.bubble.fill", iconColor: Color.blue, destination: .textBouncing, category: .component, isNew: true),
-        AnimationItem(title: "Auto Scroller", systemIcon: "rectangle.stack.fill", iconColor: Color.submitColor, destination: .autoScroller, category: .component, isNew: true),
-        AnimationItem(title: "Circular Download", systemIcon: "arrow.down.circle.dotted", iconColor: Color(hex: "2079ff"), destination: .circularDownload, category: .component, isNew: true),
+        AnimationItem(title: "Yin Yang Toggle", systemIcon: "circle.lefthalf.filled", iconColor: Color.label, destination: .yinYangToggle, category: .component),
+        AnimationItem(title: "Text Swirl", systemIcon: "tornado", iconColor: Color.blue, destination: .textSwirl, category: .component),
+        AnimationItem(title: "Card Swap", systemIcon: "creditcard.and.123", iconColor: Color.orange, destination: .cardSwap, category: .component),
+        AnimationItem(title: "Scratch to Reveal", systemIcon: "wand.and.sparkles", iconColor: Color.purple, destination: .scratchToReveal, category: .animation),
+        AnimationItem(title: "Text Bouncing", systemIcon: "character.bubble.fill", iconColor: Color.blue, destination: .textBouncing, category: .component),
+        AnimationItem(title: "Auto Scroller", systemIcon: "rectangle.stack.fill", iconColor: Color.submitColor, destination: .autoScroller, category: .component),
+        AnimationItem(title: "Circular Download", systemIcon: "arrow.down.circle.dotted", iconColor: Color(hex: "2079ff"), destination: .circularDownload, category: .component),
         AnimationItem(title: "Light Bulb", systemIcon: "lightbulb.fill", iconColor: Color(r: 255, g: 204, b: 0), destination: .lightBulb, category: .component, isNew: true),
         AnimationItem(title: "Cards Shuffle", systemIcon: "square.stack.3d.up.fill", iconColor: Color.orange, destination: .cardsShuffle, category: .component, isNew: true),
+        AnimationItem(title: "3-D Graph", systemIcon: "chart.bar.fill", iconColor: Color(hex: "C6DEF1"), destination: .threeDGraph, category: .component, isNew: true),
     ]
 }

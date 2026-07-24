@@ -61,6 +61,15 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 <tr>
 <td width="33%" align="center">
 
+**3-D Graph** 🆕
+
+<img src="SwiftUI-Animations/GIFs/3-d-graph.gif" width="220"/>
+
+[View Code](SwiftUI-Animations/Code/Common/Animations/3D%20Graph)
+
+</td>
+<td width="33%" align="center">
+
 **Cards Shuffle** 🆕
 
 <img src="SwiftUI-Animations/GIFs/cards-shuffle.gif" width="220"/>
@@ -77,20 +86,20 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Light%20Bulb)
 
 </td>
-<td width="33%" align="center">
+</tr>
+<tr>
+<td align="center">
 
-**Circular Download** 🆕
+**Circular Download**
 
 <img src="SwiftUI-Animations/GIFs/circular-download.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Circular%20Download)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
-**Auto Scroller** 🆕
+**Auto Scroller**
 
 <img src="SwiftUI-Animations/GIFs/auto-scroller.gif" width="220"/>
 
@@ -99,27 +108,27 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 </td>
 <td align="center">
 
-**Text Bouncing** 🆕
+**Text Bouncing**
 
 <img src="SwiftUI-Animations/GIFs/text-bouncing.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Text%20Bouncing)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
-**Scratch to Reveal** 🆕
+**Scratch to Reveal**
 
 <img src="SwiftUI-Animations/GIFs/scratch-to-reveal.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Scratch%20to%20Reveal)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
-**Card Swap** 🆕
+**Card Swap**
 
 <img src="SwiftUI-Animations/GIFs/card-swap.gif" width="220"/>
 
@@ -128,24 +137,24 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 </td>
 <td align="center">
 
-**Text Swirl** 🆕
+**Text Swirl**
 
 <img src="SwiftUI-Animations/GIFs/text-swirl.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/TextSwirl)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
-**Yin-Yang Toggle** 🆕
+**Yin-Yang Toggle**
 
 <img src="SwiftUI-Animations/GIFs/yin-yang.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/YinYang-Toggle)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
 **Add to Cart**
@@ -164,6 +173,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/ChatBar)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
 **Wi-Fi Signal**
@@ -173,8 +184,6 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Wifi)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
 **Loader**
@@ -193,6 +202,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/AddView)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
 **Circle Loader**
@@ -202,8 +213,6 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/CircleLoader)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
 **Pill Loader**
@@ -222,6 +231,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Like)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
 **Submit Button**
@@ -231,8 +242,6 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/SubmitView)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
 **GitHub Octocat Loader**
@@ -251,6 +260,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/3dLoader)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
 **Animated Login**
@@ -260,8 +271,6 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/LoginView)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
 **Book Loader**
@@ -280,6 +289,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Bank%20Card)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
 **Infinity Loader**
@@ -289,8 +300,6 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/InfinityLoader)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
 **Light Switch**
@@ -309,6 +318,8 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/SpinningLoader)
 
 </td>
+</tr>
+<tr>
 <td align="center">
 
 **Download Button**
@@ -318,8 +329,6 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 [View Code](SwiftUI-Animations/Code/Common/Animations/DownloadButton)
 
 </td>
-</tr>
-<tr>
 <td align="center">
 
 **Triangle Loader**
@@ -336,9 +345,6 @@ Select a simulator and hit **Run** - each animation is accessible from the home 
 <img src="SwiftUI-Animations/GIFs/octocat-wink.gif" width="220"/>
 
 [View Code](SwiftUI-Animations/Code/Common/Animations/Octocat-Wink)
-
-</td>
-<td align="center">
 
 </td>
 </tr>

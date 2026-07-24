@@ -235,6 +235,9 @@ struct HomeView: View {
 
         case .cardsShuffle:
             CardsShuffleView()
+
+        case .threeDGraph:
+            ThreeDGraphView()
         }
     }
 }
