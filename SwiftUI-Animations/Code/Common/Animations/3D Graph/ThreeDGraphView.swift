@@ -16,7 +16,18 @@ struct SkillBar: Identifiable {
     let name: String
     /// Height of the bar relative to the tallest, in the range 0...1. Mutable so a drag can resize it.
     var value: CGFloat
+    /// Fill color; resolves automatically to a lighter pastel in dark mode and a deeper,
+    /// more saturated tone in light mode so the bars stay legible on either background.
     let color: Color
+}
+
+/// A `Color` that resolves to `dark` in dark mode and `light` in light mode, both hex strings.
+private extension Color {
+    init(light: String, dark: String) {
+        self = Color(UIColor { traits in
+            UIColor(hex: traits.userInterfaceStyle == .dark ? dark : light)
+        })
+    }
 }
 
 // MARK: - Main View
@@ -38,12 +49,12 @@ struct ThreeDGraphView: View {
     /// The bars, sorted shortest-first so the tallest sits at the back-right of the stack.
     /// Mutable state so each bar's `value` can be updated live while dragging.
     @State private var bars: [SkillBar] = [
-        SkillBar(name: "SwiftUI",    value: 1.0,  color: Color(hex: "C6DEF1")),
-        SkillBar(name: "UIKit",      value: 0.9,  color: Color(hex: "DBCDF0")),
-        SkillBar(name: "MVVM",       value: 0.8,  color: Color(hex: "C9E4DE")),
-        SkillBar(name: "Networking", value: 0.75, color: Color(hex: "F7D9C4")),
-        SkillBar(name: "CoreData",   value: 0.6,  color: Color(hex: "FAEDCB")),
-        SkillBar(name: "Combine",    value: 0.45, color: Color(hex: "CDE8E6")),
+        SkillBar(name: "SwiftUI",    value: 1.0,  color: Color(light: "4E92CE", dark: "C6DEF1")),
+        SkillBar(name: "UIKit",      value: 0.9,  color: Color(light: "8E6FD0", dark: "DBCDF0")),
+        SkillBar(name: "MVVM",       value: 0.8,  color: Color(light: "4FA98D", dark: "C9E4DE")),
+        SkillBar(name: "Networking", value: 0.75, color: Color(light: "E0925A", dark: "F7D9C4")),
+        SkillBar(name: "CoreData",   value: 0.6,  color: Color(light: "D9B441", dark: "FAEDCB")),
+        SkillBar(name: "Combine",    value: 0.45, color: Color(light: "4FAAA4", dark: "CDE8E6")),
     ].sorted { $0.value < $1.value }
 
     /// Fixed footprint of a single bar (width of the block, max height).
@@ -56,7 +67,7 @@ struct ThreeDGraphView: View {
             let unit = (proxy.size.width / 1.5) / CGFloat(bars.count)
 
             ZStack {
-                Color(hex: "101415")
+                Color.background
                     .ignoresSafeArea()
 
                 // Negative spacing overlaps the bars; the per-bar Y offset staggers them upward.
@@ -86,7 +97,7 @@ struct ThreeDGraphView: View {
                             Text(bar.name)
                                 .font(.system(size: 10.5, weight: .medium))
                                 .tracking(1.05)
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Color.label)
                                 .fixedSize()   // Don't let the rotated label truncate (e.g. "Networking").
                                 .offset(x: -50 + Double(index * 2), y: 4)
                                 .rotationEffect(.degrees(-90))
