@@ -24,7 +24,7 @@ struct ShaderView: View {
     private let animationDuration: TimeInterval = 0.325
 
     private var filteredItems: [ShaderItem] {
-        let baseItems: [ShaderItem]
+        var baseItems: [ShaderItem]
 
         if let selected = selectedCategory {
             baseItems = ShaderItem.all.filter { $0.category == selected }
@@ -32,10 +32,14 @@ struct ShaderView: View {
             baseItems = ShaderItem.all
         }
 
-        guard !searchText.isEmpty else { return baseItems }
+        if !searchText.isEmpty {
+            let query = searchText.lowercased()
+            baseItems = baseItems.filter { $0.title.lowercased().contains(query) }
+        }
 
-        let query = searchText.lowercased()
-        return baseItems.filter { $0.title.lowercased().contains(query) }
+        // Surface newly added shaders first. New items are appended chronologically to
+        // ShaderItem.all, so reverse them to show the most recently added first.
+        return baseItems.filter { $0.isNew }.reversed() + baseItems.filter { !$0.isNew }
     }
 
     // MARK: - views
