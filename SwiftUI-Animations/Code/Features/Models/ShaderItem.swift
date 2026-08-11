@@ -26,6 +26,7 @@ enum ShaderDestination: Hashable {
     case chromaticAberration
     case halftone
     case glitchEffect
+    case fluidGrain
 }
 
 // MARK: - ShaderItem
@@ -45,5 +46,6 @@ struct ShaderItem: Identifiable {
         ShaderItem(title: "Ember Reveal",         systemIcon: "sparkles",                    iconColor: Color(r: 255, g: 140, b: 0),   destination: .emberReveal,         category: .effect),
         ShaderItem(title: "Wave Ripple",          systemIcon: "water.waves",                 iconColor: .cyan,                         destination: .rippleEffect,        category: .effect),
         ShaderItem(title: "Glitch",               systemIcon: "bolt.fill",                   iconColor: Color(r: 57,  g: 255, b: 20),  destination: .glitchEffect,        category: .effect),
+        ShaderItem(title: "Fluid Grain",          systemIcon: "drop.fill",                   iconColor: .blue,                         destination: .fluidGrain,          category: .effect),
     ]
 }

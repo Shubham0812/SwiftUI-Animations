@@ -144,6 +144,9 @@ struct ShaderView: View {
 
         case .glitchEffect:
             GlitchEffectView()
+
+        case .fluidGrain:
+            FluidGrainView()
         }
     }
 }
