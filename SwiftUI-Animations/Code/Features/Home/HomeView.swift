@@ -238,6 +238,9 @@ struct HomeView: View {
 
         case .threeDGraph:
             ThreeDGraphView()
+
+        case .colorfulHeatmaps:
+            ColorfulHeatmapsView()
         }
     }
 }
