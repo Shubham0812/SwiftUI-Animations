@@ -103,6 +103,7 @@ struct CardView: View {
     }
 
     private func updateActiveCard(index: Int) {
+        guard userCards.indices.contains(index) else { return }
         selectedIndex = index
         if let balance = Double(userCards[index].balance) {
             withAnimation { cardBalance = balance }
